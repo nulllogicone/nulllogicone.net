@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="KnotenDataSet" targetNamespace="https://nulllogicone.net/schemata/KnotenDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="https://nulllogicone.net/schemata/KnotenDataSet.xsd" xmlns:mstns="https://nulllogicone.net/schemata/KnotenDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="KnotenDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Knoten">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="KnotenGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="NetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="Knoten" type="xs:string" />
+                            <xs:element name="weiterBaumGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="weiterNetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="VgbOLIs" type="xs:int" />
+                            <xs:element name="VgbGet" type="xs:int" />
+                            <xs:element name="VgbILOs" type="xs:int" />
+                            <xs:element name="VgbFit" type="xs:int" />
+                            <xs:element name="KnotenBeschreibung" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="KnotenDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Knoten" />
+            <xs:field xpath="mstns:KnotenGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

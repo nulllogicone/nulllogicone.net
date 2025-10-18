@@ -1,0 +1,22 @@
+body { }
+
+panel { background-color: Olive; }
+
+tabelle { width: 500px; }
+
+.titel {
+    background-color: #ffffe8;
+    font-weight: bold;
+}
+
+.links {
+    background-color: #ffffe8;
+    font-size: x-small;
+}
+
+.mainframe { background-color: #ffffe8; }
+
+.navigation {
+    background-color: whitesmoke;
+    height: 30px;
+}

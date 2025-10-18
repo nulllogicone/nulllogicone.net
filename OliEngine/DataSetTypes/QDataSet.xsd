@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="QDataSet" targetNamespace="http://nulllogicone.net/schemata/QDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/QDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/QDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="QDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Q">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="QID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+                            <xs:element name="Q" type="xs:string" />
+                            <xs:element name="S" type="xs:string" />
+                            <xs:element name="w" type="xs:string" />
+                            <xs:element name="P" type="xs:string" />
+                            <xs:element name="A" type="xs:string" />
+                            <xs:element name="x" type="xs:string" />
+                            <xs:element name="C" type="xs:string" />
+                            <xs:element name="R" type="xs:string" />
+                            <xs:element name="L" type="xs:string" />
+                            <xs:element name="T" type="xs:string" />
+                            <xs:element name="N" type="xs:string" />
+                            <xs:element name="K" type="xs:string" />
+                            <xs:element name="B" type="xs:string" />
+                            <xs:element name="Z" type="xs:string" />
+                            <xs:element name="O" type="xs:string" />
+                            <xs:element name="g" type="xs:string" />
+                            <xs:element name="I" type="xs:string" />
+                            <xs:element name="f" type="xs:string" />
+                            <xs:element name="S_P" type="xs:string" minOccurs="0" />
+                            <xs:element name="S_A" type="xs:string" minOccurs="0" />
+                            <xs:element name="A_L" type="xs:string" minOccurs="0" />
+                            <xs:element name="A_X" type="xs:string" minOccurs="0" />
+                            <xs:element name="X_T" type="xs:string" minOccurs="0" />
+                            <xs:element name="S_T" type="xs:string" minOccurs="0" />
+                            <xs:element name="P_S" type="xs:string" minOccurs="0" />
+                            <xs:element name="P_C" type="xs:string" minOccurs="0" />
+                            <xs:element name="P_X" type="xs:string" minOccurs="0" />
+                            <xs:element name="C_R" type="xs:string" minOccurs="0" />
+                            <xs:element name="C_X" type="xs:string" minOccurs="0" />
+                            <xs:element name="P_T" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="QDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Q" />
+            <xs:field xpath="mstns:QID" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

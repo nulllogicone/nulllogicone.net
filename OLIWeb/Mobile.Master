@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="OliWeb.Mobile" %>
+
+<%@ Register Src="~/Controls/Floor/AnonymMenu.ascx" TagName="AnonymMenu" TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/Koerper/Kopf.ascx" TagName="Kopf" TagPrefix="uc2" %>
+<%@ Register Src="~/Controls/Command/CommandTree.ascx" TagName="CommandTree" TagPrefix="uc3" %>
+<%@ Register Src="Controls/Floor/FooterControl.ascx" TagName="FooterControl" TagPrefix="uc4" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+        <title>OLI-it</title>
+        <%--meta header--%>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+        <link href="/OliWeb.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body style="background-color: Green;">
+        <form id="form1" runat="server">
+            <div id="master_page">
+                <%--head--%>
+                <div id="master_header">
+                    <h1>MOBILE VERSION</h1>
+                    <uc2:Kopf ID="Kopf1" runat="server" />
+                </div>
+                <%--menu--%>
+                <table style="clear: both;">
+                    <tr style="vertical-align: top;">
+                        <td>
+                            <div id="master_menu" class="master_area">
+                                <uc1:AnonymMenu ID="AnonymMenu1" runat="server" />
+                                <uc3:CommandTree ID="CommandTree1" runat="server" />
+                            </div>
+                        </td>
+                        <td>
+                            <%--content--%>
+                            <div id="master_content" class="rechtsobenrund">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <%--footer--%>
+                <div id="master_footer">
+                    <uc4:FooterControl ID="FooterControl1" runat="server" />
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="AnglerDataSet" targetNamespace="https://nulllogicone.net/AnglerDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="https://nulllogicone.net/AnglerDataSet.xsd" xmlns:mstns="https://nulllogicone.net/AnglerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="AnglerDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Angler">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="AnglerGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="Angler" type="xs:string" />
+                            <xs:element name="Versionsnummer" type="xs:string" minOccurs="0" />
+                            <xs:element name="gescannt" type="xs:boolean" />
+                            <xs:element name="datum" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="Beschreibung" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Löcher">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="LochGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="AnglerGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="NetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="KnotenGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="BaumGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="ZweigGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="ILOs" type="xs:int" />
+                            <xs:element name="Fit" type="xs:int" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="AnglerDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Angler" />
+            <xs:field xpath="mstns:AnglerGuid" />
+        </xs:unique>
+        <xs:key name="key1">
+            <xs:selector xpath=".//mstns:Angler" />
+            <xs:field xpath="mstns:AnglerGuid" />
+        </xs:key>
+        <xs:unique name="AnglerDataSetKey2" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Löcher" />
+            <xs:field xpath="mstns:LochGuid" />
+        </xs:unique>
+        <xs:key name="key2">
+            <xs:selector xpath=".//mstns:Angler" />
+            <xs:field xpath="mstns:AnglerGuid" />
+        </xs:key>
+        <xs:keyref name="AnglerLöcher" refer="key2">
+            <xs:selector xpath=".//mstns:Löcher" />
+            <xs:field xpath="mstns:AnglerGuid" />
+        </xs:keyref>
+    </xs:element>
+</xs:schema>

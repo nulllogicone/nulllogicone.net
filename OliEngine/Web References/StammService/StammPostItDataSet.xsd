@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://nulllogicone.net/schemata/StammPostItDataSet.xsd" xmlns="http://nulllogicone.net/schemata/StammPostItDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://nulllogicone.net/schemata/StammPostItDataSet.xsd" id="StammPostItDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="StammPostItDataSet">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="StammPostIt">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="StammGuid" type="xs:string" />
+                            <xs:element name="StammZust" type="xs:int" />
+                            <xs:element name="bezahlt" type="xs:decimal" />
+                            <xs:element minOccurs="0" name="Frist" type="xs:dateTime" />
+                            <xs:element name="wclosed" type="xs:boolean" />
+                            <xs:element name="gemailt" type="xs:boolean" />
+                            <xs:element minOccurs="0" name="AnzS" type="xs:int" />
+                            <xs:element minOccurs="0" name="AnzA" type="xs:int" />
+                            <xs:element minOccurs="0" name="AnzT" type="xs:int" />
+                            <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" minOccurs="0" name="PostItGuid" type="xs:string" />
+                            <xs:element minOccurs="0" name="PostIt" type="xs:string" />
+                            <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+                            <xs:element minOccurs="0" name="KooK" type="xs:decimal" />
+                            <xs:element minOccurs="0" name="PostItZust" type="xs:int" />
+                            <xs:element minOccurs="0" name="Datei" type="xs:string" />
+                            <xs:element minOccurs="0" name="closed" type="xs:boolean" />
+                            <xs:element minOccurs="0" name="Titel" type="xs:string" />
+                            <xs:element minOccurs="0" name="URL" type="xs:string" />
+                            <xs:element minOccurs="0" name="Typ" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

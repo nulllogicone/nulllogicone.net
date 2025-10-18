@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OliEngine.OliMiddleTier.OLIx.Netz" Collapsed="true">
+    <Position X="1.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIx\Netz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIx.Knoten" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIx\Knoten.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIx.Baum" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAACAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIx\Baum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIx.Zweig" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIx\Zweig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIx.NKBZ" Collapsed="true">
+    <Position X="3.25" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIgEAgoAAAIAQMEAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIx\NKBZ.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

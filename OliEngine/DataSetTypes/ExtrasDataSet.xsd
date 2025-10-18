@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="ExtrasDataSet" targetNamespace="http://nulllogicone.net/schemata/ExtrasDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/ExtrasDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/ExtrasDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ExtrasDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Extras">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ExtrasGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="hilfe" type="xs:boolean" />
+                            <xs:element name="werbefrei" type="xs:boolean" />
+                            <xs:element name="freakmode" type="xs:boolean" />
+                            <xs:element name="newsletter" type="xs:boolean" />
+                            <xs:element name="newT" type="xs:boolean" />
+                            <xs:element name="newP" type="xs:boolean" />
+                            <xs:element name="fristablauf" type="xs:boolean" />
+                            <xs:element name="gutschrift" type="xs:boolean" />
+                            <xs:element name="tipps" type="xs:boolean" />
+                            <xs:element name="HtmlMail" type="xs:boolean" />
+                            <xs:element name="showclosed" type="xs:boolean" />
+                            <xs:element name="sort" type="xs:string" />
+                            <xs:element name="descend" type="xs:boolean" />
+                            <xs:element name="ZeilenZahl" type="xs:int" />
+                            <xs:element name="TxtOnly" type="xs:boolean" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="ExtrasDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Extras" />
+            <xs:field xpath="mstns:ExtrasGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

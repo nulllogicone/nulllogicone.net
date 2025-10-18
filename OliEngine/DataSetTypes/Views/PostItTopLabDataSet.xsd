@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="PostItTopLabDataSet" targetNamespace="http://nulllogicone.net/schemata/PostItTopLabDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/PostItTopLabDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/PostItTopLabDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="PostItTopLabDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="PostItTopLab">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="Stamm" type="xs:string" minOccurs="0" />
+                            <xs:element name="sdatei" type="xs:string" minOccurs="0" />
+                            <xs:element name="PostItGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="PostIt" type="xs:string" minOccurs="0" />
+                            <xs:element name="pdatei" type="xs:string" minOccurs="0" />
+                            <xs:element name="MittelToll" type="xs:int" minOccurs="0" />
+                            <xs:element name="DurchToll" type="xs:int" minOccurs="0" />
+                            <xs:element name="TopLabGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="tdatei" type="xs:string" minOccurs="0" />
+                            <xs:element name="Lohn" type="xs:decimal" />
+                            <xs:element name="datum" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="TopLab" type="xs:string" />
+                            <xs:element name="TURL" type="xs:string" minOccurs="0" />
+                            <xs:element name="PURL" type="xs:string" minOccurs="0" />
+                            <xs:element name="TopTopLabGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="Titel" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

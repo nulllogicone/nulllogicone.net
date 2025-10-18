@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="ShortCuts" targetNamespace="http://nulllogicone.net/schemata/ShortCuts.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/ShortCuts.xsd" xmlns:mstns="http://nulllogicone.net/schemata/ShortCuts.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ShortCutsDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Strings">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="StringsGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="ShortCutsGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="NetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="KnotenGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="BaumGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="ZweigGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="Verb" type="xs:int" />
+                            <xs:element name="Attrib" type="xs:int" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ShortCuts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ShortCutsGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="ShortCut" type="xs:string" />
+                            <xs:element name="auto" type="xs:boolean" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="ShortCutsDataSetKey2" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Strings" />
+            <xs:field xpath="mstns:StringsGuid" />
+        </xs:unique>
+        <xs:keyref name="ShortCutsStrings" refer="ShortCutsDataSetKey1">
+            <xs:selector xpath=".//mstns:Strings" />
+            <xs:field xpath="mstns:ShortCutsGuid" />
+        </xs:keyref>
+        <xs:unique name="ShortCutsDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:ShortCuts" />
+            <xs:field xpath="mstns:ShortCutsGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

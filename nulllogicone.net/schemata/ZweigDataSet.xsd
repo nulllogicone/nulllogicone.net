@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="ZweigDataSet" targetNamespace="https://nulllogicone.net/schemata/ZweigDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="https://nulllogicone.net/schemata/ZweigDataSet.xsd" xmlns:mstns="https://nulllogicone.net/schemata/ZweigDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ZweigDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Zweig">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ZweigGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="BaumGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="Zweig" type="xs:string" />
+                            <xs:element name="weiterBaumGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="weiterNetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="ZweigDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Zweig" />
+            <xs:field xpath="mstns:ZweigGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

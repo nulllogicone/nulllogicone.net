@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="WurzelnDataSet" targetNamespace="http://nulllogicone.net/schemata/WurzelnDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/WurzelnDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/WurzelnDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="WurzelnDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Wurzeln">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="PostItGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="StammZust" type="xs:int" />
+                            <xs:element name="bezahlt" type="xs:decimal" />
+                            <xs:element name="Frist" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="gemailt" type="xs:boolean" minOccurs="0" />
+                            <xs:element name="closed" type="xs:boolean" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="WurzelnDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Wurzeln" />
+            <xs:field xpath="mstns:StammGuid" />
+            <xs:field xpath="mstns:PostItGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="StringsDataSet" targetNamespace="http://OLIit.de/StringsDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://OLIit.de/StringsDataSet.xsd" xmlns:mstns="http://OLIit.de/StringsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="StringsDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="myStringsDataSet">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="N" type="xs:int" minOccurs="0" />
+							<xs:element name="Netz" type="xs:string" minOccurs="0" />
+							<xs:element name="K" type="xs:int" minOccurs="0" />
+							<xs:element name="Knoten" type="xs:string" minOccurs="0" />
+							<xs:element name="B" type="xs:int" minOccurs="0" />
+							<xs:element name="Baum" type="xs:string" minOccurs="0" />
+							<xs:element name="Z" type="xs:int" minOccurs="0" />
+							<xs:element name="Zweig" type="xs:string" minOccurs="0" />
+							<xs:element name="Verb" type="xs:int" minOccurs="0" />
+							<xs:element name="Attrib" type="xs:int" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="nkbzKey">
+			<xs:selector xpath=".//myStrings" />
+			<xs:field xpath="mstns:N" />
+			<xs:field xpath="mstns:K" />
+			<xs:field xpath="mstns:B" />
+			<xs:field xpath="mstns:Z" />
+		</xs:key>
+	</xs:element>
+</xs:schema>

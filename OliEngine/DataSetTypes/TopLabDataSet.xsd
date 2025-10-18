@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="TopLabDataSet" targetNamespace="http://nulllogicone.net/schemata/TopLabDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/TopLabDataSet.xsd" xmlns="http://nulllogicone.net/schemata/TopLabDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:annotation>
+        <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+            <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+                <Connections />
+                <Tables />
+                <Sources />
+            </DataSource>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:element name="TopLabDataSet" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:Generator_DataSetName="TopLabDataSet" msprop:Generator_UserDSName="TopLabDataSet">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="TopLab" msprop:Generator_TableClassName="TopLabDataTable" msprop:Generator_TableVarName="tableTopLab" msprop:Generator_RowChangedName="TopLabRowChanged" msprop:Generator_TablePropName="TopLab" msprop:Generator_RowDeletingName="TopLabRowDeleting" msprop:Generator_RowChangingName="TopLabRowChanging" msprop:Generator_RowEvHandlerName="TopLabRowChangeEventHandler" msprop:Generator_RowDeletedName="TopLabRowDeleted" msprop:Generator_RowClassName="TopLabRow" msprop:Generator_UserTableName="TopLab" msprop:Generator_RowEvArgName="TopLabRowChangeEvent">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TopLabGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnTopLabGuid" msprop:Generator_ColumnPropNameInRow="TopLabGuid" msprop:Generator_ColumnPropNameInTable="TopLabGuidColumn" msprop:Generator_UserColumnName="TopLabGuid" type="xs:string" />
+                            <xs:element name="StammGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnStammGuid" msprop:Generator_ColumnPropNameInRow="StammGuid" msprop:Generator_ColumnPropNameInTable="StammGuidColumn" msprop:Generator_UserColumnName="StammGuid" type="xs:string" />
+                            <xs:element name="PostItGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnPostItGuid" msprop:Generator_ColumnPropNameInRow="PostItGuid" msprop:Generator_ColumnPropNameInTable="PostItGuidColumn" msprop:Generator_UserColumnName="PostItGuid" type="xs:string" />
+                            <xs:element name="Titel" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Titel" msprop:Generator_ColumnVarNameInTable="columnTitel" msprop:Generator_ColumnPropNameInTable="TitelColumn" msprop:Generator_UserColumnName="Titel" type="xs:string" minOccurs="0" />
+                            <xs:element name="TopLab" msprop:Generator_ColumnVarNameInTable="columnTopLab" msprop:Generator_ColumnPropNameInRow="TopLab" msprop:Generator_ColumnPropNameInTable="TopLabColumn" msprop:Generator_UserColumnName="TopLab" type="xs:string" />
+                            <xs:element name="URL" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="URL" msprop:Generator_ColumnVarNameInTable="columnURL" msprop:Generator_ColumnPropNameInTable="URLColumn" msprop:Generator_UserColumnName="URL" type="xs:string" minOccurs="0" />
+                            <xs:element name="Lohn" msprop:Generator_ColumnVarNameInTable="columnLohn" msprop:Generator_ColumnPropNameInRow="Lohn" msprop:Generator_ColumnPropNameInTable="LohnColumn" msprop:Generator_UserColumnName="Lohn" type="xs:decimal" />
+                            <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" />
+                            <xs:element name="Datei" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="Datei" msprop:Generator_ColumnVarNameInTable="columnDatei" msprop:Generator_ColumnPropNameInTable="DateiColumn" msprop:Generator_UserColumnName="Datei" type="xs:string" minOccurs="0" />
+                            <xs:element name="TopTopLabGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnTopTopLabGuid" msprop:Generator_ColumnPropNameInRow="TopTopLabGuid" msprop:Generator_ColumnPropNameInTable="TopTopLabGuidColumn" msprop:Generator_UserColumnName="TopTopLabGuid" type="xs:string" minOccurs="0" />
+                            <xs:element name="Typ" msprop:Generator_ColumnVarNameInTable="columnTyp" msprop:Generator_ColumnPropNameInRow="Typ" msprop:Generator_ColumnPropNameInTable="TypColumn" msprop:Generator_UserColumnName="Typ" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="TopLabDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:TopLab" />
+            <xs:field xpath="mstns:TopLabGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

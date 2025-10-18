@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="NetzDataSet" targetNamespace="https://nulllogicone.net/schemata/NetzDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="https://nulllogicone.net/schemata/NetzDataSet.xsd" xmlns:mstns="https://nulllogicone.net/schemata/NetzDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NetzDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Netz">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NetzGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="Netz" type="xs:string" />
+                            <xs:element name="Beschreibung" type="xs:string" minOccurs="0" />
+                            <xs:element name="Datei" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="NetzDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Netz" />
+            <xs:field xpath="mstns:NetzGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

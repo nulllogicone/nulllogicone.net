@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="-&gt; ist Urheber von Postit">
+    <Position X="2.198" Y="0.552" Height="0.427" Width="1.658" />
+  </Comment>
+  <Class Name="OliEngine.OliMiddleTier.OLIs.Stamm">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABADACAAAEKEihGmBBA1AhgIBCgAIBASAGBgABJgGQA=</HashCode>
+      <FileName>OliMiddleTier\OLIs\Stamm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Angler" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIs.PostIt">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAQIAAAkkBAQAEACgAhQyAAIAAQIBAgAIgQhMIAAAI=</HashCode>
+      <FileName>OliMiddleTier\OLIs\PostIt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_w" />
+      <Property Name="Code" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OliEngine.OliDataAccess.Wurzeln" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OliDataAccess\Wurzeln.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIs.Angler">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIwIAqAAAgAQCAAAAAAACgAAAIACAAAAAEAAAABIEAE=</HashCode>
+      <FileName>OliMiddleTier\OLIs\Angler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.OLIs.Code">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAwJAIAAAAACAAAAAAAAAAQAIAACAAAAAAAAgChIEAA=</HashCode>
+      <FileName>OliMiddleTier\OLIs\Code.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,19 @@
+<%@ Page language="c#" Codebehind="test.aspx.cs" AutoEventWireup="false" Inherits="nulllogicone.net.RDF.test" %>
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<title>test</title>
+		
+		
+		<meta name=vs_defaultClientScript content="JavaScript">
+		<meta name=vs_targetSchema content="http://schemas.microsoft.com/intellisense/ie5">
+	</HEAD>
+	<body >
+		<form id="Form1" method="post" runat="server">
+			<P>das ist ein test</P>
+			<P>&nbsp;</P>
+			<P>
+				<asp:Label id="Label1" runat="server">Label</asp:Label></P>
+		</form>
+	</body>
+</HTML>

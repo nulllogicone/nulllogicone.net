@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://nulllogicone.net/schemata/StammTopLabDataSet.xsd" xmlns="http://nulllogicone.net/schemata/StammTopLabDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://nulllogicone.net/schemata/StammTopLabDataSet.xsd" id="StammTopLabDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="StammTopLabDataSet">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="StammTopLab">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="PostItGuid" type="xs:string" />
+                            <xs:element name="PostIt" type="xs:string" />
+                            <xs:element minOccurs="0" name="Pdatum" type="xs:dateTime" />
+                            <xs:element minOccurs="0" name="KooK" type="xs:decimal" />
+                            <xs:element minOccurs="0" name="Pdatei" type="xs:string" />
+                            <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" minOccurs="0" name="TopLabGuid" type="xs:string" />
+                            <xs:element minOccurs="0" name="TopLab" type="xs:string" />
+                            <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" minOccurs="0" name="StammGuid" type="xs:string" />
+                            <xs:element minOccurs="0" name="Lohn" type="xs:decimal" />
+                            <xs:element minOccurs="0" name="Tdatum" type="xs:dateTime" />
+                            <xs:element minOccurs="0" name="Tdatei" type="xs:string" />
+                            <xs:element minOccurs="0" name="DurchToll" type="xs:int" />
+                            <xs:element minOccurs="0" name="PURL" type="xs:string" />
+                            <xs:element minOccurs="0" name="TURL" type="xs:string" />
+                            <xs:element minOccurs="0" name="PTitel" type="xs:string" />
+                            <xs:element minOccurs="0" name="TTitel" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

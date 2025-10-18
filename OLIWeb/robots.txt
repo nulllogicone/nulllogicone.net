@@ -1,0 +1,8 @@
+# robots.txt for https://www.oli-it.com/
+# Zugriff auf alle Dateien erlauben
+# Zugriff für die Editseiten verbieten
+# Zugriff auf die 'user content upload' seiten verbieten
+
+User-agent: *
+Disallow: /Sites/Edit/
+Disallow: /images/OliUpload/

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/OliService/StammService.asmx?wsdl" docRef="http://localhost/OliService/StammService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/OliService/StammService.asmx" xmlns:q1="http://nulllogicone.net/schemata/" binding="q1:StammServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/OliService/StammService.asmx" xmlns:q2="http://nulllogicone.net/schemata/" binding="q2:StammServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

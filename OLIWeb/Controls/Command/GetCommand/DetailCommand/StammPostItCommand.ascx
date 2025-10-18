@@ -1,0 +1,2 @@
+<%@ Control Language="c#" AutoEventWireup="True" Codebehind="StammPostItCommand.ascx.cs" Inherits="OliWeb.Controls.Command.GetCommand.DetailCommand.StammPostItCommand"  %>
+<asp:hyperlink id="HyperLink1" runat="server" >StammPostIt</asp:hyperlink>

@@ -1,0 +1,36 @@
+body
+{
+}
+
+
+
+.Kommentar
+{
+	font-size:xx-small ;
+}
+
+.Netz
+{
+	color:Navy;
+
+}
+.Knoten
+{}
+.Baum
+{
+	color:darkgreen;
+}
+.Zweig
+{
+	color:darkbrown;
+}
+
+
+a:hover.hoverWeiterNetz
+{
+	background-color:lightblue;
+}
+a:hover.hoverWeiterBaum
+{
+	background-color:antiquewhite;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
+<XSDDesignerLayout layoutVersion="2" viewPortLeft="0" viewPortTop="0" zoom="100">
+    <Knoten_XmlElement left="5715" top="7673" width="5292" height="9314" selected="0" zOrder="1" index="0" expanded="1" />
+    <Baum_XmlElement left="16563" top="2990" width="5292" height="2963" selected="0" zOrder="2" index="1" expanded="1" />
+    <Zweig_XmlElement left="16378" top="8573" width="5292" height="2963" selected="0" zOrder="4" index="2" expanded="1" />
+    <Netz_XmlElement left="4471" top="1217" width="5292" height="2963" selected="0" zOrder="6" index="3" expanded="1" />
+    <NetzKnoten_XmlKeyref left="1815" top="7395" width="503" height="503" selected="0" zOrder="12" />
+    <BaumZweig_XmlKeyref left="15627" top="7011" width="503" height="503" selected="0" zOrder="8" />
+</XSDDesignerLayout>

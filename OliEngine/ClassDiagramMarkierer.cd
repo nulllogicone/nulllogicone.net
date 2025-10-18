@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OliEngine.OliMiddleTier.Markierer.Markierer" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAAAAAAAAAAABABgAEAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\Markierer\Markierer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.Markierer.AnglerMarkierer">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIBAAAAAQAAAAABAAgAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\Markierer\AnglerMarkierer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.Markierer.CodeMarkierer">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAgAAAAIAAAABgAgAAIAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\Markierer\CodeMarkierer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.Markierer.NullMarkierer">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAAAAAAAAAAABEAgAABAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\Markierer\NullMarkierer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OliEngine.OliMiddleTier.Markierer.ShortCutsMarkierer">
+    <Position X="2.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAAAAAAEAAAABEAgAABAAAAEAAAAAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\Markierer\ShortCutsMarkierer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OliEngine.OliMiddleTier.OLIs.IMarkierer">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>OliMiddleTier\OLIs\IMarkierer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

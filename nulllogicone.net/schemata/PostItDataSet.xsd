@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="PostItDataSet" targetNamespace="https://nulllogicone.net/PostItDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="https://nulllogicone.net/PostItDataSet.xsd" xmlns:mstns="https://nulllogicone.net/PostItDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="PostItDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="PostIt">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="PostItGuid" msdata:DataType="System.Guid, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" />
+                            <xs:element name="Titel" type="xs:string" minOccurs="0" />
+                            <xs:element name="PostIt" type="xs:string" />
+                            <xs:element name="Datum" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="KooK" type="xs:decimal" minOccurs="0" />
+                            <xs:element name="PostItZust" type="xs:int" minOccurs="0" />
+                            <xs:element name="URL" type="xs:string" minOccurs="0" />
+                            <xs:element name="Datei" type="xs:string" minOccurs="0" />
+                            <xs:element name="Hits" type="xs:int" />
+                            <xs:element name="Typ" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="PostItDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:PostIt" />
+            <xs:field xpath="mstns:PostItGuid" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="TuerLogDataSet" targetNamespace="http://nulllogicone.net/schemata/TuerLogDataSet.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://nulllogicone.net/schemata/TuerLogDataSet.xsd" xmlns:mstns="http://nulllogicone.net/schemata/TuerLogDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="TuerLogDataSet" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="TuerLog">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TuerLogID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+                            <xs:element name="datum" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="ip" type="xs:string" minOccurs="0" />
+                            <xs:element name="host" type="xs:string" minOccurs="0" />
+                            <xs:element name="eglsguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="sguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="aguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="pguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="cguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="tguid" msdata:DataType="System.Guid, mscorlib, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+                            <xs:element name="kommentar" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="TuerLogDataSetKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//TuerLog" />
+            <xs:field xpath="mstns:TuerLogID" />
+        </xs:unique>
+    </xs:element>
+</xs:schema>
