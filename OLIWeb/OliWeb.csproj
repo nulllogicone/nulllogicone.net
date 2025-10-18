@@ -1002,6 +1002,9 @@
     <Compile Include="Klassen\MasterTopLabPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Klassen\IUserSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Klassen\SessionManager.cs">
       <SubType>Code</SubType>
     </Compile>

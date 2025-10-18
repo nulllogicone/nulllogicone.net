@@ -6,20 +6,22 @@
 
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using System.Web;
 using OliEngine.OliMiddleTier.OLIs;
 
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     Über den SessionManager wird eine singleton Instanz des OliUser abgerufen.
+    ///     Ãœber den SessionManager wird eine singleton Instanz des OliUser abgerufen.
     /// </summary>
     /// <example>
-    ///     Im Code wird meistens eine OliUser Objektinstanz benötigt.
+    ///     Im Code wird meistens eine OliUser Objektinstanz benÃ¶tigt.
     ///     <code>OliUser user = SessionManager.Instance().OliUser;</code>
     /// </example>
-    public class SessionManager
+    public class SessionManager : IUserSession
     {
+        private static readonly AsyncLocal<SessionManager> AmbientSession = new AsyncLocal<SessionManager>();
         private OliUser user;
 
         /// <summary>
@@ -37,16 +39,41 @@ namespace OliWeb.Klassen
         public static SessionManager Instance()
         {
             HttpContext ctx = HttpContext.Current;
-            if (ctx.Session == null) return null;
 
-            SessionManager sm = (SessionManager) ctx.Session["sm"];
-            if (sm == null)
+            if (ctx?.Session != null)
             {
-                sm = new SessionManager();
-                ctx.Session["sm"] = sm;
+                SessionManager sm = ctx.Session["sm"] as SessionManager;
+                if (sm == null)
+                {
+                    sm = new SessionManager();
+                    ctx.Session["sm"] = sm;
+                }
+
+                AmbientSession.Value = sm;
+                return sm;
             }
-            return (sm);
+
+            if (AmbientSession.Value == null)
+            {
+                AmbientSession.Value = new SessionManager();
+            }
+
+            return AmbientSession.Value;
         }
+
+        /// <summary>
+        ///     Allows code running outside an HTTP request (e.g. unit tests) to replace the ambient session.
+        /// </summary>
+        /// <param name="session">The session instance to use for the current asynchronous flow.</param>
+        public static void SetAmbientSession(SessionManager session)
+        {
+            AmbientSession.Value = session;
+        }
+
+        /// <summary>
+        ///     Returns <c>true</c> when the current execution context has access to <see cref="HttpContext" /> and <see cref="HttpSessionState" />.
+        /// </summary>
+        public static bool HasHttpContext => HttpContext.Current?.Session != null;
 
         /// <summary>
         ///     get or set the current culture of the session
@@ -95,7 +122,7 @@ namespace OliWeb.Klassen
                     retCult = (CultureInfo)ctx.Session["culture"];
                 }
 
-                // Nur erlaubte Kulturen zurückgeben
+                // Nur erlaubte Kulturen zurÃ¼ckgeben
                 if (allowedLanguages.Contains(retCult.TwoLetterISOLanguageName))
                 {
                     return retCult;
