@@ -1,0 +1,6 @@
+@NulllogiconeApi_HostAddress = http://localhost:5131
+
+GET {{NulllogiconeApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
