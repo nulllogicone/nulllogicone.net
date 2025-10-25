@@ -34,11 +34,28 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast");
 
 // Nulllogicone
+// /about
 app.MapGet("/about", () => new
 {
     Name = "Nulllogicone API",
     Version = "1.0.0",
     Description = "An example API demonstrating Nulllogicone features."
+});
+
+// /stamm
+app.MapGet("/stamm", () => new[]
+{
+    new { Id = 1, Name = "Stamm 1", Description = "This is the description for Stamm 1." },
+    new { Id = 2, Name = "Stamm 2", Description = "This is the description for Stamm 2." },
+    new { Id = 3, Name = "Stamm 3", Description = "This is the description for Stamm 3." }
+});
+
+// /stamm/id
+app.MapGet("/stamm/{id}", (int id) => new
+{
+    Id = id,
+    Name = $"Stamm {id}",
+    Description = $"This is the description for Stamm {id}."
 });
 
 
