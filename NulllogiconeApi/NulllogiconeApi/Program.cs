@@ -33,7 +33,19 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+// Nulllogicone
+app.MapGet("/about", () => new
+{
+    Name = "Nulllogicone API",
+    Version = "1.0.0",
+    Description = "An example API demonstrating Nulllogicone features."
+});
+
+
 app.Run();
+
+
+
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11111.16 d18.0
+VisualStudioVersion = 18.0.11111.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nulllogicone.net", "nulllogicone.net\nulllogicone.net.csproj", "{A8D475B6-AD88-419E-AC4C-21E5EA6A8BDA}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RdfHandler", "RdfHandler\RdfHandler.csproj", "{217BF3E5-80C3-4D49-98B8-E93B4B081DAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OliWeb", "OLIWeb\OliWeb.csproj", "{15588F42-62E3-43ED-BCA7-D3D40EB84C16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NulllogiconeRazor", "NulllogiconeRazor\NulllogiconeRazor.csproj", "{ACB1C5F8-2046-4B14-888D-10602CDE71A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,12 +53,20 @@ Global
 		{15588F42-62E3-43ED-BCA7-D3D40EB84C16}.nulllogic|Any CPU.Build.0 = nulllogic|Any CPU
 		{15588F42-62E3-43ED-BCA7-D3D40EB84C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15588F42-62E3-43ED-BCA7-D3D40EB84C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.azure|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.azure|Any CPU.Build.0 = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.nulllogic|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.nulllogic|Any CPU.Build.0 = Debug|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB1C5F8-2046-4B14-888D-10602CDE71A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AFE8F79C-503F-4BF6-ABBE-8F4DBB0A7EA3}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {AFE8F79C-503F-4BF6-ABBE-8F4DBB0A7EA3}
 	EndGlobalSection
 EndGlobal
