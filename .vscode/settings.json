@@ -1,0 +1,8 @@
+{
+    "dotnet.defaultSolution": "nulllogicone.net.sln",
+    "omnisharp.defaultLaunchSolution": "nulllogicone.net.sln",
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    }
+}
