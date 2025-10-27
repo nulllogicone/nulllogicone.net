@@ -1,0 +1,327 @@
+using NulllogiconeApi.Models;
+using System.Text;
+
+namespace NulllogiconeApi.Services
+{
+    public static class RdfContentNegotiation
+    {
+        // RDF media types we support
+        public const string RdfXmlMediaType = "application/rdf+xml";
+        public const string TurtleMediaType = "text/turtle";
+        public const string NTriplesMediaType = "application/n-triples";
+        public const string JsonLdMediaType = "application/ld+json";
+
+        /// <summary>
+        /// Checks if the request accepts RDF content
+        /// </summary>
+        public static bool AcceptsRdf(HttpContext context)
+        {
+            var acceptHeader = context.Request.Headers["Accept"].ToString();
+            
+            return acceptHeader.Contains(RdfXmlMediaType, StringComparison.OrdinalIgnoreCase) ||
+                   acceptHeader.Contains(TurtleMediaType, StringComparison.OrdinalIgnoreCase) ||
+                   acceptHeader.Contains(NTriplesMediaType, StringComparison.OrdinalIgnoreCase) ||
+                   acceptHeader.Contains(JsonLdMediaType, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Gets the preferred RDF media type from Accept header
+        /// </summary>
+        public static string GetPreferredRdfMediaType(HttpContext context)
+        {
+            var acceptHeader = context.Request.Headers["Accept"].ToString();
+            
+            // Check in order of preference
+            if (acceptHeader.Contains(RdfXmlMediaType, StringComparison.OrdinalIgnoreCase))
+                return RdfXmlMediaType;
+            if (acceptHeader.Contains(TurtleMediaType, StringComparison.OrdinalIgnoreCase))
+                return TurtleMediaType;
+            if (acceptHeader.Contains(JsonLdMediaType, StringComparison.OrdinalIgnoreCase))
+                return JsonLdMediaType;
+            if (acceptHeader.Contains(NTriplesMediaType, StringComparison.OrdinalIgnoreCase))
+                return NTriplesMediaType;
+                
+            // Default to RDF/XML
+            return RdfXmlMediaType;
+        }
+
+        /// <summary>
+        /// Converts a single Stamm entity to RDF (hardcoded simple example)
+        /// </summary>
+        public static string ConvertStammToRdf(Stamm stamm, string mediaType)
+        {
+            var baseUri = "http://nulllogicone.net/stamm/";
+            var stammUri = $"{baseUri}{stamm.Id}";
+            
+            return mediaType switch
+            {
+                RdfXmlMediaType => ConvertStammToRdfXml(stamm, stammUri, baseUri),
+                TurtleMediaType => ConvertStammToTurtle(stamm, stammUri, baseUri),
+                JsonLdMediaType => ConvertStammToJsonLd(stamm, stammUri, baseUri),
+                NTriplesMediaType => ConvertStammToNTriples(stamm, stammUri, baseUri),
+                _ => ConvertStammToRdfXml(stamm, stammUri, baseUri)
+            };
+        }
+
+        /// <summary>
+        /// Converts multiple Stamm entities to RDF (hardcoded simple example)
+        /// </summary>
+        public static string ConvertStammsToRdf(IEnumerable<Stamm> stamms, string mediaType)
+        {
+            var baseUri = "http://nulllogicone.net/stamm/";
+            
+            return mediaType switch
+            {
+                RdfXmlMediaType => ConvertStammsToRdfXml(stamms, baseUri),
+                TurtleMediaType => ConvertStammsToTurtle(stamms, baseUri),
+                JsonLdMediaType => ConvertStammsToJsonLd(stamms, baseUri),
+                NTriplesMediaType => ConvertStammsToNTriples(stamms, baseUri),
+                _ => ConvertStammsToRdfXml(stamms, baseUri)
+            };
+        }
+
+        private static string ConvertStammToRdfXml(Stamm stamm, string stammUri, string baseUri)
+        {
+            var rdf = new StringBuilder();
+            rdf.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            rdf.AppendLine("<rdf:RDF");
+            rdf.AppendLine("  xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"");
+            rdf.AppendLine("  xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"");
+            rdf.AppendLine("  xmlns:dc=\"http://purl.org/dc/elements/1.1/\"");
+            rdf.AppendLine("  xmlns:nulllogic=\"http://nulllogicone.net/ontology#\">");
+            rdf.AppendLine();
+            rdf.AppendLine($"  <nulllogic:Stamm rdf:about=\"{stammUri}\">");
+            rdf.AppendLine($"    <dc:title>{EscapeXml(stamm.Name)}</dc:title>");
+            if (!string.IsNullOrEmpty(stamm.Description))
+                rdf.AppendLine($"    <dc:description>{EscapeXml(stamm.Description)}</dc:description>");
+            rdf.AppendLine($"    <dc:created>{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}</dc:created>");
+            if (stamm.UpdatedAt.HasValue)
+                rdf.AppendLine($"    <dc:modified>{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}</dc:modified>");
+            rdf.AppendLine($"    <nulllogic:id>{stamm.Id}</nulllogic:id>");
+            rdf.AppendLine("  </nulllogic:Stamm>");
+            rdf.AppendLine();
+            rdf.AppendLine("</rdf:RDF>");
+            
+            return rdf.ToString();
+        }
+
+        private static string ConvertStammsToRdfXml(IEnumerable<Stamm> stamms, string baseUri)
+        {
+            var rdf = new StringBuilder();
+            rdf.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            rdf.AppendLine("<rdf:RDF");
+            rdf.AppendLine("  xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"");
+            rdf.AppendLine("  xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"");
+            rdf.AppendLine("  xmlns:dc=\"http://purl.org/dc/elements/1.1/\"");
+            rdf.AppendLine("  xmlns:nulllogic=\"http://nulllogicone.net/ontology#\">");
+            rdf.AppendLine();
+
+            foreach (var stamm in stamms)
+            {
+                var stammUri = $"{baseUri}{stamm.Id}";
+                rdf.AppendLine($"  <nulllogic:Stamm rdf:about=\"{stammUri}\">");
+                rdf.AppendLine($"    <dc:title>{EscapeXml(stamm.Name)}</dc:title>");
+                if (!string.IsNullOrEmpty(stamm.Description))
+                    rdf.AppendLine($"    <dc:description>{EscapeXml(stamm.Description)}</dc:description>");
+                rdf.AppendLine($"    <dc:created>{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}</dc:created>");
+                if (stamm.UpdatedAt.HasValue)
+                    rdf.AppendLine($"    <dc:modified>{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}</dc:modified>");
+                rdf.AppendLine($"    <nulllogic:id>{stamm.Id}</nulllogic:id>");
+                rdf.AppendLine("  </nulllogic:Stamm>");
+                rdf.AppendLine();
+            }
+
+            rdf.AppendLine("</rdf:RDF>");
+            return rdf.ToString();
+        }
+
+        private static string ConvertStammToTurtle(Stamm stamm, string stammUri, string baseUri)
+        {
+            var turtle = new StringBuilder();
+            turtle.AppendLine("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .");
+            turtle.AppendLine("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .");
+            turtle.AppendLine("@prefix dc: <http://purl.org/dc/elements/1.1/> .");
+            turtle.AppendLine("@prefix nulllogic: <http://nulllogicone.net/ontology#> .");
+            turtle.AppendLine();
+            turtle.AppendLine($"<{stammUri}> a nulllogic:Stamm ;");
+            turtle.AppendLine($"    dc:title \"{EscapeTurtle(stamm.Name)}\" ;");
+            if (!string.IsNullOrEmpty(stamm.Description))
+                turtle.AppendLine($"    dc:description \"{EscapeTurtle(stamm.Description)}\" ;");
+            turtle.AppendLine($"    dc:created \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;");
+            if (stamm.UpdatedAt.HasValue)
+                turtle.AppendLine($"    dc:modified \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;");
+            turtle.AppendLine($"    nulllogic:id {stamm.Id} .");
+
+            return turtle.ToString();
+        }
+
+        private static string ConvertStammsToTurtle(IEnumerable<Stamm> stamms, string baseUri)
+        {
+            var turtle = new StringBuilder();
+            turtle.AppendLine("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .");
+            turtle.AppendLine("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .");
+            turtle.AppendLine("@prefix dc: <http://purl.org/dc/elements/1.1/> .");
+            turtle.AppendLine("@prefix nulllogic: <http://nulllogicone.net/ontology#> .");
+            turtle.AppendLine();
+
+            foreach (var stamm in stamms)
+            {
+                var stammUri = $"{baseUri}{stamm.Id}";
+                turtle.AppendLine($"<{stammUri}> a nulllogic:Stamm ;");
+                turtle.AppendLine($"    dc:title \"{EscapeTurtle(stamm.Name)}\" ;");
+                if (!string.IsNullOrEmpty(stamm.Description))
+                    turtle.AppendLine($"    dc:description \"{EscapeTurtle(stamm.Description)}\" ;");
+                turtle.AppendLine($"    dc:created \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;");
+                if (stamm.UpdatedAt.HasValue)
+                    turtle.AppendLine($"    dc:modified \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;");
+                turtle.AppendLine($"    nulllogic:id {stamm.Id} .");
+                turtle.AppendLine();
+            }
+
+            return turtle.ToString();
+        }
+
+        private static string ConvertStammToJsonLd(Stamm stamm, string stammUri, string baseUri)
+        {
+            var jsonLd = new StringBuilder();
+            jsonLd.AppendLine("{");
+            jsonLd.AppendLine("  \"@context\": {");
+            jsonLd.AppendLine("    \"dc\": \"http://purl.org/dc/elements/1.1/\",");
+            jsonLd.AppendLine("    \"nulllogic\": \"http://nulllogicone.net/ontology#\",");
+            jsonLd.AppendLine("    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\"");
+            jsonLd.AppendLine("  },");
+            jsonLd.AppendLine($"  \"@id\": \"{stammUri}\",");
+            jsonLd.AppendLine("  \"@type\": \"nulllogic:Stamm\",");
+            jsonLd.AppendLine($"  \"dc:title\": \"{EscapeJson(stamm.Name)}\",");
+            if (!string.IsNullOrEmpty(stamm.Description))
+                jsonLd.AppendLine($"  \"dc:description\": \"{EscapeJson(stamm.Description)}\",");
+            jsonLd.AppendLine($"  \"dc:created\": {{");
+            jsonLd.AppendLine($"    \"@type\": \"xsd:dateTime\",");
+            jsonLd.AppendLine($"    \"@value\": \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"");
+            jsonLd.AppendLine("  },");
+            if (stamm.UpdatedAt.HasValue)
+            {
+                jsonLd.AppendLine($"  \"dc:modified\": {{");
+                jsonLd.AppendLine($"    \"@type\": \"xsd:dateTime\",");
+                jsonLd.AppendLine($"    \"@value\": \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"");
+                jsonLd.AppendLine("  },");
+            }
+            jsonLd.AppendLine($"  \"nulllogic:id\": {stamm.Id}");
+            jsonLd.AppendLine("}");
+
+            return jsonLd.ToString();
+        }
+
+        private static string ConvertStammsToJsonLd(IEnumerable<Stamm> stamms, string baseUri)
+        {
+            var jsonLd = new StringBuilder();
+            jsonLd.AppendLine("{");
+            jsonLd.AppendLine("  \"@context\": {");
+            jsonLd.AppendLine("    \"dc\": \"http://purl.org/dc/elements/1.1/\",");
+            jsonLd.AppendLine("    \"nulllogic\": \"http://nulllogicone.net/ontology#\",");
+            jsonLd.AppendLine("    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\"");
+            jsonLd.AppendLine("  },");
+            jsonLd.AppendLine("  \"@graph\": [");
+
+            var stammArray = stamms.ToArray();
+            for (int i = 0; i < stammArray.Length; i++)
+            {
+                var stamm = stammArray[i];
+                var stammUri = $"{baseUri}{stamm.Id}";
+                jsonLd.AppendLine("    {");
+                jsonLd.AppendLine($"      \"@id\": \"{stammUri}\",");
+                jsonLd.AppendLine("      \"@type\": \"nulllogic:Stamm\",");
+                jsonLd.AppendLine($"      \"dc:title\": \"{EscapeJson(stamm.Name)}\",");
+                if (!string.IsNullOrEmpty(stamm.Description))
+                    jsonLd.AppendLine($"      \"dc:description\": \"{EscapeJson(stamm.Description)}\",");
+                jsonLd.AppendLine($"      \"dc:created\": {{");
+                jsonLd.AppendLine($"        \"@type\": \"xsd:dateTime\",");
+                jsonLd.AppendLine($"        \"@value\": \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"");
+                jsonLd.AppendLine("      },");
+                if (stamm.UpdatedAt.HasValue)
+                {
+                    jsonLd.AppendLine($"      \"dc:modified\": {{");
+                    jsonLd.AppendLine($"        \"@type\": \"xsd:dateTime\",");
+                    jsonLd.AppendLine($"        \"@value\": \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"");
+                    jsonLd.AppendLine("      },");
+                }
+                jsonLd.AppendLine($"      \"nulllogic:id\": {stamm.Id}");
+                jsonLd.Append("    }");
+                if (i < stammArray.Length - 1)
+                    jsonLd.AppendLine(",");
+                else
+                    jsonLd.AppendLine();
+            }
+
+            jsonLd.AppendLine("  ]");
+            jsonLd.AppendLine("}");
+
+            return jsonLd.ToString();
+        }
+
+        private static string ConvertStammToNTriples(Stamm stamm, string stammUri, string baseUri)
+        {
+            var ntriples = new StringBuilder();
+            ntriples.AppendLine($"<{stammUri}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://nulllogicone.net/ontology#Stamm> .");
+            ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/title> \"{EscapeTurtle(stamm.Name)}\" .");
+            if (!string.IsNullOrEmpty(stamm.Description))
+                ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/description> \"{EscapeTurtle(stamm.Description)}\" .");
+            ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/created> \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> .");
+            if (stamm.UpdatedAt.HasValue)
+                ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/modified> \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> .");
+            ntriples.AppendLine($"<{stammUri}> <http://nulllogicone.net/ontology#id> \"{stamm.Id}\"^^<http://www.w3.org/2001/XMLSchema#integer> .");
+
+            return ntriples.ToString();
+        }
+
+        private static string ConvertStammsToNTriples(IEnumerable<Stamm> stamms, string baseUri)
+        {
+            var ntriples = new StringBuilder();
+
+            foreach (var stamm in stamms)
+            {
+                var stammUri = $"{baseUri}{stamm.Id}";
+                ntriples.AppendLine($"<{stammUri}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://nulllogicone.net/ontology#Stamm> .");
+                ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/title> \"{EscapeTurtle(stamm.Name)}\" .");
+                if (!string.IsNullOrEmpty(stamm.Description))
+                    ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/description> \"{EscapeTurtle(stamm.Description)}\" .");
+                ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/created> \"{stamm.CreatedAt:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> .");
+                if (stamm.UpdatedAt.HasValue)
+                    ntriples.AppendLine($"<{stammUri}> <http://purl.org/dc/elements/1.1/modified> \"{stamm.UpdatedAt.Value:yyyy-MM-ddTHH:mm:ssZ}\"^^<http://www.w3.org/2001/XMLSchema#dateTime> .");
+                ntriples.AppendLine($"<{stammUri}> <http://nulllogicone.net/ontology#id> \"{stamm.Id}\"^^<http://www.w3.org/2001/XMLSchema#integer> .");
+            }
+
+            return ntriples.ToString();
+        }
+
+        // Helper methods for escaping
+        private static string EscapeXml(string value)
+        {
+            return value.Replace("&", "&amp;")
+                       .Replace("<", "&lt;")
+                       .Replace(">", "&gt;")
+                       .Replace("\"", "&quot;")
+                       .Replace("'", "&apos;");
+        }
+
+        private static string EscapeTurtle(string value)
+        {
+            return value.Replace("\\", "\\\\")
+                       .Replace("\"", "\\\"")
+                       .Replace("\n", "\\n")
+                       .Replace("\r", "\\r")
+                       .Replace("\t", "\\t");
+        }
+
+        private static string EscapeJson(string value)
+        {
+            return value.Replace("\\", "\\\\")
+                       .Replace("\"", "\\\"")
+                       .Replace("\n", "\\n")
+                       .Replace("\r", "\\r")
+                       .Replace("\t", "\\t")
+                       .Replace("\b", "\\b")
+                       .Replace("\f", "\\f");
+        }
+    }
+}
