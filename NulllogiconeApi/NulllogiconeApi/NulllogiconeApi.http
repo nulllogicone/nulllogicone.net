@@ -8,9 +8,7 @@
 GET {{NulllogiconeApi_HostAddress}}/about
 Accept: application/json
 
-### Get Weather Forecast (original endpoint)
-GET {{NulllogiconeApi_HostAddress}}/weatherforecast/
-Accept: application/json
+
 
 # =================================
 # Stamm Endpoints
