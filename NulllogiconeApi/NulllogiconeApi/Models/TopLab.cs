@@ -1,25 +1,39 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace NulllogiconeApi.Models
+namespace NulllogiconeApi.Models;
+
+public partial class TopLab
 {
-    public class TopLab
-    {
-        public int Id { get; set; }
-        
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; } = string.Empty;
-        
-        [MaxLength(500)]
-        public string? Description { get; set; }
-        
-        [MaxLength(50)]
-        public string? Category { get; set; }
-        
-        public int Priority { get; set; } = 1;
-        
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        
-        public DateTime? UpdatedAt { get; set; }
-    }
+    public Guid TopLabGuid { get; set; }
+
+    public Guid StammGuid { get; set; }
+
+    public Guid PostItGuid { get; set; }
+
+    public string? Titel { get; set; }
+
+    public string TopLab1 { get; set; } = null!;
+
+    public string? Url { get; set; }
+
+    public decimal Lohn { get; set; }
+
+    public DateTime Datum { get; set; }
+
+    public string? Datei { get; set; }
+
+    public Guid? TopTopLabGuid { get; set; }
+
+    public string Typ { get; set; } = null!;
+
+    public virtual ICollection<Inbox> Inboxes { get; set; } = new List<Inbox>();
+
+    public virtual ICollection<TopLab> InverseTopTopLab { get; set; } = new List<TopLab>();
+
+    public virtual PostIt PostIt { get; set; } = null!;
+
+    public virtual ICollection<Tolli> Tollis { get; set; } = new List<Tolli>();
+
+    public virtual TopLab? TopTopLab { get; set; }
 }

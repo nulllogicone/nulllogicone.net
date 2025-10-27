@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NulllogiconeApi.Data;
-using NulllogiconeApi.Controllers;
+using NulllogiconeApi.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,28 +44,29 @@ app.UseHttpsRedirection();
 
 
 
+// Map minimal API endpoints
+app.MapStammEndpoints();
+app.MapPostItEndpoints();
+app.MapTopLabEndpoints();
+
 // Nulllogicone API Info
 app.MapGet("/about", () => new
 {
     Name = "Nulllogicone API",
     Version = "1.0.0",
-    Description = "An API demonstrating Nulllogicone features with Entity Framework Core.",
+    Description = "An API for Nulllogicone with scaffolded database models from your real database.",
+    Status = "Connected to real database - Minimal APIs",
     Endpoints = new[]
     {
         "/stamm - Manage Stamm entities",
-        "/postit - Manage PostIt notes",
-        "/toplab - Manage TopLab experiments"
+        "/postit - Manage PostIt entities", 
+        "/toplab - Manage TopLab entities",
+        "/swagger - API documentation"
     }
 })
 .WithName("GetApiInfo")
 .WithSummary("Get API information")
 .WithTags("Info");
-
-// Map organized endpoints
-// This levels up minimal APIs to a more structured format
-app.MapStammEndpoints();
-app.MapPostItEndpoints();
-app.MapTopLabEndpoints();
 
 
 app.Run();
