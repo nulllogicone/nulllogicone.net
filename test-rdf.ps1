@@ -80,7 +80,7 @@ try {
         $firstId = $stamms[0].Id
         $headers = @{ "Accept" = "application/rdf+xml" }
         $response = Invoke-WebRequest -Uri "$baseUrl/stamm/$firstId" -Method Get -Headers $headers
-        Write-Host "✓ Single Stamm RDF/XML Response for ID $firstId:" -ForegroundColor Green
+        Write-Host "✓ Single Stamm RDF/XML Response for ID $firstId" -ForegroundColor Green
         Write-Host $response.Content -ForegroundColor Cyan
     } else {
         Write-Host "⚠ No Stamm entries available to test single entry endpoint" -ForegroundColor Yellow
