@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      # Runtime identifier used for self-contained publish. Assumption: Windows x64 app service.
+      RID: win-x64
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -26,8 +29,8 @@ jobs:
       - name: Build with dotnet (NulllogiconeCore project only)
         run: dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj --configuration Release
 
-      - name: dotnet publish (NulllogiconeCore)
-        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
+      - name: dotnet publish (NulllogiconeCore - self-contained)
+        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -r ${{ env.RID }} --self-contained true -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
