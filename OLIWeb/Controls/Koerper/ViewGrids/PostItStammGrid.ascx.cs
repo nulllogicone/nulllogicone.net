@@ -24,7 +24,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         //protected override void OnInit(EventArgs e)
         //{
         //    //
-        //    // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+        //    // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
         //    //
         //    InitializeComponent();
         //    base.OnInit(e);
@@ -99,7 +99,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             base.OnPreRender(e);
             if (OliUser.Stamm != null)
             {
-                // Title und Spaltenüberschriften auf Q
+                // Title und Spaltenï¿½berschriften auf Q
                 TitleLabel.Text = OliUser.Stamm.Q.P_S;
                 PostItDataGrid.Columns[0].HeaderText = OliUser.Stamm.Q.S;
 
@@ -113,7 +113,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
                 if (PostIt != null)
                 {
-                    //TODO: so wie hier : in allen ViewGrids Titeln noch dieses Anzahl in Klammern anhängen
+                    //TODO: so wie hier : in allen ViewGrids Titeln noch dieses Anzahl in Klammern anhï¿½ngen
                     TitleLabel.Text = OliUser.Stamm.Q.P_S + " (" + PostIt.MyStamm.Rows.Count + ")";
                     DataView dv = new DataView(mySource);
                     if (desc)

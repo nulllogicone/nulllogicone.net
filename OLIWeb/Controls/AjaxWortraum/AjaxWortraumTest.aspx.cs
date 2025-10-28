@@ -13,7 +13,7 @@ using OliWeb.Controls.AjaxWortraum;
 namespace nulllogicone.net.Controls.AjaxWortraum
 {
     /// <summary>
-    ///     Zusammenfassung für AjaxWortraumTest.
+    ///     Zusammenfassung fï¿½r AjaxWortraumTest.
     /// </summary>
     public partial class AjaxWortraumTest : Page
     {
@@ -40,15 +40,15 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -70,7 +70,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
             a = new Angler(new Guid(AnglerGuidTextBox.Text));
             AjaxWortraumControlFlip1.Markierer = a;
 
-            DataGrid1.DataSource = a.MyLöcher;
+            DataGrid1.DataSource = a.MyLï¿½cher;
             DataBind();
         }
 

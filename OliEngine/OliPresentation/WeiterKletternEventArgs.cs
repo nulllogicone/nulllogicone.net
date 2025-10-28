@@ -5,10 +5,10 @@ using System;
 namespace OliEngine.OliPresentation
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für WeiterKletternEventArgs.
-	/// Diese EreignisArgumente werden benötigt
+	/// Zusammendfassende Beschreibung fï¿½r WeiterKletternEventArgs.
+	/// Diese EreignisArgumente werden benï¿½tigt
 	/// wenn von Knoten oder Zweigen in
-	/// Netze oder Bäume weitergeklettert wird	
+	/// Netze oder Bï¿½ume weitergeklettert wird	
 	/// </summary>
 	
 	public class WeiterKletternEventArgs : EventArgs
@@ -48,3 +48,4 @@ namespace OliEngine.OliPresentation
 
 	}
 }
+

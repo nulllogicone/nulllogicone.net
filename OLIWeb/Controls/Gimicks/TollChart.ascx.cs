@@ -11,19 +11,19 @@ using System.Web.UI.WebControls;
 namespace OliWeb.Controls.Gimicks
 {
     ///<summary>
-    ///    die durchschnittliche Toll-Bewertung der Antworten wird als grüner Balken auf
+    ///    die durchschnittliche Toll-Bewertung der Antworten wird als grï¿½ner Balken auf
     ///    einem grauen Bereich dargestellt. Bei Mousehover wird der exakte Wert als 
     ///    Tooltipp angezeigt.
     ///</summary>
     public partial class TollChart : UserControl
     {
         /// <summary>
-        ///     ein dunkelgrünes, 1x1 px großes image auf dem ascx Control
+        ///     ein dunkelgrï¿½nes, 1x1 px groï¿½es image auf dem ascx Control
         /// </summary>
         protected Image TollImage;
 
         /// <summary>
-        ///     ein graues, 1x1 px großes image auf dem ascx Control
+        ///     ein graues, 1x1 px groï¿½es image auf dem ascx Control
         /// </summary>
         protected Image RestImage;
 
@@ -62,7 +62,7 @@ namespace OliWeb.Controls.Gimicks
         }
 
         /// <summary>
-        ///     Die gewünschte anzuzeigende Höhe in px
+        ///     Die gewï¿½nschte anzuzeigende Hï¿½he in px
         /// </summary>
         public int Hoehe
         {
@@ -75,7 +75,7 @@ namespace OliWeb.Controls.Gimicks
         }
 
         /// <summary>
-        ///     Tollwert in grün, der Rest in grau werden als zwei images nebeneinander dargestellt
+        ///     Tollwert in grï¿½n, der Rest in grau werden als zwei images nebeneinander dargestellt
         /// </summary>
         /// <param name="e"> </param>
         protected override void OnPreRender(EventArgs e)
@@ -106,15 +106,15 @@ namespace OliWeb.Controls.Gimicks
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

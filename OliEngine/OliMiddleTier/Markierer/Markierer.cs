@@ -34,10 +34,10 @@ namespace OliEngine.OliMiddleTier.Markierer
         public abstract bool IsInStrings(ZweigDataSet.ZweigRow zr, KnotenZelle lastKnoten);
 
         // IsInStrings(KnotenZelle)
-        public abstract bool IsInStrings(ref KnotenZelle kz); // Obacht: Parameter wird geändert!
+        public abstract bool IsInStrings(ref KnotenZelle kz); // Obacht: Parameter wird geï¿½ndert!
 
         // IsInStrings(ZweigZelle)
-        public abstract bool IsInStrings(ref ZweigZelle zz); // Obacht: Parameter wird geändert!
+        public abstract bool IsInStrings(ref ZweigZelle zz); // Obacht: Parameter wird geï¿½ndert!
 
         // Markiere(KnotenControl)
         public abstract void Markiere(KnotenZelle kz);

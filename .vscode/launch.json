@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch NulllogiconeApi",
+            "name": "Launch NulllogiconeCore",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-nulllogicone-api",
-            "program": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/bin/Debug/net10.0/NulllogiconeApi.dll",
+            "program": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/bin/Debug/net10.0/NulllogiconeCore.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi",
+            "cwd": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore",
             "console": "internalConsole",
             "stopAtEntry": false,
             "serverReadyAction": {
@@ -23,12 +23,12 @@
             }
         },
         {
-            "name": "Launch NulllogiconeApi (Docker)",
+            "name": "Launch NulllogiconeCore (Docker)",
             "type": "docker",
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
-            "netCore": {
-                "appProject": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj"
+                "netCore": {
+                "appProject": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj"
             }
         }
     ]

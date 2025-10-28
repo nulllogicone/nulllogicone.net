@@ -11,7 +11,7 @@ using OliWeb.Klassen;
 namespace nulllogicone.net.RDF
 {
     /// <summary>
-    ///     Zusammenfassung für CodeInput.
+    ///     Zusammenfassung fï¿½r CodeInput.
     /// </summary>
     public partial class CodeInput : BasePage
     {
@@ -44,15 +44,15 @@ namespace nulllogicone.net.RDF
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -67,7 +67,7 @@ namespace nulllogicone.net.RDF
 
             if (rdfstr.Length == 0)
             {
-                MsgLabel.Text = "fügen Sie Code.rdf in die TextBox ein";
+                MsgLabel.Text = "fï¿½gen Sie Code.rdf in die TextBox ein";
                 return;
             }
 
@@ -85,7 +85,7 @@ namespace nulllogicone.net.RDF
                 DataBind();
             }
 
-            // Wortraumcontroller füllen
+            // Wortraumcontroller fï¿½llen
             WortraumPanel.Visible = WortraumCheckBox.Checked;
             if (WortraumCheckBox.Checked)
             {

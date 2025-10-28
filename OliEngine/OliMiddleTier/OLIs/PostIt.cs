@@ -60,9 +60,9 @@ namespace OliEngine.OliMiddleTier.OLIs
         // Konstruktor (EingeloggterStamm)
         // erstellt einen neuen Datensatz in Tabelle PostIt.
         //
-        // In der Update Methode wird geprüft, ob es ein neues
-        // PostIt ist und dann mit dem Stamm über einen neuen Eintrag 
-        // in die Wurzeltabelle verknüpft und ein leerer Code erstellt
+        // In der Update Methode wird geprï¿½ft, ob es ein neues
+        // PostIt ist und dann mit dem Stamm ï¿½ber einen neuen Eintrag 
+        // in die Wurzeltabelle verknï¿½pft und ein leerer Code erstellt
         public PostIt(EingeloggterStamm eingeloggterStamm)
         {
             stamm = eingeloggterStamm;
@@ -78,7 +78,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             pr.Hits = 0;
             pr.Typ = "txt";
 
-            // Reihe hinzufügen
+            // Reihe hinzufï¿½gen
             postIt.PostIt.AddPostItRow(pr);
         }
 
@@ -254,7 +254,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         // MyStammHtmlList
         // TODO: Das geht doch inzwischen wirklich einfacher. Bitte mit LINQ einen Dreizeiler machen! 
-        // Dafür ist die Dokumentation allerdings etwas dürftig (von 2004) also kein Unit-Test!
+        // Dafï¿½r ist die Dokumentation allerdings etwas dï¿½rftig (von 2004) also kein Unit-Test!
         // Aber es soll *irgendwie* eine Liste der Urheber einer Nachricht als Html erstellt werden.
         public string MyStammHtmlList
         {
@@ -287,7 +287,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         /// <summary>
         ///     wenn der aktuelle Stamm ein Urheber dieser Nachricht ist (kann sich
-        ///     auch nachträglich angewurzelt haben)
+        ///     auch nachtrï¿½glich angewurzelt haben)
         /// </summary>
         public bool BinIchMeinPostIt
         {
@@ -372,7 +372,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         ///     den eingeloggten Stamm an diese Nachricht anwurzeln
         ///     (neuer Eintrag in der wurzel-Tabelle zwischen Stamm und PostIt
         ///     mit StammZust=2.
-        ///     <strong>Außerdem wird 1 KooK bezahlt</strong> und die Frist auf Standard-Offset
+        ///     <strong>Auï¿½erdem wird 1 KooK bezahlt</strong> und die Frist auf Standard-Offset
         ///     gesetzt
         /// </summary>
         /// <param name = "eingeloggterStamm"></param>
@@ -395,13 +395,13 @@ namespace OliEngine.OliMiddleTier.OLIs
             Zahlmeister zm = new Zahlmeister(stamm.StammRow, postIt.PostItRow);
             zm.Bezahlen(1, DateTime.Now.AddDays(OliCommon.FristOffset), "Anwurzeln");
 
-            stamm.OliUser.Nachricht = "Sie wurden angewurzelt und 1 KooK übertragen";
+            stamm.OliUser.Nachricht = "Sie wurden angewurzelt und 1 KooK ï¿½bertragen";
         }
 
         /// <summary>
-        ///     Die verbindung dieser Nachricht zum aktuellen Stamm wird abgebrochen = gelöscht!
-        ///     Es werden keine KooK (zurück) übertragen sondern einfach die n:m Zeile in der
-        ///     Wurzel Tabelle gelöscht
+        ///     Die verbindung dieser Nachricht zum aktuellen Stamm wird abgebrochen = gelï¿½scht!
+        ///     Es werden keine KooK (zurï¿½ck) ï¿½bertragen sondern einfach die n:m Zeile in der
+        ///     Wurzel Tabelle gelï¿½scht
         /// </summary>
         /// <param name = "eingeloggterStamm"></param>
         public void Abwurzeln(EingeloggterStamm eingeloggterStamm)
@@ -421,7 +421,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 else
                 {
                     stamm.OliUser.Nachricht =
-                        "Wenn sie einen negativen Betrag bezahlt haben, können Sie sich nicht abwurzeln";
+                        "Wenn sie einen negativen Betrag bezahlt haben, kï¿½nnen Sie sich nicht abwurzeln";
                 }
             }
             else
@@ -452,7 +452,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             // meinen neuen Code zeigen
             ShowCode(Code.CodeRow.CodeGuid);
 
-            // und zurückgeben
+            // und zurï¿½ckgeben
             return Code;
         }
 
@@ -478,7 +478,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             // meinen neuen Code zeigen
             ShowCode(Code.CodeRow.CodeGuid);
 
-            // und zurückgeben
+            // und zurï¿½ckgeben
             return Code;
         }
 
@@ -494,15 +494,15 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         /// <summary>
         ///     Speichert das PostIt in der Datenbank.
-        ///     Wenn es sich um ein neues PostIt handelt, wird es über einen neuen
-        ///     Eintrag in der Wurzeltabelle mit dem Stamm verknüpft und ein
+        ///     Wenn es sich um ein neues PostIt handelt, wird es ï¿½ber einen neuen
+        ///     Eintrag in der Wurzeltabelle mit dem Stamm verknï¿½pft und ein
         ///     neuer Code wird erstellt.
         /// </summary>
         /// <returns></returns>
         public int UpdatePostIt()
         {
             // eine neue PostItRow wird mit einem neuen Eintrag in der Wurzel-Tabelle
-            // an den Stamm angewurzelt und erhält einen neuen Code
+            // an den Stamm angewurzelt und erhï¿½lt einen neuen Code
             if (PostItRow.RowState == DataRowState.Added)
             {
                 Guid pguid = PostItRow.PostItGuid;
@@ -526,7 +526,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 wr.gemailt = false;
                 wr.closed = false;
 
-                // Wurzel hinzufügen und update
+                // Wurzel hinzufï¿½gen und update
                 w.Wurzeln.AddWurzelnRow(wr);
                 w.UpdateWurzeln();
 
@@ -547,11 +547,11 @@ namespace OliEngine.OliMiddleTier.OLIs
                 cr.CodeGuid = cguid;
                 cr.gescannt = false;
 
-                // Code hinzufügen und update
+                // Code hinzufï¿½gen und update
                 c.Code.AddCodeRow(cr);
                 c.UpdateCode();
 
-                // ShortCuts einfügen
+                // ShortCuts einfï¿½gen
                 ShortCutsDataSet.ShortCutsDataTable scdt = stamm.MyShortCuts;
                 foreach (ShortCutsDataSet.ShortCutsRow scr in scdt.Rows)
                 {
@@ -577,7 +577,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             }
             else
             {
-                throw new Exception("ein nicht eingeloggter versucht PostIt zu ändern");
+                throw new Exception("ein nicht eingeloggter versucht PostIt zu ï¿½ndern");
             }
         }
 
@@ -673,7 +673,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             }
 
             // -- PostItAngler
-            xw.WriteComment("PostItAngler - die Empfänger");
+            xw.WriteComment("PostItAngler - die Empfï¿½nger");
             xw.WriteComment("============================");
             foreach (PostItAnglerDataSet.PostItAnglerRow par in MyEmpfaenger)
             {

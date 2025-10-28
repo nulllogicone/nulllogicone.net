@@ -11,9 +11,9 @@ using System.Web.UI.WebControls;
 namespace OliWeb.Controls.Floor
 {
     ///<summary>
-    ///    Ein Intro-Control für anonyme Besucher. Es wird auf der
-    ///    Startseite angezeigt und soll einen kurze Erklärung von OLI-it
-    ///    geben. Außerdem wird eine Zufallsnachricht
+    ///    Ein Intro-Control fï¿½r anonyme Besucher. Es wird auf der
+    ///    Startseite angezeigt und soll einen kurze Erklï¿½rung von OLI-it
+    ///    geben. Auï¿½erdem wird eine Zufallsnachricht
     ///    mit ihren Antworten gezeigt und im HilfePanel die wichtigsten
     ///    Links wiederholt.
     ///</summary>
@@ -40,15 +40,15 @@ namespace OliWeb.Controls.Floor
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

@@ -35,7 +35,7 @@ namespace OliWeb.Controls.Koerper
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -73,7 +73,7 @@ namespace OliWeb.Controls.Koerper
 
 			if(PostIt != null)
 			{
-				// wenn ShortCuts ausgewählt immer als Wortraum zeigen
+				// wenn ShortCuts ausgewï¿½hlt immer als Wortraum zeigen
 				if(this.OliUser.Stamm.ShortCuts != null)
 				{
 					WortraumController1.Werbefrei = this.OliUser.Stamm.Extras.ExtrasRow.werbefrei ;
@@ -147,7 +147,7 @@ namespace OliWeb.Controls.Koerper
 //						}
 					}
 
-					// wenn ShortCuts ausgewählt immer als Wortraum zeigen
+					// wenn ShortCuts ausgewï¿½hlt immer als Wortraum zeigen
 					if(this.OliUser.Stamm.ShortCuts != null)
 					{
 						WortraumController1.Werbefrei = this.OliUser.Stamm.Extras.ExtrasRow.werbefrei;
@@ -189,21 +189,21 @@ namespace OliWeb.Controls.Koerper
 			ShortCutsDataGrid.DataKeyField = "ShortCutsGuid";
 			Guid scguid = (Guid)ShortCutsDataGrid.DataKeys[e.Item.ItemIndex];
 			
-			// auswählen
+			// auswï¿½hlen
 			if (e.CommandName == "ok" || e.CommandName == "select")
 			{
 				// CodeGrid deselect
 //				CodeDataGrid.SelectedIndex = -1;
 //				CodeDataGrid.EditItemIndex = -1;
 
-				// auswählen und edit mode
+				// auswï¿½hlen und edit mode
 //				ShortCutsDataGrid.SelectedIndex = e.Item.ItemIndex;
 				ShortCutsDataGrid.EditItemIndex = e.Item.ItemIndex;
 
 				// ShowShortCuts
 				this.OliUser.Stamm.ShowShortCuts(scguid);
 				
-				this.OliUser.Nachricht = "ShortCuts ausgewählt";
+				this.OliUser.Nachricht = "ShortCuts ausgewï¿½hlt";
 			}
 
 			// CopyShortCutsToCode
@@ -216,7 +216,7 @@ namespace OliWeb.Controls.Koerper
 				
 				ShortCutsDataGrid.EditItemIndex = -1;
 				
-				// wenn Code ausgewählt ist -> copieren
+				// wenn Code ausgewï¿½hlt ist -> copieren
 				if(PostIt.Code != null)
 				{
 					Guid cguid = PostIt.Code.CodeRow.CodeGuid ;
@@ -225,9 +225,9 @@ namespace OliWeb.Controls.Koerper
 				
 					WortraumController1.ZellBuilder = PostIt.Code.ZellBuilder;
 		
-					this.OliUser.Nachricht = "ShortCuts auf Markierung übertragen";
+					this.OliUser.Nachricht = "ShortCuts auf Markierung ï¿½bertragen";
 
-//TODO: Kathrin: übernehmen
+//TODO: Kathrin: ï¿½bernehmen
 					this.OliUser.Stamm.ShortCuts = null;
 				}
 				this.OliUser.Stamm.MyShortCuts = null;
@@ -243,7 +243,7 @@ namespace OliWeb.Controls.Koerper
 //				sc.UpdateShortCuts();
 //				this.OliUser.Stamm.MyShortCuts = null;
 //				this.OliUser.Stamm.ShortCuts = null;
-//				this.OliUser.Nachricht = "ShortCuts gelöscht";
+//				this.OliUser.Nachricht = "ShortCuts gelï¿½scht";
 //
 //			}
 		}
@@ -309,7 +309,7 @@ namespace OliWeb.Controls.Koerper
 		}
 
 		/// <summary>
-		/// löschen dieser Markierung
+		/// lï¿½schen dieser Markierung
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -325,7 +325,7 @@ namespace OliWeb.Controls.Koerper
 		}
 
 		/// <summary>
-		/// bricht den ausgewählten ShortCut ab
+		/// bricht den ausgewï¿½hlten ShortCut ab
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -352,3 +352,4 @@ namespace OliWeb.Controls.Koerper
 
 	}
 }
+

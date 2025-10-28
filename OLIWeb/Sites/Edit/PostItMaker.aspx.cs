@@ -39,7 +39,7 @@ namespace OliWeb.Sites.Edit
 
         /// <summary>
         ///     Wenn die BasisBasePage Initialisiert wird, wird 
-        ///     auf das vorhandensein von Stamm und PostIt geprüft.
+        ///     auf das vorhandensein von Stamm und PostIt geprï¿½ft.
         ///     Auf dieser Seite muss er auch noch eingeloggt und es muss 
         ///     sein PostIt sein oder ein neues.
         /// </summary>
@@ -52,12 +52,12 @@ namespace OliWeb.Sites.Edit
                 // wenn ein neues PostIt erstellt werden soll
                 if (PostIt.PostItRow.RowState == DataRowState.Added)
                 {
-                    OkButton.Text = "hinzufügen";
+                    OkButton.Text = "hinzufï¿½gen";
                 }
                 else
                 {
                     // wenn es nicht neu und nicht mein PostIt ist 
-                    // -> Editseite canceln und zurück zur PostIt-Anzeige
+                    // -> Editseite canceln und zurï¿½ck zur PostIt-Anzeige
                     if (PostIt.PostItRow.RowState != DataRowState.Added &&
                         !OliUser.Stamm.PostIt.BinIchMeinPostIt)
                     {
@@ -97,7 +97,7 @@ namespace OliWeb.Sites.Edit
                 // bestehendes PostIt bearbeiten
                 if (PostIt != null)
                 {
-                    // darf man den Nachrichten Typ verändern
+                    // darf man den Nachrichten Typ verï¿½ndern
                     TypDropDownList.Visible = !Stamm.Extras.ExtrasRow.TxtOnly;
 
                     // PostItRow
@@ -146,7 +146,7 @@ namespace OliWeb.Sites.Edit
 
         /// <summary>
         ///     speichert das PostIt, setzt Frist und Frankiert (danach Wert im Formular auf 0) und
-        ///     lädt die relevanten Tabellen neu.
+        ///     lï¿½dt die relevanten Tabellen neu.
         /// </summary>
         /// <returns> </returns>
         private bool PostItSpeichern()
@@ -267,10 +267,10 @@ namespace OliWeb.Sites.Edit
             // wenn speichern erfolgreich -> weiterleiten
             if (result)
             {
-                // wenn noch keine Empfänger -> CodeSite
+                // wenn noch keine Empfï¿½nger -> CodeSite
                 if (PostIt.MyEmpfaenger.Count == 0)
                 {
-                    OliUser.Nachricht = "Die Nachricht hat noch keine Empfänger.";
+                    OliUser.Nachricht = "Die Nachricht hat noch keine Empfï¿½nger.";
                     Response.Redirect("~/Sites/PostItCodeSite.aspx");
                 }
                 else

@@ -11,7 +11,7 @@ using OliEngine.OliDataAccess.Views;
 namespace OliEngine.OliDataAccess.Functions
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für Abrechnen.
+	/// Zusammendfassende Beschreibung fï¿½r Abrechnen.
 	/// </summary>
 	public class Abrechnung
 	{
@@ -28,7 +28,7 @@ namespace OliEngine.OliDataAccess.Functions
 		{
 			message = "";
 
-			// Wurzelreihe (für bezahlt und closed)
+			// Wurzelreihe (fï¿½r bezahlt und closed)
 			Wurzeln w = new Wurzeln(stamm.StammRow.StammGuid, postIt.PostItRow.PostItGuid );
 			WurzelnDataSet.WurzelnRow wr = w.WurzelnRow ;
 
@@ -63,10 +63,10 @@ namespace OliEngine.OliDataAccess.Functions
 			// Alle Antworten holen
 			TopLabList tl = new TopLabList(postIt.PostItRow);
 
-			// ohne Antworten geht Geld zurück
+			// ohne Antworten geht Geld zurï¿½ck
 			if(tl.TopLab.Count == 0)
 			{
-				// Stamm Restgeld zurück
+				// Stamm Restgeld zurï¿½ck
 				stamm.StammRow.Trolle += rest;
 				stamm.UpdateStamm();
 
@@ -79,7 +79,7 @@ namespace OliEngine.OliDataAccess.Functions
 				w.UpdateWurzeln();
 
 				// Nachricht und weg !!!!!!!!!
-				message = "Keine Antworten also " + rest.ToString() + " zurück <br>";
+				message = "Keine Antworten also " + rest.ToString() + " zurï¿½ck <br>";
 				message += "Provision: " + prov.ToString();
 				return(true);
 			}
@@ -115,7 +115,7 @@ namespace OliEngine.OliDataAccess.Functions
 				return(true);
 			}
 			
-			// Ich habe Bewertungen vergeben also mal zusammenzählen:
+			// Ich habe Bewertungen vergeben also mal zusammenzï¿½hlen:
 			short gesamtToll = 0;
 			foreach(DataRow dr in sptt)
 			{
@@ -134,13 +134,13 @@ namespace OliEngine.OliDataAccess.Functions
 				// Rest Gutschreiben
 				stamm.StammRow.Trolle += rest * (100-gesamtToll) / 100;
 				stamm.UpdateStamm();
-				message += stamm.StammRow.Stamm + " bekommt " + (rest * (100-gesamtToll) / 100).ToString() + " zurück<br>";
+				message += stamm.StammRow.Stamm + " bekommt " + (rest * (100-gesamtToll) / 100).ToString() + " zurï¿½ck<br>";
 				// vom Rest abziehen
 				rest -= rest * (100-gesamtToll) / 100;
 			}
 			else
 			{
-				message += "Bewertung über 100 <br>";
+				message += "Bewertung ï¿½ber 100 <br>";
 			}
 
 			// Antworten bezahlen
@@ -188,11 +188,11 @@ namespace OliEngine.OliDataAccess.Functions
 			// Stamm
 			Stamm s = new Stamm(t.TopLabRow);
 
-			// Vermögen aufstocken
+			// Vermï¿½gen aufstocken
 			s.StammRow.Trolle += betrag;
 			s.UpdateStamm();
 
-			string text = "Sie haben für Ihre Antwort: <br>";
+			string text = "Sie haben fï¿½r Ihre Antwort: <br>";
 			text += "<p>" + t.TopLabRow.TopLab + "</p>";
 			text += "<b>" + betrag + " Trolle </b> gutgeschrieben bekommen";
 
@@ -201,3 +201,4 @@ namespace OliEngine.OliDataAccess.Functions
 		}
 	}
 }
+

@@ -13,23 +13,23 @@ using OliWeb.Sites.Elemente;
 namespace OliWeb.Controls.Floor
 {
     ///<summary>
-    ///    Das Hauptmenü für anonyme (noch nicht eingeloggte) Besucher.
-    ///    Es enthält Links zu Seiten, die eine Übersicht oder Ableitung
+    ///    Das Hauptmenï¿½ fï¿½r anonyme (noch nicht eingeloggte) Besucher.
+    ///    Es enthï¿½lt Links zu Seiten, die eine ï¿½bersicht oder Ableitung
     ///    von OLI-it darstellen oder alles was sonst noch damit zu tun hat.
-    ///    Ausserdem ist ein Textfeld für die Suche einer Zeichenfolge in
+    ///    Ausserdem ist ein Textfeld fï¿½r die Suche einer Zeichenfolge in
     ///    den Stamm, PostIt und TopLab Tabellen vorhanden.
     ///</summary>
     ///<remarks>
     ///    Weil noch Platz war und ich die Nachrichten von Telepolis
-    ///    gut finde, ist noch ein kleiner Ausschnitt (5 zufällige Nachrichten)
-    ///    von Telepolis-Artikeln angezeigt. (wurde längst wieder eingestellt)
+    ///    gut finde, ist noch ein kleiner Ausschnitt (5 zufï¿½llige Nachrichten)
+    ///    von Telepolis-Artikeln angezeigt. (wurde lï¿½ngst wieder eingestellt)
     ///</remarks>
     public partial class AnonymMenu : MasterControl
     {
         protected Image Image1;
 
         /// <summary>
-        ///     Die Enter-Taste soll den <see cref="SuchButton_Click" /> auslösen (javascript)
+        ///     Die Enter-Taste soll den <see cref="SuchButton_Click" /> auslï¿½sen (javascript)
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>

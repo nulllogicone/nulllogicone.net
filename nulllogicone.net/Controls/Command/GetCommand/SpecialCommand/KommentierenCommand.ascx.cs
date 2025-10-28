@@ -27,7 +27,7 @@ namespace OliWeb.Controls.Command.GetCommand.SpecialCommand
             if (Stamm != null &&
                 PostIt != null &&
                 Stamm.BinIchEingeloggt &&
-//				PostIt.BinIchMeinPostIt &&  // man sollte eine Antwort auch kommentieren dürfen, wenn es nicht das eigene PostIt ist
+//				PostIt.BinIchMeinPostIt &&  // man sollte eine Antwort auch kommentieren dï¿½rfen, wenn es nicht das eigene PostIt ist
                 TopLab != null)
             {
                 HyperLink1.Visible = true;
@@ -43,13 +43,13 @@ namespace OliWeb.Controls.Command.GetCommand.SpecialCommand
 
         protected override void OnInit(EventArgs e)
         {
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
         ///</summary>
         private void InitializeComponent()
         {

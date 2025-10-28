@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj",
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj",
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj"
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -44,14 +44,14 @@
                 "build-nulllogicone-api"
             ],
             "dockerBuild": {
-                "tag": "nulllogiconeapi:dev",
+                "tag": "NulllogiconeCore:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/Dockerfile",
-                "context": "${workspaceFolder}/NulllogiconeApi",
+                "dockerfile": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/Dockerfile",
+                "context": "${workspaceFolder}/NulllogiconeCore",
                 "pull": true
             },
-            "netCore": {
-                "appProject": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj"
+                "netCore": {
+                "appProject": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj"
             }
         },
         {
@@ -62,7 +62,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/NulllogiconeApi/NulllogiconeApi/NulllogiconeApi.csproj",
+                "appProject": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
                 "enableDebugging": true
             }
         }

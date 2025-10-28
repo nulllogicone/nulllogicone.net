@@ -10,8 +10,8 @@ using OliWeb.Klassen;
 namespace OliWeb.Sites.Elemente
 {
     /// <summary>
-    ///     Diese Seite zeigt die neuesten Stämme, Angler, Nachrichten und Antworten.
-    ///     Sie enthält einfach das <see cref="Controls.Floor.Journal.JournalControl" /> ohne weiteren Code.
+    ///     Diese Seite zeigt die neuesten Stï¿½mme, Angler, Nachrichten und Antworten.
+    ///     Sie enthï¿½lt einfach das <see cref="Controls.Floor.Journal.JournalControl" /> ohne weiteren Code.
     /// </summary>
     public partial class Journal : BasePage
     {
@@ -20,15 +20,15 @@ namespace OliWeb.Sites.Elemente
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

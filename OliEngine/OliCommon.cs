@@ -10,17 +10,17 @@ namespace OliEngine
 {
     ///<summary>
     ///    OliCommon ist eine abstrakte Klasse mit Statischen Methoden 
-    ///    für allgemeine Umgebungsvariablen
+    ///    fï¿½r allgemeine Umgebungsvariablen
     ///</summary>
     ///<remarks>
     ///    Diese Klasse ist abstract - es sollen keine Objekte 
-    ///    instantiiert werden können
+    ///    instantiiert werden kï¿½nnen
     ///
     ///    Die meisten Funktionen sind statisch implementiert
-    ///    und liefern nur feste Werte zurück
+    ///    und liefern nur feste Werte zurï¿½ck
     ///
     ///    Sie liest Werte aus der Web.Config Datei aus und stellt
-    ///    sie als statische Eigenschaften zur Verfügung
+    ///    sie als statische Eigenschaften zur Verfï¿½gung
     ///</remarks>
     public abstract class OliCommon
     {
@@ -45,14 +45,14 @@ namespace OliEngine
             get
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("\n\n-- \nDiese Nachricht wurde über www.oli-it.com versendet.");
+                sb.Append("\n\n-- \nDiese Nachricht wurde ï¿½ber www.oli-it.com versendet.");
                 sb.Append("\nBei Missbrauch bitte Mitteilung an info@oli-it.com");
                 return sb.ToString();
             }
         }
 
         /// <summary>
-        ///     DbServer Eine Enumerations-Eigenschaft, über die man
+        ///     DbServer Eine Enumerations-Eigenschaft, ï¿½ber die man
         ///     den Server einstellen kann
         /// </summary>
         public static DbServer MyDbServer { get; set; }
@@ -124,7 +124,7 @@ namespace OliEngine
         }
 
         // FristOffset
-        // für angewurzelte Stämme ....
+        // fï¿½r angewurzelte Stï¿½mme ....
         public static int FristOffset
         {
             get { return (10); }

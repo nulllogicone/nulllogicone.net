@@ -27,7 +27,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -71,7 +71,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		{
 			PostItDataGrid.PageSize = this.ZeilenZahl;
 
-			// Title und Spaltenüberschriften auf Q
+			// Title und Spaltenï¿½berschriften auf Q
 			if(this.OliUser.Stamm != null)
 			{
 				TitleLabel.Text = this.OliUser.Stamm.Q.S_P ;
@@ -200,3 +200,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
 	}
 }
+

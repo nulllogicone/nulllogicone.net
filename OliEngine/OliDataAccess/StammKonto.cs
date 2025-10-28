@@ -9,7 +9,7 @@ using OliEngine.DataSetTypes;
 namespace OliEngine.OliDataAccess
 {
     /// <summary>
-    ///     Zusammenfassung für StammKonto.
+    ///     Zusammenfassung fï¿½r StammKonto.
     /// </summary>
     public class StammKonto : StammKontoDataSet
     {

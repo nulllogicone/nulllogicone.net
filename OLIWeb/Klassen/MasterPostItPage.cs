@@ -9,9 +9,9 @@ using OliEngine;
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     ist eine Oberklasse für alle Seiten, auf denen
+    ///     ist eine Oberklasse fï¿½r alle Seiten, auf denen
     ///     ein PostIt dargestellt wird. Sie setzt die MyTitle Eigenschaft und
-    ///     stellt sicher, daß ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
+    ///     stellt sicher, daï¿½ ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
     /// </summary>
     public class MasterPostItPage : MasterStammPage
     {
@@ -19,11 +19,11 @@ namespace OliWeb.Klassen
         ///     CheckPreCondition()
         /// 
         ///     Diese Methode wird in der basis beim Init Ereignis aufgerufen
-        ///     Sie wird hier überschrieben um zusätzlich auf das Vorhandensein
-        ///     eines <b>PostIt-objektes</b> zu prüfen.
+        ///     Sie wird hier ï¿½berschrieben um zusï¿½tzlich auf das Vorhandensein
+        ///     eines <b>PostIt-objektes</b> zu prï¿½fen.
         /// 
         ///     Wenn die hiervon abgeleiteten aspx Seiten diese Methode
-        ///     wiederrum überschreiben bitte den base-Aufruf nicht vergessen 
+        ///     wiederrum ï¿½berschreiben bitte den base-Aufruf nicht vergessen 
         /// 
         ///     <code>base.CheckPreCondition()</code>
         /// </summary>
@@ -36,7 +36,7 @@ namespace OliWeb.Klassen
                           Request.QueryString["cmd"] == "newP";
             if (cmdnew)
             {
-                // Cookie - Prüfung
+                // Cookie - Prï¿½fung
                 string sess = Session.SessionID;
                 string prevsess = Request["prevSessionId"];
 
@@ -50,7 +50,7 @@ namespace OliWeb.Klassen
                 Response.Redirect("~/Sites/Edit/PostItMaker.aspx");
             }
 
-                // wenn kein PostIt und auch kein neues hinzugefügt werden soll
+                // wenn kein PostIt und auch kein neues hinzugefï¿½gt werden soll
                 // => Redirect
             else if (OliUser.Stamm.PostIt == null)
             {
@@ -60,7 +60,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     MyTitle wird in dieser Klasse mit dem gekürzten Text des PostIt überschrieben.
+        ///     MyTitle wird in dieser Klasse mit dem gekï¿½rzten Text des PostIt ï¿½berschrieben.
         /// </summary>
         protected override string MyTitle
         {
@@ -69,7 +69,7 @@ namespace OliWeb.Klassen
                 string s = "";
                 // Titel
                 s += PostIt.PostItRow.IsTitelNull() ? "" : PostIt.PostItRow.Titel + " - ";
-                // Gekürzte PostIt
+                // Gekï¿½rzte PostIt
                 s += OliUtil.FirstXWords(PostIt.PostItRow.PostIt, 10);
 
                 return s;
@@ -77,7 +77,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     PostItRdfLink wird in dieser Klasse mit dem Link auf das RDF Dokument überschrieben.
+        ///     PostItRdfLink wird in dieser Klasse mit dem Link auf das RDF Dokument ï¿½berschrieben.
         /// </summary>
         protected string PostItRdfLink
         {

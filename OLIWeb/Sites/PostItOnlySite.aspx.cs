@@ -15,7 +15,7 @@ namespace OliWeb.Sites
     /// </summary>
     public partial class PostItOnlySite : MasterPostItPage
     {
-        protected LinkButton EmpfängerLinkButton;
+        protected LinkButton Empfï¿½ngerLinkButton;
 
         // Member
         // ------

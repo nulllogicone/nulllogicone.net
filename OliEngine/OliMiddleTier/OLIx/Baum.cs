@@ -12,9 +12,9 @@ namespace OliEngine.OliMiddleTier.OLIx
 {
     /// <summary>
     ///     Ein Baum ist im semantischen Wortraum eine Hierarchieebene.
-    ///     Ein Baum besteht aus Zweigen, die Alternativen darstellen und zu Netzen oder Bäumen weiterverzweigen.
+    ///     Ein Baum besteht aus Zweigen, die Alternativen darstellen und zu Netzen oder Bï¿½umen weiterverzweigen.
     ///     Ein Baum kann mehrfach verlinkt werden.
-    ///     Die Defaultmarkierung wird aus dem verlinkenden Knoten übernommen.
+    ///     Die Defaultmarkierung wird aus dem verlinkenden Knoten ï¿½bernommen.
     /// </summary>
     public class Baum : BaumDataSet
     {
@@ -73,7 +73,7 @@ namespace OliEngine.OliMiddleTier.OLIx
                             select k;
             foreach (NKBZDataSet.KnotenRow k in vonKnoten)
             {
-                // gib den rekursiven Pfad zurück
+                // gib den rekursiven Pfad zurï¿½ck
                 Netz vonNetz = new Netz(k.NetzGuid);
 
                 foreach (List<HyperLink> linklist in vonNetz.PathToRoot())
@@ -94,7 +94,7 @@ namespace OliEngine.OliMiddleTier.OLIx
                              select z;
             foreach (NKBZDataSet.ZweigRow z in vonZweigen)
             {
-                // gib den rekursiven Pfad zurück
+                // gib den rekursiven Pfad zurï¿½ck
                 Baum vonBaum = new Baum(z.BaumGuid);
 
                 List<List<HyperLink>> pathVonBaum = vonBaum.PathToRoot();

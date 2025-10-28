@@ -10,7 +10,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 {
     /// <summary>
     ///     Ein Knoten ist ein Teil von einem Netz.
-    ///     Sie können sich semantisch überschneiden und stellen eine Ansammlung von Unterpunkten dar.
+    ///     Sie kï¿½nnen sich semantisch ï¿½berschneiden und stellen eine Ansammlung von Unterpunkten dar.
     /// </summary>
     public class Knoten : KnotenDataSet
     {

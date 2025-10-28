@@ -7,7 +7,7 @@ using System;
 namespace nulllogicone.net
 {
     /// <summary>
-    ///     Zusammenfassung für Global.
+    ///     Zusammenfassung fï¿½r Global.
     /// </summary>
     public class Global : System.Web.HttpApplication
     {
@@ -56,8 +56,8 @@ namespace nulllogicone.net
         #region Vom Web Form-Designer generierter Code
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

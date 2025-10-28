@@ -7,7 +7,7 @@ using OliEngine.OliMiddleTier.OLIx;
 namespace OliEngine.OliMiddleTier.OLIs
 {
     /// <summary>
-    ///     Zusammenfassung für IMarkierer.
+    ///     Zusammenfassung fï¿½r IMarkierer.
     /// </summary>
     public interface IMarkierer
     {

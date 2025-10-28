@@ -8,13 +8,13 @@ using OliWeb.Klassen;
 namespace nulllogicone.net
 {
     /// <summary>
-    ///     Zusammenfassung für WebForm1.
+    ///     Zusammenfassung fï¿½r WebForm1.
     /// </summary>
     public partial class _default : BasePage
     {
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            // Hier Benutzercode zur Seiteninitialisierung einfügen
+            // Hier Benutzercode zur Seiteninitialisierung einfï¿½gen
         }
     }
 }

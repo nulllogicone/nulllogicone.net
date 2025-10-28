@@ -1,4 +1,4 @@
-﻿
+
 using Azure.Storage.Queues;
 using Newtonsoft.Json;
 using System;
@@ -50,3 +50,4 @@ namespace OliEngine.OliDataAccess.Functions
         }
     }
 }
+

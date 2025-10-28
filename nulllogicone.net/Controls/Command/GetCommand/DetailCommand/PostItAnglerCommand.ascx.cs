@@ -20,13 +20,13 @@ namespace OliWeb.Controls.Command.GetCommand.DetailCommand
                             Helper.MakeBaseLink() + "images/icons/Symbole/Angler.jpg'>";
             HyperLink1.NavigateUrl = "";
             HyperLink1.Visible = false;
-            HyperLink1.ToolTip = "Empfänger dieser Nachricht";
+            HyperLink1.ToolTip = "Empfï¿½nger dieser Nachricht";
 
             if (Stamm != null)
             {
                 if (Stamm.PostIt != null)
                 {
-                    HyperLink1.Text = imgsrc + " Empfänger (" + PostIt.MyEmpfaenger.Count + ")";
+                    HyperLink1.Text = imgsrc + " Empfï¿½nger (" + PostIt.MyEmpfaenger.Count + ")";
                     HyperLink1.NavigateUrl = Helper.MakeBaseLink() + "Sites/PostItAnglerSite.aspx?pguid=" +
                                              PostIt.PostItRow.PostItGuid;
                     HyperLink1.Visible = true;
@@ -43,13 +43,13 @@ namespace OliWeb.Controls.Command.GetCommand.DetailCommand
 
         protected override void OnInit(EventArgs e)
         {
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
         ///</summary>
         private void InitializeComponent()
         {

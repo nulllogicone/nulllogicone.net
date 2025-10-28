@@ -50,7 +50,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             cr.Versionsnummer = OliCommon.WortraumVersion;
             cr.CodeGuid = Guid.NewGuid();
 
-            // Hinzufügen und update
+            // Hinzufï¿½gen und update
             code.Code.AddCodeRow(cr);
             code.UpdateCode();
 
@@ -67,7 +67,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             get { return (zellBuilder); }
         }
 
-        // MyEmpfänger
+        // MyEmpfï¿½nger
         public StammList MyEmpfaenger
         {
             get
@@ -126,8 +126,8 @@ namespace OliEngine.OliMiddleTier.OLIs
         ///     IMarkierer - Schnittstellenimplementierung. Ist dieser Knoten im Code enthalten?
         ///     Wenn ja wie ist er markiert.
         /// </summary>
-        /// <param name = "kr">zu überprüfender Knoten</param>
-        /// <returns>Die Zahlen für OLIs und Get aneinandergehängt</returns>
+        /// <param name = "kr">zu ï¿½berprï¿½fender Knoten</param>
+        /// <returns>Die Zahlen fï¿½r OLIs und Get aneinandergehï¿½ngt</returns>
         public string IsInString(KnotenDataSet.KnotenRow kr)
         {
             foreach (CodeDataSet.RingeRow rr in MyRinge)
@@ -145,8 +145,8 @@ namespace OliEngine.OliMiddleTier.OLIs
         ///     Wenn ja wie ist er markiert.
         /// </summary>
         /// <param name = "kr">Letzter Knoten von dem dieser Zweig ausging</param>
-        /// <param name = "zr">zu überprüfende Zweigreihe</param>
-        /// <returns>OLIs und Get anenandergehängt</returns>
+        /// <param name = "zr">zu ï¿½berprï¿½fende Zweigreihe</param>
+        /// <returns>OLIs und Get anenandergehï¿½ngt</returns>
         public string IsInString(KnotenDataSet.KnotenRow kr, ZweigDataSet.ZweigRow zr)
         {
             foreach (CodeDataSet.RingeRow rr in MyRinge)
@@ -177,7 +177,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 rr.OLIs = kr.VgbOLIs;
                 rr.Get = kr.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 MyRinge.Rows.Add(rr);
 
                 // Update
@@ -186,7 +186,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         }
 
         /// <summary>
-        ///     markiert einen Zweig (mit übergeordnetem Knoten)
+        ///     markiert einen Zweig (mit ï¿½bergeordnetem Knoten)
         /// </summary>
         /// <param name = "kr"></param>
         /// <param name = "zr"></param>
@@ -206,7 +206,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 rr.OLIs = kr.VgbOLIs;
                 rr.Get = kr.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 MyRinge.Rows.Add(rr);
 
                 // Update
@@ -245,7 +245,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         }
 
         /// <summary>
-        ///     löscht eine Knotenmarkierung
+        ///     lï¿½scht eine Knotenmarkierung
         /// </summary>
         /// <param name = "kr"></param>
         public void Clear(KnotenDataSet.KnotenRow kr)
@@ -261,7 +261,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         }
 
         /// <summary>
-        ///     löscht eine Zweigmarkierung (unterhalb des angegebenen Knotens)
+        ///     lï¿½scht eine Zweigmarkierung (unterhalb des angegebenen Knotens)
         /// </summary>
         /// <param name = "kr"></param>
         /// <param name = "zr"></param>
@@ -358,7 +358,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 xw.WriteEndElement();
             }
 
-            // -- alle Ringe -- (könnte ein 'Bag' werden)
+            // -- alle Ringe -- (kï¿½nnte ein 'Bag' werden)
             xw.WriteComment("CodeRinge - die einzelnen Markierungen (Quadruptel + bunte Punkte)");
             xw.WriteComment("==================================================================");
             foreach (DataRow dr in c.MyRinge)

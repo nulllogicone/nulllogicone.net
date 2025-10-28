@@ -23,13 +23,13 @@ namespace OliWeb.Sites.Edit
 
         protected override void OnInit(EventArgs e)
         {
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
         /// </summary>
         private void InitializeComponent()
         {

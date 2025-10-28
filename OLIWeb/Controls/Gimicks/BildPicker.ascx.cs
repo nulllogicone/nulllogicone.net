@@ -19,18 +19,18 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Gimicks
 {
     /// <summary>
-    ///     gekachelte Ansicht der Bilder aus dem dem Stamm-Unterordner mit Möglichkeit
-    ///     für Upload und Auswahl.
+    ///     gekachelte Ansicht der Bilder aus dem dem Stamm-Unterordner mit Mï¿½glichkeit
+    ///     fï¿½r Upload und Auswahl.
     /// </summary>
     public partial class BildPicker : MasterControl
     {
         /// <summary>
-        ///     Wenn ein Bild ausgewählt wurde, kann das Ereignis behandelt werden.
+        ///     Wenn ein Bild ausgewï¿½hlt wurde, kann das Ereignis behandelt werden.
         /// </summary>
         public delegate void BildSelectEventHandler(BildPicker sender, BildSelectEventArgs e);
 
         /// <summary>
-        ///     Größenbeschränkung für Bilddateien, die auf den Server hochgeladen werden sollen
+        ///     Grï¿½ï¿½enbeschrï¿½nkung fï¿½r Bilddateien, die auf den Server hochgeladen werden sollen
         /// </summary>
         protected const int MAXFILESIZE = 200000;
 
@@ -49,24 +49,24 @@ namespace OliWeb.Controls.Gimicks
         protected HtmlInputFile FileSelect;
 
         /// <summary>
-        ///     kleiner, grüner Pfeil
+        ///     kleiner, grï¿½ner Pfeil
         /// </summary>
         protected Image OkImage;
 
         private string sguid;
 
         /// <summary>
-        ///     stößt den Bildupload an
+        ///     stï¿½ï¿½t den Bildupload an
         /// </summary>
         protected HtmlInputButton UploadButton;
 
         /// <summary>
-        ///     Das Ereignis wird gefeuert wenn ein Bild ausgewählt wurde.
+        ///     Das Ereignis wird gefeuert wenn ein Bild ausgewï¿½hlt wurde.
         /// </summary>
         public event BildSelectEventHandler BildSelect;
 
         /// <summary>
-        ///     beim ersten Laden des Controls wird die ListBox gefüllt
+        ///     beim ersten Laden des Controls wird die ListBox gefï¿½llt
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>
@@ -129,7 +129,7 @@ namespace OliWeb.Controls.Gimicks
         }
 
         /// <summary>
-        ///     nachdem ein Bild auf der lokalen Platte ausgewählt wurde, muss man auf den
+        ///     nachdem ein Bild auf der lokalen Platte ausgewï¿½hlt wurde, muss man auf den
         ///     UploadButton klicken. Wenn es kleiner als MAXFILESIZE ist, wird es in den
         ///     Unterordner des Stammes auf dem Webserver gespeichert.
         /// </summary>
@@ -162,13 +162,13 @@ namespace OliWeb.Controls.Gimicks
     }
 
     /// <summary>
-    ///     Wenn ein Bild ausgewählt wurde, wird ein Ereignis ausgelöst und der Dateiname
-    ///     als Argument übergeben.
+    ///     Wenn ein Bild ausgewï¿½hlt wurde, wird ein Ereignis ausgelï¿½st und der Dateiname
+    ///     als Argument ï¿½bergeben.
     /// </summary>
     public class BildSelectEventArgs : EventArgs
     {
         /// <summary>
-        ///     der Name des ausgewählten Bildes
+        ///     der Name des ausgewï¿½hlten Bildes
         /// </summary>
         public string dateiName;
 

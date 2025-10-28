@@ -32,7 +32,7 @@ namespace OliEngine.OliMiddleTier.ZellHaufen
         /// <summary>
         ///     welcher Markierer steckt hinter diesem Zellbuilder.
         ///     Ein markierer arbeitet auf Code, Angler, ShortCut oder es ist ein Nullmarkierer.
-        ///     Wenn er zugewiesen wird, wird die Wurzel mit den daranhängenden Markierungen gefüllt.
+        ///     Wenn er zugewiesen wird, wird die Wurzel mit den daranhï¿½ngenden Markierungen gefï¿½llt.
         /// </summary>
         public Markierer.Markierer Markierer
         {
@@ -48,7 +48,7 @@ namespace OliEngine.OliMiddleTier.ZellHaufen
         // --------
 
         /// <summary>
-        ///     wenn es nicht von hier nicht weitergeht werden alle Knoten bzw. Zweige geöffnet
+        ///     wenn es nicht von hier nicht weitergeht werden alle Knoten bzw. Zweige geï¿½ffnet
         ///     sonst wird alles weitere entfernt
         /// </summary>
         /// <param name = "toggleZelle"></param>

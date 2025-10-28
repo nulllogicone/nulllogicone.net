@@ -9,7 +9,7 @@ using OliWeb.Klassen;
 namespace nulllogicone.net
 {
     /// <summary>
-    ///     Zusammenfassung für Instanzen.
+    ///     Zusammenfassung fï¿½r Instanzen.
     /// </summary>
     public partial class Instanzen : BasePage
     {
@@ -60,15 +60,15 @@ namespace nulllogicone.net
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

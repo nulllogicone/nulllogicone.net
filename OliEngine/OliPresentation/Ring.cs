@@ -3,7 +3,7 @@ using System;
 namespace OliEngine.OliPresentation
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für Ringe.
+	/// Zusammendfassende Beschreibung fï¿½r Ringe.
 	/// </summary>
 	public class Ring 
 	{
@@ -42,3 +42,4 @@ namespace OliEngine.OliPresentation
 		}
 	}
 }
+

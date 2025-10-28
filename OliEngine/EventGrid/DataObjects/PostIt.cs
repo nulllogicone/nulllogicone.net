@@ -1,4 +1,4 @@
-﻿using OliEngine.DataSetTypes;
+using OliEngine.DataSetTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,3 +21,4 @@ namespace OliEngine.EventGrid.DataObjects
         public string Title {  get; set; }
     }
 }
+

@@ -96,7 +96,7 @@ public class TopLab
 
 ## 3. Project Structure
 ```
-NulllogiconeApi/
+NulllogiconeCore/
 ├── Controllers/
 │   ├── StammEndpoints.cs
 │   ├── PostItEndpoints.cs
@@ -140,7 +140,7 @@ NulllogiconeApi/
 
 ### Starting the API
 ```bash
-cd NulllogiconeApi/NulllogiconeApi
+cd NulllogiconeCore/NulllogiconeCore
 dotnet run
 ```
 

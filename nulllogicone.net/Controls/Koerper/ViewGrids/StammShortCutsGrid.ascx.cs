@@ -28,7 +28,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
 		private void Page_Load(object sender, System.EventArgs e)
 		{
-			// wenn ShortCuts ausgewählt immer als Wortraum zeigen
+			// wenn ShortCuts ausgewï¿½hlt immer als Wortraum zeigen
 			if(this.OliUser.Stamm.ShortCuts != null)
 			{
 				WortraumController1.Werbefrei = this.OliUser.Stamm.Extras.ExtrasRow.werbefrei ;
@@ -45,7 +45,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 			ShortCutsDataGrid.DataSource = this.OliUser.Stamm.MyShortCuts;
 			ShortCutsDataGrid.DataBind();
 
-			// wenn ShortCuts ausgewählt => Wortraum zeigen
+			// wenn ShortCuts ausgewï¿½hlt => Wortraum zeigen
 			if(this.OliUser.Stamm.ShortCuts != null)
 			{
 				WortraumController1.Werbefrei = this.OliUser.Stamm.Extras.ExtrasRow.werbefrei ;
@@ -58,13 +58,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		#region Vom Web Form-Designer generierter Code
 		override protected void OnInit(EventArgs e)
 		{
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			InitializeComponent();
 			base.OnInit(e);
 		}
 		
 		/// <summary>
-		///		Erforderliche Methode für die Designerunterstützung
+		///		Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
 		/// </summary>
 		private void InitializeComponent()
 		{
@@ -94,14 +94,14 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 			ShortCutsDataGrid.DataKeyField = "ShortCutsGuid";
 			Guid scguid = (Guid)ShortCutsDataGrid.DataKeys[e.Item.ItemIndex];
 			
-			// auswählen
+			// auswï¿½hlen
 			if (e.CommandName == "ok" || e.CommandName == "select" || e.CommandName == "Edit")
 			{
 				ShortCutsDataGrid.EditItemIndex = e.Item.ItemIndex;
 
 				// ShowShortCuts
 				this.OliUser.Stamm.ShowShortCuts(scguid);				
-				this.OliUser.Nachricht = "ShortCuts ausgewählt";
+				this.OliUser.Nachricht = "ShortCuts ausgewï¿½hlt";
 			}
 
 //			// CopyShortCutsToCode
@@ -128,7 +128,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 				sc.UpdateShortCuts();
 				this.OliUser.Stamm.MyShortCuts = null;
 				this.OliUser.Stamm.ShortCuts = null;
-				this.OliUser.Nachricht = "ShortCuts gelöscht";
+				this.OliUser.Nachricht = "ShortCuts gelï¿½scht";
 
 			}
 		}
@@ -158,3 +158,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		}
 	}
 }
+

@@ -35,7 +35,7 @@ namespace OliWeb.Klassen
         /// <summary>
         ///     Konstrukor der ErrorMail.
         ///     Diese Klasse ist ziemlich veraltet - wird aber noch genutzt.
-        ///     Deshalb verhält sie sich ganz passiv - beim kleinsten Fehler passiert
+        ///     Deshalb verhï¿½lt sie sich ganz passiv - beim kleinsten Fehler passiert
         ///     einfach nichts.
         /// </summary>
         /// <param name="error"> der geworfene Fehler </param>
@@ -50,7 +50,7 @@ namespace OliWeb.Klassen
 
                 // IP Adresse aus Request holen
                 string ip = ctx.Request.UserHostAddress;
-                // Versuchen die ip aufzulösen
+                // Versuchen die ip aufzulï¿½sen
                 try
                 {
                     if (ip != null)

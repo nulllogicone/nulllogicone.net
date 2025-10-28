@@ -11,9 +11,9 @@ namespace OliWeb.Controls.Koerper
 	using OliWeb.Klassen;
 
 	/// <summary>
-	///	wird als oberstes Element auf den Seiten eingebunden. Es enthält
-	///	das <see cref="Floor.LogoControl"/>, daneben Platz für <b>Nachrichten</b> und das <see cref="Floor.EinAusLoggen"/>-Control.
-	///	Ausserdem enthält es die <see cref="CommandBar"/> als vertikale Menüleiste.
+	///	wird als oberstes Element auf den Seiten eingebunden. Es enthï¿½lt
+	///	das <see cref="Floor.LogoControl"/>, daneben Platz fï¿½r <b>Nachrichten</b> und das <see cref="Floor.EinAusLoggen"/>-Control.
+	///	Ausserdem enthï¿½lt es die <see cref="CommandBar"/> als vertikale Menï¿½leiste.
 	/// </summary>
 	public abstract class Kopf : MasterControl
 	{
@@ -23,7 +23,7 @@ namespace OliWeb.Controls.Koerper
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -69,3 +69,4 @@ namespace OliWeb.Controls.Koerper
 		}
 	}
 }
+

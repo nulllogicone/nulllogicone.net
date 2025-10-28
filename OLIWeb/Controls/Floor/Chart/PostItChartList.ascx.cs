@@ -16,7 +16,7 @@ namespace OliWeb.Controls.Floor.Chart
     public partial class PostItChartList : MasterControl
     {
         /// <summary>
-        ///     für die Darstellung der PostIt
+        ///     fï¿½r die Darstellung der PostIt
         /// </summary>
         protected Repeater PostItRepeater;
 
@@ -25,15 +25,15 @@ namespace OliWeb.Controls.Floor.Chart
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {
@@ -42,7 +42,7 @@ namespace OliWeb.Controls.Floor.Chart
         #endregion
 
         /// <summary>
-        ///     Die Daten werden diesem Control von außen übergeben, da es für
+        ///     Die Daten werden diesem Control von auï¿½en ï¿½bergeben, da es fï¿½r
         ///     unterschiedliche Werte verwendet werden kann. Danach bindet es
         ///     sein darstellendes Steuerelement (DataGrid oder Repeater).
         /// </summary>

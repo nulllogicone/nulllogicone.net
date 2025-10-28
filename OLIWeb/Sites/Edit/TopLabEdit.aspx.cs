@@ -25,9 +25,9 @@ namespace OliWeb.Sites.Edit
         /// <summary>
         ///     CheckPreCondition
         ///     Wenn die BasisBasePage Initialisiert wird, wird 
-        ///     auf das vorhandensein eine Stamm geprüft.
+        ///     auf das vorhandensein eine Stamm geprï¿½ft.
         ///     Auf dieser Seite muss er auch noch eingeloggt sein
-        ///     und ein TopLab bestehen - oder das cmd=new übergeben werden.
+        ///     und ein TopLab bestehen - oder das cmd=new ï¿½bergeben werden.
         /// </summary>
         protected override void CheckPreCondition()
         {
@@ -60,7 +60,7 @@ namespace OliWeb.Sites.Edit
             // BildPicker1
             BildPicker1.BildSelect += OnBildSelect;
 
-            // darf man den Nachrichten Typ verändern
+            // darf man den Nachrichten Typ verï¿½ndern
             TypDropDownList.Visible = !Stamm.Extras.ExtrasRow.TxtOnly;
 
             if (!IsPostBack)
@@ -83,7 +83,7 @@ namespace OliWeb.Sites.Edit
                     // Wenn TopLab eine neue Reihe ist => editierMode
                     if (fbr.RowState == DataRowState.Added)
                     {
-                        UpdateButton.Text = "hinzufügen";
+                        UpdateButton.Text = "hinzufï¿½gen";
 
                         //						// Alle Buttons disablen
                         //						Helper.SetAllButtons(this.Page.Controls, false);
@@ -146,15 +146,15 @@ namespace OliWeb.Sites.Edit
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -169,7 +169,7 @@ namespace OliWeb.Sites.Edit
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
-            // ich will Dich küssen
+            // ich will Dich kï¿½ssen
             // ~~~~~~~~~~~~~~~~~~~~
             if (TopLabTextBox.Text.Length > 0)
             {

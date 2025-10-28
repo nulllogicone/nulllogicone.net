@@ -26,7 +26,7 @@ namespace OliWeb.Controls.Command.GetCommand.SpecialCommand
             if (Stamm != null &&
                 PostIt != null &&
                 Stamm.BinIchEingeloggt &&
-//				PostIt.BinIchMeinPostIt &&  // man sollte eine Antwort auch kommentieren dürfen, wenn es nicht das eigene PostIt ist
+//				PostIt.BinIchMeinPostIt &&  // man sollte eine Antwort auch kommentieren dï¿½rfen, wenn es nicht das eigene PostIt ist
                 TopLab != null)
             {
                 HyperLink1.NavigateUrl = "~/Sites/Edit/TopLabAufTopLab.aspx";

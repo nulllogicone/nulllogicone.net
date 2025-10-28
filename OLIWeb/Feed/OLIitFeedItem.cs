@@ -12,8 +12,9 @@ namespace OliWeb.Feed
 		public OLIitFeedItem()
 		{
 			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
+			// TODO: Fï¿½gen Sie hier die Konstruktorlogik hinzu
 			//
 		}
 	}
 }
+

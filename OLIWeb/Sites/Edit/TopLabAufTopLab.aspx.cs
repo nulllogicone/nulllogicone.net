@@ -22,7 +22,7 @@ namespace OliWeb.Sites.Edit
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Titel von der vorigen Antwort übernehmen:
+            //Titel von der vorigen Antwort ï¿½bernehmen:
             if (!IsPostBack)
             {
                 TitelTextBox.Text = TopLab.TopLabRow.IsTitelNull() ? "" : TopLab.TopLabRow.Titel;
@@ -36,15 +36,15 @@ namespace OliWeb.Sites.Edit
         //protected override void OnInit(EventArgs e)
         //{
         //    //
-        //    // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+        //    // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
         //    //
         //    InitializeComponent();
         //    base.OnInit(e);
         //}
 
         ///// <summary>
-        /////     Erforderliche Methode für die Designerunterstützung. 
-        /////     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        /////     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        /////     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///// </summary>
         //private void InitializeComponent()
         //{
@@ -57,7 +57,7 @@ namespace OliWeb.Sites.Edit
             string titel = HttpUtility.HtmlEncode(TitelTextBox.Text);
             string text = HttpUtility.HtmlEncode(TextBox1.Text);
             OliUser.Stamm.TopLab.AddTopLab(OliUser, titel, text);
-            OliUser.Nachricht = "Es wurde eine Antwort auf die Antwort hinzugefügt";
+            OliUser.Nachricht = "Es wurde eine Antwort auf die Antwort hinzugefï¿½gt";
             Helper.RedirectToSite();
         }
 

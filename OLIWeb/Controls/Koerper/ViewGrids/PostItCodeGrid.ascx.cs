@@ -43,7 +43,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         protected void Page_Load(object sender, EventArgs e)
         {
             // wenn es nur einen Code gibt => diesen anzeigen
-            // da das Control auch im PostItMaker verwendet wird und es dann auch immer weiterleiten würde
+            // da das Control auch im PostItMaker verwendet wird und es dann auch immer weiterleiten wï¿½rde
             // noch ein Test ob es auf der richtigen Seite ist
             if (Page is PostItCodeSite)
             {
@@ -73,11 +73,11 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             {
                 Label l = new Label();
                 l.Text =
-                    "<div style='font-size:8pt; text-align:center'>keine Markierung für diese Nachricht vorhanden</div><hr />";
+                    "<div style='font-size:8pt; text-align:center'>keine Markierung fï¿½r diese Nachricht vorhanden</div><hr />";
                 Controls.Add(l);
             }
 
-            // die eigenen Codes darf man löschen
+            // die eigenen Codes darf man lï¿½schen
             if (Stamm.BinIchEingeloggt && Stamm.PostIt.BinIchMeinPostIt)
             {
                 CodeDataGrid.Columns[CodeDataGridDelColumnIndex].Visible = true;
@@ -88,13 +88,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
         protected override void OnInit(EventArgs e)
         {
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
         ///</summary>
         private void InitializeComponent()
         {
@@ -116,7 +116,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //				Helper.RedirectToSite();
 //			}
 
-            // Code löschen
+            // Code lï¿½schen
             if (e.CommandName == "del")
             {
                 if (OliUser.Stamm.BinIchEingeloggt && PostIt.BinIchMeinPostIt)

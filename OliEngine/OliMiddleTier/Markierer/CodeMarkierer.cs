@@ -91,7 +91,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         }
 
         // IsInStrings(ref KnotenZelle)
-        public override bool IsInStrings(ref KnotenZelle kz) // Obacht: Parameter wird geändert!
+        public override bool IsInStrings(ref KnotenZelle kz) // Obacht: Parameter wird geï¿½ndert!
         {
             kz.VgbOLIs = -1;
             kz.VgbGet = -1;
@@ -113,7 +113,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         }
 
         // IsInStrings(ref ZweigZelle)
-        public override bool IsInStrings(ref ZweigZelle zz) // Obacht: Parameter wird geändert!
+        public override bool IsInStrings(ref ZweigZelle zz) // Obacht: Parameter wird geï¿½ndert!
         {
             zz.VgbOLIs = -1;
             zz.VgbGet = -1;
@@ -145,14 +145,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 rr.OLIs = kz.VgbOLIs;
                 rr.Get = kz.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(rr);
 
                 // Update
                 Code.UpdateRinge();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 code = new Code(CodeGuid);
 
                 // Farbpunkte setzen
@@ -179,14 +179,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 rr.OLIs = kz.VgbOLIs;
                 rr.Get = kz.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(rr);
 
                 // Update
                 Code.UpdateRinge();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 code = new Code(CodeGuid);
 
                 // Farbpunkte setzen

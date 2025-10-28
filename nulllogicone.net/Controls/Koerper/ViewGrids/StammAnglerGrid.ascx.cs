@@ -25,7 +25,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -62,13 +62,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		// OnPreRender
 		protected override void OnPreRender(EventArgs e)
 		{
-			// Title und Spaltenüberschriften auf Q
+			// Title und Spaltenï¿½berschriften auf Q
 			if(this.OliUser.Stamm != null)
 			{
 				TitleLabel.Text = this.OliUser.Stamm.Q.S_A + " (" + this.OliUser.Stamm.MyAngler.Rows.Count.ToString() + ")";
 				AnglerDataGrid.Columns[0].HeaderText = this.OliUser.Stamm.Q.A;
 
-				// für eingeloggten Stamm die Löschen - Spalte - Buttons zeigen
+				// fï¿½r eingeloggten Stamm die Lï¿½schen - Spalte - Buttons zeigen
 				AnglerDataGrid.Columns[3].Visible = this.OliUser.Stamm.BinIchEingeloggt;
 
 			}
@@ -92,7 +92,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 			if (dv.Count == 0)
 			{
 				Label l = new Label();
-				l.Text = "<div style='font-size:8pt; text-align:center'>Dieser Stamm hat noch keine Angler. <br>Sie können einen neuen erstellen</div><hr>";
+				l.Text = "<div style='font-size:8pt; text-align:center'>Dieser Stamm hat noch keine Angler. <br>Sie kï¿½nnen einen neuen erstellen</div><hr>";
 				this.Controls.Add(l);
 			}
 		}
@@ -115,7 +115,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 				Guid aguid = (Guid)AnglerDataGrid.DataKeys[e.Item.ItemIndex];
 				if(e.CommandName == "Delete")
 				{
-					// Den Angler löschen!
+					// Den Angler lï¿½schen!
 					Angler a = new Angler(this.OliUser.Stamm, aguid);
 					a.AnglerRow.Delete();
 					a.UpdateAngler();
@@ -130,7 +130,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //					Helper.RedirectToSite();
 				}
 
-				// wenn nicht gelöscht (und weitergeleitet) wurde
+				// wenn nicht gelï¿½scht (und weitergeleitet) wurde
 				// zuerst den Angler mit seinen Fischen zeigen
 				this.OliUser.Stamm.ShowAngler(aguid);
 
@@ -171,3 +171,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //		}
 	}
 }
+

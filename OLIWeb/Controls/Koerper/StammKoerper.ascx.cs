@@ -13,20 +13,20 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Koerper
 {
     ///<summary>
-    ///    aktueller Stamm in der Mittelschicht. An ihm hängen PostIt, Angler und TopLab.
-    ///    Er wird durch das <see cref="Organ.StammOrgan" /> Control mit Bild, Name, Beschreibung, Erstelldatum und seinem Vermögen (KooK)
-    ///    angezeigt. Oben rechts mit x - kann man ihn schließen.
+    ///    aktueller Stamm in der Mittelschicht. An ihm hï¿½ngen PostIt, Angler und TopLab.
+    ///    Er wird durch das <see cref="Organ.StammOrgan" /> Control mit Bild, Name, Beschreibung, Erstelldatum und seinem Vermï¿½gen (KooK)
+    ///    angezeigt. Oben rechts mit x - kann man ihn schlieï¿½en.
     ///</summary>
     public partial class StammKoerper : MasterControl
     {
         /// <summary>
-        ///     die Beschriftung für die Buttons wird aus einer individuell einstellbaren
+        ///     die Beschriftung fï¿½r die Buttons wird aus einer individuell einstellbaren
         ///     Tabelle genommen. Zuerst wird der Name des Sprachmusters genannt
         /// </summary>
         protected Label QLabel;
 
         /// <summary>
-        ///     Der Name für die Stamm-Entität (Urheber von Fragen, Verkäufer von Angeboten)
+        ///     Der Name fï¿½r die Stamm-Entitï¿½t (Urheber von Fragen, Verkï¿½ufer von Angeboten)
         /// </summary>
         protected Label QQLabel;
 
@@ -57,7 +57,7 @@ namespace OliWeb.Controls.Koerper
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);

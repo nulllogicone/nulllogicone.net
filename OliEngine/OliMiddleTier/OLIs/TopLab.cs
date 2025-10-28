@@ -26,7 +26,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         private Tollis tollis;
         private readonly Stamm stamm;
 
-        // hier gehören noch Eigenschaften daraus erstellt
+        // hier gehï¿½ren noch Eigenschaften daraus erstellt
         // TODO: - war nur grad zu sehr im Stress (nicht zu faul)
         public readonly Stamm MyStamm;
         public PostIt MyPostIt;
@@ -258,7 +258,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             // Top - TopLab
             if (!tr.IsTopTopLabGuidNull())
             {
-                xw.WriteComment("Top TopLab - übergeordnete Antwort");
+                xw.WriteComment("Top TopLab - ï¿½bergeordnete Antwort");
                 xw.WriteComment("==================================");
                 xw.WriteStartElement("nlo:topLabTopLab");
                 xw.WriteStartElement("nlo:TopLab");

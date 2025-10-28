@@ -4,11 +4,11 @@ using System.Collections;
 namespace OliEngine.OliPresentation
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für NetzKette.
+	/// Zusammendfassende Beschreibung fï¿½r NetzKette.
 	/// 
-	/// Die Klasse verhält sich wie ein Stack.
-	/// Es können NetzKettenGlieder (eingebettete Klasse)
-	/// eingefügt werden (ohne doppelte NetzID)
+	/// Die Klasse verhï¿½lt sich wie ein Stack.
+	/// Es kï¿½nnen NetzKettenGlieder (eingebettete Klasse)
+	/// eingefï¿½gt werden (ohne doppelte NetzID)
 	/// 
 	/// </summary>
 	public class NetzKette
@@ -20,7 +20,7 @@ namespace OliEngine.OliPresentation
 			_nk = new ArrayList();
 		}
 
-		// KettenGlieder gibt ein Array von NetzKettenGliedern zurück
+		// KettenGlieder gibt ein Array von NetzKettenGliedern zurï¿½ck
 		public ArrayList KettenGlieder
 		{
 			get{return(_nk);}
@@ -32,7 +32,7 @@ namespace OliEngine.OliPresentation
 			get{return(_nk.Count);}
 		}
 		
-		// neues KettenGlied dem Array hinzufügen
+		// neues KettenGlied dem Array hinzufï¿½gen
 		// gelingt nur wenn NetzID noch nicht vorhanden
 		public void Push(NetzKettenGlied nkg)
 		{
@@ -58,7 +58,7 @@ namespace OliEngine.OliPresentation
 			}
 		}
 
-		// Gibt das zuletzt eingefügte KettenGlied zurück
+		// Gibt das zuletzt eingefï¿½gte KettenGlied zurï¿½ck
 		// und entfert es aus dem Array
 		public NetzKettenGlied Pop()
 		{
@@ -101,3 +101,4 @@ namespace OliEngine.OliPresentation
 
 	}
 }
+

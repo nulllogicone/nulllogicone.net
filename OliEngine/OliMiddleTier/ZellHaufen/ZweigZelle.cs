@@ -44,7 +44,7 @@ namespace OliEngine.OliMiddleTier.ZellHaufen
                 z.Zweig.AddZweigRow(zr);
             }
 
-            // Zurückverknüpfen
+            // Zurï¿½ckverknï¿½pfen
             Parent.Childs.Add(this);
         }
 

@@ -23,7 +23,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -64,7 +64,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		// OnPreRender
 		protected override void OnPreRender (EventArgs e)
 		{
-			// Title und Spaltenüberschriften auf Q
+			// Title und Spaltenï¿½berschriften auf Q
 			TitleLabel.Text = "neue " + this.OliUser.Stamm.Q.T + " (" + Stamm.MyInbox.Rows.Count + ")";
 			InboxDataGrid.Columns[1].HeaderText = this.OliUser.Stamm.Q.P;
 			InboxDataGrid.Columns[2].HeaderText = this.OliUser.Stamm.Q.T;
@@ -176,3 +176,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //		}
 	}
 }
+

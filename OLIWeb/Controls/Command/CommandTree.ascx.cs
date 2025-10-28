@@ -11,7 +11,7 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Command
 {
     ///<summary>
-    ///    vertikale Menüdarstellung mit allen GET-Commands
+    ///    vertikale Menï¿½darstellung mit allen GET-Commands
     ///</summary>
     public partial class CommandTree : MasterControl
     {

@@ -15,8 +15,8 @@ namespace OliEngine.OliDataAccess.Views
     /// 
     ///     Das sind die Fische, die dem Angler ins Netz gehen.
     /// 
-    ///     Also alle Nachriten, die ein Angler-Filter erhält,
-    ///     mit ihren Anzahlen (Urheber, Antworten, Empfänger)
+    ///     Also alle Nachriten, die ein Angler-Filter erhï¿½lt,
+    ///     mit ihren Anzahlen (Urheber, Antworten, Empfï¿½nger)
     /// </summary>
     public class AnglerPostIt : AnglerPostItDataSet
     {

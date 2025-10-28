@@ -9,7 +9,7 @@ using OliEngine.DataSetTypes;
 namespace OliEngine.OliDataAccess
 {
     /// <summary>
-    ///     Zusammenfassung für PostItKonto.
+    ///     Zusammenfassung fï¿½r PostItKonto.
     /// </summary>
     public class PostItKonto : PostItKontoDataSet
     {

@@ -15,9 +15,9 @@ namespace OliEngine.OliDataAccess
     /// 
     ///     Konstruktor ohne Parameter liefert die Stamm-Tabelle
     /// 
-    ///     Man kann auch int für StammID übergeben oder
-    ///     eine Zeichenfolge. (es lässt sich nach genauer
-    ///     Übereinstimmung oder 'enthaltensein' suchen)
+    ///     Man kann auch int fï¿½r StammID ï¿½bergeben oder
+    ///     eine Zeichenfolge. (es lï¿½sst sich nach genauer
+    ///     ï¿½bereinstimmung oder 'enthaltensein' suchen)
     /// </summary>
     public class StammList : Stamm
     {
@@ -32,7 +32,7 @@ namespace OliEngine.OliDataAccess
             sad = new SqlDataAdapter();
             sad.SelectCommand = cmd;
 
-            // CommandBuilder für Update
+            // CommandBuilder fï¿½r Update
             SqlCommandBuilder cb = new SqlCommandBuilder(sad);
 
             sad.Fill(Stamm);

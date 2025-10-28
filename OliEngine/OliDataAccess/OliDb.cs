@@ -31,7 +31,7 @@ namespace OliEngine.OliDataAccess
             SqlDataAdapter ad = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
 
-            // Adapter füllt DataSet
+            // Adapter fï¿½llt DataSet
             ad.Fill(ds);
 
             return (ds.Tables[0]);

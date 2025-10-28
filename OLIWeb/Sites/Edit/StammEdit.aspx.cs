@@ -52,9 +52,9 @@ namespace OliWeb.Sites.Edit
         /// <summary>
         ///     CheckPreCondition
         ///     Wenn die BasisBasePage Initialisiert wird, wird 
-        ///     auf das vorhandensein eine Stamm geprüft.
+        ///     auf das vorhandensein eine Stamm geprï¿½ft.
         ///     Auf dieser Seite muss er auch noch eingeloggt sein
-        ///     oder über <c>cmd=new</c> hinzugefügt werden sollen.
+        ///     oder ï¿½ber <c>cmd=new</c> hinzugefï¿½gt werden sollen.
         /// </summary>
         protected override void CheckPreCondition()
         {
@@ -64,7 +64,7 @@ namespace OliWeb.Sites.Edit
             if (Request.QueryString["cmd"] != null &&
                 Request.QueryString["cmd"] == "newS")
             {
-                UpdateButton.Text = "hinzufügen";
+                UpdateButton.Text = "hinzufï¿½gen";
                 ExtrasHyperLink.Enabled = false;
                 ExtrasHyperLink.NavigateUrl = "";
             }
@@ -91,7 +91,7 @@ namespace OliWeb.Sites.Edit
             // Neue Stamm Row
             if (s.RowState == DataRowState.Added)
             {
-                UpdateButton.Text = "hinzufügen";
+                UpdateButton.Text = "hinzufï¿½gen";
             }
             else
             {
@@ -136,7 +136,7 @@ namespace OliWeb.Sites.Edit
             {
                 var s = OliUser.Stamm.StammRow;
 
-                // Namen merken falls update fehlschlägt
+                // Namen merken falls update fehlschlï¿½gt
                 var oldname = s.Stamm;
                 // Werte setzen
                 s.Stamm = HttpUtility.HtmlEncode(StammTextBox.Text);

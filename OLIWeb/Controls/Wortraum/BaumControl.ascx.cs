@@ -27,7 +27,7 @@ namespace OliWeb.Controls.Wortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -71,7 +71,7 @@ namespace OliWeb.Controls.Wortraum
         // Ebene
         private int Ebene
         {
-            // setzt die Einrückbreite
+            // setzt die Einrï¿½ckbreite
             set
             {
                 EbeneImage.Width = value*50;
@@ -82,7 +82,7 @@ namespace OliWeb.Controls.Wortraum
         // myRow
         private BaumDataSet.BaumRow myRow
         {
-            // gibt die Reihe aus dem Zellobjekt zurück
+            // gibt die Reihe aus dem Zellobjekt zurï¿½ck
             get { return (MyZelle.MyRow); }
         }
 

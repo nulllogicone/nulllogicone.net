@@ -5,7 +5,7 @@ namespace OliEngine.OliPresentation
 	public enum StringArt {Code, Angler}
 
 	/// <summary>
-	/// Zusammendfassende Beschreibung für String.
+	/// Zusammendfassende Beschreibung fï¿½r String.
 	/// </summary>
 	public class myStrings 
 	{
@@ -75,13 +75,13 @@ namespace OliEngine.OliPresentation
 			set{zweig=value;}
 		}
 
-		// Steht für OLIs oder ILOs
+		// Steht fï¿½r OLIs oder ILOs
 		public int Verb
 		{
 			get{return(verb);}
 			set{verb=value;}
 		}
-		// Steht für get oder fit
+		// Steht fï¿½r get oder fit
 		public int Attrib
 		{
 			get{return(attrib);}
@@ -89,3 +89,4 @@ namespace OliEngine.OliPresentation
 		}
 	}
 }
+

@@ -8,7 +8,7 @@ namespace OliWeb.Controls.BlaetterWald
 {
 	/// <summary>
 	/// NetzKette.
-	/// Sie ist Singleton in einer Session und nimmt die übergeordneten
+	/// Sie ist Singleton in einer Session und nimmt die ï¿½bergeordneten
 	/// Netze auf.
 	/// </summary>
 	public class NetzKette
@@ -32,7 +32,7 @@ namespace OliWeb.Controls.BlaetterWald
 		public void Push(Netz netz)
 		{
 			// Wenn das Netz noch nicht enthalten ist
-			// wird es eingefügt 
+			// wird es eingefï¿½gt 
 			int idx = IndexOf(netz);
 
 			if(idx == -1)
@@ -104,3 +104,4 @@ namespace OliWeb.Controls.BlaetterWald
 
 	}
 }
+

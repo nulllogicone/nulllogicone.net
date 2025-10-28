@@ -147,14 +147,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 sr.Verb = kz.VgbOLIs;
                 sr.Attrib = kz.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(sr);
 
                 // Update
                 ShortCuts.UpdateStrings();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 shortcuts = new ShortCuts(ShortCutsGuid);
 
                 // Farbpunkte setzen
@@ -181,14 +181,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 sr.Verb = kz.VgbOLIs;
                 sr.Attrib = kz.VgbGet;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(sr);
 
                 // Update
                 ShortCuts.UpdateStrings();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 shortcuts = new ShortCuts(ShortCutsGuid);
 
                 // Farbpunkte setzen

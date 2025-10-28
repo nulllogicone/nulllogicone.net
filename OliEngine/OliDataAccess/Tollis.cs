@@ -12,7 +12,7 @@ namespace OliEngine.OliDataAccess
     {
         protected SqlDataAdapter tad;
 
-        // Konstruktor ohne Parameter kann überschrieben werden
+        // Konstruktor ohne Parameter kann ï¿½berschrieben werden
         public Tollis()
         {
             SqlConnection con = OliCommon.OLIsConnection;

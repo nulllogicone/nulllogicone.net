@@ -10,8 +10,8 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 {
 	/// <summary>
 	/// die Detailtabellen Controls sind von dieser Klasse abgeleitet. Sie verwaltet die
-	/// Sortierreihenfolge (und ob ab oder auf steigend). Ausserdem holt sie die gewünschte
-	/// Zeilenzahl aus der Extras-Tabelle und stellt sie zur Verfügung
+	/// Sortierreihenfolge (und ob ab oder auf steigend). Ausserdem holt sie die gewï¿½nschte
+	/// Zeilenzahl aus der Extras-Tabelle und stellt sie zur Verfï¿½gung
 	/// </summary>
 	public class ViewGridControl : MasterControl
 	{
@@ -76,13 +76,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		}
 
 		/// <summary>
-		/// fügt in ein DataGrid in der Spalte mit entsprechender SortExpression
+		/// fï¿½gt in ein DataGrid in der Spalte mit entsprechender SortExpression
 		/// einen hoch/runter Pfeil ein
 		/// </summary>
 		/// <remarks>Diese Methode funktioniert nur in <see cref="Controls.Koerper.ViewGrids.ViewGridControl"/> Elementen
 		/// (Deshalb sollte es auch dorthin oder verallgemeinert werden)
 		/// Aber die Richtung des Pfeiles steckt halt in diesen abgeleiteten Controls ...</remarks>
-		/// <param name="dataGrid">das DataGrid für das der Sortierpfeil in der Spaltenüberschrift eingestellt werden soll</param>
+		/// <param name="dataGrid">das DataGrid fï¿½r das der Sortierpfeil in der Spaltenï¿½berschrift eingestellt werden soll</param>
 		/// <param name="item">die Kopfzeilenelemente (??? glaub ich .???)</param>
 		public static void SortierPfeil(DataGrid dataGrid, DataGridItem item)
 		{
@@ -116,3 +116,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
 	}
 }
+

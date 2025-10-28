@@ -27,13 +27,13 @@ namespace OliWeb.Klassen
         #region RedirectToSite() - aus der Mittelschicht an Seite weiterleiten	
 
         /// <summary>
-        /// wenn durch ein POST-Ereignis an der Mittelschicht etwas geändert wird,
+        /// wenn durch ein POST-Ereignis an der Mittelschicht etwas geï¿½ndert wird,
         /// soll auf das <see cref="Ergebnis" /> mit einem GET <i>weitergeleitet</i> werden.
         /// <p>Sie leitet anhand der Mittelschicht-Daten auf die passendste Seite weiter</p>
         /// </summary>
         /// <remarks>
         /// Die Methode sollte eigentlich nur als letzter Notanker geworfen werden,
-        /// wenn das gewünschte Ziel nicht sicher bekannt ist.
+        /// wenn das gewï¿½nschte Ziel nicht sicher bekannt ist.
         /// <p>Sie kann nur nach POST-backs gefeuert werden und soll den Back-Button-Bug abfangen</p>
         /// </remarks>
         public static void RedirectToSite()
@@ -99,7 +99,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        /// gibt anhand der Mittelschichtdaten die Seite zurück, die am meisten
+        /// gibt anhand der Mittelschichtdaten die Seite zurï¿½ck, die am meisten
         /// Elemente darstellt.
         /// </summary>
         /// <returns> die Seite, die die Mittelschicht am Besten darstellen kann. </returns>
@@ -154,7 +154,7 @@ namespace OliWeb.Klassen
             // Wenn hier die site noch nicht besetzt wurde => FEHLER werfen!
             if (site == "")
             {
-                throw new HttpException("Helper.RedirectToSite() findet keinen gültigen Wert");
+                throw new HttpException("Helper.RedirectToSite() findet keinen gï¿½ltigen Wert");
             }
 
             return ("~/Sites/" + site);
@@ -198,9 +198,9 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        /// für Debug Zwecke.
+        /// fï¿½r Debug Zwecke.
         /// </summary>
-        /// <returns> gibt die unterschiedlichsten Context.Request Eigenschaften als zusammenhängenden String aus </returns>
+        /// <returns> gibt die unterschiedlichsten Context.Request Eigenschaften als zusammenhï¿½ngenden String aus </returns>
         public static string LinkInfo()
         {
             var ctx = HttpContext.Current;

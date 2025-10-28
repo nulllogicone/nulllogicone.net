@@ -10,9 +10,9 @@ using OliEngine;
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     ist eine Oberklasse für alle Seiten, auf denen
+    ///     ist eine Oberklasse fï¿½r alle Seiten, auf denen
     ///     ein TopLab dargestellt wird. Sie setzt die MyTitle Eigenschaft und
-    ///     stellt sicher, daß ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
+    ///     stellt sicher, daï¿½ ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
     /// </summary>
     public class MasterTopLabPage : MasterPostItPage
     {
@@ -20,11 +20,11 @@ namespace OliWeb.Klassen
         ///     CheckPreCondition()
         /// 
         ///     Diese Methode wird in der basis beim Init Ereignis aufgerufen
-        ///     Sie wird hier überschrieben um zusätzlich auf das Vorhandensein
-        ///     eines <b>TopLab-objektes</b> zu prüfen.
+        ///     Sie wird hier ï¿½berschrieben um zusï¿½tzlich auf das Vorhandensein
+        ///     eines <b>TopLab-objektes</b> zu prï¿½fen.
         /// 
         ///     Wenn die hiervon abgeleiteten aspx Seiten diese Methode
-        ///     wiederrum überschreiben bitte den base-Aufruf nicht vergessen 
+        ///     wiederrum ï¿½berschreiben bitte den base-Aufruf nicht vergessen 
         /// 
         ///     <code>base.CheckPreCondition()</code>
         /// </summary>
@@ -36,7 +36,7 @@ namespace OliWeb.Klassen
             bool cmdnew = Request.QueryString["cmd"] != null &&
                           Request.QueryString["cmd"] == "newT";
 
-            // wenn kein TopLab und auch kein neues hinzugefügt werden soll
+            // wenn kein TopLab und auch kein neues hinzugefï¿½gt werden soll
             // => Redirect
             if (!cmdnew &&
                 (OliUser.Stamm.TopLab == null ||
@@ -48,7 +48,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     MyTitle wird in dieser Klasse mit dem gekürzten Text des PostIt überschrieben.
+        ///     MyTitle wird in dieser Klasse mit dem gekï¿½rzten Text des PostIt ï¿½berschrieben.
         /// </summary>
         protected override string MyTitle
         {
@@ -57,7 +57,7 @@ namespace OliWeb.Klassen
                 string s = "";
                 // Titel
                 s += TopLab.TopLabRow.IsTitelNull() ? "" : TopLab.TopLabRow.Titel + " - ";
-                // Gekürzte TopLab
+                // Gekï¿½rzte TopLab
                 s += OliUtil.FirstXWords(TopLab.TopLabRow.TopLab, 10);
 
                 return s;

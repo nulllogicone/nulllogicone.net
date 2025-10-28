@@ -1,0 +1,82 @@
+
+@page
+@model IndexModel
+@{
+    // Page title shown in the shared layout
+    ViewData["Title"] = "nulllogicone.net";
+}
+
+<div class="Banner">
+    <span class="BannerTextCompany">nulllogicone.net</span>
+    <span class="BannerTextApplication">Nachrichtenvermittlung im Semantic Web</span>
+</div>
+
+<h1>|nulllogicone.net|</h1>
+
+<h2>Abstract</h2>
+<p>
+    Für die Vermittlung von Nachrichten zwischen Unbekannten ist <strong>nulllogicone.net</strong>
+    ein abstraktes System, das Urheber, Nachrichten und Empfänger beschreibt. Es besteht
+    aus einem <em>Kreislauf Modell</em> [<a href="images/SAPCT.jpg">SAPCT</a>], dem
+    <em>Wortraum</em> [<a href="images/NKBZ.JPG">NKBZ</a>] und einer V<em>ermittlungslogik</em>
+    [OgIf]. Eine Webanwendung gegen einen zentralen Datenbankserver ist als
+    <a href="https://www.oli-it.com">Referenzimplementierung</a> realisiert.
+</p>
+
+<h2>Table of Contents</h2>
+<ol>
+    <li><a href="#instances">Instanzen</a></li>
+    <li><a href="#schema">Schema</a></li>
+    <li><a href="#rdf">Dokumente</a></li>
+    <li><a href="#importexport">Input / Output</a></li>
+    <li><a href="#applications">Anwendungen</a></li>
+    <li><a href="#webservice">Service</a></li>
+    <li><a href="#tools">Client</a></li>
+</ol>
+
+<h2 id="instances">1. Instanzen</h2>
+<p>
+    Alle Entitäten sind Datensätze, die auf einer eigenen Seite dargestellt werden können
+    (für <a href="Instanzen.aspx">Beispiele</a> gibt es eine Seite mit zufälligen Links).
+</p>
+
+<!-- The rest of the original content can be kept here as static HTML blocks or split
+     into partials if you prefer. For now we keep the important sections and links. -->
+
+<h2 id="schema">2. Schema</h2>
+<p>
+    Für den Austausch von Daten im RDF Format kann man die <a href="/schema.rdfs">schema.rdfs</a>
+    Datei herunterladen. Auf der FRODO RDFSViz Seite lassen sich die Beziehungen visualisieren.
+</p>
+
+<h2 id="rdf">3. Dokumente</h2>
+<p>
+    RDF basiert auf XML und beschreibt Ressourcen mit Sätzen aus Subjekt, Prädikat und Objekt.
+</p>
+
+<h2 id="importexport">4. Input / Output</h2>
+<p>
+    Funktionen zum Exportieren/Importieren von RDF-Dokumenten finden Sie auf der
+    <a href="/RDF/default.aspx"><strong>Input / Output</strong></a> Seite.
+</p>
+
+<h2 id="applications">5. Anwendungen</h2>
+<ul>
+    <li>Die Webanwendung <a href="https://www.oli-it.com">www.oli-it.com</a> ist ein Frage-Antwort Spiel.</li>
+    <li>MetaWeb Project: <a href="https://www.metaweb-project.net">www.metaweb-project.net</a></li>
+    <li>UniSonus: <a href="https://www.unisonus.net">https://www.unisonus.net</a></li>
+</ul>
+
+<h2 id="webservice">6. Service</h2>
+<p>
+    Web Services: <a href="https://service.oli-it.com">service.oli-it.com</a>
+</p>
+
+<h2 id="tools">7. Client</h2>
+<p>
+    Clientanwendungen: <a href="https://client.oli-it.com">https://client.oli-it.com</a>
+</p>
+
+@* Footer is provided by the shared partial in the layout. *@
+
+

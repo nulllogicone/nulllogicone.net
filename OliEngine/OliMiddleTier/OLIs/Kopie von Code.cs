@@ -47,7 +47,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 			cr.CodeGuid = Guid.NewGuid();
 
 		
-			// Hinzufügen und update
+			// Hinzufï¿½gen und update
 			code.Code.AddCodeRow(cr);
 			code.UpdateCode();
 
@@ -69,7 +69,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 			}
 		}
 
-		// MyEmpfänger
+		// MyEmpfï¿½nger
 		public StammList MyEmpfaenger
 		{
 			get
@@ -161,7 +161,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 			xw.WriteElementString("nlo:Kommentar", cr["Kommentar"].ToString()); // Predicate Object
 			xw.WriteElementString("nlo:Version", cr["Versionsnummer"].ToString()); // Predicate Object
 
-			// -- alle Ringe -- (könnte ein 'Bag' werden)
+			// -- alle Ringe -- (kï¿½nnte ein 'Bag' werden)
 			foreach(DataRow dr in c.MyRinge)
 			{
 				xw.WriteStartElement("nlo:Ring"); // Predicate
@@ -233,3 +233,4 @@ namespace OliEngine.OliMiddleTier.OLIs
 		}
 	}
 }
+

@@ -7,13 +7,13 @@ using System;
 namespace nulllogicone.net
 {
     ///<summary>
-    ///    Zusammenfassung für FussZeile.
+    ///    Zusammenfassung fï¿½r FussZeile.
     ///</summary>
     public partial class FussZeile : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            // Hier Benutzercode zur Seiteninitialisierung einfügen
+            // Hier Benutzercode zur Seiteninitialisierung einfï¿½gen
         }
 
         #region Vom Web Form-Designer generierter Code
@@ -21,15 +21,15 @@ namespace nulllogicone.net
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

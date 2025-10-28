@@ -23,7 +23,7 @@ namespace OliWeb.Controls.Wortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -89,7 +89,7 @@ namespace OliWeb.Controls.Wortraum
 //		private NKBZDataSet.ZweigRow myRow
         private ZweigDataSet.ZweigRow myRow
         {
-            // gibt die Reihe aus dem Zellobjekt zurück
+            // gibt die Reihe aus dem Zellobjekt zurï¿½ck
             get { return (MyZelle.MyRow); }
         }
 
@@ -269,7 +269,7 @@ namespace OliWeb.Controls.Wortraum
         {
             myRow.Zweig = ZweigTextBox.Text;
 
-            // Weiter (wenn beides ausgewählt ist, wird nur das Netz genommen)
+            // Weiter (wenn beides ausgewï¿½hlt ist, wird nur das Netz genommen)
             string wn = WeiterNetzDropDownList.SelectedItem.Value;
             string wb = WeiterBaumDropDownList.SelectedItem.Value;
 

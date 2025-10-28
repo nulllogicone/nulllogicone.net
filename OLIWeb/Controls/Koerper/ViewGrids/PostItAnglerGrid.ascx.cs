@@ -50,7 +50,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         {
             base.OnPreRender(e);
 
-            // Title und Spaltenüberschriften auf Q
+            // Title und Spaltenï¿½berschriften auf Q
             if (OliUser.Stamm != null)
             {
                 TitleLabel.Text = OliUser.Stamm.Q.P_X + " (" + PostIt.MyEmpfaenger.Rows.Count + ")";
@@ -77,7 +77,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             {
                 Label l = new Label();
                 l.Text =
-                    "<div style='font-size:8pt; text-align:center'>keine Empfänger für diese Nachricht vorhanden</div><hr>";
+                    "<div style='font-size:8pt; text-align:center'>keine Empfï¿½nger fï¿½r diese Nachricht vorhanden</div><hr>";
                 Controls.Add(l);
             }
         }

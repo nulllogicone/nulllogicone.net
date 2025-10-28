@@ -7,7 +7,7 @@ using System;
 namespace OliWeb.Controls.Command
 {
     ///<summary>
-    ///    vertikale Menüdarstellung mit allen GET-Commands
+    ///    vertikale Menï¿½darstellung mit allen GET-Commands
     ///</summary>
     public abstract class CommandTree : Klassen.MasterControl
     {
@@ -67,15 +67,15 @@ namespace OliWeb.Controls.Command
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

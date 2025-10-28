@@ -12,13 +12,13 @@ namespace OliEngine.OliMiddleTier.OLIx
 	/// ** Hirngeflecht ** Wortraum **
 	/// 
 	/// NKBZ.
-	/// Jetzt sind sie angekommen wo sie von Anfang an hingehörten.
+	/// Jetzt sind sie angekommen wo sie von Anfang an hingehï¿½rten.
 	/// Die Tabellen: Netz, Knoten, Baum, Zweige 
 	/// 
 	/// Diese Klasse stellt ein NKBZ Objekt dar.
 	/// Es kann eigentlich im Arbeitsspeicher des Server bleiben
 	/// oder auf jedem Client local vorgehalten werden.
-	/// (seltene Änderung, häufige Abfragen)
+	/// (seltene ï¿½nderung, hï¿½ufige Abfragen)
 	/// </summary>
 	
 
@@ -30,7 +30,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 		SqlDataAdapter Zad;
 
 		/// <summary>
-		/// Instanzvariable, die den Wortraum hält - damit er nicht 
+		/// Instanzvariable, die den Wortraum hï¿½lt - damit er nicht 
 		/// immer wieder neu gelesen werden muss (Singleton)
 		/// </summary>
 		static NKBZ nkbz;
@@ -100,7 +100,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 
 
 		/// <summary>
-		/// Erstellt für alle Netze mit Knoten die RDF Serialisation
+		/// Erstellt fï¿½r alle Netze mit Knoten die RDF Serialisation
 		/// </summary>
 		/// <returns></returns>
 		public string MakeWortraumRDF()
@@ -156,7 +156,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 					xw.WriteElementString("nlo:description", HttpUtility.HtmlEncode(kr.Isen_descriptionNull()?(kr.IsBeschreibungNull()?"":kr.Beschreibung)  : kr.en_description));
 					xw.WriteElementString("nlo:date", kr.Datum.ToString("s"));
 
-					#region für diesen Knoten und ggf. weitere Bäume die Vorgabewerte
+					#region fï¿½r diesen Knoten und ggf. weitere Bï¿½ume die Vorgabewerte
 					xw.WriteComment("Default Values");
 					xw.WriteComment("**************");
 					// VgbOLIs
@@ -275,7 +275,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 			}
 
 
-			// Baum einfügen
+			// Baum einfï¿½gen
 			xw.WriteRaw(this.MakeInnerBaumZweigRDF());
 
 
@@ -310,7 +310,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 			DataView baumDv = new DataView(this.Baum);
 			//			netzDv.RowFilter = "RDF = 1";
 
-			// Bäume
+			// Bï¿½ume
 			foreach(DataRowView drv in baumDv)
 			{
 				NKBZDataSet.BaumRow br = (NKBZDataSet.BaumRow)drv.Row;
@@ -397,3 +397,4 @@ namespace OliEngine.OliMiddleTier.OLIx
 		}
 	}
 }
+

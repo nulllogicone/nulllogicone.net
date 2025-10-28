@@ -5,9 +5,9 @@
 using System.Reflection;
 
 //
-// Allgemeine Informationen über eine Assembly werden über folgende Attribute 
-// gesteuert. Ändern Sie diese Attributswerte, um die Informationen zu modifizieren,
-// die mit einer Assembly verknüpft sind.
+// Allgemeine Informationen ï¿½ber eine Assembly werden ï¿½ber folgende Attribute 
+// gesteuert. ï¿½ndern Sie diese Attributswerte, um die Informationen zu modifizieren,
+// die mit einer Assembly verknï¿½pft sind.
 //
 
 [assembly: AssemblyTitle("OliEngine")]
@@ -20,14 +20,14 @@ using System.Reflection;
 [assembly: AssemblyCulture("")]
 
 //
-// Versionsinformationen für eine Assembly bestehen aus folgenden vier Werten:
+// Versionsinformationen fï¿½r eine Assembly bestehen aus folgenden vier Werten:
 //
 //      Hauptversion
 //      Nebenversion 
 //      Buildnummer
 //      Revision
 //
-// Sie können alle Werte oder die standardmäßige Revision und Buildnummer 
+// Sie kï¿½nnen alle Werte oder die standardmï¿½ï¿½ige Revision und Buildnummer 
 // mit '*' angeben:
 
 [assembly: AssemblyVersion("1.2.*")]
@@ -35,13 +35,13 @@ using System.Reflection;
 /*
  
 ************************************************
-Versionsinformationen für die OliEngine Assembly
+Versionsinformationen fï¿½r die OliEngine Assembly
 ************************************************
 
 
 04.02.05 
 Das OliMiddleTier.OLIs.User-Objekt wurde in OliUser umbenannt, 
-da es in Konflikt mit dem User der Page Klasse in Web-Oberflächen stand.
+da es in Konflikt mit dem User der Page Klasse in Web-Oberflï¿½chen stand.
 
 In Webprojekten, die diese Komponente benutzen muss der Name
 entsprechenden angepasst werden.

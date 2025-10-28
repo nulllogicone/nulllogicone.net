@@ -43,8 +43,8 @@ namespace OliEngine.OliDataAccess
 
             foreach (AnglerRow ar in Angler.Rows)
             {
-                cmd.CommandText = "SELECT * FROM oli.Löcher WHERE AnglerGuid='" + ar.AnglerGuid + "'";
-                aad.Fill(Löcher);
+                cmd.CommandText = "SELECT * FROM oli.Lï¿½cher WHERE AnglerGuid='" + ar.AnglerGuid + "'";
+                aad.Fill(Lï¿½cher);
             }
         }
 

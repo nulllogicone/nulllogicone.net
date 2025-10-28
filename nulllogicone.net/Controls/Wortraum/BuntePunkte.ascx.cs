@@ -21,7 +21,7 @@ namespace OliWeb.Controls.Wortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -130,7 +130,7 @@ namespace OliWeb.Controls.Wortraum
             }
 
             // *******************************************************************************************
-            // Für die Verwendung des Wortraums auf den Seiten von nulllogicone.net
+            // Fï¿½r die Verwendung des Wortraums auf den Seiten von nulllogicone.net
             // werden immer die bunten Punkte angezeigt !!
             // Deshalb ist die folgende Zuweisung immer auf true gesetzt worden
             // *******************************************************************************************

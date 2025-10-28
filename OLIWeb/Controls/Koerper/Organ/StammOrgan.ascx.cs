@@ -76,7 +76,7 @@ namespace OliWeb.Controls.Koerper.Organ
                 DatumLabel.Text = s.Datum.ToShortDateString();
                 DatumLabel.ToolTip = "erzeugt: " + s.Datum;
                 // KlickBild
-                // dem Stamm wird immer ein Bild eingefügt - und wenns das O ist
+                // dem Stamm wird immer ein Bild eingefï¿½gt - und wenns das O ist
                 //KlickBild1.Breite = 20;
                 if (s.IsDateiNull() || s.Datei.Length == 0)
                 {
@@ -113,3 +113,4 @@ namespace OliWeb.Controls.Koerper.Organ
         }
     }
 }
+

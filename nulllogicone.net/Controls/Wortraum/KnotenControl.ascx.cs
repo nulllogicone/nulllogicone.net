@@ -21,7 +21,7 @@ namespace OliWeb.Controls.Wortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -88,7 +88,7 @@ namespace OliWeb.Controls.Wortraum
 //1		private NKBZDataSet.KnotenRow myRow
         private KnotenDataSet.KnotenRow myRow
         {
-            // gibt die Reihe aus dem Zellobjekt zurück
+            // gibt die Reihe aus dem Zellobjekt zurï¿½ck
             get { return (MyZelle.MyRow); }
         }
 
@@ -312,7 +312,7 @@ namespace OliWeb.Controls.Wortraum
             myRow.VgbILOs = int.Parse(ILOsTextBox.Text.Length > 0 ? ILOsTextBox.Text : "2");
             myRow.VgbFit = int.Parse(FitTextBox.Text.Length > 0 ? FitTextBox.Text : "0");
 
-            // Weiter (wenn beides ausgewählt wird nur das Netz genommen)
+            // Weiter (wenn beides ausgewï¿½hlt wird nur das Netz genommen)
             string wn = WeiterNetzDropDownList.SelectedItem.Value;
             string wb = WeiterBaumDropDownList.SelectedItem.Value;
 
@@ -397,7 +397,7 @@ namespace OliWeb.Controls.Wortraum
                     MyZelle.VgbFit = myRow.VgbFit;
                 }
 //TODO:				// Ist hier die Leiche ???? TODO
-                // in einen Baum soll man reinschauen können - ohne Markierung
+                // in einen Baum soll man reinschauen kï¿½nnen - ohne Markierung
                 if (MyZelle.MyRow.IsweiterBaumGuidNull())
                 {
                     ZellBuilder.Markiere(MyZelle);

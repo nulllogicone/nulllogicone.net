@@ -25,7 +25,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -72,7 +72,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		{
 			if(this.OliUser.Stamm != null)
 			{
-				// Title und Spaltenüberschriften auf Q
+				// Title und Spaltenï¿½berschriften auf Q
 				TitleLabel.Text = this.OliUser.Stamm.Q.P_S;
 				PostItDataGrid.Columns[0].HeaderText = this.OliUser.Stamm.Q.S;
 
@@ -86,7 +86,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
 				if(PostIt != null)
 				{
-//TODO: so wie hier : in allen ViewGrids Titeln noch dieses Anzahl in Klammern anhängen
+//TODO: so wie hier : in allen ViewGrids Titeln noch dieses Anzahl in Klammern anhï¿½ngen
 					TitleLabel.Text = this.OliUser.Stamm.Q.P_S + " (" + PostIt.MyStamm.Rows.Count.ToString() + ")";
 					DataView dv = new DataView(mySource);
 					if(desc)
@@ -104,7 +104,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 					if (dv.Count == 0)
 					{
 						Label l = new Label();
-						l.Text = "<div style='font-size:8pt; text-align:center'>kein stamm für Nachricht vorhanden</div><hr>";
+						l.Text = "<div style='font-size:8pt; text-align:center'>kein stamm fï¿½r Nachricht vorhanden</div><hr>";
 						this.Controls.Add(l);
 						throw new Exception("PostItGuid " + PostIt.PostItRow.PostItGuid + " ohne Stamm");
 					}
@@ -187,3 +187,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //		}
 	}
 }
+

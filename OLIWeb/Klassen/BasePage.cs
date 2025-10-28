@@ -19,16 +19,16 @@ using TopLab = OliEngine.OliMiddleTier.OLIs.TopLab;
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     ist von System.Web.UI.Page abgeleitet und Basis für
-    ///     die meisten aspx Seiten. Sie kann für besondere Seiten noch weiter
+    ///     ist von System.Web.UI.Page abgeleitet und Basis fï¿½r
+    ///     die meisten aspx Seiten. Sie kann fï¿½r besondere Seiten noch weiter
     ///     abgeleitet werden.
     /// 
     ///     Auf diesen Seiten steht immer ein Session gerechtes
-    ///     Mittelschicht-<see cref="OliUser" />OliUser-Objekte zur Verfügung.
+    ///     Mittelschicht-<see cref="OliUser" />OliUser-Objekte zur Verfï¿½gung.
     /// </summary>
     /// <remarks>
-    ///     Eigentlich können alle Seiten von dieser Klasse abgeleitet werden.
-    ///     Es ist nur zu beachten, daß sie evtl. mitgeloggt werden.
+    ///     Eigentlich kï¿½nnen alle Seiten von dieser Klasse abgeleitet werden.
+    ///     Es ist nur zu beachten, daï¿½ sie evtl. mitgeloggt werden.
     /// </remarks>
     public class BasePage : Page
     //	public class BasePage : XHTMLPage
@@ -54,7 +54,7 @@ namespace OliWeb.Klassen
         protected const string NO_ANGLER_REDIRECT = "~/Sites/StammSite.aspx";
 
         /// <summary>
-        ///     Wenn kein PostIt vorhanden, kann höchstens die StammSite gezeigt werden
+        ///     Wenn kein PostIt vorhanden, kann hï¿½chstens die StammSite gezeigt werden
         /// </summary>
         protected const string NO_POSTIT_REDIRECT = "~/Sites/StammSite.aspx";
 
@@ -91,7 +91,7 @@ namespace OliWeb.Klassen
         #region Mittelschicht Eigenschaften (SAPCT - Objekte)
 
         /// <summary>
-        ///     Diese Eigenschaft stellt das aktuelle <b>OliUser</b>-Objekt aus der Mittelschicht zur Verfügung
+        ///     Diese Eigenschaft stellt das aktuelle <b>OliUser</b>-Objekt aus der Mittelschicht zur Verfï¿½gung
         /// </summary>
         protected OliUser OliUser
         {
@@ -99,8 +99,8 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     Seiten, die von der BasePage erben, können einen individuellen Titel
-        ///     in die aspx Seite einbauen, der über den Code gefüllt wird.
+        ///     Seiten, die von der BasePage erben, kï¿½nnen einen individuellen Titel
+        ///     in die aspx Seite einbauen, der ï¿½ber den Code gefï¿½llt wird.
         /// </summary>
         protected virtual string MyTitle
         {
@@ -114,7 +114,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     Die Eigenschaft stellt das aktuelle <b>PostIt</b> aus der Mittelschicht zur Verfügung.
+        ///     Die Eigenschaft stellt das aktuelle <b>PostIt</b> aus der Mittelschicht zur Verfï¿½gung.
         /// </summary>
         protected PostIt PostIt
         {
@@ -133,7 +133,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     Diese Eigenschaft stellt das aktuelle <b>TopLab</b>-Objekt aus der Mittelschicht zur Verfügung
+        ///     Diese Eigenschaft stellt das aktuelle <b>TopLab</b>-Objekt aus der Mittelschicht zur Verfï¿½gung
         /// </summary>
         protected TopLab TopLab
         {
@@ -152,7 +152,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     Diese Eigenschaft stellt das aktuelle <b>Angler</b>-Objekt aus der Mittelschicht zur Verfügung
+        ///     Diese Eigenschaft stellt das aktuelle <b>Angler</b>-Objekt aus der Mittelschicht zur Verfï¿½gung
         /// </summary>
         protected Angler Angler
         {
@@ -172,15 +172,15 @@ namespace OliWeb.Klassen
         #endregion
 
         ///<summary>
-        ///    Wenn guid's übergeben werden, werden die
+        ///    Wenn guid's ï¿½bergeben werden, werden die
         ///    entsprechenden Objekte in der Mittelschicht erstellt.
         ///    <p>Da eigentlich alle Seiten von dieser Basis abgeleitet werden,
         ///        wird hier zuerst der Aufruf in der Counter-Tabelle protokolliert -</p>
-        ///    <p>Dann können weitere Aufruf Vorraussetzung geprüft werden 
-        ///        - sollten sie nicht erfüllt sein : abbrechen oder weiterleiten</p>
+        ///    <p>Dann kï¿½nnen weitere Aufruf Vorraussetzung geprï¿½ft werden 
+        ///        - sollten sie nicht erfï¿½llt sein : abbrechen oder weiterleiten</p>
         ///</summary>
         ///<remarks>
-        ///    <p>Eigentlich sollte man erzwingen, daß diese Methode überschrieben wird!
+        ///    <p>Eigentlich sollte man erzwingen, daï¿½ diese Methode ï¿½berschrieben wird!
         ///        Aber bitte immer zuerst mit Aufruf der base:</p>
         ///</remarks>
         ///<example>
@@ -197,7 +197,7 @@ namespace OliWeb.Klassen
 
             // Angler
             // ------
-            // wenn eine AnglerGuid übergeben wird -> soll dieser Angler
+            // wenn eine AnglerGuid ï¿½bergeben wird -> soll dieser Angler
             // mit seinem Stamm gezeigt werden
             if (Request["aguid"] != null)
             {
@@ -213,8 +213,8 @@ namespace OliWeb.Klassen
 
             // Stamm
             // -----
-            // wenn eine StammGuid an diese Seiten übergeben wird,
-            // soll das heißen, da0 auch immer dieser Stamm angezeigt wird
+            // wenn eine StammGuid an diese Seiten ï¿½bergeben wird,
+            // soll das heiï¿½en, da0 auch immer dieser Stamm angezeigt wird
             if (Request["sguid"] != null)
             {
                 try
@@ -229,8 +229,8 @@ namespace OliWeb.Klassen
 
             // PostIt
             // ------
-            // wenn eine PostItGuid an diese Seiten übergeben wird,
-            // soll das heißen, daß auch immer diese Nachricht angezeigt wird
+            // wenn eine PostItGuid an diese Seiten ï¿½bergeben wird,
+            // soll das heiï¿½en, daï¿½ auch immer diese Nachricht angezeigt wird
             try
             {
                 if (Request["pguid"] != null)
@@ -251,7 +251,7 @@ namespace OliWeb.Klassen
 
             // Code
             // -----
-            // wenn eine CodeGuid übergeben wird, soll sie geladen werden
+            // wenn eine CodeGuid ï¿½bergeben wird, soll sie geladen werden
             try
             {
                 if (Request["cguid"] != null)
@@ -269,7 +269,7 @@ namespace OliWeb.Klassen
 
             // TopLab
             // ------
-            // wenn eine TopLabGuid übergeben wird,
+            // wenn eine TopLabGuid ï¿½bergeben wird,
             // soll diese Antwort angezeigt werden.
             try
             {
@@ -338,11 +338,11 @@ namespace OliWeb.Klassen
         ///     override OnInit()
         ///     Alle Seiten, die von der BasePage ableiten werden vor
         ///     ihrer Initialisierung auf das Vorhandensein eines Stammes
-        ///     geprüft. Sonst wird auf die default weitergeleitet.
+        ///     geprï¿½ft. Sonst wird auf die default weitergeleitet.
         /// 
         ///     Auf bestimmten Seiten (editieren) kann diese Methode
-        ///     überschrieben werden, um noch weitere Kriterien zu prüfen.
-        ///     Ein OliUser-Objekt steht immer zur Verfügung
+        ///     ï¿½berschrieben werden, um noch weitere Kriterien zu prï¿½fen.
+        ///     Ein OliUser-Objekt steht immer zur Verfï¿½gung
         /// </summary>
         /// <param name="e"> </param>
         protected override void OnInit(EventArgs e)

@@ -12,7 +12,7 @@ namespace OliWeb.Klassen
     /// <summary>
     ///     CacheManager ist ein <i>Singleton</i>.
     ///     Es stellt eine <see cref="PostIt" /> Tabelle und die <b>Antworten</b>
-    ///     zur Verfügung.
+    ///     zur Verfï¿½gung.
     /// </summary>
     public class CacheManager
     {

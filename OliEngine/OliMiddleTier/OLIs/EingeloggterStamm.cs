@@ -8,7 +8,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 {
     /// <summary>
     ///     EingeloggterStamm.
-    ///     Nur der kann alles dürfen
+    ///     Nur der kann alles dï¿½rfen
     /// </summary>
     public class EingeloggterStamm : Stamm
     {

@@ -17,7 +17,7 @@ namespace OliWeb.Controls.Command.GetCommand.ActionCommand
         {
             // zuerst alles deaktivieren
             HyperLink1.Text = string.Format("<b>+ {0}</b>", GetGlobalResourceObject("SAPCT", "A"));
-            HyperLink1.ToolTip = "neues Filterprofil erstellen, einen neuen Empfänger für diesen Stamm.";
+            HyperLink1.ToolTip = "neues Filterprofil erstellen, einen neuen Empfï¿½nger fï¿½r diesen Stamm.";
             HyperLink1.NavigateUrl = "";
             HyperLink1.Visible = false;
 

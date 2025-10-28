@@ -7,9 +7,9 @@
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     ist eine Oberklasse für alle Seiten, auf denen
+    ///     ist eine Oberklasse fï¿½r alle Seiten, auf denen
     ///     ein Stamm dargestellt wird. Sie setzt die MyTitle Eigenschaft und
-    ///     stellt sicher, daß ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
+    ///     stellt sicher, daï¿½ ein solches Objekt vorhanden ist (sonst leitet sie entsprechend weiter).
     /// </summary>
     public class MasterStammPage : BasePage
     {
@@ -17,11 +17,11 @@ namespace OliWeb.Klassen
         ///     CheckPreCondition()
         /// 
         ///     Diese Methode wird in der basis beim Init Ereignis aufgerufen
-        ///     Sie wird hier überschrieben um zusätzlich auf das Vorhandensein
-        ///     eines Stammobjektes zu prüfen.
+        ///     Sie wird hier ï¿½berschrieben um zusï¿½tzlich auf das Vorhandensein
+        ///     eines Stammobjektes zu prï¿½fen.
         /// 
         ///     Wenn die hiervon abgeleiteten aspx Seiten diese Methode
-        ///     wiederrum überschreiben bitte den base-Aufruf nicht vergessen 
+        ///     wiederrum ï¿½berschreiben bitte den base-Aufruf nicht vergessen 
         /// 
         ///     <code>base.CheckPreCondition()</code>
         /// </summary>
@@ -46,7 +46,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     MyTitle wird in dieser Klasse mit dem Namen des Stammes überschrieben.
+        ///     MyTitle wird in dieser Klasse mit dem Namen des Stammes ï¿½berschrieben.
         /// </summary>
         protected override string MyTitle
         {
@@ -54,7 +54,7 @@ namespace OliWeb.Klassen
         }
 
         /// <summary>
-        ///     StammRdfLink wird in dieser Klasse mit dem Link auf das RDF Dokument überschrieben.
+        ///     StammRdfLink wird in dieser Klasse mit dem Link auf das RDF Dokument ï¿½berschrieben.
         /// </summary>
         protected string StammRdfLink
         {

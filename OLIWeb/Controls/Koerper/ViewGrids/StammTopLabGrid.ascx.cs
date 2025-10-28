@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -66,7 +66,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         {
             base.OnPreRender(e);
 
-            // Title und Spaltenüberschriften auf Q
+            // Title und Spaltenï¿½berschriften auf Q
             TitleLabel.Text = OliUser.Stamm.Q.S_T + " (" + OliUser.Stamm.MyTopLab.Rows.Count + ")";
             TopLabDataGrid.Columns[1].HeaderText = OliUser.Stamm.Q.P;
             TopLabDataGrid.Columns[2].HeaderText = OliUser.Stamm.Q.T;

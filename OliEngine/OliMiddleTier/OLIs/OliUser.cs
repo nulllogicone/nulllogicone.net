@@ -15,10 +15,10 @@ namespace OliEngine.OliMiddleTier.OLIs
     /// <summary>
     ///     OliUser.
     ///     Dieses Objekt wird zu Beginn einer Arbeitssitzung erstellt und
-    ///     behält den Zustand des eingeloggten und angezeigtem Stammes,
+    ///     behï¿½lt den Zustand des eingeloggten und angezeigtem Stammes,
     ///     den gezeigten PostIt, Angler oder Detailtabellen (Code, ShortCuts)
     ///     Es stellt einen created-Zeitstempel und Nachrichten an den OliUser
-    ///     zur Verfügung sowie die gewählte Button-Beschriftung.
+    ///     zur Verfï¿½gung sowie die gewï¿½hlte Button-Beschriftung.
     ///     In der Webanwendung wird es vom SessionManager gespeichert.
     /// </summary>
     public class OliUser
@@ -30,7 +30,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         private EingeloggterStamm eingeloggterStamm;
 
         private string nachricht = DateTime.Now.ToShortTimeString() + " ";
-        // und dann von überall zusammengesetzt - danach gelöscht
+        // und dann von ï¿½berall zusammengesetzt - danach gelï¿½scht
 
         private readonly DateTime created = DateTime.Now;
         private Q qList;
@@ -71,17 +71,17 @@ namespace OliEngine.OliMiddleTier.OLIs
         ///     Mitteilungen an den aktuellen 'Arbeitssitzungs-User'.
         /// 
         ///     Durch die Zuweisung eines Strings an user.Nachricht = "bla bla bla"
-        ///     wird er an einen bestehenden String hinten angehängt und mit &ltbr> abgeschlossen.
+        ///     wird er an einen bestehenden String hinten angehï¿½ngt und mit &ltbr> abgeschlossen.
         /// 
-        ///     Nachdem die Nachricht auf der Anwendungsoberfläche angezeigt wurde,
+        ///     Nachdem die Nachricht auf der Anwendungsoberflï¿½che angezeigt wurde,
         ///     wird sie auf "" gesetzt.
         /// 
-        ///     TODO: Die Zuweisung sollte mit dem überladenen Operator += erfolgen
+        ///     TODO: Die Zuweisung sollte mit dem ï¿½berladenen Operator += erfolgen
         /// </summary>
         public string Nachricht
         {
             get { return (nachricht); }
-            // wenn Zeichen dann als Html Aufzählung aneinanderhängen
+            // wenn Zeichen dann als Html Aufzï¿½hlung aneinanderhï¿½ngen
             // sonst leer
             set
             {
@@ -161,9 +161,9 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         ///<summary>
         ///    ShowStamm(sguid)
-        ///    Diese Methode gibt ein Mittelschicht - Stamm - Objekt zurück.
-        ///    Dafür muss die Guid bekannt sein (entweder aus Email-Links oder
-        ///    aus der Oberfläche (Stamm suchen, Journal)
+        ///    Diese Methode gibt ein Mittelschicht - Stamm - Objekt zurï¿½ck.
+        ///    Dafï¿½r muss die Guid bekannt sein (entweder aus Email-Links oder
+        ///    aus der Oberflï¿½che (Stamm suchen, Journal)
         ///    Diese Aufrufe werden in die Tabelle tblTuerLog protokolliert *
         ///    <param name = "sguid"></param>
         ///    <returns>Stamm</returns>
@@ -212,11 +212,11 @@ namespace OliEngine.OliMiddleTier.OLIs
         /// <summary>
         ///     ShowStamm (stamm, pwd)
         /// 
-        ///     Mit dieser überladenen Methode wird ein Stamm eingeloggt
+        ///     Mit dieser ï¿½berladenen Methode wird ein Stamm eingeloggt
         ///     (wenn das Kennwort passt)
         /// </summary>
         /// <param name = "stamm"></param>
-        /// <param name = "pwd">Das Kennwort für diesen Stamm</param>
+        /// <param name = "pwd">Das Kennwort fï¿½r diesen Stamm</param>
         /// <param name = "ip"></param>
         /// <returns></returns>
         public bool ShowStamm(string stamm, string pwd)
@@ -277,10 +277,10 @@ namespace OliEngine.OliMiddleTier.OLIs
                 }
             }
 
-            // der Stamm zeigt das gewünschte PostIt
+            // der Stamm zeigt das gewï¿½nschte PostIt
             Stamm.ShowPostIt(pguid);
 
-            // wenn noch eine alte Antwort rumhängt - entfernen
+            // wenn noch eine alte Antwort rumhï¿½ngt - entfernen
             if (Stamm.TopLab != null)
             {
                 if (Stamm.TopLab.TopLabRow.PostItGuid != pguid)

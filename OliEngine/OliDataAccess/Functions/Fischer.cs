@@ -11,7 +11,7 @@ namespace OliEngine.OliDataAccess.Functions
 {
     /// <summary>
     ///     Fischer.
-    ///     Vielleicht gehört er in einen eigenen Thread!
+    ///     Vielleicht gehï¿½rt er in einen eigenen Thread!
     /// </summary>
     public class Fischer
     {
@@ -45,18 +45,18 @@ namespace OliEngine.OliDataAccess.Functions
             aPar.Value = anglerGuid;
             cmd.Parameters.Add(aPar);
 
-            // Rückgabe Parameter
+            // Rï¿½ckgabe Parameter
             SqlParameter rcPar = new SqlParameter();
             rcPar.ParameterName = "@rc";
             rcPar.Direction = ParameterDirection.ReturnValue;
             cmd.Parameters.Add(rcPar);
 
-            // Ausführen
+            // Ausfï¿½hren
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
 
-            // Rückgabe
+            // Rï¿½ckgabe
             bool ret;
             if ((int)rcPar.Value == 0)
             {
@@ -110,18 +110,18 @@ namespace OliEngine.OliDataAccess.Functions
                 aPar.Value = anglerGuid;
                 cmd.Parameters.Add(aPar);
 
-                // Rückgabe Parameter
+                // Rï¿½ckgabe Parameter
                 SqlParameter rcPar = new SqlParameter();
                 rcPar.ParameterName = "@rc";
                 rcPar.Direction = ParameterDirection.ReturnValue;
                 cmd.Parameters.Add(rcPar);
 
-                // Ausführen
+                // Ausfï¿½hren
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                // Rückgabe
+                // Rï¿½ckgabe
                 bool ret;
                 if ((int)rcPar.Value == 0)
                 {

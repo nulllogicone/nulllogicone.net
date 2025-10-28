@@ -12,8 +12,8 @@ using OliEngine;
 namespace OliWeb.Controls.Gimicks
 {
     ///<summary>
-    ///    stellt ein Bild mit angegebener Breite dar und öffnet es bei Klick in einem eigenen
-    ///    Browserfenster in Originalgröße
+    ///    stellt ein Bild mit angegebener Breite dar und ï¿½ffnet es bei Klick in einem eigenen
+    ///    Browserfenster in Originalgrï¿½ï¿½e
     ///</summary>
     public partial class KlickBild : UserControl
     {
@@ -41,7 +41,7 @@ namespace OliWeb.Controls.Gimicks
         }
 
         /// <summary>
-        ///     das Bild wird in gewünschter Breite in einen Link gepackt
+        ///     das Bild wird in gewï¿½nschter Breite in einen Link gepackt
         ///     und dargestellt.
         ///     <code>&lt;a href=Bild target=klickbild>&lt;img src=Bild>&lt;/a></code>
         /// </summary>

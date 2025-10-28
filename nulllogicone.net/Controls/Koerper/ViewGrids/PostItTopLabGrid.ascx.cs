@@ -24,7 +24,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -69,7 +69,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		// OnPreRender
 		protected override void OnPreRender(EventArgs e)
 		{
-			// Title und Spaltenüberschriften auf Q
+			// Title und Spaltenï¿½berschriften auf Q
 			TitleLabel.Text = this.OliUser.Stamm.Q.P_T + " (" + this.OliUser.Stamm.PostIt.MyTopLab.Rows.Count.ToString() + ")";
 			PostItDataGrid.Columns[0].HeaderText = this.OliUser.Stamm.Q.S;
 			PostItDataGrid.Columns[1].HeaderText = this.OliUser.Stamm.Q.T;
@@ -175,3 +175,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //		}
 	}
 }
+

@@ -88,8 +88,8 @@ namespace OliEngine.OliDataAccess
         /// <summary>
         ///     aktualisiert die PostIt Tabelle mit einem eigenen UPDATE Command,
         ///     da es zu Speicherkonflikten kommen kann wenn im Hintergrund die Hits-Werte
-        ///     geändert werden.
-        ///     Das Hinzufügen eines neuen PostIt wird über den DataAdapter erledigt
+        ///     geï¿½ndert werden.
+        ///     Das Hinzufï¿½gen eines neuen PostIt wird ï¿½ber den DataAdapter erledigt
         /// </summary>
         /// <returns></returns>
         public int UpdatePostIt()
@@ -135,7 +135,7 @@ namespace OliEngine.OliDataAccess
         }
 
         /// <summary>
-        ///     die Verknüpfungstabelle zwischen Stamm und PostIt aktualisieren
+        ///     die Verknï¿½pfungstabelle zwischen Stamm und PostIt aktualisieren
         /// </summary>
         /// <returns></returns>
         public int UpdateWurzeln()
@@ -147,7 +147,7 @@ namespace OliEngine.OliDataAccess
         // HitPostIt
         // Wird von der Mittelschicht aufgerufen wenn
         // ein PostIt angezeigt wird -> schreibt den
-        // Hit-Zähler um eins höer
+        // Hit-Zï¿½hler um eins hï¿½er
         public void HitPostIt()
         {
             SqlConnection con = OliCommon.OLIsConnection;

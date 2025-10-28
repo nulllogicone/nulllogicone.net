@@ -16,14 +16,14 @@ using OliWeb.Klassen;
 namespace OliWeb
 {
     /// <summary>
-    ///     Die Klasse <b>Global</b> wird vom Framework zur Verfügung gestellt und gilt
-    ///     für die gesamte OliWeb-Anwendung. Hier werden Begin- und End- Application, Session- oder Request- Ereignisse
+    ///     Die Klasse <b>Global</b> wird vom Framework zur Verfï¿½gung gestellt und gilt
+    ///     fï¿½r die gesamte OliWeb-Anwendung. Hier werden Begin- und End- Application, Session- oder Request- Ereignisse
     ///     behandelt. Aufrufe mit der virtuellen Adresse /[SAPCT]/Guid.aspx werden als
     ///     Querystring an die passende Seite weitergeleitet.
     /// </summary>
     /// <example>
     ///     Die folgenden Beispiele zeigen die kanonischen Adressen auf OLI-it.
-    ///     Man kann jede Entität direkt anspringen:<br /><br/>
+    ///     Man kann jede Entitï¿½t direkt anspringen:<br /><br/>
     ///     <A href="https://www.oli-it.com/S/b4111e0e-48d9-42c4-a6f6-ec4991264947.aspx">http://www.oli-it.com/S/b4111e0e-48d9-42c4-a6f6-ec4991264947.aspx</A>
     ///     (mein Stamm)<br /><br />
     ///     <a href="https://www.oli-it.com/P/559948f0-42b2-4e00-be17-a10591063dfc.aspx">http://www.oli-it.com/P/559948f0-42b2-4e00-be17-a10591063dfc.aspx</a>
@@ -41,9 +41,9 @@ namespace OliWeb
         /// <summary>
         ///     zum SessionStart wird ein OliUser erstellt und als Gast eingeloggt -
         ///     wenn er nicht ein Cookie zum automatisch einloggen gesetzt hat.
-        ///     <b>Oder auch nicht</b> ich habe es gerade wieder ausgestellt, daß
-        ///     man automatisch als Gast eingeloggt wird, da ich es verwirrend für
-        ///     die bestehenden Stämme finde.
+        ///     <b>Oder auch nicht</b> ich habe es gerade wieder ausgestellt, daï¿½
+        ///     man automatisch als Gast eingeloggt wird, da ich es verwirrend fï¿½r
+        ///     die bestehenden Stï¿½mme finde.
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>
@@ -75,18 +75,18 @@ namespace OliWeb
         ///     Bei jedem Request an den Server wird als allererstes
         ///     dieser Handler aufgerufen.
         ///     <p>
-        ///         1. Zuerst wird auf einen Bug von Microsoft geprüft (siehe)
+        ///         1. Zuerst wird auf einen Bug von Microsoft geprï¿½ft (siehe)
         ///         Programmatically check for canonicalization issues with ASP.NET
         ///     </p>
         ///     <p>
         ///         2. Dann werden spezielle URL verarbeitet
-        ///         (früher wurde mal mit path-rewriting gearbeitet - aber das gab Probleme mit Suchmaschinen)
+        ///         (frï¿½her wurde mal mit path-rewriting gearbeitet - aber das gab Probleme mit Suchmaschinen)
         ///     </p>
         /// </summary>
         /// <example>
         ///     http://localhost/OliWeb/S/b4111e0e-48d9-42c4-a6f6-ec4991264947.aspx
         ///     <p>
-        ///         So kann man über die [SAPT]-Guid direkt
+        ///         So kann man ï¿½ber die [SAPT]-Guid direkt
         ///         Stamm, Angler, PostIt, TopLab anzeigen!
         ///     </p>
         ///     <p>
@@ -199,7 +199,7 @@ namespace OliWeb
             //else
             //{
             //    // Das wird von der XHTMLPage erledigt, da sie den Fuss innerhalb von
-            //    // /form und /body /html einfügt
+            //    // /form und /body /html einfï¿½gt
             //    SchreibFussZeile();
             //}
         }
@@ -248,7 +248,7 @@ namespace OliWeb
         }
 
         /// <summary>
-        ///     SchreibFussZeile hängt an jede Antwort ein Copyright und Impressum dran.
+        ///     SchreibFussZeile hï¿½ngt an jede Antwort ein Copyright und Impressum dran.
         ///     Wird von <see cref="Application_EndRequest" /> aufgerufen.
         /// </summary>
         [Obsolete("see Footer.ascx control")]
@@ -289,7 +289,7 @@ namespace OliWeb
             sb.Append("</div>");
 
             // Google analytics
-            // TODO kann vor dem Veröffentlichen wieder aktiviert werden
+            // TODO kann vor dem Verï¿½ffentlichen wieder aktiviert werden
             //sb.Append("<script src=\"http://www.google-analytics.com/urchin.js\" type=\"text/javascript\">");
             //sb.Append("</script>");
             //sb.Append("<script type=\"text/javascript\">");

@@ -29,7 +29,7 @@ namespace OliWeb.Controls.Koerper.Organ
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -57,9 +57,9 @@ namespace OliWeb.Controls.Koerper.Organ
             // Titel
             TitelLabel.Text = p.IsTitelNull() ? "" : p.Titel;
 
-            // gekürzten Text bei Detailtabellenansicht oder TopLabEditieransicht
+            // gekï¿½rzten Text bei Detailtabellenansicht oder TopLabEditieransicht
             // und ohne TopLab anzeigen [...] 
-            // früher ging das mit dieser Eigenschaft || SichtbaresGrid == Stamm.SichtbaresGrid.None
+            // frï¿½her ging das mit dieser Eigenschaft || SichtbaresGrid == Stamm.SichtbaresGrid.None
             // Auf der PostIt-Seite : ganzen Text
             var isPostItSite = (Page is PostItSite);
             var isTopLabEdit = (Page is TopLabEdit);

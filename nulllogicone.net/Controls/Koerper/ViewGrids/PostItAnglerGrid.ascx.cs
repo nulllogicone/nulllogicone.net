@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -78,7 +78,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		// OnPreRender
 		protected override void OnPreRender(EventArgs e)
 		{
-			// Title und Spaltenüberschriften auf Q
+			// Title und Spaltenï¿½berschriften auf Q
 			if(this.OliUser.Stamm != null)
 			{
 				TitleLabel.Text = this.OliUser.Stamm.Q.P_X + " (" + PostIt.MyEmpfaenger.Rows.Count.ToString() + ")";
@@ -104,7 +104,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 			if (dv.Count == 0)
 			{
 				Label l = new Label();
-				l.Text = "<div style='font-size:8pt; text-align:center'>keine Empfänger für diese Nachricht vorhanden</div><hr>";
+				l.Text = "<div style='font-size:8pt; text-align:center'>keine Empfï¿½nger fï¿½r diese Nachricht vorhanden</div><hr>";
 				this.Controls.Add(l);
 			}
 		}
@@ -152,3 +152,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		}
 	}
 }
+

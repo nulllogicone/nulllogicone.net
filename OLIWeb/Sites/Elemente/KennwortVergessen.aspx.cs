@@ -39,11 +39,11 @@ namespace OliWeb.Sites.Elemente
             mm.Subject = "[OLI-it] Kennwort vergessen";
             mm.Body = "Hallo " + HttpUtility.HtmlDecode(OliUser.Stamm.StammRow.Stamm) + Environment.NewLine;
             mm.Body +=
-                "auf der Seite von OLI-it wurde der Button geklickt, daß Sie ihr Kennwort neu zugeschickt bekommen möchten.";
+                "auf der Seite von OLI-it wurde der Button geklickt, daï¿½ Sie ihr Kennwort neu zugeschickt bekommen mï¿½chten.";
             mm.Body += "Es lautet: " + HttpUtility.HtmlDecode(OliUser.Stamm.StammRow.Unterschrift) + Environment.NewLine;
             mm.Body +=
-                "Falls Sie es nicht selber waren oder da das Kennwort im Klartext versendet wird, empfiehlt es sich das Kennwort regelmäßig zu ändern." + Environment.NewLine;
-            mm.Body += "Mit freundlichen Grüßen" + Environment.NewLine;
+                "Falls Sie es nicht selber waren oder da das Kennwort im Klartext versendet wird, empfiehlt es sich das Kennwort regelmï¿½ï¿½ig zu ï¿½ndern." + Environment.NewLine;
+            mm.Body += "Mit freundlichen Grï¿½ï¿½en" + Environment.NewLine;
             mm.Body += "Ihr OLI-it Team";
             mm.Body += OliCommon.EmailSignature;
             if (Request.UserHostAddress != null) mm.Body += Request.UserHostAddress;

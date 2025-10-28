@@ -15,9 +15,9 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Floor
 {
     /// <summary>
-    ///     dieses Control hat zwei Zustände: Wenn man eingeloggt ist, zeigt es den
-    ///     Stamm (draufklicken lädt die Daten neu) und Button zum ausloggen - sonst
-    ///     zeigt es zwei Textboxen für Name und Kennwort zum einloggen.
+    ///     dieses Control hat zwei Zustï¿½nde: Wenn man eingeloggt ist, zeigt es den
+    ///     Stamm (draufklicken lï¿½dt die Daten neu) und Button zum ausloggen - sonst
+    ///     zeigt es zwei Textboxen fï¿½r Name und Kennwort zum einloggen.
     /// </summary>
     public partial class EinAusLoggen : MasterControl
     {
@@ -39,11 +39,11 @@ namespace OliWeb.Controls.Floor
         }
 
         /// <summary>
-        ///     <b>javasripct</b> für die Stamm- und Kennwort-Textboxen stellt den Fokus für das Enter-Klicken auf den
+        ///     <b>javasripct</b> fï¿½r die Stamm- und Kennwort-Textboxen stellt den Fokus fï¿½r das Enter-Klicken auf den
         ///     <see cref="ShowStammButton" /> ein.
         /// </summary>
         /// <remarks>
-        ///     Die ID der Steuerelemente hängen davon ab wo dieses Control platziert ist. Am einfachsten öffnet man
+        ///     Die ID der Steuerelemente hï¿½ngen davon ab wo dieses Control platziert ist. Am einfachsten ï¿½ffnet man
         ///     eine Seite im Browser und sieht in der Quelltextansicht nach.
         /// </remarks>
         /// <example>
@@ -56,7 +56,7 @@ namespace OliWeb.Controls.Floor
         /// <param name="e"> </param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Cookie - Prüfung
+            // Cookie - Prï¿½fung
             var sess = Session.SessionID;
             var prevsess = Request["prevSessionId"];
             if (prevsess != null
@@ -78,7 +78,7 @@ namespace OliWeb.Controls.Floor
         }
 
         /// <summary>
-        ///     abhängig ob jemand eingeloggt ist, wird entweder das eine oder
+        ///     abhï¿½ngig ob jemand eingeloggt ist, wird entweder das eine oder
         ///     andere Panel sichtbar geschaltet.
         ///     Wenn ein Stamm angezeigt wird, wird sein Name in die <see cref="StammTextBox" />
         ///     geschrieben, damit man sich leichter einloggen kann.
@@ -124,7 +124,7 @@ namespace OliWeb.Controls.Floor
         }
 
         /// <summary>
-        ///     <b>POST</b> mit Name und Kennwort zum Einloggen. Schlägt der Versuch
+        ///     <b>POST</b> mit Name und Kennwort zum Einloggen. Schlï¿½gt der Versuch
         ///     fehl, wird der Stamm einfach angezeigt.
         /// </summary>
         /// <param name="sender"> </param>
@@ -195,7 +195,7 @@ namespace OliWeb.Controls.Floor
         /// <param name="e"> </param>
         protected void AusloggenButton_Click(object sender, EventArgs e)
         {
-            // ein evtl gesetztes Cookie läuft sofort ab!
+            // ein evtl gesetztes Cookie lï¿½uft sofort ab!
             var c = Response.Cookies["oliweb"];
             c.Expires = DateTime.Now;
             Response.Cookies.Set(c);
@@ -263,7 +263,7 @@ namespace OliWeb.Controls.Floor
             {
                 var c = new HttpCookie("oliweb");
                 c.Expires = DateTime.Now.AddMonths(1);
-                c.Value = "Cookie für automatisch Anmelden bei www.oli-it.com";
+                c.Value = "Cookie fï¿½r automatisch Anmelden bei www.oli-it.com";
 
                 c.Values.Add("autologin", "true");
                 c.Values.Add("stamm", StammTextBox.Text);

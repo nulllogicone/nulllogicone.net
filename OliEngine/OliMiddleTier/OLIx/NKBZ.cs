@@ -15,13 +15,13 @@ namespace OliEngine.OliMiddleTier.OLIx
     ///     ** Hirngeflecht ** Wortraum **
     /// 
     ///     NKBZ.
-    ///     Jetzt sind sie angekommen wo sie von Anfang an hingehörten.
+    ///     Jetzt sind sie angekommen wo sie von Anfang an hingehï¿½rten.
     ///     Die Tabellen: Netz, Knoten, Baum, Zweige 
     /// 
     ///     Diese Klasse stellt ein NKBZ Objekt dar.
     ///     Es kann eigentlich im Arbeitsspeicher des Server bleiben
     ///     oder auf jedem Client local vorgehalten werden.
-    ///     (seltene Änderung, häufige Abfragen)
+    ///     (seltene ï¿½nderung, hï¿½ufige Abfragen)
     /// </summary>
     public class NKBZ : NKBZDataSet
     {
@@ -32,7 +32,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 
         /// <summary>
         ///     Der ganze Wortraum geht von einer Wurzel aus.
-        ///     Das ist das Netz mit 'Urheber - Inhalt - Empfänger'
+        ///     Das ist das Netz mit 'Urheber - Inhalt - Empfï¿½nger'
         ///     In der Netz - Klasse ist die NetzGuid codiert {76035F19-F4AE-4D58-A388-4BBC72C51CEF}
         /// </summary>
         public static Netz RootNetz
@@ -41,7 +41,7 @@ namespace OliEngine.OliMiddleTier.OLIx
         }
 
         /// <summary>
-        ///     Instanzvariable, die den Wortraum hält - damit er nicht 
+        ///     Instanzvariable, die den Wortraum hï¿½lt - damit er nicht 
         ///     immer wieder neu gelesen werden muss (Singleton)
         /// </summary>
         private static NKBZ nkbz;
@@ -106,7 +106,7 @@ namespace OliEngine.OliMiddleTier.OLIx
         #endregion
 
         /// <summary>
-        ///     Erstellt für alle Netze mit Knoten die RDF Serialisation
+        ///     Erstellt fï¿½r alle Netze mit Knoten die RDF Serialisation
         /// </summary>
         /// <returns></returns>
         public string MakeWortraumRDF()
@@ -161,7 +161,7 @@ namespace OliEngine.OliMiddleTier.OLIx
                                           kr.IsBeschreibungNull() ? "" : HttpUtility.HtmlEncode(kr.Beschreibung));
                     xw.WriteElementString("nlo:datum", kr.Datum.ToString("s"));
 
-                    #region für diesen Knoten und ggf. weitere Bäume die Vorgabewerte
+                    #region fï¿½r diesen Knoten und ggf. weitere Bï¿½ume die Vorgabewerte
 
                     xw.WriteComment("Vorgabewerte");
                     xw.WriteComment("************");
@@ -283,7 +283,7 @@ namespace OliEngine.OliMiddleTier.OLIx
                 //				i++; if (i>MAX) break;
             }
 
-            // Baum einfügen
+            // Baum einfï¿½gen
             xw.WriteRaw(MakeInnerBaumZweigRDF());
 
             xw.WriteEndElement(); // ~</rdf:RDF>
@@ -314,7 +314,7 @@ namespace OliEngine.OliMiddleTier.OLIx
             var baumDv = new DataView(Baum);
             //			netzDv.RowFilter = "RDF = 1";
 
-            // Bäume
+            // Bï¿½ume
             foreach (DataRowView drv in baumDv)
             {
                 BaumRow br = (BaumRow) drv.Row;

@@ -20,7 +20,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // wenn ShortCuts ausgewählt immer als Wortraum zeigen
+            // wenn ShortCuts ausgewï¿½hlt immer als Wortraum zeigen
             if (OliUser.Stamm.ShortCuts != null)
             {
                 WortraumController1.Werbefrei = OliUser.Stamm.Extras.ExtrasRow.werbefrei;
@@ -39,7 +39,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             ShortCutsDataGrid.DataSource = OliUser.Stamm.MyShortCuts;
             ShortCutsDataGrid.DataBind();
 
-            // wenn ShortCuts ausgewählt => Wortraum zeigen
+            // wenn ShortCuts ausgewï¿½hlt => Wortraum zeigen
             if (OliUser.Stamm.ShortCuts != null)
             {
                 WortraumController1.Werbefrei = OliUser.Stamm.Extras.ExtrasRow.werbefrei;
@@ -53,13 +53,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 
         protected override void OnInit(EventArgs e)
         {
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
         ///</summary>
         private void InitializeComponent()
         {
@@ -86,7 +86,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             ShortCutsDataGrid.DataKeyField = "ShortCutsGuid";
             Guid scguid = (Guid) ShortCutsDataGrid.DataKeys[e.Item.ItemIndex];
 
-            // auswählen
+            // auswï¿½hlen
             if (e.CommandName == "ok" || e.CommandName == "select" || e.CommandName == "Edit")
             {
                 ShortCutsDataGrid.EditItemIndex = e.Item.ItemIndex;

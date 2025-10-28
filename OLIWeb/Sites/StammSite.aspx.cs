@@ -14,7 +14,7 @@ namespace OliWeb.Sites
     ///     StammSite.
     /// </summary>
     /// <example>
-    ///     Meine persönliche <a href="https://www.oli-it.com/S/b4111e0e-48d9-42c4-a6f6-ec4991264947.aspx">StammSite</a>
+    ///     Meine persï¿½nliche <a href="https://www.oli-it.com/S/b4111e0e-48d9-42c4-a6f6-ec4991264947.aspx">StammSite</a>
     /// </example>
     public partial class StammSite : MasterStammPage
     {
@@ -25,15 +25,15 @@ namespace OliWeb.Sites
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

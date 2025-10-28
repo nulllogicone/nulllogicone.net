@@ -25,7 +25,7 @@ namespace OliWeb.Controls.Koerper
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -89,3 +89,4 @@ namespace OliWeb.Controls.Koerper
 
 	}
 }
+

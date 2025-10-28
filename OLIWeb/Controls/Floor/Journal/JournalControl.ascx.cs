@@ -17,7 +17,7 @@ namespace OliWeb.Controls.Floor.Journal
 
 
     ///<summary>
-    ///    Das Control für die neuesten <a href="SAPCT.htm">[SAPCT]</a> - Einträge in die Datenbank.
+    ///    Das Control fï¿½r die neuesten <a href="SAPCT.htm">[SAPCT]</a> - Eintrï¿½ge in die Datenbank.
     ///</summary>
     public partial class JournalControl : MasterControl
     {
@@ -28,8 +28,8 @@ namespace OliWeb.Controls.Floor.Journal
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {
@@ -42,7 +42,7 @@ namespace OliWeb.Controls.Floor.Journal
         // ------
 
         /// <summary>
-        ///     Es soll nicht möglich sein, alle Datensätze aus einer
+        ///     Es soll nicht mï¿½glich sein, alle Datensï¿½tze aus einer
         ///     Tabellen anzuzeigen. Hier wird die Obergrenze festgelegt.
         /// </summary>
         private int MAXZEILEN = 200;
@@ -55,7 +55,7 @@ namespace OliWeb.Controls.Floor.Journal
         /// <summary>
         ///     journal-Daten in/aus Session gespeichert. Wird beim ersten Aufruf
         ///     dieses Control festgelegt.
-        ///     TODO: Könnte eigentlich auch in den Application Cache!
+        ///     TODO: Kï¿½nnte eigentlich auch in den Application Cache!
         /// </summary>
         private OliEngine.OliDataAccess.Views.Journal journal
         {
@@ -74,7 +74,7 @@ namespace OliWeb.Controls.Floor.Journal
 
         /// <summary>
         ///     Anzahl der anzuzeigenden Zeilen. Der Wert wird aus der ZeilenTextBox auf dem Formular genommen und
-        ///     wenn nötig auf zwischen 1 und MAXZEILEN korrigiert.
+        ///     wenn nï¿½tig auf zwischen 1 und MAXZEILEN korrigiert.
         /// </summary>
         protected int ZeilenZahl
         {
@@ -139,7 +139,7 @@ namespace OliWeb.Controls.Floor.Journal
         // --------
 
         /// <summary>
-        ///     Beim ersten Aufruf diese Controls wird die interne journal-Tabelle gefüllt
+        ///     Beim ersten Aufruf diese Controls wird die interne journal-Tabelle gefï¿½llt
         ///     und der ZeilenZahlTextBox dem Enter-Key ereignis zugeordnet.
         /// </summary>
         /// <param name="sender"> </param>

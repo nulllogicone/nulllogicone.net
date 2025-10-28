@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Wortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -118,7 +118,7 @@ namespace OliWeb.Controls.Wortraum
             Controls.Clear();
 
             // Zum Testen kann mit den folgenden Zeilen
-            // ein Label über dem Wortraum
+            // ein Label ï¿½ber dem Wortraum
             // mit der aktuellen Markierer Guid angezeigt werden
 //			Label l = new Label();
 //			try
@@ -154,7 +154,7 @@ namespace OliWeb.Controls.Wortraum
 
         #region AddControl(Zelle)
 
-        // fügt für die übergebene Zelle ein
+        // fï¿½gt fï¿½r die ï¿½bergebene Zelle ein
         // entsprechendes Control hinzu
         private void AddControl(Zelle ze)
         {

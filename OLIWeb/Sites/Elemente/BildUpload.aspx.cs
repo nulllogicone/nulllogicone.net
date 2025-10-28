@@ -14,7 +14,7 @@ using OliWeb.Klassen;
 namespace OliWeb.Sites.Elemente
 {
     /// <summary>
-    ///     Eine Seite, die einem Stamm ermöglicht, eigene Bilder in seinen Ordner
+    ///     Eine Seite, die einem Stamm ermï¿½glicht, eigene Bilder in seinen Ordner
     ///     von /images/OliUpload/StammGuid/ zu legen um sich, seine Nachrichten
     ///     oder Antworten zu illustrieren.
     /// </summary>
@@ -35,7 +35,7 @@ namespace OliWeb.Sites.Elemente
         /// <summary>
         ///     CheckPreCondition
         ///     Wenn die BasisBasePage Initialisiert wird, wird
-        ///     auf das vorhandensein eine Stamm geprüft.
+        ///     auf das vorhandensein eine Stamm geprï¿½ft.
         ///     Auf dieser Seite muss er auch noch eingeloggt sein
         /// </summary>
         protected override void CheckPreCondition()
@@ -84,7 +84,7 @@ namespace OliWeb.Sites.Elemente
 
         /// <summary>
         ///     // --------------------------------
-        ///     // Hilfsfunktion zum ListBox Füllen
+        ///     // Hilfsfunktion zum ListBox Fï¿½llen
         ///     // --------------------------------
         /// </summary>
         private void FillListBox1()

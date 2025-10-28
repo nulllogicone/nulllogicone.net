@@ -16,7 +16,7 @@ namespace OliEngine.OliDataAccess.Views
     ///     PostItStamm
     ///     ---------------
     /// 
-    ///     Gibt für ein PostIt die Urheber zurück (Stämme)
+    ///     Gibt fï¿½r ein PostIt die Urheber zurï¿½ck (Stï¿½mme)
     ///     mit den Feldern aus der Wurzeltabelle (frist, bezahlt)
     /// </summary>
     public class PostItStamm : PostItStammDataSet

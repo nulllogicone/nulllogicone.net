@@ -12,7 +12,7 @@ using OliEngine.OliMiddleTier.OLIx;
 namespace nulllogicone.net.Controls.AjaxWortraum
 {
     ///<summary>
-    ///    Zusammenfassung für AjaxWortraumControl.
+    ///    Zusammenfassung fï¿½r AjaxWortraumControl.
     ///</summary>
     public partial class AjaxWortraumControl : System.Web.UI.UserControl
     {
@@ -48,8 +48,8 @@ namespace nulllogicone.net.Controls.AjaxWortraum
 
 
         /// <summary>
-        ///     beim Laden der Seite wird das Control für die verwendung mit Ajax angemeldet
-        ///     und das Lebel mit dem Root-Wortraum gefüllt
+        ///     beim Laden der Seite wird das Control fï¿½r die verwendung mit Ajax angemeldet
+        ///     und das Lebel mit dem Root-Wortraum gefï¿½llt
         /// </summary>
         /// <param name = "sender"></param>
         /// <param name = "e"></param>
@@ -93,7 +93,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     soll der CodeMarkierer bzw. AnglerMarkierer verändert werden können
+        ///     soll der CodeMarkierer bzw. AnglerMarkierer verï¿½ndert werden kï¿½nnen
         /// </summary>
         public bool Markierbar
         {
@@ -113,7 +113,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     man kann einstellen ob die Vorgabewerte für die bunten Punkte angezeigt werden sollen
+        ///     man kann einstellen ob die Vorgabewerte fï¿½r die bunten Punkte angezeigt werden sollen
         /// </summary>
         public bool ShowVgb
         {
@@ -129,7 +129,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     man kann einstellen ob die Vorgabewerte für die bunten Punkte angezeigt werden sollen
+        ///     man kann einstellen ob die Vorgabewerte fï¿½r die bunten Punkte angezeigt werden sollen
         /// </summary>
         public bool Werbefrei
         {
@@ -145,7 +145,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     Auswahlfeld für bunte Punkte eines Knoten
+        ///     Auswahlfeld fï¿½r bunte Punkte eines Knoten
         /// </summary>
         /// <param name = "og"></param>
         /// <returns></returns>
@@ -164,7 +164,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     Auswahlfeld für bunte Punkte bei einem Zweig
+        ///     Auswahlfeld fï¿½r bunte Punkte bei einem Zweig
         /// </summary>
         /// <param name = "og"></param>
         /// <returns></returns>
@@ -183,7 +183,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     erstellt den Html Code für ein Netz mit seinen Knoten
+        ///     erstellt den Html Code fï¿½r ein Netz mit seinen Knoten
         /// </summary>
         /// <param name = "nguidstr"></param>
         /// <param name = "ebene"></param>
@@ -238,7 +238,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
                     sb.Append(makeKnoten(kr, ebene, true));
                     anzK++;
 
-                    // Child-div (wenn markiert dann weiter füllen)
+                    // Child-div (wenn markiert dann weiter fï¿½llen)
                     if (og.Length > 0)
                     {
                         string mwk = MakeWeiterKnoten(kr.KnotenGuid.ToString(), true);
@@ -262,7 +262,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
                     sb.Append("</div>");
                 }
             }
-            // wenn keine Knoten dann nix zurückgeben
+            // wenn keine Knoten dann nix zurï¿½ckgeben
             if (anzK == 0)
             {
                 return "";
@@ -307,7 +307,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
             sb.Append("title='" + (kr.IsBeschreibungNull() ? "" : kr.Beschreibung) + "'>");
             sb.Append(Kimg);
             sb.Append((kr.Knoten) + "&nbsp;");
-            // Vorgabe Werte für bunte Punkte
+            // Vorgabe Werte fï¿½r bunte Punkte
             if (ShowVgb)
             {
                 sb.Append("<img style=\"vertical-align:middle;border:none;\" width=\"6px\" src=\"" + imgroot +
@@ -347,7 +347,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
                 }
                 sb.Append(Markierbar ? "</a>" : "");
 
-                // Markierung Editieren und Löschen
+                // Markierung Editieren und Lï¿½schen
                 if (Markierbar)
                 {
                     sb.Append("<div style=\"display:none;\" ID=\"Edit" + kr.KnotenGuid + "\">" + knotenPunktSelect(og) +
@@ -366,7 +366,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
 
 
         /// <summary>
-        ///     erstellt den Html Code für einen Baum mit seinen Zweigen
+        ///     erstellt den Html Code fï¿½r einen Baum mit seinen Zweigen
         /// </summary>
         /// <param name = "lastKnoten"></param>
         /// <param name = "bguidstr"></param>
@@ -445,7 +445,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
                     sb.Append("</div>");
                 }
             }
-            // ohne Zweige nichts zurückgeben
+            // ohne Zweige nichts zurï¿½ckgeben
             if (anzZ == 0)
             {
                 return "";
@@ -518,7 +518,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
                 }
                 sb.Append(Markierbar ? "</a>" : "");
 
-                // Markierung Editieren und Löschen
+                // Markierung Editieren und Lï¿½schen
                 if (Markierbar)
                 {
                     sb.Append("<div style=\"display:none;\" ID=\"Edit" + lastKnoten.KnotenGuid + zr.ZweigGuid + "\">" +
@@ -558,7 +558,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     Ajax Methode, die für einen Knoten zurückgibt, wie es hinter ihm weitergeht.
+        ///     Ajax Methode, die fï¿½r einen Knoten zurï¿½ckgibt, wie es hinter ihm weitergeht.
         ///     Gibt ein ganzes Netz oder Baum aus
         /// </summary>
         /// <param name = "kguidstr"></param>
@@ -570,7 +570,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
             Guid kguid = new Guid(kguidstr);
             OliEngine.OliMiddleTier.OLIx.Knoten k = new OliEngine.OliMiddleTier.OLIx.Knoten(kguid);
 
-            // wenn es in einen Baum führt -> diesen anzeigen und aus
+            // wenn es in einen Baum fï¿½hrt -> diesen anzeigen und aus
             if (!k.KnotenRow.IsweiterBaumGuidNull())
             {
                 return makeBaum(k.KnotenRow, k.KnotenRow.weiterBaumGuid.ToString(), 0, onlymarked);
@@ -600,7 +600,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
 
 
         /// <summary>
-        ///     Ajax Methode, die für einen Zweig zurückgibt, wie es hinter ihm weitergeht
+        ///     Ajax Methode, die fï¿½r einen Zweig zurï¿½ckgibt, wie es hinter ihm weitergeht
         /// </summary>
         /// <param name = "lastKnoten">letzter Knoten von dem zu diesem Zweig gegangen wurde</param>
         /// <param name = "zguidstr">Zweig Guid</param>
@@ -685,7 +685,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
             Guid kguid = new Guid(kguidstr);
             OliEngine.OliMiddleTier.OLIx.Knoten k = new OliEngine.OliMiddleTier.OLIx.Knoten(kguid);
 
-            // Löschen
+            // Lï¿½schen
             if (Markierbar && Markierer != null)
             {
                 if (Markierer is OliEngine.OliMiddleTier.OLIs.Code)
@@ -709,7 +709,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
             Guid zguid = new Guid(zguidstr);
             OliEngine.OliMiddleTier.OLIx.Zweig z = new OliEngine.OliMiddleTier.OLIx.Zweig(zguid);
 
-            // Löschen
+            // Lï¿½schen
             if (Markierbar && Markierer != null)
             {
                 if (Markierer is OliEngine.OliMiddleTier.OLIs.Code)
@@ -726,7 +726,7 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         }
 
         /// <summary>
-        ///     ermöglich dem Clientscript die Daten nur neu anzufordern wenn sie sich ändern können
+        ///     ermï¿½glich dem Clientscript die Daten nur neu anzufordern wenn sie sich ï¿½ndern kï¿½nnen
         /// </summary>
         /// <returns></returns>
         [Ajax.AjaxMethod(HttpSessionStateRequirement.Read)]
@@ -740,15 +740,15 @@ namespace nulllogicone.net.Controls.AjaxWortraum
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

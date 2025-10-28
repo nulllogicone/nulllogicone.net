@@ -30,7 +30,7 @@ namespace OliEngine.OliDataAccess
             cad.SelectCommand = cmd;
             SqlCommandBuilder cb = new SqlCommandBuilder(cad);
 
-            // die folgende Zeilen sind nötig,
+            // die folgende Zeilen sind nï¿½tig,
             // falls das DataSet aus xml generiert und dann gespeichert wird
             rad = new SqlDataAdapter("Select * From oli.Ringe", con);
             SqlCommandBuilder rcb = new SqlCommandBuilder(rad);
@@ -112,14 +112,14 @@ namespace OliEngine.OliDataAccess
             st = parser.GetStatements(codeStatement.Subject.Value, "http://nulllogicone.net/schema.rdfs#codePostIt",
                                       null);
             if (st.Count != 1)
-                throw new Exception("Keiner oder mehrere PostIt gefunden. Ein Code kann nur zu einem PostIt gehören.");
+                throw new Exception("Keiner oder mehrere PostIt gefunden. Ein Code kann nur zu einem PostIt gehï¿½ren.");
             str = st[0].Object.Value;
             pguid = new Guid(str.Substring(str.IndexOf("?") + 1));
 
             // Das Statement mit Predicate #codeStamm suchen => StammGuid
             st = parser.GetStatements(codeStatement.Subject.Value, "http://nulllogicone.net/schema.rdfs#codeStamm", null);
             if (st.Count != 1)
-                throw new Exception("Keiner oder mehrere Stämme gefunden. Ein Code kann nur von einem Stamm sein");
+                throw new Exception("Keiner oder mehrere Stï¿½mme gefunden. Ein Code kann nur von einem Stamm sein");
             str = st[0].Object.Value;
             sguid = new Guid(str.Substring(str.IndexOf("?") + 1));
 
@@ -141,7 +141,7 @@ namespace OliEngine.OliDataAccess
             cr.Kommentar = beschreibung;
             c.Code.Rows.Add(cr);
 
-            // alle Ringe suchen also Predicate #type = #Ring und einzeln durchlaufen und anhängen
+            // alle Ringe suchen also Predicate #type = #Ring und einzeln durchlaufen und anhï¿½ngen
             Statements ringe = parser.GetStatements(null, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                                                     "http://nulllogicone.net/schema.rdfs#Ring");
             foreach (Statement ring in ringe)
@@ -162,7 +162,7 @@ namespace OliEngine.OliDataAccess
                 Objects objs = parser.GetObjects(ringSubj, "http://nulllogicone.net/schema.rdfs#markierungsStelleBaum");
                 if (objs.Count > 0)
                 {
-                    if (objs.Count > 1) throw new Exception("Warum gibt es hier mehrere Bäume????");
+                    if (objs.Count > 1) throw new Exception("Warum gibt es hier mehrere Bï¿½ume????");
                     obj = objs[0];
                     str = obj.Value;
                     bguid = new Guid(str.Substring(str.IndexOf("?") + 1));
@@ -210,7 +210,7 @@ namespace OliEngine.OliDataAccess
                         break;
                 }
 
-                // neue RingReihe erstellen und hinzufügen
+                // neue RingReihe erstellen und hinzufï¿½gen
                 rr = c.Ringe.NewRingeRow();
                 rr.RingGuid = Guid.NewGuid();
                 rr.CodeGuid = cguid;

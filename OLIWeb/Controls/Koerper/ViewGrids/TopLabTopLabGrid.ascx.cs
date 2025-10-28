@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         //protected override void OnInit(EventArgs e)
         //{
         //    //
-        //    // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+        //    // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
         //    //
         //    InitializeComponent();
         //    base.OnInit(e);
@@ -75,7 +75,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         {
             base.OnPreRender(e);
 
-            // Title und Spaltenüberschriften auf Q
+            // Title und Spaltenï¿½berschriften auf Q
             //TopLabDataGrid.Columns[0].HeaderText = this.OliUser.Stamm.Q.S;
             //TopLabDataGrid.Columns[1].HeaderText = this.OliUser.Stamm.Q.T;
 
@@ -112,7 +112,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
                 TopLab t = new TopLab(tguid);
                 if (t.MyTopLab.Count > 0)
                 {
-                    // neues TopLabTopLabGrid erstellen und drunter hängen
+                    // neues TopLabTopLabGrid erstellen und drunter hï¿½ngen
                     TopLabTopLabGrid ttg =
                         (TopLabTopLabGrid) LoadControl("~/Controls/Koerper/ViewGrids/TopLabTopLabGrid.ascx");
                     ttg.ParentTopLab = t;

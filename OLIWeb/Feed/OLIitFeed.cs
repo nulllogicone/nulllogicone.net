@@ -25,9 +25,9 @@ namespace OliWeb.Feed
 		{}
 
 //		// es muss immer eine sguid angegeben werden
-//		// die abgeleitetetn konkreten klassen müssen
+//		// die abgeleitetetn konkreten klassen mï¿½ssen
 //		// diesen Konstruktor aufrufen und dann das
-//		// Tabellen-füllen implementieren
+//		// Tabellen-fï¿½llen implementieren
 //		public OLIitFeed(Guid sguid)
 //		{
 //			this.sguid = sguid;
@@ -37,3 +37,4 @@ namespace OliWeb.Feed
 
 	}
 }
+

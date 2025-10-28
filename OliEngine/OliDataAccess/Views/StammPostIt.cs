@@ -13,7 +13,7 @@ namespace OliEngine.OliDataAccess.Views
     ///     StammPostIt
     ///     ----------------
     /// 
-    ///     Gibt für einen Stamm seine Nachrichten (PostIt)
+    ///     Gibt fï¿½r einen Stamm seine Nachrichten (PostIt)
     ///     und die Werte aus der Wurzeltabelle (bezahlt, frist)
     /// </summary>
     public class StammPostIt : StammPostItDataSet
@@ -34,7 +34,7 @@ namespace OliEngine.OliDataAccess.Views
 
         public StammPostIt(bool closed)
         {
-            // in der Abfrage StammPostIt steht wclosed für die jeweilige Wurzel zum stamm
+            // in der Abfrage StammPostIt steht wclosed fï¿½r die jeweilige Wurzel zum stamm
             // und closed ob es insgesamt geschlossen ist
             if (closed)
             {

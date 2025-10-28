@@ -12,8 +12,8 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Koerper
 {
     ///<summary>
-    ///    das Element für die aktuelle Nachricht. Sie wird durch das <see cref="Organ.PostItOrgan" /> 
-    ///    mit Bild und Frist und Wert dargestellt. Oben rechts kann man sie mit x schließen.
+    ///    das Element fï¿½r die aktuelle Nachricht. Sie wird durch das <see cref="Organ.PostItOrgan" /> 
+    ///    mit Bild und Frist und Wert dargestellt. Oben rechts kann man sie mit x schlieï¿½en.
     ///</summary>
     public partial class PostItKoerper : MasterControl
     {
@@ -21,13 +21,13 @@ namespace OliWeb.Controls.Koerper
 
         /// <summary>
         ///     es wird entweder der An- oder Abwurzeln Button aktiviert
-        ///     und für geschlossene PostIt das schleier.css eingestellt
+        ///     und fï¿½r geschlossene PostIt das schleier.css eingestellt
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // wenn die Nachricht nicht mehr geöffnet bzw. geschlossen ist,
+            // wenn die Nachricht nicht mehr geï¿½ffnet bzw. geschlossen ist,
             // wird ein Schleier angezeigt
             if (!PostIt.IsOpen || PostIt.StammClosed)
             {

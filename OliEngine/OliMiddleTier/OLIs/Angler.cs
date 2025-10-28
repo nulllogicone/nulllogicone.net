@@ -39,8 +39,8 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         /// <summary>
         ///     OBACHT: dieser Konstruktor erstellt einen Angler nur anhand seiner
-        ///     AnglerGuid und implizit den dazugehörenden Stamm.
-        ///     Normalerweise sollte ein Angler nur über das bestehende OliUser.Stamm
+        ///     AnglerGuid und implizit den dazugehï¿½renden Stamm.
+        ///     Normalerweise sollte ein Angler nur ï¿½ber das bestehende OliUser.Stamm
         ///     objekt mit der Methode ShowAngler erstellt werden.
         /// </summary>
         /// <param name="aguid"> </param>
@@ -80,7 +80,7 @@ namespace OliEngine.OliMiddleTier.OLIs
             ar.Datum = DateTime.Now;
             ar.AnglerGuid = Guid.NewGuid();
 
-            // Reihe hinzufügen
+            // Reihe hinzufï¿½gen
             angler.Angler.AddAnglerRow(ar);
         }
 
@@ -113,12 +113,12 @@ namespace OliEngine.OliMiddleTier.OLIs
             set { anglerPostIt = value; }
         }
 
-        public AnglerDataSet.LöcherDataTable MyLöcher
+        public AnglerDataSet.Lï¿½cherDataTable MyLï¿½cher
         {
             get
             {
-                AnglerDataSet.LöcherDataTable ldt;
-                ldt = angler.Löcher;
+                AnglerDataSet.Lï¿½cherDataTable ldt;
+                ldt = angler.Lï¿½cher;
                 return ldt;
             }
         }
@@ -129,7 +129,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         }
 
 //		/// <summary>
-//		/// ShowWortraum ************ sollte gelöscht werden ***************
+//		/// ShowWortraum ************ sollte gelï¿½scht werden ***************
 //		/// </summary>
 //		public bool ShowWortraum
 //		{
@@ -213,9 +213,9 @@ namespace OliEngine.OliMiddleTier.OLIs
             }
         }
 
-        public int UpdateLöcher()
+        public int UpdateLï¿½cher()
         {
-            return angler.UpdateLöcher();
+            return angler.UpdateLï¿½cher();
         }
 
         /// <summary>
@@ -287,11 +287,11 @@ namespace OliEngine.OliMiddleTier.OLIs
                 xw.WriteEndElement();
             }
 
-            // -- alle Löcher -- (könnte ein 'Bag' werden)
+            // -- alle Lï¿½cher -- (kï¿½nnte ein 'Bag' werden)
 
             xw.WriteComment("AnglerLoecher - die einzelnen Quadrupel mit bunten Punkten");
             xw.WriteComment("========================================================");
-            foreach (DataRow dr in MyLöcher)
+            foreach (DataRow dr in MyLï¿½cher)
             {
                 xw.WriteStartElement("nlo:anglerLoch"); // Predicate 
                 xw.WriteStartElement("nlo:Loch");
@@ -413,7 +413,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         public string IsInString(KnotenDataSet.KnotenRow kr)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid)
                 {
@@ -425,7 +425,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         public string IsInString(KnotenDataSet.KnotenRow kr, ZweigDataSet.ZweigRow zr)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid && !lr.IsZweigGuidNull() && lr.ZweigGuid == zr.ZweigGuid)
                 {
@@ -439,7 +439,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         {
             if (IsInString(kr).Length == 0)
             {
-                AnglerDataSet.LöcherRow lr = angler.Löcher.NewLöcherRow();
+                AnglerDataSet.Lï¿½cherRow lr = angler.Lï¿½cher.NewLï¿½cherRow();
 
                 lr.LochGuid = Guid.NewGuid();
                 lr.AnglerGuid = AnglerRow.AnglerGuid;
@@ -449,11 +449,11 @@ namespace OliEngine.OliMiddleTier.OLIs
                 lr.ILOs = kr.VgbILOs;
                 lr.Fit = kr.VgbFit;
 
-                // Reihe hinzufügen
-                MyLöcher.Rows.Add(lr);
+                // Reihe hinzufï¿½gen
+                MyLï¿½cher.Rows.Add(lr);
 
                 // Update
-                UpdateLöcher();
+                UpdateLï¿½cher();
             }
         }
 
@@ -461,7 +461,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         {
             if (IsInString(kr, zr).Length == 0)
             {
-                AnglerDataSet.LöcherRow lr = angler.Löcher.NewLöcherRow();
+                AnglerDataSet.Lï¿½cherRow lr = angler.Lï¿½cher.NewLï¿½cherRow();
 
                 lr.LochGuid = Guid.NewGuid();
                 lr.AnglerGuid = AnglerRow.AnglerGuid;
@@ -473,24 +473,24 @@ namespace OliEngine.OliMiddleTier.OLIs
                 lr.ILOs = kr.VgbILOs;
                 lr.Fit = kr.VgbFit;
 
-                // Reihe hinzufügen
-                MyLöcher.Rows.Add(lr);
+                // Reihe hinzufï¿½gen
+                MyLï¿½cher.Rows.Add(lr);
 
                 // Update
-                UpdateLöcher();
+                UpdateLï¿½cher();
             }
         }
 
         public void Update(KnotenDataSet.KnotenRow kr, string og)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid)
                 {
                     lr.ILOs = int.Parse(og[0].ToString());
                     lr.Fit = int.Parse(og[1].ToString());
                     // Update
-                    UpdateLöcher();
+                    UpdateLï¿½cher();
                     return;
                 }
             }
@@ -498,14 +498,14 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         public void Update(KnotenDataSet.KnotenRow kr, ZweigDataSet.ZweigRow zr, string og)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid && lr.ZweigGuid == zr.ZweigGuid)
                 {
                     lr.ILOs = int.Parse(og[0].ToString());
                     lr.Fit = int.Parse(og[1].ToString());
                     // Update
-                    UpdateLöcher();
+                    UpdateLï¿½cher();
                     return;
                 }
             }
@@ -513,26 +513,26 @@ namespace OliEngine.OliMiddleTier.OLIs
 
         public void Clear(KnotenDataSet.KnotenRow kr)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid)
                 {
                     lr.Delete();
                 }
             }
-            UpdateLöcher();
+            UpdateLï¿½cher();
         }
 
         public void Clear(KnotenDataSet.KnotenRow kr, ZweigDataSet.ZweigRow zr)
         {
-            foreach (AnglerDataSet.LöcherRow lr in MyLöcher)
+            foreach (AnglerDataSet.Lï¿½cherRow lr in MyLï¿½cher)
             {
                 if (lr.KnotenGuid == kr.KnotenGuid && lr.ZweigGuid == zr.ZweigGuid)
                 {
                     lr.Delete();
                 }
             }
-            UpdateLöcher();
+            UpdateLï¿½cher();
         }
 
         #endregion

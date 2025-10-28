@@ -33,7 +33,7 @@ namespace OliEngine.OliDataAccess
 
             SqlCommandBuilder cb = new SqlCommandBuilder(aad);
 
-            lad = new SqlDataAdapter("SELECT * FROM oli.Löcher", con);
+            lad = new SqlDataAdapter("SELECT * FROM oli.Lï¿½cher", con);
             SqlCommandBuilder lcb = new SqlCommandBuilder(lad);
 
 //			aad.Fill(this.Angler);
@@ -53,9 +53,9 @@ namespace OliEngine.OliDataAccess
                 throw new KeinAnglerException("falsche Angler GUID - nix gefunden");
             }
 
-            lad = new SqlDataAdapter("SELECT * FROM oli.Löcher WHERE AnglerGuid='" + aguid + "'", con);
+            lad = new SqlDataAdapter("SELECT * FROM oli.Lï¿½cher WHERE AnglerGuid='" + aguid + "'", con);
             SqlCommandBuilder lcb = new SqlCommandBuilder(lad);
-            lad.Fill(Löcher);
+            lad.Fill(Lï¿½cher);
         }
 
         public int UpdateAngler()
@@ -63,9 +63,9 @@ namespace OliEngine.OliDataAccess
             return (aad.Update(Angler));
         }
 
-        public int UpdateLöcher()
+        public int UpdateLï¿½cher()
         {
-            return (lad.Update(Löcher));
+            return (lad.Update(Lï¿½cher));
         }
 
         public void ClearLoecher()
@@ -76,7 +76,7 @@ namespace OliEngine.OliDataAccess
                 {
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "DELETE FROM Löcher WHERE AnglerGuid='" + AnglerRow.AnglerGuid + "'";
+                    cmd.CommandText = "DELETE FROM Lï¿½cher WHERE AnglerGuid='" + AnglerRow.AnglerGuid + "'";
                     cmd.Connection = con;
 
                     con.Open();
@@ -120,7 +120,7 @@ namespace OliEngine.OliDataAccess
             // DataSet
             Angler a = new Angler();
             AnglerRow ar;
-            LöcherRow lr;
+            Lï¿½cherRow lr;
 
             IRdfParser parser = new RdfParser();
             parser.Load(anglerInput);
@@ -142,7 +142,7 @@ namespace OliEngine.OliDataAccess
             st = parser.GetStatements(anglerStatement.Subject.Value, "http://nulllogicone.net/schema.rdfs#anglerStamm",
                                       null);
             if (st.Count != 1)
-                throw new Exception("Keiner oder mehrere Stämme gefunden. Ein Angler kann nur von einem Stamm sein");
+                throw new Exception("Keiner oder mehrere Stï¿½mme gefunden. Ein Angler kann nur von einem Stamm sein");
             str = st[0].Object.Value;
             sguid = new Guid(str.Substring(str.IndexOf("?") + 1));
 
@@ -170,7 +170,7 @@ namespace OliEngine.OliDataAccess
             ar.Datum = DateTime.Now;
             a.Angler.Rows.Add(ar);
 
-            // alle Ringe suchen also Predicate #type = #Ring und einzeln durchlaufen und anhängen
+            // alle Ringe suchen also Predicate #type = #Ring und einzeln durchlaufen und anhï¿½ngen
             Statements loecher = parser.GetStatements(null, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                                                       "http://nulllogicone.net/schema.rdfs#Loch");
             foreach (Statement loch in loecher)
@@ -191,7 +191,7 @@ namespace OliEngine.OliDataAccess
                 bguid = Guid.Empty;
                 if (objs.Count > 0)
                 {
-                    if (objs.Count > 1) throw new Exception("Warum gibt es hier mehrere Bäume????");
+                    if (objs.Count > 1) throw new Exception("Warum gibt es hier mehrere Bï¿½ume????");
                     obj = objs[0];
                     str = obj.Value;
                     bguid = new Guid(str.Substring(str.IndexOf("?") + 1));
@@ -239,8 +239,8 @@ namespace OliEngine.OliDataAccess
                         break;
                 }
 
-                // neue RingReihe erstellen und hinzufügen
-                lr = a.Löcher.NewLöcherRow();
+                // neue RingReihe erstellen und hinzufï¿½gen
+                lr = a.Lï¿½cher.NewLï¿½cherRow();
                 lr.LochGuid = Guid.NewGuid();
                 lr.AnglerGuid = aguid;
                 lr.NetzGuid = nguid;
@@ -252,15 +252,15 @@ namespace OliEngine.OliDataAccess
                 }
                 lr.ILOs = ilos;
                 lr.Fit = fit;
-                a.Löcher.Rows.Add(lr);
+                a.Lï¿½cher.Rows.Add(lr);
             }
             return a;
         }
     }
 
     /// <summary>
-    ///     Kein Angler Exception - weil die Angler gelöscht werden können,
-    ///     kommt es immer mal wieder vor, daß einer nicht gefunden wird:
+    ///     Kein Angler Exception - weil die Angler gelï¿½scht werden kï¿½nnen,
+    ///     kommt es immer mal wieder vor, daï¿½ einer nicht gefunden wird:
     ///     Deshalb eine eigene Exception
     /// </summary>
     public class KeinAnglerException : Exception

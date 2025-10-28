@@ -8,7 +8,7 @@ using OliEngine.OliMiddleTier.OLIs;
 namespace OliEngine.OliPresentation
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für Markierer.
+	/// Zusammendfassende Beschreibung fï¿½r Markierer.
 	/// </summary>
 	public class Markierer
 	{
@@ -45,7 +45,7 @@ namespace OliEngine.OliPresentation
 			}
 			catch (System.Data.ConstraintException)
 			{
-				// wurde wohl doppelte nkbz eingefügt
+				// wurde wohl doppelte nkbz eingefï¿½gt
 			}
 
 		}
@@ -59,3 +59,4 @@ namespace OliEngine.OliPresentation
 		}
 	}
 }
+

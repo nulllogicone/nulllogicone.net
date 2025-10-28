@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
@@ -65,7 +65,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
         {
             base.OnPreRender(e);
 
-            // Title und Spaltenüberschriften auf Q
+            // Title und Spaltenï¿½berschriften auf Q
             TitleLabel.Text = OliUser.Stamm.Q.A_X + " (" + Angler.MyPostIt.Rows.Count + ")";
 
             AnglerDataGrid.PageSize = ZeilenZahl;
@@ -94,7 +94,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
             {
                 Label l = new Label();
                 l.Text =
-                    "<div style='font-size:8pt; text-align:center'>keine Nachrichten für dieses Filterprofil vorhanden</div><hr>";
+                    "<div style='font-size:8pt; text-align:center'>keine Nachrichten fï¿½r dieses Filterprofil vorhanden</div><hr>";
                 Controls.Add(l);
             }
         }

@@ -11,7 +11,7 @@ using System.Web.UI;
 namespace OliWeb
 {
     /// <summary>
-    ///     Zusammenfassung für NoCookie.
+    ///     Zusammenfassung fï¿½r NoCookie.
     /// </summary>
     public partial class NoFeature : Page
     {
@@ -19,7 +19,7 @@ namespace OliWeb
         {
             if (Request["nocookie"] != null)
             {
-                NoCookieLabel.Text = "Browser unterstützt keine Session- Cookies";
+                NoCookieLabel.Text = "Browser unterstï¿½tzt keine Session- Cookies";
                 NoCookieLabel.ForeColor = Color.Red;
             }
             else
@@ -34,15 +34,15 @@ namespace OliWeb
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

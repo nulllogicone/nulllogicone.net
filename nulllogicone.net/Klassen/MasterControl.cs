@@ -9,11 +9,11 @@ namespace OliWeb.Klassen
 {
     /// <summary>
     ///     stellt davon abgeleiteten Controls das Mittelschicht OliUser Objekt
-    ///     zur Verfügung.
+    ///     zur Verfï¿½gung.
     /// </summary>
     /// <remarks>
-    ///     Es wird nicht geprüft, ob die jeweiligen Objekte existieren.
-    ///     Das muss über die Page auf der das Control platziert ist, gewährleistet werden.
+    ///     Es wird nicht geprï¿½ft, ob die jeweiligen Objekte existieren.
+    ///     Das muss ï¿½ber die Page auf der das Control platziert ist, gewï¿½hrleistet werden.
     /// </remarks>
     public class MasterControl : System.Web.UI.UserControl
     {
@@ -70,8 +70,8 @@ namespace OliWeb.Klassen
             }
             set
             {
-                // TODO: eigentlich sollte man das PostIt nur auf null setzen dürfen.
-                // Änderungen an der Mittelschicht werden über die Show-Methoden vorgenommen
+                // TODO: eigentlich sollte man das PostIt nur auf null setzen dï¿½rfen.
+                // ï¿½nderungen an der Mittelschicht werden ï¿½ber die Show-Methoden vorgenommen
                 OliUser.Stamm.PostIt = value;
             }
         }
@@ -138,8 +138,8 @@ namespace OliWeb.Klassen
         ///     ein <b>javasript</b> setzt den Focus auf das angegebene Control.
         ///     So kann man direkt in TextBoxen eingeben oder mit Enter auf Button klicken.
         /// </summary>
-        /// <param name = "page">auf welcher Seite soll das Script eingefügt werden</param>
-        /// <param name = "ctrlname">für welches Control (den Namen aus der Quelltextansicht) soll der Focus gesetzt werden</param>
+        /// <param name = "page">auf welcher Seite soll das Script eingefï¿½gt werden</param>
+        /// <param name = "ctrlname">fï¿½r welches Control (den Namen aus der Quelltextansicht) soll der Focus gesetzt werden</param>
         public static void FocusAufControl(Page page, string ctrlname)
         {
             if (!page.IsStartupScriptRegistered("FocusAuf" + ctrlname))

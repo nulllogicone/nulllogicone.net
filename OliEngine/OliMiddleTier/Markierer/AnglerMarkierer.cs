@@ -43,7 +43,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         // Strings
         public override DataTable Strings
         {
-            get { return (angler.Löcher); }
+            get { return (angler.Lï¿½cher); }
         }
 
         // AnglerGuid
@@ -93,7 +93,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         }
 
         // IsInStrings(ref KnotenZelle)
-        public override bool IsInStrings(ref KnotenZelle kz) // Obacht: Parameter wird geändert!
+        public override bool IsInStrings(ref KnotenZelle kz) // Obacht: Parameter wird geï¿½ndert!
         {
             kz.VgbILOs = -1;
             kz.VgbFit = -1;
@@ -115,7 +115,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         }
 
         // IsInStrings(ref ZweigZelle)
-        public override bool IsInStrings(ref ZweigZelle zz) // Obacht: Parameter wird geändert!
+        public override bool IsInStrings(ref ZweigZelle zz) // Obacht: Parameter wird geï¿½ndert!
         {
             zz.VgbOLIs = -1;
             zz.VgbGet = -1;
@@ -138,7 +138,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         {
             if (!IsInStrings(kz.MyRow))
             {
-                AnglerDataSet.LöcherRow lr = ((AnglerDataSet.LöcherDataTable) Strings).NewLöcherRow();
+                AnglerDataSet.Lï¿½cherRow lr = ((AnglerDataSet.Lï¿½cherDataTable) Strings).NewLï¿½cherRow();
 
                 lr.LochGuid = Guid.NewGuid();
                 lr.AnglerGuid = AnglerGuid;
@@ -148,14 +148,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 lr.ILOs = kz.VgbILOs;
                 lr.Fit = kz.VgbFit;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(lr);
 
                 // Update
-                Angler.UpdateLöcher();
+                Angler.UpdateLï¿½cher();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 angler = new Angler(MyGuid);
 
                 // Farbpunkte setzen
@@ -168,7 +168,7 @@ namespace OliEngine.OliMiddleTier.Markierer
         {
             if (!IsInStrings(zz.MyRow, ((BaumZelle) zz.Parent).LastKnoten))
             {
-                AnglerDataSet.LöcherRow lr = ((AnglerDataSet.LöcherDataTable) Strings).NewLöcherRow();
+                AnglerDataSet.Lï¿½cherRow lr = ((AnglerDataSet.Lï¿½cherDataTable) Strings).NewLï¿½cherRow();
                 KnotenZelle kz = ((BaumZelle) zz.Parent).LastKnoten;
 
                 lr.LochGuid = Guid.NewGuid();
@@ -181,14 +181,14 @@ namespace OliEngine.OliMiddleTier.Markierer
                 lr.ILOs = kz.VgbILOs;
                 lr.Fit = kz.VgbFit;
 
-                // Reihe hinzufügen
+                // Reihe hinzufï¿½gen
                 Strings.Rows.Add(lr);
 
                 // Update
-                Angler.UpdateLöcher();
+                Angler.UpdateLï¿½cher();
 
                 // mein DataSet neu erstellen
-                // (neu laden - damit die neu hinzugefügten ihre IDs erhalten)
+                // (neu laden - damit die neu hinzugefï¿½gten ihre IDs erhalten)
                 angler = new Angler(MyGuid);
 
                 // Farbpunkte setzen
@@ -199,12 +199,12 @@ namespace OliEngine.OliMiddleTier.Markierer
         // Clear(KnotenZelle)
         public override void Clear(KnotenZelle kz)
         {
-            DataRow[] sr = Angler.Löcher.Select("KnotenGuid = '" + kz.Guid + "'");
+            DataRow[] sr = Angler.Lï¿½cher.Select("KnotenGuid = '" + kz.Guid + "'");
             foreach (DataRow dr in sr)
             {
                 dr.Delete();
             }
-            Angler.UpdateLöcher();
+            Angler.UpdateLï¿½cher();
 
             kz.Weiter = null;
 
@@ -218,12 +218,12 @@ namespace OliEngine.OliMiddleTier.Markierer
         public override void Clear(ZweigZelle zz)
         {
             DataRow[] sr =
-                Angler.Löcher.Select("KnotenGuid = '" + zz.LastKnoten.Guid + "' AND ZweigGuid = '" + zz.Guid + "'");
+                Angler.Lï¿½cher.Select("KnotenGuid = '" + zz.LastKnoten.Guid + "' AND ZweigGuid = '" + zz.Guid + "'");
             foreach (DataRow dr in sr)
             {
                 dr.Delete();
             }
-            Angler.UpdateLöcher();
+            Angler.UpdateLï¿½cher();
 
             zz.Weiter = null;
 
@@ -236,15 +236,15 @@ namespace OliEngine.OliMiddleTier.Markierer
         // UpdatePunkte(KnotenZelle)
         public override void UpdatePunkte(KnotenZelle kz)
         {
-            DataRow[] dr = Angler.Löcher.Select("KnotenGuid = '" + kz.Guid + "'");
+            DataRow[] dr = Angler.Lï¿½cher.Select("KnotenGuid = '" + kz.Guid + "'");
             if (dr.Length > 0)
             {
-                AnglerDataSet.LöcherRow lr = (AnglerDataSet.LöcherRow) dr[0];
+                AnglerDataSet.Lï¿½cherRow lr = (AnglerDataSet.Lï¿½cherRow) dr[0];
 
                 lr.ILOs = kz.VgbILOs;
                 lr.Fit = kz.VgbFit;
 
-                Angler.UpdateLöcher();
+                Angler.UpdateLï¿½cher();
             }
             kz.VgbOLIs = -1;
             kz.VgbGet = -1;
@@ -254,8 +254,8 @@ namespace OliEngine.OliMiddleTier.Markierer
         public override void UpdatePunkte(ZweigZelle zz)
         {
             DataRow[] dr =
-                Angler.Löcher.Select("KnotenGuid = '" + zz.LastKnoten.Guid + "' AND ZweigGuid = '" + zz.Guid + "'");
-            AnglerDataSet.LöcherRow lr = (AnglerDataSet.LöcherRow) dr[0];
+                Angler.Lï¿½cher.Select("KnotenGuid = '" + zz.LastKnoten.Guid + "' AND ZweigGuid = '" + zz.Guid + "'");
+            AnglerDataSet.Lï¿½cherRow lr = (AnglerDataSet.Lï¿½cherRow) dr[0];
 
             lr.ILOs = zz.VgbILOs;
             lr.Fit = zz.VgbFit;
@@ -263,7 +263,7 @@ namespace OliEngine.OliMiddleTier.Markierer
             zz.VgbOLIs = -1;
             zz.VgbGet = -1;
 
-            Angler.UpdateLöcher();
+            Angler.UpdateLï¿½cher();
         }
     }
 }

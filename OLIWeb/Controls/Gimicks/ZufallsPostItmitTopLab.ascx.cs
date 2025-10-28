@@ -12,9 +12,9 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Gimicks
 {
     ///<summary>
-    ///    als Aufmacher auf der Startseite wird eine zufällige Nachricht mit
+    ///    als Aufmacher auf der Startseite wird eine zufï¿½llige Nachricht mit
     ///    ihren Antworten dargestellt. Sie sind in festdimensionierte DIVs
-    ///    gepackt. Die Daten werden vom <see cref="CacheManager" /> zur Verfügung
+    ///    gepackt. Die Daten werden vom <see cref="CacheManager" /> zur Verfï¿½gung
     ///    gestellt.
     ///</summary>
     public partial class ZufallsPostItmitTopLab : MasterControl
@@ -24,7 +24,7 @@ namespace OliWeb.Controls.Gimicks
 //		protected System.Web.UI.WebControls.HyperLink NextHyperLink;
 
         /// <summary>
-        ///     aus dem CacheManager wird ein zufälliges PostIt ausgewählt und als
+        ///     aus dem CacheManager wird ein zufï¿½lliges PostIt ausgewï¿½hlt und als
         ///     Hyperlink und mit <see cref="KlickBild" /> dargestellt.
         ///     Dann wird eine TopLabList zu dieser Nachricht an den TopLabRepeater
         ///     gebunden.
@@ -58,7 +58,7 @@ namespace OliWeb.Controls.Gimicks
         //override protected void OnInit(EventArgs e)
         //{
         //    //
-        //    // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+        //    // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
         //    //
         //    InitializeComponent();
         //    base.OnInit(e);

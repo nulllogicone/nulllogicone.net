@@ -42,10 +42,10 @@ namespace OliEngine
 
         // IsNumeric(string)
         /// <summary>
-        ///     prüft ob die übergebene Zeichenfolge eine int-Zahl darstellt
+        ///     prï¿½ft ob die ï¿½bergebene Zeichenfolge eine int-Zahl darstellt
         /// </summary>
-        /// <param name="value"> Zeichenfolge, die auf Zahl geprüft werden soll </param>
-        /// <returns> Gibt true zurück wenn es sich um eine Zahl handelt </returns>
+        /// <param name="value"> Zeichenfolge, die auf Zahl geprï¿½ft werden soll </param>
+        /// <returns> Gibt true zurï¿½ck wenn es sich um eine Zahl handelt </returns>
         //public static bool IsNumeric(string value)
         //{
         //    try
@@ -141,7 +141,7 @@ namespace OliEngine
         /// <param name="url"> </param>
         /// <returns> </returns>
         [Obsolete(
-            "diese 'hardcoded' html Methode sollte über design mit css-Weltkugel-Design gelöst werden. Dann hat ein Link ein Ziel und eine Darstellung"
+            "diese 'hardcoded' html Methode sollte ï¿½ber design mit css-Weltkugel-Design gelï¿½st werden. Dann hat ein Link ein Ziel und eine Darstellung"
             )]
         public static string MakeLinkHtml(string url)
         {

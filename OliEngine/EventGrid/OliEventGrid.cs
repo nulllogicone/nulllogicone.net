@@ -1,4 +1,4 @@
-﻿using Azure;
+using Azure;
 using Azure.Messaging.EventGrid;
 using Newtonsoft.Json;
 using System;
@@ -35,3 +35,4 @@ namespace OliEngine.EventGrid
         }
     }
 }
+

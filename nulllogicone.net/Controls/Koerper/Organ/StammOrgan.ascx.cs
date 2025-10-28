@@ -26,7 +26,7 @@ namespace OliWeb.Controls.Koerper.Organ
 		override protected void OnInit(EventArgs e)
 		{
 			//
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			//
 			InitializeComponent();
 			base.OnInit(e);
@@ -112,7 +112,7 @@ namespace OliWeb.Controls.Koerper.Organ
 				DatumLabel.Text = s.IsDatumNull() ? "" : s.Datum.ToShortDateString();
 				DatumLabel.ToolTip = "erzeugt: " + (s.IsDatumNull() ? "?" : s.Datum.ToString());
 				// KlickBild
-				// dem Stamm wird immer ein Bild eingefügt - und wenns das O ist
+				// dem Stamm wird immer ein Bild eingefï¿½gt - und wenns das O ist
 				KlickBild1.Breite = 75;
 				if(s.IsDateiNull() || s.Datei.Length == 0)
 				{
@@ -219,3 +219,4 @@ namespace OliWeb.Controls.Koerper.Organ
 
 	}
 }
+

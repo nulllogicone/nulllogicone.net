@@ -12,15 +12,15 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Floor.Suche
 {
     /// <summary>
-    ///     für eine gefundene Stämmen mit Bild und Trefferanzahl im Titel
+    ///     fï¿½r eine gefundene Stï¿½mmen mit Bild und Trefferanzahl im Titel
     /// </summary>
     public partial class StammListsControl : MasterControl
     {
         /// <summary>
-        ///     die Ausgabetabelle für Stammbild und Name
+        ///     die Ausgabetabelle fï¿½r Stammbild und Name
         /// </summary>
         /// <remarks>
-        ///     <h2>Zu den anderen DataGrids noch ein summary hinzufügen!</h2>
+        ///     <h2>Zu den anderen DataGrids noch ein summary hinzufï¿½gen!</h2>
         /// </remarks>
         protected DataGrid StammDataGrid;
 
@@ -29,15 +29,15 @@ namespace OliWeb.Controls.Floor.Suche
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {
@@ -54,7 +54,7 @@ namespace OliWeb.Controls.Floor.Suche
         // -------------
 
         /// <summary>
-        ///     Die Daten werden diesem Control von außen übergeben, da es für
+        ///     Die Daten werden diesem Control von auï¿½en ï¿½bergeben, da es fï¿½r
         ///     unterschiedliche Werte verwendet werden kann. Danach bindet es
         ///     sein darstellendes Steuerelement (DataGrid oder Repeater).
         ///     <p>Hier wird auch noch der Titel mit der Anzahl angepasst</p>

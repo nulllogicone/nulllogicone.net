@@ -9,9 +9,9 @@ using System.Data.SqlClient;
 namespace OliEngine.OliMiddleTier.OLIx
 {
     /// <summary>
-    ///     Ein Zweig ist eine Ausprägung (Alternative) in einem Baum.
+    ///     Ein Zweig ist eine Ausprï¿½gung (Alternative) in einem Baum.
     ///     Diese Stelle wird markiert bzw. gefiltert.
-    ///     Sie kann zu weiteren Netzen und Bäumen weiter verlinken.
+    ///     Sie kann zu weiteren Netzen und Bï¿½umen weiter verlinken.
     /// </summary>
     public class Zweig : ZweigDataSet
     {

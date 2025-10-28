@@ -13,9 +13,9 @@ namespace OliWeb
 {
     /// <summary>
     ///     Die <b>erste Seite</b>, die bei einem Aufruf dieser Webanwendung angezeigt wird.
-    ///     Wenn ein Querystring übergeben wird, wird dieser ausgewertet und ggf.
+    ///     Wenn ein Querystring ï¿½bergeben wird, wird dieser ausgewertet und ggf.
     ///     weitergeleitet.
-    ///     Die Seite enthält das <see cref="Controls.Floor.AnonymMenu" />- und <see cref="Controls.Floor.AnonymIntro" />-Control
+    ///     Die Seite enthï¿½lt das <see cref="Controls.Floor.AnonymMenu" />- und <see cref="Controls.Floor.AnonymIntro" />-Control
     /// </summary>
     public partial class _default_old : BasePage
     {
@@ -26,7 +26,7 @@ namespace OliWeb
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Mit Übergabeparametern entsprechende Seite Laden
+            // Mit ï¿½bergabeparametern entsprechende Seite Laden
             // wird auch aufgerufen wenn eine Adresse mit S/guid.aspx auf
             // einen Querystring ge- PathForwarded wird
             if (Request.QueryString.Count > 0)
@@ -38,7 +38,7 @@ namespace OliWeb
         #region LoadFromQueryString()
 
         /// <summary>
-        ///     falls beim Aufruf von oli-it ein Querystring übergeben wird,
+        ///     falls beim Aufruf von oli-it ein Querystring ï¿½bergeben wird,
         ///     versucht diese Funktion die entsprechenden Daten in die
         ///     Mittelschicht zu laden und danach weiterzuleiten <see cref="Klassen.Helper.RedirectToSite" />
         /// </summary>

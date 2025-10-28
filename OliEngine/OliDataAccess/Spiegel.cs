@@ -42,7 +42,7 @@ namespace OliEngine.OliDataAccess
                 }
                 else
                 {
-                    throw new Exception("mehrere Spiegel-Rows für codeGuid und AnglerRow");
+                    throw new Exception("mehrere Spiegel-Rows fï¿½r codeGuid und AnglerRow");
                 }
             }
         }

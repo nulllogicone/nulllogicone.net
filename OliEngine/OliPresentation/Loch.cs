@@ -3,15 +3,16 @@ using System;
 namespace OliEngine.OliPresentation
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für Loch.
+	/// Zusammendfassende Beschreibung fï¿½r Loch.
 	/// </summary>
 	public class Loch
 	{
 		public Loch()
 		{
 			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
+			// TODO: Fï¿½gen Sie hier die Konstruktorlogik hinzu
 			//
 		}
 	}
 }
+

@@ -15,23 +15,23 @@ using System.Web.UI;
 namespace OliWeb.Controls.Gimicks
 {
     ///<summary>
-    ///    Ein Control für aktuelle Schlagzeilen von Telepolis.
+    ///    Ein Control fï¿½r aktuelle Schlagzeilen von Telepolis.
     ///</summary>
     ///<remarks>
-    ///    Hier ist es schon öfters zu Fehlern gekommen, nachdem das
-    ///    rss-Format geändert wurde oder als der Service nicht erreichbar war.
+    ///    Hier ist es schon ï¿½fters zu Fehlern gekommen, nachdem das
+    ///    rss-Format geï¿½ndert wurde oder als der Service nicht erreichbar war.
     ///</remarks>
     public partial class Telepolis : UserControl
     {
         /// <summary>
-        ///     gewünschte Anzahl der Schlagzeilen
+        ///     gewï¿½nschte Anzahl der Schlagzeilen
         /// </summary>
         protected const int HEADCOUNT = 4;
 
         /// <summary>
         ///     wenn keine Nachrichten im Cache vorliegen, werden die neuesten
         ///     Nachrichten von http://www.telepolis.de/news.rdf geholt, gecached (3 h).
-        ///     Dann werden die Nachrichten aus dem Cache zufällig auf die gewünschte Anzahl gekürzt und im Repeater dargestellt.
+        ///     Dann werden die Nachrichten aus dem Cache zufï¿½llig auf die gewï¿½nschte Anzahl gekï¿½rzt und im Repeater dargestellt.
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>
@@ -55,8 +55,8 @@ namespace OliWeb.Controls.Gimicks
                 DataSet ds2 = dds.Copy();
                 Label1.Text = " News";
 
-                // Zufällig Artikel wegwerfen bis nur noch
-                // HEADCOUNT übrig sind (wird sonst zu lang)
+                // Zufï¿½llig Artikel wegwerfen bis nur noch
+                // HEADCOUNT ï¿½brig sind (wird sonst zu lang)
                 while (ds2.Tables[2].Rows.Count > HEADCOUNT)
                 {
                     Random r = new Random();
@@ -69,7 +69,7 @@ namespace OliWeb.Controls.Gimicks
             catch
             {
                 Label1.Text =
-                    "<oli-it><fehler><span title=\"068fe65c-2564-426e-bf40-5045c1e323de\">kein Newsfeed von Telepolis verfügbar</span></fehler></oli-it>";
+                    "<oli-it><fehler><span title=\"068fe65c-2564-426e-bf40-5045c1e323de\">kein Newsfeed von Telepolis verfï¿½gbar</span></fehler></oli-it>";
             }
         }
 
@@ -78,15 +78,15 @@ namespace OliWeb.Controls.Gimicks
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         ///<summary>
-        ///    Erforderliche Methode für die Designerunterstützung.
-        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///    Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+        ///    Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         ///</summary>
         private void InitializeComponent()
         {

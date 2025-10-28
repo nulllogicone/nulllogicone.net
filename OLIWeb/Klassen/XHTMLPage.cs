@@ -1,24 +1,24 @@
 /*
  * Auteur      : big71 (http://www.codeproject.com/aspnet/ASPNET2XHTML.asp)
- * Mise à jour et adaptation : Sébastien FERRAND (http://www.vbmaf.net)
- * Description   : Transforme le code HTML généré par asp.net pour le rendre
+ * Mise ï¿½ jour et adaptation : Sï¿½bastien FERRAND (http://www.vbmaf.net)
+ * Description   : Transforme le code HTML gï¿½nï¿½rï¿½ par asp.net pour le rendre
  *              compatible avec XHTML.
  * Version      : 1.0
  * Date         : 05 octobre 2004
  * ------------------------------------------------------------------------------
- * Révision :
+ * Rï¿½vision :
  * Version		: 1.1
  * Date			: 03 novembre 2004
- * Mise à jour des méthodes ConvertToLowerCase(), SingleTagToLowerCase() et 
- * PropertiesToLowerCase() pour la prise en charge des tags avec ou sans propriété
- * et les propriétés multiples pour un tag
+ * Mise ï¿½ jour des mï¿½thodes ConvertToLowerCase(), SingleTagToLowerCase() et 
+ * PropertiesToLowerCase() pour la prise en charge des tags avec ou sans propriï¿½tï¿½
+ * et les propriï¿½tï¿½s multiples pour un tag
  * --
  * Add support for tags with/without properties and multiproperties tags.
  * ------------------------------------------------------------------------------
- * Licence      : Cette classe est livrée telle quelle. Le ou les auteurs ne sont
+ * Licence      : Cette classe est livrï¿½e telle quelle. Le ou les auteurs ne sont
  *              en rien responsable de l'utilisation qui en sera fait.
- *              Vous êtes libre de distribuer ou d'utiliser cette classe dans 
- *              vos projets à condition que cet entête reste présente.
+ *              Vous ï¿½tes libre de distribuer ou d'utiliser cette classe dans 
+ *              vos projets ï¿½ condition que cet entï¿½te reste prï¿½sente.
  */
 
 using System;
@@ -118,7 +118,7 @@ namespace OliWeb
 			}
 
 			// frederic@luchting.de
-			// Fußzeile anhängen
+			// Fuï¿½zeile anhï¿½ngen
 			AppendFooter();
 			output.Write(m_sXHTML);
 		}
@@ -163,7 +163,7 @@ namespace OliWeb
 		}
 
 		/// <summary>
-		/// Fügt vor das Ende /form /body /html noch eine OLI-it Fußzeile ein
+		/// Fï¿½gt vor das Ende /form /body /html noch eine OLI-it Fuï¿½zeile ein
 		/// </summary>
 		private void AppendFooter()
 		{
@@ -213,12 +213,12 @@ namespace OliWeb
 			//			m_sXHTML = Regex.Replace(m_sXHTML, "<(/?)([a-zA-Z]+)(\\s*)>", new MatchEvaluator(SingleTagToLowerCase), RegexOptions.IgnoreCase);
 			
 			/// Update 03/11/2004 : Add support for Tags with properties
-			/// Author : Sébastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
+			/// Author : Sï¿½bastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
 			m_sXHTML = Regex.Replace(m_sXHTML, "<(/?)([a-zA-Z0-9]+)[ ]*(.*?)>", 
 				new MatchEvaluator(SingleTagToLowerCase), RegexOptions.IgnoreCase);
 			
 			/// Update 03/11/2004 : Update to match correctly tag with more one propertie
-			/// Author : Sébastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
+			/// Author : Sï¿½bastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
 			// Make all properties to lower case
 			m_sXHTML = Regex.Replace(m_sXHTML, "<([a-zA-Z0-9]+)(\\s+[a-zA-Z]+)(=\".+?>)",  
 				new MatchEvaluator(PropertiesToLowerCase), RegexOptions.IgnoreCase);
@@ -227,7 +227,7 @@ namespace OliWeb
 		private string SingleTagToLowerCase(Match m) 
 		{
 			/// Update 03/11/2004 : Add support for Tags with multi-properties
-			/// Author : Sébastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
+			/// Author : Sï¿½bastien FERRAND (mailto:sebastien.ferrand@vbmaf.net)
 			if (m.Groups[3].ToString().Trim() == String.Empty )
 				return "<" + m.Groups[1].ToString().ToLower() + m.Groups[2].ToString().ToLower() + ">";
 			else
@@ -426,7 +426,7 @@ namespace OliWeb
 
 
 		/// <summary>
-		/// SchreibFussZeile hängt an jede Antwort ein Copyright und Impressum dran.
+		/// SchreibFussZeile hï¿½ngt an jede Antwort ein Copyright und Impressum dran.
 		/// Wird von  aufgerufen.
 		/// </summary>
 		private string FussZeile()
@@ -476,3 +476,4 @@ namespace OliWeb
 		}
 	}
 }
+

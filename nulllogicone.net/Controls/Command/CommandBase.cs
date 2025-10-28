@@ -10,8 +10,8 @@ namespace OliWeb.Controls.Command
 {
     /// <summary>
     ///     OLI-it abstrahiert Kommunikation unterschiedlichster Problemfelder
-    ///     (Frage-Antwort / Kurz-Und-Fündig / Supporter-Hausfrau / Partnervermittlung).
-    ///     <p>Deshalb war von Anfang an vorgesehen die Beschriftungen der Entitäten 
+    ///     (Frage-Antwort / Kurz-Und-Fï¿½ndig / Supporter-Hausfrau / Partnervermittlung).
+    ///     <p>Deshalb war von Anfang an vorgesehen die Beschriftungen der Entitï¿½ten 
     ///         <a href = "SAPCT.htm">SAPCT</a> (Frager, Anbieter, Suchender, ....) und iher Detailansichten
     ///         (meine Fragen, Anzeigen, Angebote) individuell einzustellen.</p>
     /// </summary>
@@ -31,8 +31,8 @@ namespace OliWeb.Controls.Command
 
         /// <summary>
         ///     Hilfsfunktion, die den HyperLink sucht und den anderen Eigenschaften
-        ///     zur Verfügung stellt. <p>Alle Controls, die
-        ///                               von dieser Klasse abgeleitet sind, müssen ein HyperLink mit
+        ///     zur Verfï¿½gung stellt. <p>Alle Controls, die
+        ///                               von dieser Klasse abgeleitet sind, mï¿½ssen ein HyperLink mit
         ///                               dem Namen <b>HyperLink1</b> enthalten.</p>
         /// </summary>
         private HyperLink hl
@@ -41,7 +41,7 @@ namespace OliWeb.Controls.Command
         }
 
         /// <summary>
-        ///     der kleine, gelb hinterlegte Hilfetext, wenn die Maus über dem 
+        ///     der kleine, gelb hinterlegte Hilfetext, wenn die Maus ï¿½ber dem 
         ///     Control verweilt.
         /// </summary>
         public string ToolTip
@@ -66,7 +66,7 @@ namespace OliWeb.Controls.Command
         ///     Eigenschaft selbst ein.
         ///     Man kann auf der aspx Seite mit einem Attribut diese Eigenschaft
         ///     festlegen - vor allem bei den <see cref = "ExitCommand" />, die noch
-        ///     einen Parameter benötigen. (cmd=exitS)
+        ///     einen Parameter benï¿½tigen. (cmd=exitS)
         /// </summary>
         public string NavigateUrl
         {

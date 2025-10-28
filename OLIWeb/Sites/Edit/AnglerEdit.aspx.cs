@@ -26,7 +26,7 @@ namespace OliWeb.Sites.Edit
                 // neue Angler Reihe
                 if (a.RowState == DataRowState.Added)
                 {
-                    UpdateButton.Text = "hinzufügen";
+                    UpdateButton.Text = "hinzufï¿½gen";
 
                     // Alle Buttons disablen
                     //						Helper.SetAllButtons(this.Page.Controls, false);
@@ -53,7 +53,7 @@ namespace OliWeb.Sites.Edit
         /// <summary>
         ///     CheckPreCondition
         ///     Wenn die BasisBasePage Initialisiert wird, wird 
-        ///     auf das vorhandensein eine Stamm geprüft.
+        ///     auf das vorhandensein eine Stamm geprï¿½ft.
         ///     Auf dieser Seite muss er auch noch eingeloggt sein
         /// </summary>
         protected override void CheckPreCondition()
@@ -65,7 +65,7 @@ namespace OliWeb.Sites.Edit
                 Request["cmd"] != null &&
                 Request["cmd"] == "newA")
             {
-                // Cookie - Prüfung
+                // Cookie - Prï¿½fung
                 string sess = Session.SessionID;
                 string prevsess = Request["prevSessionId"];
 
@@ -94,15 +94,15 @@ namespace OliWeb.Sites.Edit
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -117,7 +117,7 @@ namespace OliWeb.Sites.Edit
             // wenn neue AnglerRow zeig danach automatisch Filter
             bool zeigFilter = (Angler.AnglerRow.RowState == DataRowState.Added);
 
-            // Felder füllen
+            // Felder fï¿½llen
             AnglerDataSet.AnglerRow a = Angler.AnglerRow;
             a.Angler = HttpUtility.HtmlEncode(AnglerTextBox.Text);
             a.Beschreibung = HttpUtility.HtmlEncode(BeschreibungTextBox.Text);
@@ -132,7 +132,7 @@ namespace OliWeb.Sites.Edit
             if (zeigFilter)
             {
                 //				Angler.ShowWortraum = true;
-                OliUser.Nachricht = "Bitte gewünschte Merkmale markieren";
+                OliUser.Nachricht = "Bitte gewï¿½nschte Merkmale markieren";
                 OliUser.Nachricht = "und dann die bunten Punkte klicken";
             }
 

@@ -58,8 +58,8 @@ namespace OliEngine.OliDataAccess
             }
         }
 
-        // erstellt einen neuen ShortCut für den Stamm
-        // und gibt die ShortCutReihe zurück
+        // erstellt einen neuen ShortCut fï¿½r den Stamm
+        // und gibt die ShortCutReihe zurï¿½ck
         public ShortCutsRow NewShortCut(Guid StammGuid, string ShortCutText)
         {
             ShortCutsRow scr = ShortCuts.NewShortCutsRow();

@@ -28,7 +28,7 @@ namespace OliEngine.OliMiddleTier.ZellHaufen
 //1			nkbz = NKBZ.Instance();
             k = new Knoten(kguid);
 
-            // TODO: hier soll eigentlich auf DataRowType == Added geprüft werden
+            // TODO: hier soll eigentlich auf DataRowType == Added geprï¿½ft werden
             if (kguid != Guid.Empty)
             {
 //1				kr = nkbz.Knoten.FindByKnotenGuid(kguid);
@@ -50,7 +50,7 @@ namespace OliEngine.OliMiddleTier.ZellHaufen
                 k.Knoten.AddKnotenRow(kr);
             }
 
-            // Zurückverknüpfen
+            // Zurï¿½ckverknï¿½pfen
             Parent.Childs.Add(this);
         }
 

@@ -13,15 +13,15 @@ namespace OliEngine.OliMiddleTier.OLIx
     /// <summary>
     ///     Ein Netz ist eine 'semantische Ebene' im Wortraum.
     ///     Ein Netz ist im Wortraum eindeutig (kann nicht mehrfach verlinkt sein).
-    ///     Es enthält Knoten, die markiert werden können (mit default Werten), 
-    ///     und von denen weitere Netze bzw. Bäume verlinkt sind.
+    ///     Es enthï¿½lt Knoten, die markiert werden kï¿½nnen (mit default Werten), 
+    ///     und von denen weitere Netze bzw. Bï¿½ume verlinkt sind.
     /// </summary>
     public class Netz : NetzDataSet
     {
         private SqlDataAdapter ad;
 
         /// <summary>
-        ///     erstellt ein neues Netz und lädt alle Datensätze
+        ///     erstellt ein neues Netz und lï¿½dt alle Datensï¿½tze
         /// </summary>
         public Netz()
         {
@@ -95,7 +95,7 @@ namespace OliEngine.OliMiddleTier.OLIx
 
                 foreach (NKBZDataSet.KnotenRow k in vonKnoten)
                 {
-                    // gib den rekursiven Pfad zurück
+                    // gib den rekursiven Pfad zurï¿½ck
                     Netz vonNetz = new Netz(k.NetzGuid);
 
                     HyperLink hl = new HyperLink();
@@ -116,7 +116,7 @@ namespace OliEngine.OliMiddleTier.OLIx
                                  select z;
                 foreach (NKBZDataSet.ZweigRow z in vonZweigen)
                 {
-                    // gib den rekursiven Pfad zurück
+                    // gib den rekursiven Pfad zurï¿½ck
                     Baum vonBaum = new Baum(z.BaumGuid);
 
                     List<List<HyperLink>> pathVonBaum = vonBaum.PathToRoot();

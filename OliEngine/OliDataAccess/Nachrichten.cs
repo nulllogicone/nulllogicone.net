@@ -7,7 +7,7 @@ using OliEngine.DataSetTypes;
 namespace OliEngine.OliDataAccess
 {
 	/// <summary>
-	/// Zusammendfassende Beschreibung für Nachrichten.
+	/// Zusammendfassende Beschreibung fï¿½r Nachrichten.
 	/// </summary>
 	public class Nachrichten : NachrichtenDataSet
 	{
@@ -56,3 +56,4 @@ namespace OliEngine.OliDataAccess
 		}
 	}
 }
+

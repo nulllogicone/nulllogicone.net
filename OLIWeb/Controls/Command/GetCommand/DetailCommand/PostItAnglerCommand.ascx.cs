@@ -22,7 +22,7 @@ namespace OliWeb.Controls.Command.GetCommand.DetailCommand
             string imgsrc = "<img alt='PostItAngler' height='10px' width='16px' border='0' src='/images/icons/Symbole/Angler.png' />";
             HyperLink1.NavigateUrl = "";
             HyperLink1.CssClass = "PostItButton";
-            HyperLink1.ToolTip = "Empfänger dieser Nachricht";
+            HyperLink1.ToolTip = "Empfï¿½nger dieser Nachricht";
 
             if (Stamm != null)
             {

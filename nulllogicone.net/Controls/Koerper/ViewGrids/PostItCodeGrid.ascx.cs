@@ -63,11 +63,11 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 			if (mySource.Count == 0)
 			{
 				Label l = new Label();
-				l.Text = "<div style='font-size:8pt; text-align:center'>keine Markierung für diese Nachricht vorhanden</div><hr />";
+				l.Text = "<div style='font-size:8pt; text-align:center'>keine Markierung fï¿½r diese Nachricht vorhanden</div><hr />";
 				this.Controls.Add(l);
 			}
 
-			// die eigenen Codes darf man löschen
+			// die eigenen Codes darf man lï¿½schen
 			if(Stamm.BinIchEingeloggt && Stamm.PostIt.BinIchMeinPostIt)
 			{
 				CodeDataGrid.Columns[CodeDataGridDelColumnIndex].Visible = true;
@@ -76,13 +76,13 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		#region Vom Web Form-Designer generierter Code
 		override protected void OnInit(EventArgs e)
 		{
-			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+			// CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
 			InitializeComponent();
 			base.OnInit(e);
 		}
 		
 		/// <summary>
-		///		Erforderliche Methode für die Designerunterstützung
+		///		Erforderliche Methode fï¿½r die Designerunterstï¿½tzung
 		/// </summary>
 		private void InitializeComponent()
 		{
@@ -106,7 +106,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //				Helper.RedirectToSite();
 //			}
 
-			// Code löschen
+			// Code lï¿½schen
 			if (e.CommandName == "del")
 			{
 				if (this.OliUser.Stamm.BinIchEingeloggt && PostIt.BinIchMeinPostIt)
@@ -168,7 +168,7 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 //							this.OliUser.Stamm.MyPostIt = null;
 //							this.OliUser.Stamm.ShowPostIt(pguid);
 //
-//							//							// Empfänger anzeigen
+//							//							// Empfï¿½nger anzeigen
 //							//							SichtbaresGrid = Stamm.SichtbaresGrid.PostItAngler;
 //
 //							// user.Nachricht
@@ -187,3 +187,4 @@ namespace OliWeb.Controls.Koerper.ViewGrids
 		}
 	}
 }
+

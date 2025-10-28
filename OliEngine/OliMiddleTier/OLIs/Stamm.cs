@@ -28,7 +28,7 @@ namespace OliEngine.OliMiddleTier.OLIs
         // mein DataAccess-Stamm-Objekt
         protected OliDataAccess.Stamm stamm;
 
-        // ein Verweis auf das aktuell ausgewählte Objekt
+        // ein Verweis auf das aktuell ausgewï¿½hlte Objekt
         private readonly OliUser user;
         private Angler angler;
         private PostIt postIt;
@@ -49,7 +49,7 @@ namespace OliEngine.OliMiddleTier.OLIs
 //		FristAbgelaufenDataSet.FristAbgelaufenDataTableDataTable fristAbgelaufen;
 
         // Werbefrei                   ******** 
-        // TODO: diese Eigenschaft gehört zu der Stamm-Eigenschaften Tabelle
+        // TODO: diese Eigenschaft gehï¿½rt zu der Stamm-Eigenschaften Tabelle
 //		public bool werbefrei = true;
 //		private Stamm.SichtbaresGrid sichtbareGrid = Stamm.SichtbaresGrid.None;
 
@@ -68,8 +68,8 @@ namespace OliEngine.OliMiddleTier.OLIs
         }
 
         /// <summary>
-        ///     Konstruktor für Stamm(mit user)
-        ///     <param name = "user">Ein Stamm hängt immer an einem user-Objekt</param>
+        ///     Konstruktor fï¿½r Stamm(mit user)
+        ///     <param name = "user">Ein Stamm hï¿½ngt immer an einem user-Objekt</param>
         ///     <see cref = "OliUser">Da kann man die Klasse sehen</seealso>
         /// </summary>
         public Stamm(OliUser user)
@@ -343,7 +343,7 @@ namespace OliEngine.OliMiddleTier.OLIs
                 if (postIt.StammZahlt == 1 && !postIt.StammClosed && BinIchEingeloggt)
                 {
 //					user.Nachricht = "Die Nachricht hat noch keinen besonderen Wert (KooK)";
-//					user.Nachricht = "Sie können frankieren und eine Frist setzen";
+//					user.Nachricht = "Sie kï¿½nnen frankieren und eine Frist setzen";
                 }
                 if (postIt.StammClosed && BinIchEingeloggt)
                 {

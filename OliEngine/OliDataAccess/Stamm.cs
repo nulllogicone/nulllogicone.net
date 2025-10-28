@@ -17,13 +17,13 @@ namespace OliEngine.OliDataAccess
     ///     (eine Stamm-Tabelle mit einer Zeile)
     /// </summary>
     /// <remarks>
-    ///     Man muss eine StammId übergeben.
+    ///     Man muss eine StammId ï¿½bergeben.
     /// </remarks>
     public class Stamm : StammDataSet
     {
         protected SqlDataAdapter sad;
 
-        // Konstruktor ohne Parameter kann überschrieben werden
+        // Konstruktor ohne Parameter kann ï¿½berschrieben werden
         public Stamm()
         {
             SqlConnection con = OliCommon.OLIsConnection;
@@ -119,7 +119,7 @@ namespace OliEngine.OliDataAccess
             // ****** Exception **********
             if (Stamm.Count != 1)
             {
-                throw new StammGibtsNichtException("Kein eindeutiger Stamm für TopLab = " + topLabRow.TopLab);
+                throw new StammGibtsNichtException("Kein eindeutiger Stamm fï¿½r TopLab = " + topLabRow.TopLab);
             }
         }
 

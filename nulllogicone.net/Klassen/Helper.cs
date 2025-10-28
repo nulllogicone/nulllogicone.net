@@ -15,10 +15,10 @@ using OliEngine.OliMiddleTier.OLIs;
 namespace OliWeb.Klassen
 {
     /// <summary>
-    ///     eine Ansammlung von Hilfsfunktionen die an mehreren Orten verwendet werden können.
+    ///     eine Ansammlung von Hilfsfunktionen die an mehreren Orten verwendet werden kï¿½nnen.
     /// </summary>
     /// <remarks>
-    ///     Die meisten Methoden können Statisch aufgerufen werden (eigentlich könnte die
+    ///     Die meisten Methoden kï¿½nnen Statisch aufgerufen werden (eigentlich kï¿½nnte die
     ///     Klasse abstrakt werden). 
     ///     <p>Es sind Seiten-, Control- und Klassen Hilfsfunktionen enthalten sowie
     ///         ganz allgeimeine Hilfen und die sehr spezielle Weiterleitung auf die wohl
@@ -29,17 +29,17 @@ namespace OliWeb.Klassen
         #region MakeBaseLink() - das WurzelVerzeichnis der WebAnwendung/
 
         /// <summary>
-        ///     gibt das AnwendungsRootVerzeichnis aus der Web.config Datei zurück.
+        ///     gibt das AnwendungsRootVerzeichnis aus der Web.config Datei zurï¿½ck.
         /// </summary>
         /// <remarks>
         ///     In der Web.config Datei muss ein Attribut mit dem namen <see cref = "root" />
-        ///     und dem Wert des Wurzelverzeichnisses für diese Anwendung eingestellt werden.
+        ///     und dem Wert des Wurzelverzeichnisses fï¿½r diese Anwendung eingestellt werden.
         ///     Liegt die Anwendung im Root des Webservers reicht ein "/" ansonsten der relative
-        ///     Pfad zum Anwendungsverzeichnis mit abschließendem /.
-        ///     <p>An diese Zeichenfolge kann dann entweder direkt die Resource angehängt werden
-        ///         (start.htm) oder mit dem obersten Ordner beginnend bis zur resource führen
+        ///     Pfad zum Anwendungsverzeichnis mit abschlieï¿½endem /.
+        ///     <p>An diese Zeichenfolge kann dann entweder direkt die Resource angehï¿½ngt werden
+        ///         (start.htm) oder mit dem obersten Ordner beginnend bis zur resource fï¿½hren
         ///         (images/bild.jpg).</p>
-        ///     <p>Es braucht keinen führenden Backslash!</p>
+        ///     <p>Es braucht keinen fï¿½hrenden Backslash!</p>
         /// </remarks>
         /// <example>
         ///     <code>
@@ -77,7 +77,7 @@ namespace OliWeb.Klassen
         #region RedirectToSite() - aus der Mittelschicht an Seite weiterleiten	
 
         ///<summary>
-        ///    wenn durch ein POST-Ereignis an der Mittelschicht etwas geändert wird,
+        ///    wenn durch ein POST-Ereignis an der Mittelschicht etwas geï¿½ndert wird,
         ///    soll auf das <see cref = "Ergebnis" /> mit einem GET <i>weitergeleitet</i> werden.
         ///
         ///
@@ -86,7 +86,7 @@ namespace OliWeb.Klassen
         ///</summary>
         ///<remarks>
         ///    Die Methode sollte eigentlich nur als letzter Notanker geworfen werden,
-        ///    wenn das gewünschte Ziel nicht sicher bekannt ist. 
+        ///    wenn das gewï¿½nschte Ziel nicht sicher bekannt ist. 
         ///    <p>Sie kann nur nach POST-backs gefeuert werden und soll den Back-Button-Bug abfangen</p>
         ///</remarks>
         public static void RedirectToSite()
@@ -100,7 +100,7 @@ namespace OliWeb.Klassen
 
 
         /// <summary>
-        ///     gibt anhand der Mittelschichtdaten die Seite zurück, die am meisten
+        ///     gibt anhand der Mittelschichtdaten die Seite zurï¿½ck, die am meisten
         ///     Elemente darstellt.
         /// </summary>
         /// <returns>die Seite, die die Mittelschicht am Besten darstellen kann.
@@ -159,7 +159,7 @@ namespace OliWeb.Klassen
             // Wenn hier die site noch nicht besetzt wurde => FEHLER werfen!
             if (site == "")
             {
-                throw new System.Web.HttpException("Helper.RedirectToSite() findet keinen gültigen Wert");
+                throw new System.Web.HttpException("Helper.RedirectToSite() findet keinen gï¿½ltigen Wert");
             }
 
 
@@ -206,13 +206,13 @@ namespace OliWeb.Klassen
 
 
 //		/// <summary>
-//		/// fügt in ein DataGrid in der Spalte mit entsprechender SortExpression
+//		/// fï¿½gt in ein DataGrid in der Spalte mit entsprechender SortExpression
 //		/// einen hoch/runter Pfeil ein
 //		/// </summary>
 //		/// <remarks>Diese Methode funktioniert nur in <see cref="Controls.Koerper.ViewGrids.ViewGridControl"/> Elementen
 //		/// (Deshalb sollte es auch dorthin oder verallgemeinert werden)
 //		/// Aber die Richtung des Pfeiles steckt halt in diesen abgeleiteten Controls ...</remarks>
-//		/// <param name="dataGrid">das DataGrid für das der Sortierpfeil in der Spaltenüberschrift eingestellt werden soll</param>
+//		/// <param name="dataGrid">das DataGrid fï¿½r das der Sortierpfeil in der Spaltenï¿½berschrift eingestellt werden soll</param>
 //		/// <param name="item">die Kopfzeilenelemente (??? glaub ich .???)</param>
 //		public static void SortierPfeil(DataGrid dataGrid, DataGridItem item)
 //		{
@@ -246,8 +246,8 @@ namespace OliWeb.Klassen
 //		/// ein <b>javasript</b> setzt den Focus auf das angegebene Control.
 //		/// So kann man direkt in TextBoxen eingeben oder mit Enter auf Button klicken.
 //		/// </summary>
-//		/// <param name="page">auf welcher Seite soll das Script eingefügt werden</param>
-//		/// <param name="ctrlname">für welches Control (den Namen aus der Quelltextansicht) soll der Focus gesetzt werden</param>
+//		/// <param name="page">auf welcher Seite soll das Script eingefï¿½gt werden</param>
+//		/// <param name="ctrlname">fï¿½r welches Control (den Namen aus der Quelltextansicht) soll der Focus gesetzt werden</param>
 //		public static void FocusAufControl(Page page, string ctrlname)
 //		{
 //			if(!page.IsStartupScriptRegistered("FocusAuf" + ctrlname) )
@@ -292,10 +292,10 @@ namespace OliWeb.Klassen
 
 
         /// <summary>
-        ///     für Debug Zwecke.
+        ///     fï¿½r Debug Zwecke.
         /// </summary>
         /// <returns>gibt die unterschiedlichsten Context.Request Eigenschaften als
-        ///     zusammenhängenden String aus</returns>
+        ///     zusammenhï¿½ngenden String aus</returns>
         public static string LinkInfo()
         {
             System.Web.HttpContext ctx = System.Web.HttpContext.Current;

@@ -16,7 +16,7 @@ namespace OliWeb.Sites
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Mittelschichtfehler Abfanger bei zurück und Objektverweis
+            // Mittelschichtfehler Abfanger bei zurï¿½ck und Objektverweis
             if (OliUser.Stamm == null || OliUser.Stamm.PostIt == null)
             {
                 OliUser.Nachricht = "Stamm und/oder Nachricht sind in Session verloren gegangen - keine Urheber";
@@ -32,15 +32,15 @@ namespace OliWeb.Sites
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

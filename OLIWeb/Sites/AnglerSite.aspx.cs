@@ -17,14 +17,14 @@ namespace OliWeb.Sites
         // Member
         // ------
 
-        // Überschriebene Methoden
+        // ï¿½berschriebene Methoden
         // ----------------------- 
         /// <summary>
         ///     CheckPreCondition
         ///     Wenn die BasisStammPage Initialisiert wird, wird 
-        ///     auf das vorhandensein eines Stamm geprüft.
+        ///     auf das vorhandensein eines Stamm geprï¿½ft.
         ///     Auf dieser Seite muss auch noch ein Angler vorhanden sein
-        ///     oder im QueryString die PostItGuid übergeben werden.
+        ///     oder im QueryString die PostItGuid ï¿½bergeben werden.
         /// </summary>
         protected override void CheckPreCondition()
         {
@@ -38,7 +38,7 @@ namespace OliWeb.Sites
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Mittelschichtfehler Abfanger bei zurück und Objektverweis
+            // Mittelschichtfehler Abfanger bei zurï¿½ck und Objektverweis
             if (OliUser.Stamm == null || OliUser.Stamm.Angler == null)
             {
                 OliUser.Nachricht = "Stamm und/oder Filterprofil sind in Session verloren gegangen";
@@ -55,15 +55,15 @@ namespace OliWeb.Sites
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -72,7 +72,7 @@ namespace OliWeb.Sites
         #endregion
 
         /// <summary>
-        ///     MyTitle wird in dieser Klasse mit Stamm und Anglernamen überschrieben.
+        ///     MyTitle wird in dieser Klasse mit Stamm und Anglernamen ï¿½berschrieben.
         /// </summary>
         protected override string MyTitle
         {

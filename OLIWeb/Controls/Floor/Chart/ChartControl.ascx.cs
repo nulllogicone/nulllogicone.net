@@ -11,9 +11,9 @@ using OliWeb.Klassen;
 namespace OliWeb.Controls.Floor.Chart
 {
     ///<summary>
-    ///    <b>Container-</b> Control für die einzelnen (Stamm, PostIt, TopLab)-ChartControls.
-    ///    Hier werden die Daten an die Controls übergeben, da sie mehrfach verwendet
-    ///    werden können (für TOP und FLOP)
+    ///    <b>Container-</b> Control fï¿½r die einzelnen (Stamm, PostIt, TopLab)-ChartControls.
+    ///    Hier werden die Daten an die Controls ï¿½bergeben, da sie mehrfach verwendet
+    ///    werden kï¿½nnen (fï¿½r TOP und FLOP)
     ///</summary>
     ///<remarks>
     ///    Dieses Control wird auf der <see cref="Sites.Elemente.ChartPage" />
@@ -35,7 +35,7 @@ namespace OliWeb.Controls.Floor.Chart
         }
 
         /// <summary>
-        ///     Die TOP und FLOP Daten werden an die passenden Controls übergeben.
+        ///     Die TOP und FLOP Daten werden an die passenden Controls ï¿½bergeben.
         /// </summary>
         /// <param name="e"> </param>
         protected override void OnPreRender(EventArgs e)

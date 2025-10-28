@@ -31,7 +31,7 @@ namespace OliWeb.Controls.BlaetterWald
 		{
 
 			// Wenn der Baum noch nicht drin ist
-			// wird er eingefügt
+			// wird er eingefï¿½gt
 			int idx = IndexOf(baum);
 
 			if(idx == -1)
@@ -102,3 +102,4 @@ namespace OliWeb.Controls.BlaetterWald
 
 	}
 }
+

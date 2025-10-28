@@ -69,7 +69,7 @@ namespace OliEngine.OliDataAccess.Functions
             kPar.Value = kommentar;
             cmd.Parameters.Add(kPar);
 
-            // Ausführen
+            // Ausfï¿½hren
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();

@@ -18,7 +18,7 @@ namespace OliWeb.Sites.Elemente
 {
     /// <summary>
     ///     Die Seite nimmt im <b>Querystring</b> eine Zeichenfolge entgegen,
-    ///     nach der gesucht werden soll (?such=abc). Dann übergibt sie die 
+    ///     nach der gesucht werden soll (?such=abc). Dann ï¿½bergibt sie die 
     ///     Trefferergebnisse an die SuchList-Controls.
     /// </summary>
     public partial class SuchList : Page
@@ -29,7 +29,7 @@ namespace OliWeb.Sites.Elemente
         protected TopLabListsControl TopLabListsControl1;
 
         /// <summary>
-        ///     Querystring auswerten und gefundene Daten an ListsControls übergeben
+        ///     Querystring auswerten und gefundene Daten an ListsControls ï¿½bergeben
         /// </summary>
         /// <param name="sender"> </param>
         /// <param name="e"> </param>
@@ -75,3 +75,4 @@ namespace OliWeb.Sites.Elemente
         }
     }
 }
+

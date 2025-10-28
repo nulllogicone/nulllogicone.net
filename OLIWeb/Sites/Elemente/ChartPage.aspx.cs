@@ -11,7 +11,7 @@ using OliWeb.Klassen;
 namespace OliWeb.Sites.Elemente
 {
     /// <summary>
-    ///     Diese Seite zeigt eine zusammenfassende Übersicht aller TOP und FLOP Daten.
+    ///     Diese Seite zeigt eine zusammenfassende ï¿½bersicht aller TOP und FLOP Daten.
     ///     (die teuersten, reichsten, billigsten ...)
     /// </summary>
     public partial class ChartPage : BasePage
@@ -21,15 +21,15 @@ namespace OliWeb.Sites.Elemente
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
         }
 
         /// <summary>
-        ///     Erforderliche Methode für die Designerunterstützung. 
-        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        ///     Erforderliche Methode fï¿½r die Designerunterstï¿½tzung. 
+        ///     Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
         /// </summary>
         private void InitializeComponent()
         {

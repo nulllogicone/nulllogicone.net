@@ -16,7 +16,7 @@ namespace OliWeb.Controls.Gimicks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Hier Benutzercode zur Seiteninitialisierung einfügen
+            // Hier Benutzercode zur Seiteninitialisierung einfï¿½gen
         }
 
         #region Web Form Designer generated code
@@ -24,7 +24,7 @@ namespace OliWeb.Controls.Gimicks
         protected override void OnInit(EventArgs e)
         {
             //
-            // CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
+            // CODEGEN: Dieser Aufruf ist fï¿½r den ASP.NET Web Form-Designer erforderlich.
             //
             InitializeComponent();
             base.OnInit(e);
