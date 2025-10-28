@@ -1,0 +1,53 @@
+name: Deploy webapp from infra changes
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
+      AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
+      AZURE_PLAN: ${{ secrets.AZURE_PLAN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj
+
+      - name: Build
+        run: dotnet build --configuration Release NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj
+
+      - name: Publish
+        run: dotnet publish --configuration Release --output ./publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj
+
+      - name: Deploy to Azure Web App (Publish Profile)
+        if: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE != '' }}
+        uses: azure/webapps-deploy@v2
+        with:
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish
+
+      - name: Login to Azure (Service Principal)
+        if: ${{ secrets.AZURE_CREDENTIALS != '' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE == '' }}
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy infrastructure (Bicep)
+        if: ${{ secrets.AZURE_CREDENTIALS != '' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE == '' }}
+        run: |
+          echo "Deploying Bicep template to resource group: $AZURE_RESOURCE_GROUP"
+          az deployment group create --resource-group "$AZURE_RESOURCE_GROUP" --template-file infra/main.bicep --parameters @infra/parameters.dev.bicepparam
+
+      - name: Deploy with Azure CLI (Service Principal)
+        if: ${{ secrets.AZURE_CREDENTIALS != '' && secrets.AZURE_WEBAPP_PUBLISH_PROFILE == '' }}
+        run: |
+          echo "Deploying to webapp: $AZURE_WEBAPP_NAME in resource group: $AZURE_RESOURCE_GROUP"
+          az webapp deploy --resource-group "$AZURE_RESOURCE_GROUP" --name "$AZURE_WEBAPP_NAME" --src-path ./publish
