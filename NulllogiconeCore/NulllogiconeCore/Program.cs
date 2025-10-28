@@ -53,14 +53,15 @@ app.MapTopLabEndpoints();
 // Nulllogicone API Info
 app.MapGet("/about", () => new
 {
-    Name = "Nulllogicone API",
+    Name = "Nulllogicone Core",
     Version = "1.0.0",
-    Description = "An API for Nulllogicone with scaffolded database models from your real database.",
+    Description = "Razor pages and and Webpages for nulllogicone",
+    MaschineName = Environment.MachineName,
     Status = "Connected to real database - Minimal APIs",
     Endpoints = new[]
     {
         "/stamm - Manage Stamm entities",
-        "/postit - Manage PostIt entities", 
+        "/postit - Manage PostIt entities",
         "/toplab - Manage TopLab entities",
         "/swagger - API documentation"
     }
