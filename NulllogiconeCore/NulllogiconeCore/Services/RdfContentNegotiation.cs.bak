@@ -1,7 +1,7 @@
-using NulllogiconeApi.Models;
+using NulllogiconeCore.Models;
 using System.Text;
 
-namespace NulllogiconeApi.Services
+namespace NulllogiconeCore.Services
 {
     public static class RdfContentNegotiation
     {

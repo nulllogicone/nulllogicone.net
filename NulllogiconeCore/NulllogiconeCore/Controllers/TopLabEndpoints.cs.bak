@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using NulllogiconeApi.Data;
-using NulllogiconeApi.Models;
+using NulllogiconeCore.Data;
+using NulllogiconeCore.Models;
 
-namespace NulllogiconeApi.Controllers
+namespace NulllogiconeCore.Controllers
 {
     public static class TopLabEndpoints
     {

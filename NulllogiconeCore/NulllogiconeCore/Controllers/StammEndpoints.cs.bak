@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using NulllogiconeApi.Data;
-using NulllogiconeApi.Models;
-using NulllogiconeApi.Services;
+using NulllogiconeCore.Data;
+using NulllogiconeCore.Models;
+using NulllogiconeCore.Services;
 
-namespace NulllogiconeApi.Controllers
+namespace NulllogiconeCore.Controllers
 {
     public static class StammEndpoints
     {
