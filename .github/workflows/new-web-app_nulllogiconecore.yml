@@ -23,17 +23,17 @@ jobs:
         with:
           dotnet-version: '10.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Build with dotnet (NulllogiconeCore project only)
+        run: dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/NulllogiconeCore\NulllogiconeCore\NulllogiconeCore.csproj"
+      - name: dotnet publish (NulllogiconeCore)
+        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/NulllogiconeCore\NulllogiconeCore\NulllogiconeCore.csproj
+          path: ${{ github.workspace }}/artifacts/NulllogiconeCore
 
   deploy:
     runs-on: windows-latest
