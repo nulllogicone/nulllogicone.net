@@ -37,7 +37,7 @@ if (app.Environment.IsDevelopment())
     // Ensure database is created
     using var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
+    //context.Database.EnsureCreated();
 }
 
 app.UseCors();
