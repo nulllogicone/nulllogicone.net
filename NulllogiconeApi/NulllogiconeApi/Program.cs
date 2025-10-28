@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddOpenApiDocument();
+builder.Services.AddRazorPages();
 
 // Add Entity Framework
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -36,7 +37,7 @@ if (app.Environment.IsDevelopment())
     // Ensure database is created
     using var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    //context.Database.EnsureCreated();
+    context.Database.EnsureCreated();
 }
 
 app.UseCors();
@@ -68,6 +69,14 @@ app.MapGet("/about", () => new
 .WithSummary("Get API information")
 .WithTags("Info");
 
+// Razor pages
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+app.MapRazorPages()
+   .WithStaticAssets();
 
 app.Run();
 
