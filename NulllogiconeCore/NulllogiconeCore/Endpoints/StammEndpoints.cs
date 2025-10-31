@@ -8,7 +8,7 @@ public static class StammEndpoints
 {
     public static void MapStammEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/stamm")
+        var group = routes.MapGroup("api/stamm")
             .WithTags("Stamm");
 
         // RDF endpoints (hardcoded for now)

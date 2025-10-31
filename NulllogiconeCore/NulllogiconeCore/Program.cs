@@ -51,7 +51,7 @@ app.MapPostItEndpoints();
 app.MapTopLabEndpoints();
 
 // Nulllogicone API Info
-app.MapGet("/about", () => new
+app.MapGet("api/about", () => new
 {
     Name = "Nulllogicone Core",
     Version = "1.0.0",

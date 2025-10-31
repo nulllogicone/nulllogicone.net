@@ -8,7 +8,7 @@ public static class TopLabEndpoints
 {
     public static void MapTopLabEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/toplab")
+        var group = routes.MapGroup("api/toplab")
             .WithTags("TopLab");
 
         // GET /toplab
