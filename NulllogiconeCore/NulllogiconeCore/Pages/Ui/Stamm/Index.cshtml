@@ -4,20 +4,28 @@
     ViewData["Title"] = "Stamm";
 }
 
-<h1>Stamm @Model.Entity?.Stamm1</h1>
+@if (Model.Entity == null)
+{
+    <h1>Stamm</h1>
+    <p>
+        Diese Seite stellt die Entität <strong>Stamm</strong> dar. Hier können Informationen zu einem bestimmten Stamm angezeigt werden.
+    </p>
+    <p>
+        Beispiel-URIref:
+        <br />
+        <a href="/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
+    </p>
+}
+else
+{
+    <h1>Stamm @Model.Entity.Stamm1</h1>
+    <p>
+        Details zum Stamm mit GUID <strong>@Model.Entity.StammGuid</strong>:
+    </p>
+    <p>Name: @Model.Entity.Stamm1</p>
+<p>
+Beschreibung: @Model.Entity.Beschreibung </p>
+}
 
-<h1>Stamm</h1>
-<p>
-    Diese Seite stellt die Entit�t <strong>Stamm</strong> dar. Hier k�nnen Informationen zu einem bestimmten Stamm angezeigt werden.
-</p>
-<p>
-    Beispiel-URIref:
-    <br />
-    <a href="/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
-</p>
-<footer>
-    <div class="footer">
-        <p>&copy; nulllogicone.net</p>
-    </div>
-</footer>
+
 
