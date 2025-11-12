@@ -11,7 +11,7 @@
     <span class="BannerTextApplication">Nachrichtenvermittlung im Semantic Web</span>
 </div>
 
-<h1>|nulllogicone.net|</h1>
+<h1><br /></h1>
 
 <h2>Abstract</h2>
 <p>
@@ -39,33 +39,109 @@
     Alle Entitäten sind Datensätze, die auf einer eigenen Seite dargestellt werden können
     (für <a href="Instanzen.aspx">Beispiele</a> gibt es eine Seite mit zufälligen Links).
 </p>
-
-<!-- The rest of the original content can be kept here as static HTML blocks or split
-     into partials if you prefer. For now we keep the important sections and links. -->
+        <p>
+            In den Datenbanktabellen sind die Schl�sselfelder GUIDs.&nbsp;Diese werden in URIrefs
+        und URLs verwendet. Eine URIref&nbsp;in einem RDF Statement setzt sich aus dem Basisnamespace
+        (<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>) gefolgt von dem
+        ausgeschriebenen Klassennamen aus [SAPCT][NKBZ]&nbsp;mit angeh�ngtem&nbsp;<strong>/?</strong>und
+        der GUID ohne Dateiendung zusammen. Diese k�nnen als URLs weitere Informationen
+        auf&nbsp;einer Webseite&nbsp;anzeigen.
+        </p>
+        <div class="beispiel">
+            Beispiel: verschiedene URIref als Hyperlink
+        </div>
+        <p>
+            <a href="/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
+            <br>
+            <a href="/Angler/?be279cca-b934-45e6-85fd-96b1a6b1e6ed">https://nulllogicone.net/Angler/?be279cca-b934-45e6-85fd-96b1a6b1e6ed</a>
+            <br>
+            <a href="/PostIt/?176bae4e-05d7-4256-97a5-c98bfcbb2869">https://nulllogicone.net/PostIt/?176bae4e-05d7-4256-97a5-c98bfcbb2869</a>
+            <br>
+            <a href="/Netz/?76035f19-f4ae-4d58-a388-4bbc72c51cef">https://nulllogicone.net/Netz/?76035f19-f4ae-4d58-a388-4bbc72c51cef</a>
+        </p>
 
 <h2 id="schema">2. Schema</h2>
-<p>
-    Für den Austausch von Daten im RDF Format kann man die <a href="/schema.rdfs">schema.rdfs</a>
-    Datei herunterladen. Auf der FRODO RDFSViz Seite lassen sich die Beziehungen visualisieren.
-</p>
+        <p>
+            F�r den&nbsp; <em>Austausch</em> von Daten bei <strong>nulllogicone.net</strong>
+            im RDF Format, kann man die <a href="https://nulllogicone.net/schema.rdfs">schema.rdfs</a>&nbsp;Datei
+        downloaden.<br>
+            Auf der <a href="http://www.dfki.uni-kl.de/frodo/RDFSViz/">FRODO RDFSViz Tool</a>
+            &nbsp;Seite, lassen sich die Beziehungen visualisieren.&nbsp;Als URL f�r das Schema
+        muss man den vollst�ndigen Pfad <a href="https://nulllogicone.net/schema.rdfs">https://nulllogicone.net/schema.rdfs</a>
+            angeben.
+        </p>
+        <p>
+            F�r die <em>Speicherung</em> in lokalen Datenbanken oder XML Dateien&nbsp;stehen
+        <a href="schemata/default.aspx">XSD Dokumente</a> als Schema Definitionen f�r die
+        Entit�ten mit ihren Feldern und die Definition der Tabellenstruktur mit ihren relationalen
+        Beziehungen zur Verf�gung. Wenn sie gegen Webservices verwendet werden, so sind
+        in den wsdl Datein die Typen verbindlich definiert.
+        </p>
+        <p>
+            F�r das Einrichten einer relationalen Tabellenstruktur gibt es <a href="SQL/default.aspx">SQL-Scripte</a> welche sich auf jeden beliebigen Anwendungsfall ma�schneidern
+        lassen.
+        </p>
 
 <h2 id="rdf">3. Dokumente</h2>
-<p>
-    RDF basiert auf XML und beschreibt Ressourcen mit Sätzen aus Subjekt, Prädikat und Objekt.
-</p>
+       <p align="left">
+            <strong>nulllogicone.net</strong> vermittelt Nachrichten zwischen Unbekannten. F�r
+        den <em>Austausch</em>&nbsp;von Daten wird das RDF Format verwendet, um Dezentralisierung
+        und Verteilbarkeit zu erm�glichen.
+        </p>
+        <p align="left">
+            RDF&nbsp;basiert auf XML und beschreibt&nbsp;beliebige Ressourcen mit einfachen
+        S�tzen aus Subjekt, Pr�dikat und Objekt.
+        </p>
+        <div class="beispiel">
+            Beispiel: Ein gek�rztes RDF Dokument
+        </div>
+        <pre>&lt;?xml version="1.0" encoding= "utf-8"?&gt; 
+&lt;rdf:RDF
+  xmlns:rdf=<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>
+  xmlns:nlo="<a href="https://nulllogicone.net/schema.rdfs#">https://nulllogicone.net/schema.rdfs#</a>" 
+  xml:base="<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>"&gt;
+   &lt;nlo:Stamm rdf:about="<a href="https://nulllogicone.net/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947"><font size="2">https://nulllogicone.net/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947</font></a>"&gt;
+     &lt;nlo:name&gt;Oli&lt;/nlo:name&gt;
+   &lt;/nlo:Stamm&gt;
+&lt;/rdf:RDF&gt;
+</pre>
+        <div class="beispiel">
+            Beispiel: Links auf&nbsp;vollst�ndige RDF Dokumente
+        </div>
+        <p>
+            <a href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf</a><br>
+            <a href="/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf">https://nulllogicone.net/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf</a><br>
+            <a href="/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf">https://nulllogicone.net/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf</a>
+        </p>
+        <p>
+            F�r jede weiterf�hrende Entit�t in einem RDF Dokument ist mit dem Pr�dikat&nbsp;<font
+                face="Courier New">&lt;nlo:resource&gt;</font> ein Link angegeben, der weiterverfolgt
+        werden kann.
+        </p>
 
 <h2 id="importexport">4. Input / Output</h2>
-<p>
-    Funktionen zum Exportieren/Importieren von RDF-Dokumenten finden Sie auf der
-    <a href="/RDF/default.aspx"><strong>Input / Output</strong></a> Seite.
-</p>
+    <p>
+            Die Daten k�nnen im RDF Format ausgetauscht und verteilt werden. Daf�r sind auf
+        der Seite <a href="RDF/default.aspx"><strong>Input /&nbsp;Output</strong></a>&nbsp;Funktionen
+        zusammengefasst, die&nbsp;Instanzen aus&nbsp;[SAPCT] als RDF Dokumente ausgeben,
+        diese Dokumente validieren und&nbsp;wieder in Objekte parsen k�nnen. Die Datenobjekte
+        lassen sich dann einfach in einem DBMS speichern oder als XML serialisieren.
+        </p>
+        <p>
+            Au�erdem kann der gesamte Wortraum als RDF Datei ausgegeben werden.
+        </p>
 
 <h2 id="applications">5. Anwendungen</h2>
-<ul>
-    <li>Die Webanwendung <a href="https://www.oli-it.com">www.oli-it.com</a> ist ein Frage-Antwort Spiel.</li>
-    <li>MetaWeb Project: <a href="https://www.metaweb-project.net">www.metaweb-project.net</a></li>
-    <li>UniSonus: <a href="https://www.unisonus.net">https://www.unisonus.net</a></li>
-</ul>
+    <ul>
+            <li>Die Webanwendung&nbsp;<a href="https://www.oli-it.com">www.oli-it.com</a>&nbsp;ist
+            ein Frage-Antwort Spiel. Sie bietet s�mtliche Funktionalit�t und die M�glichkeit,
+            Inhalte zu editieren.</li>
+            <li>Mit dem MetaWeb Project&nbsp;<a href="https://www.metaweb-project.net">www.metaweb-project.net</a>
+                &nbsp;k�nnen Webseiten, Blogbeitr�ge oder Bilder beschrieben und gefunden werden.
+            </li>
+            <li><a href="https://www.unisonus.net">UniSonus</a> ist eine spezialisierte Anwendung
+            f�r die Zusammenarbeit und den Austausch von Fernstudenten. </li>
+        </ul>
 
 <h2 id="webservice">6. Service</h2>
 <p>

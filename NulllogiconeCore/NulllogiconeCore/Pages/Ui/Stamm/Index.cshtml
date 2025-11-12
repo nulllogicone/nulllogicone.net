@@ -1,12 +1,11 @@
-@page
-@model StammModel
+@page "{guid?}"
+@model IndexModel
 @{
     ViewData["Title"] = "Stamm";
 }
 
-<div class="Banner">
-    <span class="BannerTextCompany">nulllogicone.net</span> <span class="BannerTextApplication">Nachrichtenvermittlung im Semantic Web</span>
-</div>
+<h1>Stamm @Model.Entity?.Stamm1</h1>
+
 <h1>Stamm</h1>
 <p>
     Diese Seite stellt die Entit�t <strong>Stamm</strong> dar. Hier k�nnen Informationen zu einem bestimmten Stamm angezeigt werden.

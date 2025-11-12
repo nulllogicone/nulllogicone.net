@@ -44,7 +44,8 @@ public static class StammEndpoints
             var topLabs = await db.StammTopLabs.Where(t => t.StammGuid == id).ToListAsync();
 
             var rdf = NulllogiconeCore.Services.Mappings.StammRdfMapper.ToRdfXml(stamm, postIts, topLabs);
-            return Results.Content(rdf, "application/rdf+xml");
+            //return Results.Content(rdf, "application/rdf+xml");
+            return Results.Content(rdf, "text/xml");
         })
         .WithName("GetStammByIdRdf")
         .WithSummary("Get an RDF/XML representation for a single Stamm by ID")

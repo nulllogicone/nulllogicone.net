@@ -1,14 +1,22 @@
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 using NulllogiconeCore.Data;
 using NulllogiconeCore.Endpoints;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddOpenApiDocument();
+//builder.Services.AddOpenApiDocument();
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.MaxDepth = 256;
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
 // Add Entity Framework
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -31,9 +39,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseOpenApi();
-    app.UseSwaggerUi();
-    
+    //app.UseOpenApi();
+    //app.UseSwaggerUi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "v1");
+    });
+
     // Ensure database is created
     using var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
