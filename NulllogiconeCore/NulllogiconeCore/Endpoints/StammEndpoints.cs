@@ -8,12 +8,12 @@ public static class StammEndpoints
 {
     public static void MapStammEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("api/stamm")
+        var group = routes.MapGroup("stamm")
             .WithTags("Stamm");
 
         // RDF endpoints (hardcoded for now)
         // GET /stamm.rdf
-        routes.MapGet("/stamm.rdf", () =>
+        group.MapGet(".rdf", () =>
         {
             var rdf = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
                       "<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" " +
@@ -30,7 +30,7 @@ public static class StammEndpoints
         .Produces(StatusCodes.Status200OK);
 
         // GET /stamm/{id}.rdf - return RDF/XML produced from the DB entity
-        routes.MapGet("/stamm/{id:guid}.rdf", async (Guid id, ApplicationDbContext db) =>
+        group.MapGet("/{id:guid}.rdf", async (Guid id, ApplicationDbContext db) =>
         {
             var stamm = await db.Stamms
                 .Include(s => s.Anglers)
@@ -51,7 +51,7 @@ public static class StammEndpoints
         .Produces(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
 
-        // GET /stamm
+        // GET /stamm (json)
         group.MapGet("/", async (ApplicationDbContext db) =>
         {
             return await db.Stamms
@@ -71,7 +71,7 @@ public static class StammEndpoints
         .WithSummary("Get all Stamm entries (limited to 20)")
         .Produces<IEnumerable<Stamm>>(StatusCodes.Status200OK);
 
-        // GET /stamm/{id}
+        // GET /stamm/{id} (json)
         group.MapGet("/{id:guid}", async (Guid id, ApplicationDbContext db) =>
         {
             var stamm = await db.Stamms.FindAsync(id);

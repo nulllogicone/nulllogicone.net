@@ -8,7 +8,7 @@ public static class PostItEndpoints
 {
     public static void MapPostItEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("api/postit")
+        var group = routes.MapGroup("postit")
             .WithTags("PostIt");
 
         // GET /postit
