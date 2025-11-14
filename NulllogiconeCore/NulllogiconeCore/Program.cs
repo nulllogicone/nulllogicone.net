@@ -22,16 +22,16 @@ builder.Services.Configure<JsonOptions>(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add CORS if needed
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-});
+//// Add CORS if needed
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(policy =>
+//    {
+//        policy.AllowAnyOrigin()
+//              .AllowAnyHeader()
+//              .AllowAnyMethod();
+//    });
+//});
 
 var app = builder.Build();
 
@@ -57,7 +57,7 @@ app.UseHttpsRedirection();
 
 
 
-// Map minimal API endpoints
+// Map minimal API endpoints for SAPCT
 app.MapStammEndpoints();
 app.MapPostItEndpoints();
 app.MapTopLabEndpoints();
@@ -67,9 +67,9 @@ app.MapGet("api/about", () => new
 {
     Name = "Nulllogicone Core",
     Version = "1.0.0",
-    Description = "Razor pages and and Webpages for nulllogicone",
+    Description = "Razor pages and API with rdf for NullLogicOne",
     MaschineName = Environment.MachineName,
-    Status = "Connected to real database - Minimal APIs",
+    Status = "Connected to real database - null - Minimal APIs",
     Endpoints = new[]
     {
         "/stamm - Manage Stamm entities",
