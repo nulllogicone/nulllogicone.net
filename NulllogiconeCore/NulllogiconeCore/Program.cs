@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 using NulllogiconeCore.Data;
 using NulllogiconeCore.Endpoints;
+using NulllogiconeCore.Models;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -63,7 +64,7 @@ app.MapPostItEndpoints();
 app.MapTopLabEndpoints();
 
 // Nulllogicone API Info
-app.MapGet("api/about", () => new
+app.MapGet("about", () => new
 {
     Name = "Nulllogicone Core",
     Version = "1.0.0",
@@ -82,6 +83,38 @@ app.MapGet("api/about", () => new
 .WithSummary("Get API information")
 .WithTags("Info");
 
+// Test with EF 
+app.MapGet("/test/{id:guid}", async (Guid id, ApplicationDbContext context) =>
+{
+    var stamm = await context.Stamms
+        .Include(s => s.Anglers)
+        .FirstOrDefaultAsync(s => s.StammGuid == id);
+
+    if (stamm == null)
+        return Results.NotFound();
+
+    var result = new
+    {
+        Stamm = new
+        {
+            stamm.StammGuid,
+            stamm.Stamm1,
+            stamm.Beschreibung
+        },
+        Anglers = stamm.Anglers.Select(a => new
+        {
+            a.AnglerGuid,
+            a.Angler1,
+            a.Beschreibung
+        }).ToList()
+    };
+
+    return Results.Ok(result);
+})
+.WithName("TestDbContextInjection")
+.WithSummary("Tests DbContext injection")
+.WithTags("Test");
+
 // Razor pages
 app.UseRouting();
 
@@ -92,6 +125,8 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.Run();
+
+
 
 
 
