@@ -26,7 +26,9 @@ else
         Name: @Model.Entity.Stamm1<br />
 
         Beschreibung: @Model.Entity.Beschreibung<br />
-        image: @Model.Entity.Datei<br />
+        Datei: @Model.Entity.Datei<br />
+        Resolved: @OliUtils.MakeImageSrc(Model.Entity.Datei)<br />
+        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei)    " alt="Stamm Image" />
     </div>
 
 }
