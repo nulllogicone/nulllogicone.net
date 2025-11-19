@@ -86,28 +86,33 @@ app.MapGet("about", () => new
 // Test with EF 
 app.MapGet("/test/{id:guid}", async (Guid id, ApplicationDbContext context) =>
 {
-    var stamm = await context.Stamms
-        .Include(s => s.Anglers)
-        .FirstOrDefaultAsync(s => s.StammGuid == id);
+    var result = await context.Stamms
+        .Where(s => s.StammGuid == id)
+        .Select(stamm => new
+        {
+            Stamm = new
+            {
+                //stamm.StammGuid,
+                Name = stamm.Stamm1,
+                Description = stamm.Beschreibung
+            },
+            Angler = stamm.Anglers.Select(a => new
+            {
+                //a.AnglerGuid,
+                Name = a.Angler1,
+                Description = a.Beschreibung
+            }),
+            Postit = stamm.Wurzelns.Select(p => new
+            {
+                //p.PostItGuid,
+                p.PostIt.Titel,
+                Description = p.PostIt.PostIt1,
+            })
+        })
+        .FirstOrDefaultAsync();
 
-    if (stamm == null)
+    if (result == null)
         return Results.NotFound();
-
-    var result = new
-    {
-        Stamm = new
-        {
-            stamm.StammGuid,
-            stamm.Stamm1,
-            stamm.Beschreibung
-        },
-        Anglers = stamm.Anglers.Select(a => new
-        {
-            a.AnglerGuid,
-            a.Angler1,
-            a.Beschreibung
-        }).ToList()
-    };
 
     return Results.Ok(result);
 })
@@ -125,6 +130,12 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.Run();
+
+
+
+
+
+
 
 
 
