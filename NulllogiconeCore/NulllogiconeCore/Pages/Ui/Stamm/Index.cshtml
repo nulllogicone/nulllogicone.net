@@ -22,7 +22,8 @@ else
     <p>
         Details zum Stamm mit GUID <strong>@Model.Entity.StammGuid</strong>:
     </p>
-    <div>Name: @Model.Entity.Stamm1<br />
+    <div>
+        Name: @Model.Entity.Stamm1<br />
 
         Beschreibung: @Model.Entity.Beschreibung<br />
         image: @Model.Entity.Datei<br />
@@ -30,5 +31,8 @@ else
 
 }
 
-
+<h2>Json response from HttpClient</h2>
+<pre>
+@Model.JsonResponse 
+</pre>
 

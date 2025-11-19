@@ -13,9 +13,10 @@ builder.Services.AddRazorPages();
 
 
 // Use our own API in UI pages with HttpClient
+var backendApiBaseUrl = builder.Configuration["BackendApiBaseUrl"] ?? "/";
 builder.Services.AddHttpClient("BackendApi", client =>
 {
-    client.BaseAddress = new Uri("/");
+    client.BaseAddress = new Uri(backendApiBaseUrl, UriKind.RelativeOrAbsolute);
 });
 
 builder.Services.Configure<JsonOptions>(options =>
@@ -137,6 +138,16 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.Run();
+
+
+
+
+
+
+
+
+
+
 
 
 
