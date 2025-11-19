@@ -8,10 +8,15 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-//builder.Services.AddOpenApiDocument();
 builder.Services.AddRazorPages();
+
+
+// Use our own API in UI pages with HttpClient
+builder.Services.AddHttpClient("BackendApi", client =>
+{
+    client.BaseAddress = new Uri("/");
+});
 
 builder.Services.Configure<JsonOptions>(options =>
 {
@@ -34,6 +39,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+
+// BUILD
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
