@@ -8,7 +8,7 @@
 
 <div class="Banner">
     <span class="BannerTextCompany">nulllogicone.net</span>
-    <span class="BannerTextApplication">Nachrichtenvermittlung im Semantic Web</span>
+    <span class="BannerTextApplication">Message Mediation in the Semantic Web</span>
 </div>
 
 <h1><br /></h1>
@@ -22,44 +22,43 @@
 
 <h2>Abstract</h2>
 <p>
-    Für die Vermittlung von Nachrichten zwischen Unbekannten ist <strong>nulllogicone.net</strong>
-    ein abstraktes System, das Urheber, Nachrichten und Empfänger beschreibt. Es besteht
-    aus einem <em>Kreislauf Modell</em> [<a href="images/SAPCT.jpg">SAPCT</a>], dem
-    <em>Wortraum</em> [<a href="images/NKBZ.JPG">NKBZ</a>] und einer V<em>ermittlungslogik</em>
-    [OgIf]. Eine Webanwendung gegen einen zentralen Datenbankserver ist als
-    <a href="https://www.oli-it.com">Referenzimplementierung</a> realisiert.
+    <strong>nulllogicone.net</strong> is an abstract system for mediating messages between unknown parties,
+    describing authors, messages, and recipients. It consists of a <em>Cycle Model</em> [<a
+        href="images/SAPCT.jpg">SAPCT</a>],
+    the <em>Word Space</em> [<a href="images/NKBZ.JPG">NKBZ</a>], and a <em>Mediation Logic</em>
+    [OgIf]. A web application against a central database server is realized as a
+    <a href="https://www.oli-it.com">reference implementation</a>.
 </p>
 
 <h2>Table of Contents</h2>
 <ol>
-    <li><a href="#instances">Instanzen</a></li>
+    <li><a href="#instances">Instances</a></li>
     <li><a href="#schema">Schema</a></li>
-    <li><a href="#rdf">Dokumente</a></li>
+    <li><a href="#rdf">Documents</a></li>
     <li><a href="#importexport">Input / Output</a></li>
-    <li><a href="#applications">Anwendungen</a></li>
+    <li><a href="#applications">Applications</a></li>
     <li><a href="#webservice">Service</a></li>
     <li><a href="#tools">Client</a></li>
 </ol>
 
-<h2 id="instances">1. Instanzen</h2>
+<h2 id="instances">1. Instances</h2>
 <p>
-    Alle Entitäten sind Datensätze, die auf einer eigenen Seite dargestellt werden können
-    (für <a href="Instanzen.aspx">Beispiele</a> gibt es eine Seite mit zufälligen Links).
+    All entities are data records that can be displayed on their own page
+    (for <a href="Instanzen.aspx">examples</a> there is a page with random links).
 </p>
 <p>
-    In den Datenbanktabellen sind die Schl�sselfelder GUIDs.&nbsp;Diese werden in URIrefs
-    und URLs verwendet. Eine URIref&nbsp;in einem RDF Statement setzt sich aus dem Basisnamespace
-    (<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>) gefolgt von dem
-    ausgeschriebenen Klassennamen aus [SAPCT][NKBZ]&nbsp;mit angeh�ngtem&nbsp;<strong>/?</strong>und
-    der GUID ohne Dateiendung zusammen. Diese k�nnen als URLs weitere Informationen
-    auf&nbsp;einer Webseite&nbsp;anzeigen.
+    In the database tables, the key fields are GUIDs. These are used in URIrefs
+    and URLs. A URIref in an RDF statement consists of the base namespace
+    (<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>) followed by the
+    full class name from [SAPCT][NKBZ] with appended GUID. These can display further information
+    on a webpage as URLs.
 </p>
 <div class="beispiel">
-    Beispiel: verschiedene URIref als Hyperlink
+    Example: various URIrefs as hyperlinks
 </div>
 <p>
     <a
-        href="/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
+        href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
     <br>
     <a
         href="/Angler/?be279cca-b934-45e6-85fd-96b1a6b1e6ed">https://nulllogicone.net/Angler/?be279cca-b934-45e6-85fd-96b1a6b1e6ed</a>
@@ -73,40 +72,37 @@
 
 <h2 id="schema">2. Schema</h2>
 <p>
-    F�r den&nbsp; <em>Austausch</em> von Daten bei <strong>nulllogicone.net</strong>
-    im RDF Format, kann man die <a href="https://nulllogicone.net/schema.rdfs">schema.rdfs</a>&nbsp;Datei
-    downloaden.<br>
-    Auf der <a href="http://www.dfki.uni-kl.de/frodo/RDFSViz/">FRODO RDFSViz Tool</a>
-    &nbsp;Seite, lassen sich die Beziehungen visualisieren.&nbsp;Als URL f�r das Schema
-    muss man den vollst�ndigen Pfad <a
-        href="https://nulllogicone.net/schema.rdfs">https://nulllogicone.net/schema.rdfs</a>
-    angeben.
+    For the <em>exchange</em> of data at <strong>nulllogicone.net</strong>
+    in RDF format, you can download the <a href="https://nulllogicone.net/schema.rdfs">schema.rdfs</a> file.<br>
+    On the <a href="http://www.dfki.uni-kl.de/frodo/RDFSViz/">FRODO RDFSViz Tool</a>
+    page, the relationships can be visualized. As URL for the schema,
+    you must specify the full path <a
+        href="https://nulllogicone.net/schema.rdfs">https://nulllogicone.net/schema.rdfs</a>.
 </p>
 <p>
-    F�r die <em>Speicherung</em> in lokalen Datenbanken oder XML Dateien&nbsp;stehen
-    <a href="schemata/default.aspx">XSD Dokumente</a> als Schema Definitionen f�r die
-    Entit�ten mit ihren Feldern und die Definition der Tabellenstruktur mit ihren relationalen
-    Beziehungen zur Verf�gung. Wenn sie gegen Webservices verwendet werden, so sind
-    in den wsdl Datein die Typen verbindlich definiert.
+    For <em>storage</em> in local databases or XML files,
+    <a href="schemata/default.aspx">XSD documents</a> are available as schema definitions for the
+    entities with their fields and the definition of the table structure with their relational
+    relationships. If they are used against web services, the types are bindingly defined
+    in the wsdl files.
 </p>
 <p>
-    F�r das Einrichten einer relationalen Tabellenstruktur gibt es <a href="SQL/default.aspx">SQL-Scripte</a> welche
-    sich auf jeden beliebigen Anwendungsfall ma�schneidern
-    lassen.
+    For setting up a relational table structure, there are <a href="SQL/default.aspx">SQL scripts</a> which
+    can be tailored to any use case.
 </p>
 
-<h2 id="rdf">3. Dokumente</h2>
+<h2 id="rdf">3. Documents</h2>
 <p align="left">
-    <strong>nulllogicone.net</strong> vermittelt Nachrichten zwischen Unbekannten. F�r
-    den <em>Austausch</em>&nbsp;von Daten wird das RDF Format verwendet, um Dezentralisierung
-    und Verteilbarkeit zu erm�glichen.
+    <strong>nulllogicone.net</strong> mediates messages between unknown parties. For
+    the <em>exchange</em> of data, the RDF format is used to enable decentralization
+    and distributability.
 </p>
 <p align="left">
-    RDF&nbsp;basiert auf XML und beschreibt&nbsp;beliebige Ressourcen mit einfachen
-    S�tzen aus Subjekt, Pr�dikat und Objekt.
+    RDF is based on XML and describes arbitrary resources with simple
+    sentences consisting of subject, predicate, and object.
 </p>
 <div class="beispiel">
-    Beispiel: Ein gek�rztes RDF Dokument
+    Example: A shortened RDF document
 </div>
 <pre>&lt;?xml version="1.0" encoding= "utf-8"?&gt; 
 &lt;rdf:RDF
@@ -119,7 +115,7 @@
 &lt;/rdf:RDF&gt;
 </pre>
 <div class="beispiel">
-    Beispiel: Links auf&nbsp;vollst�ndige RDF Dokumente
+    Example: Links to complete RDF documents
 </div>
 <p>
     <a
@@ -130,37 +126,36 @@
         href="/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf">https://nulllogicone.net/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf</a>
 </p>
 <p>
-    F�r jede weiterf�hrende Entit�t in einem RDF Dokument ist mit dem Pr�dikat&nbsp;<font face="Courier New">
-        &lt;nlo:resource&gt;</font> ein Link angegeben, der weiterverfolgt
-    werden kann.
+    For each further entity in an RDF document, a link is specified with the predicate <font face="Courier New">
+        &lt;nlo:resource&gt;</font>, which can be followed.
 </p>
 
 <h2 id="importexport">4. Input / Output</h2>
 <p>
-    Die Daten k�nnen im RDF Format ausgetauscht und verteilt werden. Daf�r sind auf
-    der Seite <a href="RDF/default.aspx"><strong>Input /&nbsp;Output</strong></a>&nbsp;Funktionen
-    zusammengefasst, die&nbsp;Instanzen aus&nbsp;[SAPCT] als RDF Dokumente ausgeben,
-    diese Dokumente validieren und&nbsp;wieder in Objekte parsen k�nnen. Die Datenobjekte
-    lassen sich dann einfach in einem DBMS speichern oder als XML serialisieren.
+    Data can be exchanged and distributed in RDF format. For this purpose, functions are
+    summarized on the <a href="RDF/default.aspx"><strong>Input / Output</strong></a> page
+    that output instances from [SAPCT] as RDF documents,
+    validate these documents, and parse them back into objects. The data objects
+    can then be easily stored in a DBMS or serialized as XML.
 </p>
 <p>
-    Au�erdem kann der gesamte Wortraum als RDF Datei ausgegeben werden.
+    In addition, the entire Word Space can be output as an RDF file.
 </p>
 
-<h2 id="applications">5. Anwendungen</h2>
+<h2 id="applications">5. Applications</h2>
 <ul>
     <li>
-        Die Webanwendung&nbsp;<a href="https://www.oli-it.com">www.oli-it.com</a>&nbsp;ist
-        ein Frage-Antwort Spiel. Sie bietet s�mtliche Funktionalit�t und die M�glichkeit,
-        Inhalte zu editieren.
+        The web application <a href="https://www.oli-it.com">www.oli-it.com</a> is
+        a question-answer game. It offers full functionality and the possibility
+        to edit content.
     </li>
     <li>
-        Mit dem MetaWeb Project&nbsp;<a href="https://www.metaweb-project.net">www.metaweb-project.net</a>
-        &nbsp;k�nnen Webseiten, Blogbeitr�ge oder Bilder beschrieben und gefunden werden.
+        With the MetaWeb Project <a href="https://www.metaweb-project.net">www.metaweb-project.net</a>,
+        websites, blog posts, or images can be described and found.
     </li>
     <li>
-        <a href="https://www.unisonus.net">UniSonus</a> ist eine spezialisierte Anwendung
-        f�r die Zusammenarbeit und den Austausch von Fernstudenten.
+        <a href="https://www.unisonus.net">UniSonus</a> is a specialized application
+        for collaboration and exchange among distance learning students.
     </li>
 </ul>
 
@@ -171,11 +166,5 @@
 
 <h2 id="tools">7. Client</h2>
 <p>
-    Clientanwendungen: <a href="https://client.oli-it.com">https://client.oli-it.com</a>
+    Client applications: <a href="https://client.oli-it.com">https://client.oli-it.com</a>
 </p>
-
-
-
-
-
-
