@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NulllogiconeCore.Data;
 using NulllogiconeCore.Models;
+using NulllogiconeCore.Extensions;
 
 namespace NulllogiconeCore.Endpoints;
 
@@ -73,12 +74,15 @@ public static class StammEndpoints
         .Produces<IEnumerable<Stamm>>(StatusCodes.Status200OK);
 
         // GET /stamm/{id} (json)
-        group.MapGet("/{id:guid}", async (Guid id, ApplicationDbContext db) =>
+        group.MapGet("/{id:guid}", async (Guid id, ApplicationDbContext db, HttpContext context) =>
         {
+            var negotiation = context.TryNegotiate($"/ui/Stamm/{id}", $"/stamm/{id}.rdf");
+            if (negotiation != null) return negotiation;
+
             var stamm = await db.Stamms.FindAsync(id);
-            
-            return stamm is not null 
-                ? Results.Ok(stamm) 
+
+            return stamm is not null
+                ? Results.Ok(stamm)
                 : Results.NotFound($"Stamm with ID {id} not found");
         })
         .WithName("GetStammById")
@@ -100,7 +104,7 @@ public static class StammEndpoints
         group.MapGet("/search/{term}", async (string term, ApplicationDbContext db) =>
         {
             var stamms = await db.Stamms
-                .Where(s => s.Stamm1.Contains(term) || 
+                .Where(s => s.Stamm1.Contains(term) ||
                            (s.Beschreibung != null && s.Beschreibung.Contains(term)) ||
                            (s.EMail != null && s.EMail.Contains(term)))
                 .Select(s => new
