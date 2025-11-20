@@ -8,9 +8,12 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <AssemblyName>NulllogiconeCore</AssemblyName>
     <RootNamespace>NulllogiconeCore</RootNamespace>
+    <ApplicationInsightsResourceId>/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourceGroups/OLI-it.Nulllogicone/providers/microsoft.insights/components/nulllogiconecore</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.17.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-rc.2.25502.107" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">

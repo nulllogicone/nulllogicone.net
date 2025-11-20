@@ -4,6 +4,7 @@ using NulllogiconeCore.Data;
 using NulllogiconeCore.Endpoints;
 using NulllogiconeCore.Models;
 using System.Text.Json.Serialization;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,10 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
+});
+builder.Services.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions
+{
+    ConnectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]
 });
 
 
