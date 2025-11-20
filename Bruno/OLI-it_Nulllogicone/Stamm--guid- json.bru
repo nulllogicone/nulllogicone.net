@@ -1,11 +1,11 @@
 meta {
-  name: Stamm
+  name: Stamm/<guid> json
   type: http
-  seq: 3
+  seq: 7
 }
 
 get {
-  url: {{host}}/stamm
+  url: {{host}}/stamm/{{StammGuid}}.json
   body: none
   auth: inherit
 }
