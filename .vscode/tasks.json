@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-nulllogicone-api",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-nulllogicone-api",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch-nulllogicone-api",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: debug",
+            "dependsOn": [
+                "build-nulllogicone-api"
+            ],
+            "dockerBuild": {
+                "tag": "NulllogiconeCore:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/Dockerfile",
+                "context": "${workspaceFolder}/NulllogiconeCore",
+                "pull": true
+            },
+                "netCore": {
+                "appProject": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": [
+                "docker-build: debug"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
+                "enableDebugging": true
+            }
+        }
+    ]
+}

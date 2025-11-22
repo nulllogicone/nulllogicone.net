@@ -1,0 +1,40 @@
+// --------------------------
+// (c) frederic@luchting.de
+// 2012-08-16-18:19
+// --------------------------
+//  
+
+using System;
+using OliWeb.Klassen;
+
+namespace OliWeb.Sites.Edit
+{
+    /// <summary>
+    ///     TollEdit.
+    /// </summary>
+    public partial class TollEdit : MasterStammPage
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Stamm.ShowTollis(OliUser.Stamm.StammRow, TopLab.TopLabRow);
+        }
+
+        #region Vom Web Form-Designer generierter Code
+
+        protected override void OnInit(EventArgs e)
+        {
+            // CODEGEN: Dieser Aufruf ist f�r den ASP.NET Web Form-Designer erforderlich.
+            InitializeComponent();
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        ///     Erforderliche Methode f�r die Designerunterst�tzung.
+        /// </summary>
+        private void InitializeComponent()
+        {
+        }
+
+        #endregion
+    }
+}

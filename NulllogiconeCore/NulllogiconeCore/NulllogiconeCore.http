@@ -1,0 +1,187 @@
+@NulllogiconeCore_HostAddress = http://localhost:5131
+
+# =================================
+# API Information Endpoints
+# =================================
+
+### Get API Information
+GET {{NulllogiconeCore_HostAddress}}/about
+Accept: application/json
+
+
+
+# =================================
+# Stamm Endpoints
+# =================================
+
+### Get all Stamm entries (top 10)
+GET {{NulllogiconeCore_HostAddress}}/stamm
+Accept: application/json
+
+### Get Stamm by ID
+GET {{NulllogiconeCore_HostAddress}}/stamm/1
+Accept: application/json
+
+### Create new Stamm
+POST {{NulllogiconeCore_HostAddress}}/stamm
+Content-Type: application/json
+
+{
+  "name": "New Stamm Entry",
+  "description": "This is a new stamm entry created via API"
+}
+
+### Update Stamm by ID
+PUT {{NulllogiconeCore_HostAddress}}/stamm/1
+Content-Type: application/json
+
+{
+  "name": "Updated Stamm Alpha",
+  "description": "Updated description for Stamm Alpha"
+}
+
+### Delete Stamm by ID
+DELETE {{NulllogiconeCore_HostAddress}}/stamm/1
+
+# =================================
+# PostIt Endpoints
+# =================================
+
+### Get all PostIt entries (top 10)
+GET {{NulllogiconeCore_HostAddress}}/postit
+Accept: application/json
+
+### Get PostIt entries - filter by completed status
+GET {{NulllogiconeCore_HostAddress}}/postit?completed=false
+Accept: application/json
+
+### Get PostIt by ID
+GET {{NulllogiconeCore_HostAddress}}/postit/1
+Accept: application/json
+
+### Create new PostIt
+POST {{NulllogiconeCore_HostAddress}}/postit
+Content-Type: application/json
+
+{
+  "title": "New Task",
+  "content": "Complete the API testing",
+  "isCompleted": false
+}
+
+### Update PostIt by ID
+PUT {{NulllogiconeCore_HostAddress}}/postit/1
+Content-Type: application/json
+
+{
+  "title": "Updated Task Title",
+  "content": "Updated task content",
+  "isCompleted": true
+}
+
+### Toggle PostIt completed status
+PATCH {{NulllogiconeCore_HostAddress}}/postit/1/toggle
+
+### Delete PostIt by ID
+DELETE {{NulllogiconeCore_HostAddress}}/postit/1
+
+# =================================
+# TopLab Endpoints
+# =================================
+
+### Get all TopLab entries (top 10)
+GET {{NulllogiconeCore_HostAddress}}/toplab
+Accept: application/json
+
+### Get TopLab entries - filter by category
+GET {{NulllogiconeCore_HostAddress}}/toplab?category=Research
+Accept: application/json
+
+### Get all TopLab categories
+GET {{NulllogiconeCore_HostAddress}}/toplab/categories
+Accept: application/json
+
+### Get TopLab by ID
+GET {{NulllogiconeCore_HostAddress}}/toplab/1
+Accept: application/json
+
+### Create new TopLab
+POST {{NulllogiconeCore_HostAddress}}/toplab
+Content-Type: application/json
+
+{
+  "name": "New Lab Experiment",
+  "description": "A new experimental research project",
+  "category": "Research",
+  "priority": 1
+}
+
+### Update TopLab by ID
+PUT {{NulllogiconeCore_HostAddress}}/toplab/1
+Content-Type: application/json
+
+{
+  "name": "Updated Lab Experiment 1",
+  "description": "Updated experimental research project",
+  "category": "Advanced Research", 
+  "priority": 3
+}
+
+### Update TopLab priority only
+PATCH {{NulllogiconeCore_HostAddress}}/toplab/1/priority
+Content-Type: application/json
+
+5
+
+### Delete TopLab by ID
+DELETE {{NulllogiconeCore_HostAddress}}/toplab/1
+
+# =================================
+# Testing Examples with Variables
+# =================================
+
+### Example: Create and then get a new Stamm
+# @name createStamm
+POST {{NulllogiconeCore_HostAddress}}/stamm
+Content-Type: application/json
+
+{
+  "name": "Test Stamm",
+  "description": "Created for testing purposes"
+}
+
+# ### Get the created Stamm (use the ID from response above)
+# GET {{NulllogiconeCore_HostAddress}}/stamm/{{createStamm.response.body.$.id}}
+# Accept: application/json
+
+# =================================
+# Bulk Operations Examples
+# =================================
+
+### Create multiple PostIts
+POST {{NulllogiconeCore_HostAddress}}/postit
+Content-Type: application/json
+
+{
+  "title": "Task 1",
+  "content": "First test task"
+}
+
+###
+POST {{NulllogiconeCore_HostAddress}}/postit
+Content-Type: application/json
+
+{
+  "title": "Task 2", 
+  "content": "Second test task"
+}
+
+###
+POST {{NulllogiconeCore_HostAddress}}/postit
+Content-Type: application/json
+
+{
+  "title": "Task 3",
+  "content": "Third test task"
+}
+

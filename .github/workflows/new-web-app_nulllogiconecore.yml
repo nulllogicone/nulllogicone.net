@@ -1,0 +1,68 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy ASP.Net Core app to Azure Web App - nulllogiconecore
+
+on:
+  push:
+    branches:
+      - new-web-app
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      # Runtime identifier used for self-contained publish. Assumption: Windows x64 app service.
+      RID: win-x64
+    permissions:
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Build with dotnet (NulllogiconeCore project only)
+        run: dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj --configuration Release
+
+      - name: dotnet publish (NulllogiconeCore - self-contained)
+        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -r ${{ env.RID }} --self-contained true -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{ github.workspace }}/artifacts/NulllogiconeCore
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AC24A71892CB49D193E2BA6832D02A5B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1DE812FD510B46C9A6C3CE534892F622 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5622A4A4837A440090C3BD3C13F79400 }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'nulllogicone'
+          slot-name: 'Production'
+          package: .
+          

@@ -1,0 +1,16 @@
+meta {
+  name: PostIt
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{host}}/postit
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

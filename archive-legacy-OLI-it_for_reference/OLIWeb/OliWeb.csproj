@@ -1,0 +1,3054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15588F42-62E3-43ED-BCA7-D3D40EB84C16}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OliWeb</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Flow</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OliWeb</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SignAssembly>false</SignAssembly>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourceGroups/Default-Web-westeurope/providers/microsoft.insights/components/oliweb</ApplicationInsightsResourceId>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ajax">
+      <HintPath>..\..\Entwicklung\lib\Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Core, Version=1.36.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.36.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Messaging.EventGrid, Version=4.12.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Messaging.EventGrid.4.12.0\lib\netstandard2.0\Azure.Messaging.EventGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs, Version=12.19.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Blobs.12.19.1\lib\netstandard2.0\Azure.Storage.Blobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Common, Version=12.18.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Common.12.18.1\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\lib\net452\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\lib\net452\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\lib\net452\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.22.0\lib\net452\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\lib\net452\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.22.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.TraceListener, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.TraceListener.2.22.0\lib\net452\Microsoft.ApplicationInsights.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OliUserControl">
+      <HintPath>..\..\Entwicklung\lib\OliUserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Hashing.6.0.0\lib\net461\System.IO.Hashing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.7.0.0\lib\net462\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\General.de.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\SAPCT.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAPCT.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\SAPCT.es.designer.cs">
+      <DependentUpon>SAPCT.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SAPCT.de.designer.cs">
+      <DependentUpon>SAPCT.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SAPCT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAPCT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumControl.ascx.cs">
+      <DependentUpon>AjaxWortraumControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumControl.ascx.designer.cs">
+      <DependentUpon>AjaxWortraumControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumControlFlip.ascx.cs">
+      <DependentUpon>AjaxWortraumControlFlip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumControlFlip.ascx.designer.cs">
+      <DependentUpon>AjaxWortraumControlFlip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumTest.aspx.cs">
+      <DependentUpon>AjaxWortraumTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AjaxWortraum\AjaxWortraumTest.aspx.designer.cs">
+      <DependentUpon>AjaxWortraumTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\CommandBar.ascx.cs">
+      <DependentUpon>CommandBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\CommandBar.ascx.designer.cs">
+      <DependentUpon>CommandBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\CommandBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\CommandTree.ascx.cs">
+      <DependentUpon>CommandTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\CommandTree.ascx.designer.cs">
+      <DependentUpon>CommandTree.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\AnglerEditCommand.ascx.cs">
+      <DependentUpon>AnglerEditCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\AnglerEditCommand.ascx.designer.cs">
+      <DependentUpon>AnglerEditCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\AnglerNewCommand.ascx.cs">
+      <DependentUpon>AnglerNewCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\AnglerNewCommand.ascx.designer.cs">
+      <DependentUpon>AnglerNewCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\CodeNewCommand.ascx.cs">
+      <DependentUpon>CodeNewCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\CodeNewCommand.ascx.designer.cs">
+      <DependentUpon>CodeNewCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\PostItEditCommand.ascx.cs">
+      <DependentUpon>PostItEditCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\PostItEditCommand.ascx.designer.cs">
+      <DependentUpon>PostItEditCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\PostItNewCommand.ascx.cs">
+      <DependentUpon>PostItNewCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\PostItNewCommand.ascx.designer.cs">
+      <DependentUpon>PostItNewCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\StammEditCommand.ascx.cs">
+      <DependentUpon>StammEditCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\StammEditCommand.ascx.designer.cs">
+      <DependentUpon>StammEditCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\StammNewCommand.ascx.cs">
+      <DependentUpon>StammNewCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\StammNewCommand.ascx.designer.cs">
+      <DependentUpon>StammNewCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\TopLabEditCommand.ascx.cs">
+      <DependentUpon>TopLabEditCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\TopLabEditCommand.ascx.designer.cs">
+      <DependentUpon>TopLabEditCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\TopLabNewCommand.ascx.cs">
+      <DependentUpon>TopLabNewCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ActionCommand\TopLabNewCommand.ascx.designer.cs">
+      <DependentUpon>TopLabNewCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\AnglerLoecherCommand.ascx.cs">
+      <DependentUpon>AnglerLoecherCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\AnglerLoecherCommand.ascx.designer.cs">
+      <DependentUpon>AnglerLoecherCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\AnglerPostItCommand.ascx.cs">
+      <DependentUpon>AnglerPostItCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\AnglerPostItCommand.ascx.designer.cs">
+      <DependentUpon>AnglerPostItCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItAnglerCommand.ascx.cs">
+      <DependentUpon>PostItAnglerCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItAnglerCommand.ascx.designer.cs">
+      <DependentUpon>PostItAnglerCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItCodeCommand.ascx.cs">
+      <DependentUpon>PostItCodeCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItCodeCommand.ascx.designer.cs">
+      <DependentUpon>PostItCodeCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItStammCommand.ascx.cs">
+      <DependentUpon>PostItStammCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItStammCommand.ascx.designer.cs">
+      <DependentUpon>PostItStammCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItTopLabCommand.ascx.cs">
+      <DependentUpon>PostItTopLabCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\PostItTopLabCommand.ascx.designer.cs">
+      <DependentUpon>PostItTopLabCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammAnglerCommand.ascx.cs">
+      <DependentUpon>StammAnglerCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammAnglerCommand.ascx.designer.cs">
+      <DependentUpon>StammAnglerCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammInboxCommand.ascx.cs">
+      <DependentUpon>StammInboxCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammInboxCommand.ascx.designer.cs">
+      <DependentUpon>StammInboxCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammNewsCommand.ascx.cs">
+      <DependentUpon>StammNewsCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammNewsCommand.ascx.designer.cs">
+      <DependentUpon>StammNewsCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammPostItCommand.ascx.cs">
+      <DependentUpon>StammPostItCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammPostItCommand.ascx.designer.cs">
+      <DependentUpon>StammPostItCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammShortCutsCommand.ascx.cs">
+      <DependentUpon>StammShortCutsCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammShortCutsCommand.ascx.designer.cs">
+      <DependentUpon>StammShortCutsCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammTopLabCommand.ascx.cs">
+      <DependentUpon>StammTopLabCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\DetailCommand\StammTopLabCommand.ascx.designer.cs">
+      <DependentUpon>StammTopLabCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowAnglerCommand.ascx.cs">
+      <DependentUpon>ShowAnglerCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowAnglerCommand.ascx.designer.cs">
+      <DependentUpon>ShowAnglerCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowCodeCommand.ascx.cs">
+      <DependentUpon>ShowCodeCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowCodeCommand.ascx.designer.cs">
+      <DependentUpon>ShowCodeCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowPostItCommand.ascx.cs">
+      <DependentUpon>ShowPostItCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowPostItCommand.ascx.designer.cs">
+      <DependentUpon>ShowPostItCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowStammCommand.ascx.cs">
+      <DependentUpon>ShowStammCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowStammCommand.ascx.designer.cs">
+      <DependentUpon>ShowStammCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowTopLabCommand.ascx.cs">
+      <DependentUpon>ShowTopLabCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\ShowCommand\ShowTopLabCommand.ascx.designer.cs">
+      <DependentUpon>ShowTopLabCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\AnAbWurzelnCommand.ascx.cs">
+      <DependentUpon>AnAbWurzelnCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\AnAbWurzelnCommand.ascx.designer.cs">
+      <DependentUpon>AnAbWurzelnCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\BewertenCommand.ascx.cs">
+      <DependentUpon>BewertenCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\BewertenCommand.ascx.designer.cs">
+      <DependentUpon>BewertenCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\CloseHyperLink.ascx.cs">
+      <DependentUpon>CloseHyperLink.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\CloseHyperLink.ascx.designer.cs">
+      <DependentUpon>CloseHyperLink.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\KommentierenCommand.ascx.cs">
+      <DependentUpon>KommentierenCommand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Command\GetCommand\SpecialCommand\KommentierenCommand.ascx.designer.cs">
+      <DependentUpon>KommentierenCommand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\AnonymIntro.ascx.cs">
+      <DependentUpon>AnonymIntro.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\AnonymIntro.ascx.designer.cs">
+      <DependentUpon>AnonymIntro.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\AnonymMenu.ascx.cs">
+      <DependentUpon>AnonymMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\AnonymMenu.ascx.designer.cs">
+      <DependentUpon>AnonymMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\ChartControl.ascx.cs">
+      <DependentUpon>ChartControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\ChartControl.ascx.designer.cs">
+      <DependentUpon>ChartControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\PostItChartList.ascx.cs">
+      <DependentUpon>PostItChartList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\PostItChartList.ascx.designer.cs">
+      <DependentUpon>PostItChartList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\StammChartList.ascx.cs">
+      <DependentUpon>StammChartList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\StammChartList.ascx.designer.cs">
+      <DependentUpon>StammChartList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\TopLabChartList.ascx.cs">
+      <DependentUpon>TopLabChartList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Chart\TopLabChartList.ascx.designer.cs">
+      <DependentUpon>TopLabChartList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\EinAusLoggen.ascx.cs">
+      <DependentUpon>EinAusLoggen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\EinAusLoggen.ascx.designer.cs">
+      <DependentUpon>EinAusLoggen.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\FooterControl.ascx.cs">
+      <DependentUpon>FooterControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\FooterControl.ascx.designer.cs">
+      <DependentUpon>FooterControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Journal\JournalControl.ascx.cs">
+      <DependentUpon>JournalControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Journal\JournalControl.ascx.designer.cs">
+      <DependentUpon>JournalControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\LogoControl.ascx.cs">
+      <DependentUpon>LogoControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\LogoControl.ascx.designer.cs">
+      <DependentUpon>LogoControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\StatusControl.ascx.cs">
+      <DependentUpon>StatusControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\StatusControl.ascx.designer.cs">
+      <DependentUpon>StatusControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\PostItListsControl.ascx.cs">
+      <DependentUpon>PostItListsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\PostItListsControl.ascx.designer.cs">
+      <DependentUpon>PostItListsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\StammListsControl.ascx.cs">
+      <DependentUpon>StammListsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\StammListsControl.ascx.designer.cs">
+      <DependentUpon>StammListsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\TopLabListsControl.ascx.cs">
+      <DependentUpon>TopLabListsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Floor\Suche\TopLabListsControl.ascx.designer.cs">
+      <DependentUpon>TopLabListsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\BildPicker.ascx.cs">
+      <DependentUpon>BildPicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\BildPicker.ascx.designer.cs">
+      <DependentUpon>BildPicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\BildPickerTest.aspx.cs">
+      <DependentUpon>BildPickerTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\BildPickerTest.aspx.designer.cs">
+      <DependentUpon>BildPickerTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\KlickBild.ascx.cs">
+      <DependentUpon>KlickBild.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\KlickBild.ascx.designer.cs">
+      <DependentUpon>KlickBild.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\LanguageSelect.ascx.cs">
+      <DependentUpon>LanguageSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\LanguageSelect.ascx.designer.cs">
+      <DependentUpon>LanguageSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\Telepolis.ascx.cs">
+      <DependentUpon>Telepolis.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\Telepolis.ascx.designer.cs">
+      <DependentUpon>Telepolis.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\TollChart.ascx.cs">
+      <DependentUpon>TollChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\TollChart.ascx.designer.cs">
+      <DependentUpon>TollChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\UserToString.ascx.cs">
+      <DependentUpon>UserToString.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\UserToString.ascx.designer.cs">
+      <DependentUpon>UserToString.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\Werbung.ascx.cs">
+      <DependentUpon>Werbung.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\Werbung.ascx.designer.cs">
+      <DependentUpon>Werbung.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gimicks\ZufallsPostItmitTopLab.ascx.cs">
+      <DependentUpon>ZufallsPostItmitTopLab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gimicks\ZufallsPostItmitTopLab.ascx.designer.cs">
+      <DependentUpon>ZufallsPostItmitTopLab.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\AnglerKoerper.ascx.cs">
+      <DependentUpon>AnglerKoerper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\AnglerKoerper.ascx.designer.cs">
+      <DependentUpon>AnglerKoerper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\CodeKoerper.ascx.cs">
+      <DependentUpon>CodeKoerper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\CodeKoerper.ascx.designer.cs">
+      <DependentUpon>CodeKoerper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Kopf.ascx.cs">
+      <DependentUpon>Kopf.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Kopf.ascx.designer.cs">
+      <DependentUpon>Kopf.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\AnglerOrgan.ascx.cs">
+      <DependentUpon>AnglerOrgan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\AnglerOrgan.ascx.designer.cs">
+      <DependentUpon>AnglerOrgan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\PostItOrgan.ascx.cs">
+      <DependentUpon>PostItOrgan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\PostItOrgan.ascx.designer.cs">
+      <DependentUpon>PostItOrgan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\StammOrgan.ascx.cs">
+      <DependentUpon>StammOrgan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\StammOrgan.ascx.designer.cs">
+      <DependentUpon>StammOrgan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\TollisOrgan.ascx.cs">
+      <DependentUpon>TollisOrgan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\TollisOrgan.ascx.designer.cs">
+      <DependentUpon>TollisOrgan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\TopLabOrgan.ascx.cs">
+      <DependentUpon>TopLabOrgan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\Organ\TopLabOrgan.ascx.designer.cs">
+      <DependentUpon>TopLabOrgan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\PostItKoerper.ascx.cs">
+      <DependentUpon>PostItKoerper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\PostItKoerper.ascx.designer.cs">
+      <DependentUpon>PostItKoerper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\StammKoerper.ascx.cs">
+      <DependentUpon>StammKoerper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\StammKoerper.ascx.designer.cs">
+      <DependentUpon>StammKoerper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\TopLabKoerper.ascx.cs">
+      <DependentUpon>TopLabKoerper.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\TopLabKoerper.ascx.designer.cs">
+      <DependentUpon>TopLabKoerper.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\AnglerPostItGrid.ascx.cs">
+      <DependentUpon>AnglerPostItGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\AnglerPostItGrid.ascx.designer.cs">
+      <DependentUpon>AnglerPostItGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\InboxGrid.ascx.cs">
+      <DependentUpon>InboxGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\InboxGrid.ascx.designer.cs">
+      <DependentUpon>InboxGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\NewsGrid.ascx.cs">
+      <DependentUpon>NewsGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\NewsGrid.ascx.designer.cs">
+      <DependentUpon>NewsGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItAnglerGrid.ascx.cs">
+      <DependentUpon>PostItAnglerGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItAnglerGrid.ascx.designer.cs">
+      <DependentUpon>PostItAnglerGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItCodeGrid.ascx.cs">
+      <DependentUpon>PostItCodeGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItCodeGrid.ascx.designer.cs">
+      <DependentUpon>PostItCodeGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItStammGrid.ascx.cs">
+      <DependentUpon>PostItStammGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItStammGrid.ascx.designer.cs">
+      <DependentUpon>PostItStammGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItTopLabGrid.ascx.cs">
+      <DependentUpon>PostItTopLabGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\PostItTopLabGrid.ascx.designer.cs">
+      <DependentUpon>PostItTopLabGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammAnglerGrid.ascx.cs">
+      <DependentUpon>StammAnglerGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammAnglerGrid.ascx.designer.cs">
+      <DependentUpon>StammAnglerGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammPostItGrid.ascx.cs">
+      <DependentUpon>StammPostItGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammPostItGrid.ascx.designer.cs">
+      <DependentUpon>StammPostItGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammShortCutsGrid.ascx.cs">
+      <DependentUpon>StammShortCutsGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammShortCutsGrid.ascx.designer.cs">
+      <DependentUpon>StammShortCutsGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammTopLabGrid.ascx.cs">
+      <DependentUpon>StammTopLabGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\StammTopLabGrid.ascx.designer.cs">
+      <DependentUpon>StammTopLabGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\TopLabTollisGrid.ascx.cs">
+      <DependentUpon>TopLabTollisGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\TopLabTollisGrid.ascx.designer.cs">
+      <DependentUpon>TopLabTollisGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\TopLabTopLabGrid.ascx.cs">
+      <DependentUpon>TopLabTopLabGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\TopLabTopLabGrid.ascx.designer.cs">
+      <DependentUpon>TopLabTopLabGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Koerper\ViewGrids\ViewGridControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\BaumControl.ascx.cs">
+      <DependentUpon>BaumSpiegelControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\BaumControl.ascx.designer.cs">
+      <DependentUpon>BaumSpiegelControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\BuntePunkte.ascx.cs">
+      <DependentUpon>BuntePunkte.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\BuntePunkte.ascx.designer.cs">
+      <DependentUpon>BuntePunkte.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\DoppelMatch.aspx.cs">
+      <DependentUpon>DoppelMatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\DoppelMatch.aspx.designer.cs">
+      <DependentUpon>DoppelMatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\KnotenControl.ascx.cs">
+      <DependentUpon>KnotenSpiegelControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\KnotenControl.ascx.designer.cs">
+      <DependentUpon>KnotenSpiegelControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\NetzControl.ascx.cs">
+      <DependentUpon>NetzSpiegelControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\NetzControl.ascx.designer.cs">
+      <DependentUpon>NetzSpiegelControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\WortraumController.ascx.cs">
+      <DependentUpon>WortraumController.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\WortraumController.ascx.designer.cs">
+      <DependentUpon>WortraumController.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\ZweigControl.ascx.cs">
+      <DependentUpon>ZweigSpiegelControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\ZweigControl.ascx.designer.cs">
+      <DependentUpon>ZweigSpiegelControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Wortraum\ZweiKampf.aspx.cs">
+      <DependentUpon>ZweiKampf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Wortraum\ZweiKampf.aspx.designer.cs">
+      <DependentUpon>ZweiKampf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default_old.aspx.cs">
+      <DependentUpon>default_old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default_old.aspx.designer.cs">
+      <DependentUpon>default_old.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impressum.aspx.cs">
+      <DependentUpon>Impressum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Impressum.aspx.designer.cs">
+      <DependentUpon>Impressum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Klassen\CacheManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\Common.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\Counter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\ErrorMail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\Helper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\MasterControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klassen\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klassen\MasterPostItPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klassen\MasterStammPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klassen\MasterTopLabPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klassen\IUserSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Klassen\SessionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mobile.Master.cs">
+      <DependentUpon>Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile.Master.designer.cs">
+      <DependentUpon>Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="NoFeature.aspx.cs">
+      <DependentUpon>NoFeature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoFeature.aspx.designer.cs">
+      <DependentUpon>NoFeature.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nutzungsbedingungen.aspx.cs">
+      <DependentUpon>Nutzungsbedingungen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nutzungsbedingungen.aspx.designer.cs">
+      <DependentUpon>Nutzungsbedingungen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OliError.aspx.cs">
+      <DependentUpon>OliError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OliError.aspx.designer.cs">
+      <DependentUpon>OliError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteOnly.Master.cs">
+      <DependentUpon>SiteOnly.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteOnly.Master.designer.cs">
+      <DependentUpon>SiteOnly.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Sitemap_PostIt.aspx.cs">
+      <DependentUpon>Sitemap_PostIt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitemap_PostIt.aspx.designer.cs">
+      <DependentUpon>Sitemap_PostIt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitemap_Stamm.aspx.cs">
+      <DependentUpon>Sitemap_Stamm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitemap_Stamm.aspx.designer.cs">
+      <DependentUpon>Sitemap_Stamm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitemap_TopLab.aspx.cs">
+      <DependentUpon>Sitemap_TopLab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitemap_TopLab.aspx.designer.cs">
+      <DependentUpon>Sitemap_TopLab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerLoecherSite.aspx.cs">
+      <DependentUpon>AnglerLoecherSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerLoecherSite.aspx.designer.cs">
+      <DependentUpon>AnglerLoecherSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerPAnglerSite.aspx.cs">
+      <DependentUpon>AnglerPAnglerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerPAnglerSite.aspx.designer.cs">
+      <DependentUpon>AnglerPAnglerSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerPostItSite.aspx.cs">
+      <DependentUpon>AnglerPostItSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerPostItSite.aspx.designer.cs">
+      <DependentUpon>AnglerPostItSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerPSite.aspx.cs">
+      <DependentUpon>AnglerPSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerPSite.aspx.designer.cs">
+      <DependentUpon>AnglerPSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerPStammSite.aspx.cs">
+      <DependentUpon>AnglerPStammSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerPStammSite.aspx.designer.cs">
+      <DependentUpon>AnglerPStammSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerPTopLabSite.aspx.cs">
+      <DependentUpon>AnglerPTopLabSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerPTopLabSite.aspx.designer.cs">
+      <DependentUpon>AnglerPTopLabSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerSite.aspx.cs">
+      <DependentUpon>AnglerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerSite.aspx.designer.cs">
+      <DependentUpon>AnglerSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\AnglerTSite.aspx.cs">
+      <DependentUpon>AnglerTSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\AnglerTSite.aspx.designer.cs">
+      <DependentUpon>AnglerTSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\CodeSite.aspx.cs">
+      <DependentUpon>CodeSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\CodeSite.aspx.designer.cs">
+      <DependentUpon>CodeSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\AnAbWurzeln.aspx.cs">
+      <DependentUpon>AnAbWurzeln.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\AnAbWurzeln.aspx.designer.cs">
+      <DependentUpon>AnAbWurzeln.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\AnglerEdit.aspx.cs">
+      <DependentUpon>AnglerEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\AnglerEdit.aspx.designer.cs">
+      <DependentUpon>AnglerEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\PostItMaker.aspx.cs">
+      <DependentUpon>PostItMaker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\PostItMaker.aspx.designer.cs">
+      <DependentUpon>PostItMaker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\StammEdit.aspx.cs">
+      <DependentUpon>StammEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\StammEdit.aspx.designer.cs">
+      <DependentUpon>StammEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\StammExtras.aspx.cs">
+      <DependentUpon>StammExtras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\StammExtras.aspx.designer.cs">
+      <DependentUpon>StammExtras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\TollEdit.aspx.cs">
+      <DependentUpon>TollEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\TollEdit.aspx.designer.cs">
+      <DependentUpon>TollEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\TopLabAufTopLab.aspx.cs">
+      <DependentUpon>TopLabAufTopLab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\TopLabAufTopLab.aspx.designer.cs">
+      <DependentUpon>TopLabAufTopLab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\TopLabEdit.aspx.cs">
+      <DependentUpon>TopLabEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\TopLabEdit.aspx.designer.cs">
+      <DependentUpon>TopLabEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Edit\UserEinstellungen.ascx.cs">
+      <DependentUpon>UserEinstellungen.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Edit\UserEinstellungen.ascx.designer.cs">
+      <DependentUpon>UserEinstellungen.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\BildUpload.aspx.cs">
+      <DependentUpon>BildUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\BildUpload.aspx.designer.cs">
+      <DependentUpon>BildUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\Buch.aspx.cs">
+      <DependentUpon>Buch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\Buch.aspx.designer.cs">
+      <DependentUpon>Buch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\ChartPage.aspx.cs">
+      <DependentUpon>ChartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\ChartPage.aspx.designer.cs">
+      <DependentUpon>ChartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\FreundWerben.aspx.cs">
+      <DependentUpon>FreundWerben.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\FreundWerben.aspx.designer.cs">
+      <DependentUpon>FreundWerben.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\Journal.aspx.cs">
+      <DependentUpon>Journal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\Journal.aspx.designer.cs">
+      <DependentUpon>Journal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\KennwortVergessen.aspx.cs">
+      <DependentUpon>KennwortVergessen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\KennwortVergessen.aspx.designer.cs">
+      <DependentUpon>KennwortVergessen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\Legende.ascx.cs">
+      <DependentUpon>Legende.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\Legende.ascx.designer.cs">
+      <DependentUpon>Legende.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\Links.aspx.cs">
+      <DependentUpon>Links.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\Links.aspx.designer.cs">
+      <DependentUpon>Links.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\MailSchreiben.aspx.cs">
+      <DependentUpon>MailSchreiben.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\MailSchreiben.aspx.designer.cs">
+      <DependentUpon>MailSchreiben.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\NeuAnmelden.aspx.cs">
+      <DependentUpon>NeuAnmelden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\NeuAnmelden.aspx.designer.cs">
+      <DependentUpon>NeuAnmelden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\Elemente\SuchSite.aspx.cs">
+      <DependentUpon>SuchSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\Elemente\SuchSite.aspx.designer.cs">
+      <DependentUpon>SuchSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItAnglerSite.aspx.cs">
+      <DependentUpon>PostItAnglerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItAnglerSite.aspx.designer.cs">
+      <DependentUpon>PostItAnglerSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItCodeSite.aspx.cs">
+      <DependentUpon>PostItCodeSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItCodeSite.aspx.designer.cs">
+      <DependentUpon>PostItCodeSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItOnlySite.aspx.cs">
+      <DependentUpon>PostItOnlySite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItOnlySite.aspx.designer.cs">
+      <DependentUpon>PostItOnlySite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItSite.aspx.cs">
+      <DependentUpon>PostItSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItSite.aspx.designer.cs">
+      <DependentUpon>PostItSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItStammSite.aspx.cs">
+      <DependentUpon>PostItStammSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItStammSite.aspx.designer.cs">
+      <DependentUpon>PostItStammSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\PostItTopLabSite.aspx.cs">
+      <DependentUpon>PostItTopLabSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\PostItTopLabSite.aspx.designer.cs">
+      <DependentUpon>PostItTopLabSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\SinglePostItPage.aspx.cs">
+      <DependentUpon>SinglePostItPage.aspx</DependentUpon>
+      <SubType>aspxcodebehind</SubType>
+    </Compile>
+    <Compile Include="Sites\SinglePostItPage.aspx.designer.cs">
+      <DependentUpon>SinglePostItPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammAnglerSite.aspx.cs">
+      <DependentUpon>StammAnglerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammAnglerSite.aspx.designer.cs">
+      <DependentUpon>StammAnglerSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammInboxSite.aspx.cs">
+      <DependentUpon>StammInboxSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammInboxSite.aspx.designer.cs">
+      <DependentUpon>StammInboxSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammNewsSite.aspx.cs">
+      <DependentUpon>StammNewsSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammNewsSite.aspx.designer.cs">
+      <DependentUpon>StammNewsSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammPostItSite.aspx.cs">
+      <DependentUpon>StammPostItSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammPostItSite.aspx.designer.cs">
+      <DependentUpon>StammPostItSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammShortCutsSite.aspx.cs">
+      <DependentUpon>StammShortCutsSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammShortCutsSite.aspx.designer.cs">
+      <DependentUpon>StammShortCutsSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammSite.aspx.cs">
+      <DependentUpon>StammSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammSite.aspx.designer.cs">
+      <DependentUpon>StammSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\StammTopLabSite.aspx.cs">
+      <DependentUpon>StammTopLabSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\StammTopLabSite.aspx.designer.cs">
+      <DependentUpon>StammTopLabSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sites\TopLabSite.aspx.cs">
+      <DependentUpon>TopLabSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites\TopLabSite.aspx.designer.cs">
+      <DependentUpon>TopLabSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_test_OliUserControl_dll.aspx.cs">
+      <DependentUpon>_test_OliUserControl_dll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_test_OliUserControl_dll.aspx.designer.cs">
+      <DependentUpon>_test_OliUserControl_dll.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Themes\default\default.css" />
+    <Content Include="App_Themes\default\SAPCT.css" />
+    <Content Include="Controls\AjaxWortraum\AjaxWortraumControl.ascx" />
+    <Content Include="Controls\AjaxWortraum\AjaxWortraumControlFlip.ascx" />
+    <Content Include="Controls\AjaxWortraum\AjaxWortraumTest.aspx" />
+    <Content Include="Controls\Command\CommandBar.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\CommandTree.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\AnglerEditCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\AnglerNewCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\CodeNewCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\PostItEditCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\PostItNewCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\StammEditCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\StammNewCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\TopLabEditCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ActionCommand\TopLabNewCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\AnglerLoecherCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\AnglerPostItCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\PostItAnglerCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\PostItCodeCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\PostItStammCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\PostItTopLabCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammAnglerCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammInboxCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammNewsCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammPostItCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammShortCutsCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\DetailCommand\StammTopLabCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ShowCommand\ShowAnglerCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ShowCommand\ShowCodeCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ShowCommand\ShowPostItCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ShowCommand\ShowStammCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\ShowCommand\ShowTopLabCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\SpecialCommand\AnAbWurzelnCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\SpecialCommand\BewertenCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\SpecialCommand\CloseHyperLink.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Command\GetCommand\SpecialCommand\KommentierenCommand.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\AnonymIntro.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\AnonymMenu.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Chart\ChartControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Chart\PostItChartList.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Chart\StammChartList.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Chart\TopLabChartList.ascx" />
+    <Content Include="Controls\Floor\EinAusLoggen.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\FooterControl.ascx" />
+    <Content Include="Controls\Floor\Journal\JournalControl.ascx" />
+    <Content Include="Controls\Floor\LogoControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\StatusControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Suche\PostItListsControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Suche\StammListsControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Floor\Suche\TopLabListsControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\BildPicker.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\BildPickerTest.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\KlickBild.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\LanguageSelect.ascx" />
+    <Content Include="Controls\Gimicks\Telepolis.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\TollChart.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\UserToString.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\Werbung.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Gimicks\ZufallsPostItmitTopLab.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\AnglerKoerper.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\CodeKoerper.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Kopf.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Organ\AnglerOrgan.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Organ\PostItOrgan.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Organ\StammOrgan.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Organ\TollisOrgan.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\Organ\TopLabOrgan.ascx" />
+    <Content Include="Controls\Koerper\PostItKoerper.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\StammKoerper.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\TopLabKoerper.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\AnglerPostItGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\InboxGrid.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\NewsGrid.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\PostItAnglerGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\PostItCodeGrid.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\PostItStammGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\PostItTopLabGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\StammAnglerGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\StammPostItGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\StammShortCutsGrid.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\StammTopLabGrid.ascx" />
+    <Content Include="Controls\Koerper\ViewGrids\TopLabTollisGrid.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Koerper\ViewGrids\TopLabTopLabGrid.ascx" />
+    <Content Include="Controls\Wortraum\BaumControl.ascx" />
+    <Content Include="Controls\Wortraum\BaumSpiegelControl.ascx" />
+    <Content Include="Controls\Wortraum\BuntePunkte.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Wortraum\DoppelMatch.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Controls\Wortraum\KnotenControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Wortraum\KnotenSpiegelControl.ascx" />
+    <Content Include="Controls\Wortraum\NetzControl.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Wortraum\NetzSpiegelControl.ascx" />
+    <Content Include="Controls\Wortraum\WortraumController.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Controls\Wortraum\ZweigControl.ascx" />
+    <Content Include="Controls\Wortraum\ZweigSpiegelControl.ascx" />
+    <Content Include="Controls\Wortraum\ZweiKampf.aspx" />
+    <Content Include="default_old.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="HtmlPage1.html" />
+    <Content Include="images\Ablauf.gif" />
+    <Content Include="images\Allerlei\10x10.GIF" />
+    <Content Include="images\Allerlei\antw.gif" />
+    <Content Include="images\Allerlei\antworten.gif" />
+    <Content Include="images\Allerlei\baum.gif" />
+    <Content Include="images\Allerlei\BaumTransmitter.gif" />
+    <Content Include="images\Allerlei\BaumVoll.gif" />
+    <Content Include="images\Allerlei\BaumVoll.JPG" />
+    <Content Include="images\Allerlei\blau.gif" />
+    <Content Include="images\Allerlei\bluemchen.jpg" />
+    <Content Include="images\Allerlei\book01.gif" />
+    <Content Include="images\Allerlei\book08.gif" />
+    <Content Include="images\Allerlei\code.gif" />
+    <Content Include="images\Allerlei\darkgreen.JPG" />
+    <Content Include="images\Allerlei\DataGridButton\antworten.gif" />
+    <Content Include="images\Allerlei\DataGridButton\BaumVoll.JPG" />
+    <Content Include="images\Allerlei\DataGridButton\ok.GIF" />
+    <Content Include="images\Allerlei\DataGridButton\rot_x.gif" />
+    <Content Include="images\Allerlei\doc04.gif" />
+    <Content Include="images\Allerlei\ecke.bmp" />
+    <Content Include="images\Allerlei\ecke.gif" />
+    <Content Include="images\Allerlei\envelop1.gif" />
+    <Content Include="images\Allerlei\ffinder.gif" />
+    <Content Include="images\Allerlei\gelb.gif" />
+    <Content Include="images\Allerlei\gelb_pfeil_rechts.gif" />
+    <Content Include="images\Allerlei\gruen.gif" />
+    <Content Include="images\Allerlei\grün.gif" />
+    <Content Include="images\Allerlei\i.bmp" />
+    <Content Include="images\Allerlei\ichauch.gif" />
+    <Content Include="images\Allerlei\icons.htm" />
+    <Content Include="images\Allerlei\kooperationen.gif" />
+    <Content Include="images\Allerlei\kooperationen.jpg" />
+    <Content Include="images\Allerlei\leer11.gif" />
+    <Content Include="images\Allerlei\new.bmp" />
+    <Content Include="images\Allerlei\new.JPG" />
+    <Content Include="images\Allerlei\newspap1.gif" />
+    <Content Include="images\Allerlei\newspap2.gif" />
+    <Content Include="images\Allerlei\ok.GIF" />
+    <Content Include="images\Allerlei\OLI_rahmen.gif" />
+    <Content Include="images\Allerlei\plus.gif" />
+    <Content Include="images\Allerlei\rot.gif" />
+    <Content Include="images\Allerlei\RotPfeilRunter.gif" />
+    <Content Include="images\Allerlei\rotpunkt.gif" />
+    <Content Include="images\Allerlei\rot_x.gif" />
+    <Content Include="images\Allerlei\schwarz.gif" />
+    <Content Include="images\Allerlei\search.gif" />
+    <Content Include="images\Allerlei\TreeNavi\inbox.gif" />
+    <Content Include="images\Allerlei\TreeNavi\n.gif" />
+    <Content Include="images\Allerlei\TreeNavi\news.gif" />
+    <Content Include="images\Allerlei\TreeNavi\OLI.gif" />
+    <Content Include="images\Allerlei\TreeNavi\stamm.gif" />
+    <Content Include="images\Allerlei\TreeView\b.gif" />
+    <Content Include="images\Allerlei\TreeView\BaumZweige.gif" />
+    <Content Include="images\Allerlei\TreeView\k.gif" />
+    <Content Include="images\Allerlei\TreeView\n.gif" />
+    <Content Include="images\Allerlei\TreeView\NetzKnotenPlus.GIF" />
+    <Content Include="images\Allerlei\TreeView\z.gif" />
+    <Content Include="images\Allerlei\W95MBX01.ICO" />
+    <Content Include="images\Allerlei\weiss.gif" />
+    <Content Include="images\antworten.gif" />
+    <Content Include="images\code_pixel.jpg" />
+    <Content Include="images\darkgreen.JPG" />
+    <Content Include="images\googlesyndication.gif" />
+    <Content Include="images\grey.JPG" />
+    <Content Include="images\ich.JPG" />
+    <Content Include="images\icons\btn135.gif" />
+    <Content Include="images\icons\btn16.gif" />
+    <Content Include="images\icons\cancel.gif" />
+    <Content Include="images\icons\close.gif" />
+    <Content Include="images\icons\double_click_ico.jpg" />
+    <Content Include="images\icons\double_click_ico_sw.jpg" />
+    <Content Include="images\icons\Ecken\eck_links_16_sw.gif" />
+    <Content Include="images\icons\Ecken\eck_rauf_16_sw.gif" />
+    <Content Include="images\icons\Ecken\eck_rauf_16_sw_alt.gif" />
+    <Content Include="images\icons\Ecken\eck_rechts_16_sw.gif" />
+    <Content Include="images\icons\Ecken\eck_rechts_16_sw_alt.gif" />
+    <Content Include="images\icons\Ecken\eck_runter_16_sw.gif" />
+    <Content Include="images\icons\Ecken\eck_runter_16_sw_alt.gif" />
+    <Content Include="images\icons\Ecken\Kopie von rechts-oben.jpg" />
+    <Content Include="images\icons\Ecken\links-oben.jpg" />
+    <Content Include="images\icons\Ecken\rechts-oben - Kopie.jpg" />
+    <Content Include="images\icons\Ecken\rechts-oben.gif" />
+    <Content Include="images\icons\Ecken\rechts-oben.jpg" />
+    <Content Include="images\icons\Ecken\rechts-unten.jpg" />
+    <Content Include="images\icons\edit.GIF" />
+    <Content Include="images\icons\eingeloggt.GIF" />
+    <Content Include="images\icons\exit.GIF" />
+    <Content Include="images\icons\favicon.ico" />
+    <Content Include="images\icons\feedster_40_60.JPG" />
+    <Content Include="images\icons\fragezeichen.gif" />
+    <Content Include="images\icons\fragezeichen_.gif" />
+    <Content Include="images\icons\KatIcon\fluester.gif" />
+    <Content Include="images\icons\KatIcon\horch.gif" />
+    <Content Include="images\icons\KatIcon\schrei.gif" />
+    <Content Include="images\icons\KatIcon\schweig.gif" />
+    <Content Include="images\icons\KatIcon\stumm.gif" />
+    <Content Include="images\icons\KatIcon\talk.gif" />
+    <Content Include="images\icons\KatIcon\zapp.gif" />
+    <Content Include="images\icons\KatIcon\zeig.gif" />
+    <Content Include="images\icons\Kopie von schleier.jpg" />
+    <Content Include="images\icons\muss_bin.gif" />
+    <Content Include="images\icons\nicht_egal.GIF" />
+    <Content Include="images\icons\ok.gif" />
+    <Content Include="images\icons\ordner.gif" />
+    <Content Include="images\icons\pfeilrauf.gif" />
+    <Content Include="images\icons\rotpunkt.gif" />
+    <Content Include="images\icons\schleier Kopie.jpg" />
+    <Content Include="images\icons\schleier.jpg" />
+    <Content Include="images\icons\sollte_waere.GIF" />
+    <Content Include="images\icons\strich_ordner.GIF" />
+    <Content Include="images\icons\Symbole\Angler.jpg" />
+    <Content Include="images\icons\Symbole\Angler.png" />
+    <Content Include="images\icons\Symbole\Code.gif" />
+    <Content Include="images\icons\Symbole\minicode.GIF" />
+    <Content Include="images\icons\Symbole\older ones\Angler.gif" />
+    <Content Include="images\icons\Symbole\older ones\Angler.jpg" />
+    <Content Include="images\icons\Symbole\older ones\Angler_full.jpg" />
+    <Content Include="images\icons\Symbole\older ones\Angle_hohl.jpg" />
+    <Content Include="images\icons\Symbole\older ones\Code.gif" />
+    <Content Include="images\icons\Symbole\older ones\minicode.GIF" />
+    <Content Include="images\icons\Symbole\older ones\PostIt.gif" />
+    <Content Include="images\icons\Symbole\older ones\S.jpg.jpg" />
+    <Content Include="images\icons\Symbole\older ones\Stamm.gif" />
+    <Content Include="images\icons\Symbole\older ones\Stamm.jpg" />
+    <Content Include="images\icons\Symbole\older ones\stamm_full.jpg" />
+    <Content Include="images\icons\Symbole\older ones\toplab - original.JPG" />
+    <Content Include="images\icons\Symbole\older ones\toplab.JPG" />
+    <Content Include="images\icons\Symbole\older ones\TopLab_kuss.jpg" />
+    <Content Include="images\icons\Symbole\older ones\TopLab_pfeil.jpg" />
+    <Content Include="images\icons\Symbole\PostIt.gif" />
+    <Content Include="images\icons\Symbole\Stamm.jpg" />
+    <Content Include="images\icons\Symbole\Stamm.png" />
+    <Content Include="images\icons\Symbole\toplab.JPG" />
+    <Content Include="images\icons\Symbole\TopLab.png" />
+    <Content Include="images\icons\Wortraum\B16.GIF" />
+    <Content Include="images\icons\Wortraum\BaumT.gif" />
+    <Content Include="images\icons\Wortraum\K16.GIF" />
+    <Content Include="images\icons\Wortraum\KnotenPunkt.gif" />
+    <Content Include="images\icons\Wortraum\N16.GIF" />
+    <Content Include="images\icons\Wortraum\Netz.gif" />
+    <Content Include="images\icons\Wortraum\NetzT.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\BaumT.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\KnotenPunkt.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\NetzT.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\wB16.GIF" />
+    <Content Include="images\icons\Wortraum\Spiegel\WeiterBaum.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\WeiterNetz.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\WeiterNix.gif" />
+    <Content Include="images\icons\Wortraum\Spiegel\wN16.GIF" />
+    <Content Include="images\icons\Wortraum\Spiegel\Z16.GIF" />
+    <Content Include="images\icons\Wortraum\Spiegel\Zweig.gif" />
+    <Content Include="images\icons\Wortraum\w16.GIF" />
+    <Content Include="images\icons\Wortraum\wB16.GIF" />
+    <Content Include="images\icons\Wortraum\WeiterBaum.gif" />
+    <Content Include="images\icons\Wortraum\WeiterNetz.gif" />
+    <Content Include="images\icons\Wortraum\WeiterNix.gif" />
+    <Content Include="images\icons\Wortraum\wN16.GIF" />
+    <Content Include="images\icons\Wortraum\WorTraum.gif" />
+    <Content Include="images\icons\Wortraum\Z16.GIF" />
+    <Content Include="images\icons\Wortraum\Zweig.gif" />
+    <Content Include="images\icons\x.gif" />
+    <Content Include="images\icons\XPQuestion.gif" />
+    <Content Include="images\katili.gif" />
+    <Content Include="images\Kopie von ruecken.jpg" />
+    <Content Include="images\Kopie von ruecken_.jpg" />
+    <Content Include="images\leucht.gif" />
+    <Content Include="images\mailme.gif" />
+    <Content Include="images\mailme_gelb.gif" />
+    <Content Include="images\mailme_luftpost.gif" />
+    <Content Include="images\new.GIF" />
+    <Content Include="images\oli-it_128.bmp" />
+    <Content Include="images\oli-it_128.gif" />
+    <Content Include="images\oli-it_128.JPG" />
+    <Content Include="images\OLI-it_36.JPG" />
+    <Content Include="images\oli-it_40.gif" />
+    <Content Include="images\oli-it_40.JPG" />
+    <Content Include="images\OLI.gif" />
+    <Content Include="images\olinet.gif" />
+    <Content Include="images\OLIupload\a.gif" />
+    <Content Include="images\OLIupload\achim.jpg" />
+    <Content Include="images\OLIupload\adp_icon.JPG" />
+    <Content Include="images\OLIupload\afghanin.jpg" />
+    <Content Include="images\OLIupload\albanien.gif" />
+    <Content Include="images\OLIupload\ape50.jpg" />
+    <Content Include="images\OLIupload\arbeitsamt.gif" />
+    <Content Include="images\OLIupload\audi_silber.jpg" />
+    <Content Include="images\OLIupload\auge.jpg" />
+    <Content Include="images\OLIupload\augen.gif" />
+    <Content Include="images\OLIupload\augen_mit_zähnen.gif" />
+    <Content Include="images\OLIupload\b.gif" />
+    <Content Include="images\OLIupload\BABYPOLI.JPG" />
+    <Content Include="images\OLIupload\babyschwimmen.jpg" />
+    <Content Include="images\OLIupload\baggerfahrer.gif" />
+    <Content Include="images\OLIupload\bastbild.jpg" />
+    <Content Include="images\OLIupload\bauer.gif" />
+    <Content Include="images\OLIupload\baumfäller.gif" />
+    <Content Include="images\OLIupload\beni usa.jpg" />
+    <Content Include="images\OLIupload\beni.jpg" />
+    <Content Include="images\OLIupload\bier.jpg" />
+    <Content Include="images\OLIupload\bill-gates-adolf.jpg" />
+    <Content Include="images\OLIupload\bill-gates-girl.jpg" />
+    <Content Include="images\OLIupload\bill-gates-police.jpg" />
+    <Content Include="images\OLIupload\BLAU.JPG" />
+    <Content Include="images\OLIupload\blick.jpg" />
+    <Content Include="images\OLIupload\bluemchen.jpg" />
+    <Content Include="images\OLIupload\bmw_gruen.jpg" />
+    <Content Include="images\OLIupload\bmw_logo.gif" />
+    <Content Include="images\OLIupload\bmw_rot.jpg" />
+    <Content Include="images\OLIupload\brad.jpg" />
+    <Content Include="images\OLIupload\brainit.jpg" />
+    <Content Include="images\OLIupload\brigitte.gif" />
+    <Content Include="images\OLIupload\bruchner.jpg" />
+    <Content Include="images\OLIupload\bruenette.jpg" />
+    <Content Include="images\OLIupload\c.gif" />
+    <Content Include="images\OLIupload\cala_d_ en_ serra .jpg" />
+    <Content Include="images\OLIupload\carmen.bmp" />
+    <Content Include="images\OLIupload\carsolut.jpg" />
+    <Content Include="images\OLIupload\castle küche.jpg" />
+    <Content Include="images\OLIupload\castle.jpg" />
+    <Content Include="images\OLIupload\catagor.gif" />
+    <Content Include="images\OLIupload\ch.gif" />
+    <Content Include="images\OLIupload\chris.jpg" />
+    <Content Include="images\OLIupload\claudia.bmp" />
+    <Content Include="images\OLIupload\clock1-a.gif" />
+    <Content Include="images\OLIupload\condor.jpg" />
+    <Content Include="images\OLIupload\cordless_optical.gif" />
+    <Content Include="images\OLIupload\cowboy.gif" />
+    <Content Include="images\OLIupload\CrazyBanana.jpg" />
+    <Content Include="images\OLIupload\d.gif" />
+    <Content Include="images\OLIupload\daemon.gif" />
+    <Content Include="images\OLIupload\darth-vader.jpg" />
+    <Content Include="images\OLIupload\dateigroesse.jpg" />
+    <Content Include="images\OLIupload\dick_und_doof.gif" />
+    <Content Include="images\OLIupload\Dieter.jpg" />
+    <Content Include="images\OLIupload\dk.gif" />
+    <Content Include="images\OLIupload\dma.JPG" />
+    <Content Include="images\OLIupload\doc1.gif" />
+    <Content Include="images\OLIupload\dom.jpg" />
+    <Content Include="images\OLIupload\domUndichRasierman.jpg" />
+    <Content Include="images\OLIupload\dom_licht.jpg" />
+    <Content Include="images\OLIupload\doofmarie.jpg" />
+    <Content Include="images\OLIupload\e.gif" />
+    <Content Include="images\OLIupload\EiffelTower.jpg" />
+    <Content Include="images\OLIupload\eumel1.gif" />
+    <Content Include="images\OLIupload\eumel2.gif" />
+    <Content Include="images\OLIupload\eumel3.gif" />
+    <Content Include="images\OLIupload\eumel4.gif" />
+    <Content Include="images\OLIupload\eyewalk.gif" />
+    <Content Include="images\OLIupload\f.gif" />
+    <Content Include="images\OLIupload\FAERY.gif" />
+    <Content Include="images\OLIupload\fin.gif" />
+    <Content Include="images\OLIupload\flo.jpg" />
+    <Content Include="images\OLIupload\fluester.gif" />
+    <Content Include="images\OLIupload\ford_rot.jpg" />
+    <Content Include="images\OLIupload\fragenohneantwort.JPG" />
+    <Content Include="images\OLIupload\fuss.jpg" />
+    <Content Include="images\OLIupload\gaggia.bmp" />
+    <Content Include="images\OLIupload\gatter.gif" />
+    <Content Include="images\OLIupload\gb.gif" />
+    <Content Include="images\OLIupload\geist.jpg" />
+    <Content Include="images\OLIupload\gender.GIF" />
+    <Content Include="images\OLIupload\genossenkuss.jpg" />
+    <Content Include="images\OLIupload\gg.jpg" />
+    <Content Include="images\OLIupload\girl.gif" />
+    <Content Include="images\OLIupload\girl5.gif" />
+    <Content Include="images\OLIupload\glut.jpg" />
+    <Content Include="images\OLIupload\glutrot.jpg" />
+    <Content Include="images\OLIupload\gr.gif" />
+    <Content Include="images\OLIupload\guinness.jpg" />
+    <Content Include="images\OLIupload\hackengrau.gif" />
+    <Content Include="images\OLIupload\hausansicht.jpg" />
+    <Content Include="images\OLIupload\hausinspektor.gif" />
+    <Content Include="images\OLIupload\helen.jpg" />
+    <Content Include="images\OLIupload\Henri.jpg" />
+    <Content Include="images\OLIupload\herz.bmp" />
+    <Content Include="images\OLIupload\herz.gif" />
+    <Content Include="images\OLIupload\herz.jpg" />
+    <Content Include="images\OLIupload\hin_her.gif" />
+    <Content Include="images\OLIupload\hk.gif" />
+    <Content Include="images\OLIupload\hochzeitstorte.jpg" />
+    <Content Include="images\OLIupload\horch.gif" />
+    <Content Include="images\OLIupload\hotte.jpg" />
+    <Content Include="images\OLIupload\hotti.jpg" />
+    <Content Include="images\OLIupload\huepf_hirn.gif" />
+    <Content Include="images\OLIupload\i.gif" />
+    <Content Include="images\OLIupload\ilu.JPG" />
+    <Content Include="images\OLIupload\ind.gif" />
+    <Content Include="images\OLIupload\indien.gif" />
+    <Content Include="images\OLIupload\infosphinx_betzin.gif" />
+    <Content Include="images\OLIupload\innen1.jpg" />
+    <Content Include="images\OLIupload\irma.jpg" />
+    <Content Include="images\OLIupload\james.jpg" />
+    <Content Include="images\OLIupload\Joerdis.jpg" />
+    <Content Include="images\OLIupload\Kathrin.jpg" />
+    <Content Include="images\OLIupload\katze.jpg" />
+    <Content Include="images\OLIupload\kat_strip.jpg" />
+    <Content Include="images\OLIupload\keine_flagge.gif" />
+    <Content Include="images\OLIupload\kerze.jpg" />
+    <Content Include="images\OLIupload\Kimble.jpg" />
+    <Content Include="images\OLIupload\Kind.jpg" />
+    <Content Include="images\OLIupload\kronkorken.jpg" />
+    <Content Include="images\OLIupload\lars.jpg" />
+    <Content Include="images\OLIupload\Lee.jpg" />
+    <Content Include="images\OLIupload\letit.jpg" />
+    <Content Include="images\OLIupload\loewe.jpg" />
+    <Content Include="images\OLIupload\lt.gif" />
+    <Content Include="images\OLIupload\lu.jpg" />
+    <Content Include="images\OLIupload\markus.bmp" />
+    <Content Include="images\OLIupload\marylin.gif" />
+    <Content Include="images\OLIupload\maschinenbauer.gif" />
+    <Content Include="images\OLIupload\mayer.jpg" />
+    <Content Include="images\OLIupload\mercedes_blau.jpg" />
+    <Content Include="images\OLIupload\mercedes_gruen.jpg" />
+    <Content Include="images\OLIupload\mercedes_rot.jpg" />
+    <Content Include="images\OLIupload\mercedes_schwarz.jpg" />
+    <Content Include="images\OLIupload\mercedes_weiss.jpg" />
+    <Content Include="images\OLIupload\milli.gif" />
+    <Content Include="images\OLIupload\miniAuge.jpg" />
+    <Content Include="images\OLIupload\miniMund.jpg" />
+    <Content Include="images\OLIupload\miri.jpg" />
+    <Content Include="images\OLIupload\monitor.gif" />
+    <Content Include="images\OLIupload\mouse.JPG" />
+    <Content Include="images\OLIupload\music.bmp" />
+    <Content Include="images\OLIupload\männerbrust.jpg" />
+    <Content Include="images\OLIupload\n.gif" />
+    <Content Include="images\OLIupload\Naddel.jpg" />
+    <Content Include="images\OLIupload\NathanielStammTransp.gif" />
+    <Content Include="images\OLIupload\nl.gif" />
+    <Content Include="images\OLIupload\O.gif" />
+    <Content Include="images\OLIupload\ocb.jpg" />
+    <Content Include="images\OLIupload\ohr.jpg" />
+    <Content Include="images\OLIupload\oli-it_128.gif" />
+    <Content Include="images\OLIupload\OLI.gif" />
+    <Content Include="images\OLIupload\OLI.ico" />
+    <Content Include="images\OLIupload\olinet.gif" />
+    <Content Include="images\OLIupload\OLInet_Quadrat.gif" />
+    <Content Include="images\OLIupload\oli_globus.JPG" />
+    <Content Include="images\OLIupload\Oli_im_Schabernack.jpg" />
+    <Content Include="images\OLIupload\Oli_im_Schabernackklein.jpg" />
+    <Content Include="images\OLIupload\Oli_mit_HSM_im_Schabernack.jpg" />
+    <Content Include="images\OLIupload\OLI_schwarz_transp.ico" />
+    <Content Include="images\OLIupload\OLI_s_w.ico" />
+    <Content Include="images\OLIupload\oli_tani_helena_minipassbild.jpg" />
+    <Content Include="images\OLIupload\OLI_weiss_transp.ico" />
+    <Content Include="images\OLIupload\oster_lu.jpg" />
+    <Content Include="images\OLIupload\p.gif" />
+    <Content Include="images\OLIupload\P11.jpg" />
+    <Content Include="images\OLIupload\panda_rot.jpg" />
+    <Content Include="images\OLIupload\panda_schwarz.jpg" />
+    <Content Include="images\OLIupload\panda_weiss.jpg" />
+    <Content Include="images\OLIupload\parkett.jpg" />
+    <Content Include="images\OLIupload\passat_rot.jpg" />
+    <Content Include="images\OLIupload\Paul.jpg" />
+    <Content Include="images\OLIupload\penis.jpg" />
+    <Content Include="images\OLIupload\pierce.jpg" />
+    <Content Include="images\OLIupload\pierre_herz.gif" />
+    <Content Include="images\OLIupload\pierre_kreuz.gif" />
+    <Content Include="images\OLIupload\pierre_krone.gif" />
+    <Content Include="images\OLIupload\pierre_mund.gif" />
+    <Content Include="images\OLIupload\pinky1.jpg" />
+    <Content Include="images\OLIupload\pittibaby.gif" />
+    <Content Include="images\OLIupload\pl.gif" />
+    <Content Include="images\OLIupload\playboy.gif" />
+    <Content Include="images\OLIupload\POLIBABY.JPG" />
+    <Content Include="images\OLIupload\porsche_hinten.jpg" />
+    <Content Include="images\OLIupload\Porsche_vorn.jpg" />
+    <Content Include="images\OLIupload\prolet.jpg" />
+    <Content Include="images\OLIupload\putzi.jpg" />
+    <Content Include="images\OLIupload\rachel.jpg" />
+    <Content Include="images\OLIupload\raf.jpg" />
+    <Content Include="images\OLIupload\reling.jpg" />
+    <Content Include="images\OLIupload\Robin.gif" />
+    <Content Include="images\OLIupload\robugly[1].jpg" />
+    <Content Include="images\OLIupload\roter_stern.gif" />
+    <Content Include="images\OLIupload\rotKreuzDom.jpg" />
+    <Content Include="images\OLIupload\rotkreuz_dom.jpg" />
+    <Content Include="images\OLIupload\ruecken.jpg" />
+    <Content Include="images\OLIupload\s.gif" />
+    <Content Include="images\OLIupload\saddam.jpg" />
+    <Content Include="images\OLIupload\Sand.jpg" />
+    <Content Include="images\OLIupload\Sandman8.jpg" />
+    <Content Include="images\OLIupload\schnecke.bmp" />
+    <Content Include="images\OLIupload\schrei.gif" />
+    <Content Include="images\OLIupload\schrei.jpg" />
+    <Content Include="images\OLIupload\schroeder.jpg" />
+    <Content Include="images\OLIupload\schweig.gif" />
+    <Content Include="images\OLIupload\sexsymbol.gif" />
+    <Content Include="images\OLIupload\smile1.gif" />
+    <Content Include="images\OLIupload\smiley.png" />
+    <Content Include="images\OLIupload\spider.jpg" />
+    <Content Include="images\OLIupload\spinnennetz.gif" />
+    <Content Include="images\OLIupload\spritze_in_hirn.gif" />
+    <Content Include="images\OLIupload\stahlarbeiter.gif" />
+    <Content Include="images\OLIupload\starfield.gif" />
+    <Content Include="images\OLIupload\stephan.jpg" />
+    <Content Include="images\OLIupload\stetoskop.gif" />
+    <Content Include="images\OLIupload\stumm.gif" />
+    <Content Include="images\OLIupload\support.gif" />
+    <Content Include="images\OLIupload\syntax.gif" />
+    <Content Include="images\OLIupload\tahu.gif" />
+    <Content Include="images\OLIupload\talk.gif" />
+    <Content Include="images\OLIupload\thani.bmp" />
+    <Content Include="images\OLIupload\three_tier.gif" />
+    <Content Include="images\OLIupload\tim.jpg" />
+    <Content Include="images\OLIupload\tim_birte.jpg" />
+    <Content Include="images\OLIupload\tom1.jpg" />
+    <Content Include="images\OLIupload\tom2.jpg" />
+    <Content Include="images\OLIupload\tommy.jpg" />
+    <Content Include="images\OLIupload\totenkopf.gif" />
+    <Content Include="images\OLIupload\tr.gif" />
+    <Content Include="images\OLIupload\traktorfahrer.gif" />
+    <Content Include="images\OLIupload\transparent16.gif" />
+    <Content Include="images\OLIupload\uk.gif" />
+    <Content Include="images\OLIupload\usa.gif" />
+    <Content Include="images\OLIupload\WEISS.JPG" />
+    <Content Include="images\OLIupload\werbung.bmp" />
+    <Content Include="images\OLIupload\werbung\askit.jpg" />
+    <Content Include="images\OLIupload\werbung\augen_234x60.gif" />
+    <Content Include="images\OLIupload\werbung\brainit.jpg" />
+    <Content Include="images\OLIupload\werbung\buyit.jpg" />
+    <Content Include="images\OLIupload\werbung\condor.jpg" />
+    <Content Include="images\OLIupload\werbung\hearit.jpg" />
+    <Content Include="images\OLIupload\werbung\knowit.jpg" />
+    <Content Include="images\OLIupload\werbung\letit.jpg" />
+    <Content Include="images\OLIupload\werbung\lösung_kathrin_handschrift.gif" />
+    <Content Include="images\OLIupload\werbung\nanuk.gif" />
+    <Content Include="images\OLIupload\werbung\oliit.jpg" />
+    <Content Include="images\OLIupload\werbung\oli_it.jpg" />
+    <Content Include="images\OLIupload\werbung\sayit.jpg" />
+    <Content Include="images\OLIupload\werbung\seeit.gif" />
+    <Content Include="images\OLIupload\werbung\seeit.jpg" />
+    <Content Include="images\OLIupload\werbung\seekit.jpg" />
+    <Content Include="images\OLIupload\werbung\showit.jpg" />
+    <Content Include="images\OLIupload\werbung\smellit.jpg" />
+    <Content Include="images\OLIupload\werbung\system_it.gif" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\askit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\augen_234x60.gif" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\brainit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\buyit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\hearit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\knowit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\letit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\lösung_kathrin_handschrift.gif" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\nanuk.gif" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\oliit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\oli_it.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\sayit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\seeit.gif" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\seeit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\seekit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\showit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\smellit.jpg" />
+    <Content Include="images\OLIupload\werbung\_vti_cnf\system_it.gif" />
+    <Content Include="images\OLIupload\winke_katze.gif" />
+    <Content Include="images\OLIupload\win_logo.GIF" />
+    <Content Include="images\OLIupload\wiso.jpg" />
+    <Content Include="images\OLIupload\Woelkchen.jpg" />
+    <Content Include="images\OLIupload\wtc.jpg" />
+    <Content Include="images\OLIupload\wummesw.jpg" />
+    <Content Include="images\OLIupload\wummeswDot.JPG" />
+    <Content Include="images\OLIupload\Wumme_klein.jpg" />
+    <Content Include="images\OLIupload\x.gif" />
+    <Content Include="images\OLIupload\zange.jpg" />
+    <Content Include="images\OLIupload\zapp.gif" />
+    <Content Include="images\OLIupload\zeig.gif" />
+    <Content Include="images\OLIupload\Zellen.gif" />
+    <Content Include="images\OLIupload\zellen_blau.gif" />
+    <Content Include="images\OLIupload\zellen_rot.gif" />
+    <Content Include="images\OLIupload\zementfahrer.gif" />
+    <Content Include="images\OLIupload\zetti.jpg" />
+    <Content Include="images\OLIupload\zirkusdirektor.gif" />
+    <Content Include="images\OLIupload\zunge.jpg" />
+    <Content Include="images\oli_globus.JPG" />
+    <Content Include="images\ollili.gif" />
+    <Content Include="images\pbsw.gif" />
+    <Content Include="images\pbsw_.gif" />
+    <Content Include="images\PostItQuitschGelb.gif" />
+    <Content Include="images\puls_baum.gif" />
+    <Content Include="images\punkte\blau.gif" />
+    <Content Include="images\punkte\gelb.gif" />
+    <Content Include="images\punkte\gruen.gif" />
+    <Content Include="images\punkte\ILOs\0.gif" />
+    <Content Include="images\punkte\ILOs\1.gif" />
+    <Content Include="images\punkte\ILOs\2.gif" />
+    <Content Include="images\punkte\ILOs\3.gif" />
+    <Content Include="images\punkte\ILOs\bin.gif" />
+    <Content Include="images\punkte\ILOs\egal.gif" />
+    <Content Include="images\punkte\ILOs\nicht.gif" />
+    <Content Include="images\punkte\ILOs\waere.gif" />
+    <Content Include="images\punkte\OLIs\0.gif" />
+    <Content Include="images\punkte\OLIs\1.gif" />
+    <Content Include="images\punkte\OLIs\2.gif" />
+    <Content Include="images\punkte\OLIs\3.gif" />
+    <Content Include="images\punkte\OLIs\egal.gif" />
+    <Content Include="images\punkte\OLIs\muss.gif" />
+    <Content Include="images\punkte\OLIs\nicht.gif" />
+    <Content Include="images\punkte\OLIs\sollte.gif" />
+    <Content Include="images\punkte\rot.gif" />
+    <Content Include="images\punkte\schwarz.gif" />
+    <Content Include="images\punkte\weiss.gif" />
+    <Content Include="images\punkte\x.gif" />
+    <Content Include="images\rdf.JPG" />
+    <Content Include="images\rdf_klein.JPG" />
+    <Content Include="images\Ringe.gif" />
+    <Content Include="images\Ringe_trans.gif" />
+    <Content Include="images\ruecken.jpg" />
+    <Content Include="images\ruecken_.jpg" />
+    <Content Include="images\ruecken_75.jpg" />
+    <Content Include="images\ruecken_97x8.jpg" />
+    <Content Include="images\trans.GIF" />
+    <Content Include="images\weltatom.jpg" />
+    <Content Include="images\weltkugel1.gif" />
+    <Content Include="images\weltrotring.jpg" />
+    <Content Include="images\werbung\234x60\askit.jpg" />
+    <Content Include="images\werbung\234x60\augen_234x60.gif" />
+    <Content Include="images\werbung\234x60\brainit.jpg" />
+    <Content Include="images\werbung\234x60\buyit.jpg" />
+    <Content Include="images\werbung\234x60\hearit.jpg" />
+    <Content Include="images\werbung\234x60\knowit.jpg" />
+    <Content Include="images\werbung\234x60\letit.jpg" />
+    <Content Include="images\werbung\234x60\lösung_kathrin_handschrift.gif" />
+    <Content Include="images\werbung\234x60\nanuk.gif" />
+    <Content Include="images\werbung\234x60\oliit.jpg" />
+    <Content Include="images\werbung\234x60\oli_it.jpg" />
+    <Content Include="images\werbung\234x60\sayit.jpg" />
+    <Content Include="images\werbung\234x60\seeit.gif" />
+    <Content Include="images\werbung\234x60\seeit.jpg" />
+    <Content Include="images\werbung\234x60\seekit.jpg" />
+    <Content Include="images\werbung\234x60\showit.jpg" />
+    <Content Include="images\werbung\234x60\smellit.jpg" />
+    <Content Include="images\werbung\234x60\system_it.gif" />
+    <Content Include="images\werbung\468x60\SpektrumBanner468x60.gif" />
+    <Content Include="images\werbung\anzeige.gif" />
+    <Content Include="images\werbung\anzeige_100.gif" />
+    <Content Include="images\werbung\anzeige_50.gif" />
+    <Content Include="images\werbung\b.gif" />
+    <Content Include="images\werbung\banner.gif" />
+    <Content Include="images\werbung\hin-her.gif" />
+    <Content Include="images\werbung\shoot_it.gif" />
+    <Content Include="images\werbung\telepolis.bmp" />
+    <Content Include="images\werbung\winke.gif" />
+    <Content Include="images\werbung\winke1.jpg" />
+    <Content Include="images\werbung\winke2.jpg" />
+    <Content Include="images\x.gif" />
+    <Content Include="images\xml.gif" />
+    <Content Include="images\x_.gif" />
+    <Content Include="Impressum.aspx" />
+    <Content Include="NoFeature.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="NotFound.aspx" />
+    <Content Include="Nutzungsbedingungen.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="OliError.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="OliWeb.css" />
+    <Content Include="robots.txt" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Sitemap_Other.xml" />
+    <Content Include="Sitemap_PostIt.aspx" />
+    <Content Include="Sitemap_Stamm.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sitemap_TopLab.aspx" />
+    <Content Include="Sites\AnglerLoecherSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\AnglerPAnglerSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\AnglerPostItSite.aspx" />
+    <Content Include="Sites\AnglerPSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\AnglerPStammSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\AnglerPTopLabSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\AnglerSite.aspx" />
+    <Content Include="Sites\AnglerTSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\App_LocalResources\PostItSite.aspx.resx" />
+    <Content Include="Sites\CodeSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\AnAbWurzeln.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\AnglerEdit.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\PostItMaker.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\PostItMaker.css" />
+    <Content Include="Sites\Edit\StammEdit.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\StammExtras.aspx" />
+    <Content Include="Sites\Edit\TollEdit.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\TopLabAufTopLab.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\TopLabEdit.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Edit\UserEinstellungen.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\BildUpload.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\Buch.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\ChartPage.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\FreundWerben.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\Journal.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\KennwortVergessen.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\Legende.ascx">
+      <SubType>UserControl</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\Links.aspx" />
+    <Content Include="Sites\Elemente\MailSchreiben.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\NeuAnmelden.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\SuchSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\PostItAnglerSite.aspx" />
+    <Content Include="Sites\PostItCodeSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\PostItOnlySite.aspx" />
+    <Content Include="Sites\PostItSite.aspx" />
+    <Content Include="Sites\PostItStammSite.aspx" />
+    <Content Include="Sites\PostItTopLabSite.aspx" />
+    <Content Include="Sites\SinglePostItPage.aspx" />
+    <Content Include="Sites\StammAnglerSite.aspx" />
+    <Content Include="Sites\StammInboxSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\StammNewsSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\StammPostItSite.aspx" />
+    <Content Include="Sites\StammShortCutsSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\StammSite.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Sites\StammTopLabSite.aspx" />
+    <Content Include="Sites\TopLabSite.aspx" />
+    <Content Include="stylesheet\Allgemein.css" />
+    <Content Include="stylesheet\w3c.css" />
+    <Content Include="App_LocalResources\Impressum.aspx.resx" />
+    <Content Include="App_LocalResources\Impressum.aspx.en.resx" />
+    <Content Include="_test_OliUserControl_dll.aspx" />
+    <Content Include="App_GlobalResources\SAPCT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SAPCT.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SAPCT.de.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SAPCT.de.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SAPCT.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SAPCT.es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\General.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\General.de.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>General.de.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\General.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>General.es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\General.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>General.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SAPCT.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SAPCT.en.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Controls\AjaxWortraum\AjaxWortraumControl.ascx.resx">
+      <DependentUpon>AjaxWortraumControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AjaxWortraum\AjaxWortraumControlFlip.ascx.resx">
+      <DependentUpon>AjaxWortraumControlFlip.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AjaxWortraum\AjaxWortraumTest.aspx.resx">
+      <DependentUpon>AjaxWortraumTest.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\CommandBar.ascx.resx">
+      <DependentUpon>CommandBar.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\CommandTree.ascx.resx">
+      <DependentUpon>CommandTree.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\AnglerEditCommand.ascx.resx">
+      <DependentUpon>AnglerEditCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\AnglerNewCommand.ascx.resx">
+      <DependentUpon>AnglerNewCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\CodeNewCommand.ascx.resx">
+      <DependentUpon>CodeNewCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\PostItEditCommand.ascx.resx">
+      <DependentUpon>PostItEditCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\PostItNewCommand.ascx.resx">
+      <DependentUpon>PostItNewCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\StammEditCommand.ascx.resx">
+      <DependentUpon>StammEditCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\StammNewCommand.ascx.resx">
+      <DependentUpon>StammNewCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\TopLabEditCommand.ascx.resx">
+      <DependentUpon>TopLabEditCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ActionCommand\TopLabNewCommand.ascx.resx">
+      <DependentUpon>TopLabNewCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\AnglerLoecherCommand.ascx.resx">
+      <DependentUpon>AnglerLoecherCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\AnglerPostItCommand.ascx.resx">
+      <DependentUpon>AnglerPostItCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\PostItAnglerCommand.ascx.resx">
+      <DependentUpon>PostItAnglerCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\PostItCodeCommand.ascx.resx">
+      <DependentUpon>PostItCodeCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\PostItStammCommand.ascx.resx">
+      <DependentUpon>PostItStammCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\PostItTopLabCommand.ascx.resx">
+      <DependentUpon>PostItTopLabCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammAnglerCommand.ascx.resx">
+      <DependentUpon>StammAnglerCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammInboxCommand.ascx.resx">
+      <DependentUpon>StammInboxCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammNewsCommand.ascx.resx">
+      <DependentUpon>StammNewsCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammPostItCommand.ascx.resx">
+      <DependentUpon>StammPostItCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammShortCutsCommand.ascx.resx">
+      <DependentUpon>StammShortCutsCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\DetailCommand\StammTopLabCommand.ascx.resx">
+      <DependentUpon>StammTopLabCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ShowCommand\ShowAnglerCommand.ascx.resx">
+      <DependentUpon>ShowAnglerCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ShowCommand\ShowCodeCommand.ascx.resx">
+      <DependentUpon>ShowCodeCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ShowCommand\ShowPostItCommand.ascx.resx">
+      <DependentUpon>ShowPostItCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ShowCommand\ShowStammCommand.ascx.resx">
+      <DependentUpon>ShowStammCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\ShowCommand\ShowTopLabCommand.ascx.resx">
+      <DependentUpon>ShowTopLabCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\SpecialCommand\AnAbWurzelnCommand.ascx.resx">
+      <DependentUpon>AnAbWurzelnCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\SpecialCommand\BewertenCommand.ascx.resx">
+      <DependentUpon>BewertenCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\SpecialCommand\CloseHyperLink.ascx.resx">
+      <DependentUpon>CloseHyperLink.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Command\GetCommand\SpecialCommand\KommentierenCommand.ascx.resx">
+      <DependentUpon>KommentierenCommand.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\AnonymIntro.ascx.resx">
+      <DependentUpon>AnonymIntro.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\AnonymMenu.ascx.resx">
+      <DependentUpon>AnonymMenu.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Controls\Floor\App_LocalResources\AnonymIntro.ascx.en.resx" />
+    <Content Include="Controls\Floor\App_LocalResources\AnonymIntro.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\Floor\App_LocalResources\AnonymMenu.ascx.resx" />
+    <Content Include="Controls\Floor\App_LocalResources\AnonymMenu.ascx.en.resx" />
+    <Content Include="Controls\Floor\App_LocalResources\EinAusLoggen.ascx.resx" />
+    <Content Include="Controls\Floor\App_LocalResources\EinAusLoggen.ascx.en.resx" />
+    <Content Include="Controls\Floor\Chart\App_LocalResources\ChartControl.ascx.resx" />
+    <Content Include="Controls\Floor\Chart\App_LocalResources\ChartControl.ascx.de.resx" />
+    <Content Include="Controls\Floor\Chart\App_LocalResources\ChartControl.ascx.es.resx" />
+    <Content Include="Controls\Floor\App_LocalResources\AnonymIntro.ascx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Controls\Floor\Chart\ChartControl.ascx.resx">
+      <DependentUpon>ChartControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Chart\PostItChartList.ascx.resx">
+      <DependentUpon>PostItChartList.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Chart\StammChartList.ascx.resx">
+      <DependentUpon>StammChartList.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Chart\TopLabChartList.ascx.resx">
+      <DependentUpon>TopLabChartList.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\EinAusLoggen.ascx.resx">
+      <DependentUpon>EinAusLoggen.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Journal\JournalControl.ascx.resx">
+      <DependentUpon>JournalControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\LogoControl.ascx.resx">
+      <DependentUpon>LogoControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\StatusControl.ascx.resx">
+      <DependentUpon>StatusControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Suche\PostItListsControl.ascx.resx">
+      <DependentUpon>PostItListsControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Suche\StammListsControl.ascx.resx">
+      <DependentUpon>StammListsControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Floor\Suche\TopLabListsControl.ascx.resx">
+      <DependentUpon>TopLabListsControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\BildPicker.ascx.resx">
+      <DependentUpon>BildPicker.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\BildPickerTest.aspx.resx">
+      <DependentUpon>BildPickerTest.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\KlickBild.ascx.resx">
+      <DependentUpon>KlickBild.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\Telepolis.ascx.resx">
+      <DependentUpon>Telepolis.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\TollChart.ascx.resx">
+      <DependentUpon>TollChart.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\UserToString.ascx.resx">
+      <DependentUpon>UserToString.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\Werbung.ascx.resx">
+      <DependentUpon>Werbung.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Gimicks\ZufallsPostItmitTopLab.ascx.resx">
+      <DependentUpon>ZufallsPostItmitTopLab.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\AnglerKoerper.ascx.resx">
+      <DependentUpon>AnglerKoerper.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\CodeKoerper.ascx.resx">
+      <DependentUpon>CodeKoerper.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Kopf.ascx.resx">
+      <DependentUpon>Kopf.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Organ\AnglerOrgan.ascx.resx">
+      <DependentUpon>AnglerOrgan.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Organ\PostItOrgan.ascx.resx">
+      <DependentUpon>PostItOrgan.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Organ\StammOrgan.ascx.resx">
+      <DependentUpon>StammOrgan.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Organ\TollisOrgan.ascx.resx">
+      <DependentUpon>TollisOrgan.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\Organ\TopLabOrgan.ascx.resx">
+      <DependentUpon>TopLabOrgan.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\PostItKoerper.ascx.resx">
+      <DependentUpon>PostItKoerper.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\StammKoerper.ascx.resx">
+      <DependentUpon>StammKoerper.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\TopLabKoerper.ascx.resx">
+      <DependentUpon>TopLabKoerper.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\AnglerPostItGrid.ascx.resx">
+      <DependentUpon>AnglerPostItGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\InboxGrid.ascx.resx">
+      <DependentUpon>InboxGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\NewsGrid.ascx.resx">
+      <DependentUpon>NewsGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\PostItAnglerGrid.ascx.resx">
+      <DependentUpon>PostItAnglerGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\PostItCodeGrid.ascx.resx">
+      <DependentUpon>PostItCodeGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\PostItStammGrid.ascx.resx">
+      <DependentUpon>PostItStammGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\PostItTopLabGrid.ascx.resx">
+      <DependentUpon>PostItTopLabGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\StammAnglerGrid.ascx.resx">
+      <DependentUpon>StammAnglerGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\StammPostItGrid.ascx.resx">
+      <DependentUpon>StammPostItGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\StammShortCutsGrid.ascx.resx">
+      <DependentUpon>StammShortCutsGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\StammTopLabGrid.ascx.resx">
+      <DependentUpon>StammTopLabGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\TopLabTollisGrid.ascx.resx">
+      <DependentUpon>TopLabTollisGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Koerper\ViewGrids\TopLabTopLabGrid.ascx.resx">
+      <DependentUpon>TopLabTopLabGrid.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\BaumControl.ascx.resx">
+      <DependentUpon>BaumControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\BuntePunkte.ascx.resx">
+      <DependentUpon>BuntePunkte.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\DoppelMatch.aspx.resx">
+      <DependentUpon>DoppelMatch.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\KnotenControl.ascx.resx">
+      <DependentUpon>KnotenControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\NetzControl.ascx.resx">
+      <DependentUpon>NetzControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\WortraumController.ascx.resx">
+      <DependentUpon>WortraumController.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\ZweigControl.ascx.resx">
+      <DependentUpon>ZweigControl.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Wortraum\ZweiKampf.aspx.resx">
+      <DependentUpon>ZweiKampf.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="default_old.aspx.resx">
+      <DependentUpon>default_old.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Impressum.aspx.resx">
+      <DependentUpon>Impressum.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoFeature.aspx.resx">
+      <DependentUpon>NoFeature.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nutzungsbedingungen.aspx.resx">
+      <DependentUpon>Nutzungsbedingungen.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OliError.aspx.resx">
+      <DependentUpon>OliError.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitemap_PostIt.aspx.resx">
+      <DependentUpon>Sitemap_PostIt.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitemap_Stamm.aspx.resx">
+      <DependentUpon>Sitemap_Stamm.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitemap_TopLab.aspx.resx">
+      <DependentUpon>Sitemap_TopLab.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerLoecherSite.aspx.resx">
+      <DependentUpon>AnglerLoecherSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerPAnglerSite.aspx.resx">
+      <DependentUpon>AnglerPAnglerSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerPostItSite.aspx.resx">
+      <DependentUpon>AnglerPostItSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerPSite.aspx.resx">
+      <DependentUpon>AnglerPSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerPStammSite.aspx.resx">
+      <DependentUpon>AnglerPStammSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerPTopLabSite.aspx.resx">
+      <DependentUpon>AnglerPTopLabSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerSite.aspx.resx">
+      <DependentUpon>AnglerSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\AnglerTSite.aspx.resx">
+      <DependentUpon>AnglerTSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Sites\App_LocalResources\StammSite.aspx.resx" />
+    <Content Include="Sites\App_LocalResources\StammSite.aspx.en.resx" />
+    <Content Include="Sites\App_LocalResources\StammSite.aspx.de.resx" />
+    <Content Include="Sites\App_LocalResources\PostItSite.aspx.de.resx" />
+    <Content Include="Sites\App_LocalResources\PostItSite.aspx.en.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Sites\App_LocalResources\PostItStammSite.aspx.de.resx" />
+    <Content Include="Sites\App_LocalResources\PostItStammSite.aspx.en.resx" />
+    <Content Include="Sites\App_LocalResources\PostItStammSite.aspx.es.resx" />
+    <Content Include="Sites\App_LocalResources\PostItStammSite.aspx.resx" />
+    <EmbeddedResource Include="Sites\CodeSite.aspx.resx">
+      <DependentUpon>CodeSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\AnAbWurzeln.aspx.resx">
+      <DependentUpon>AnAbWurzeln.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\AnglerEdit.aspx.resx">
+      <DependentUpon>AnglerEdit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Sites\Edit\App_LocalResources\AnAbWurzeln.aspx.resx" />
+    <Content Include="Sites\Edit\App_LocalResources\AnAbWurzeln.aspx.de.resx" />
+    <Content Include="Sites\Edit\App_LocalResources\AnAbWurzeln.aspx.en.resx" />
+    <Content Include="Sites\Edit\App_LocalResources\AnAbWurzeln.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Sites\Edit\PostItMaker.aspx.resx">
+      <DependentUpon>PostItMaker.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\StammEdit.aspx.resx">
+      <DependentUpon>StammEdit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\StammExtras.aspx.resx">
+      <DependentUpon>StammExtras.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\TollEdit.aspx.resx">
+      <DependentUpon>TollEdit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\TopLabAufTopLab.aspx.resx">
+      <DependentUpon>TopLabAufTopLab.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\TopLabEdit.aspx.resx">
+      <DependentUpon>TopLabEdit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Edit\UserEinstellungen.ascx.resx">
+      <DependentUpon>UserEinstellungen.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Sites\Elemente\App_LocalResources\NeuAnmelden.aspx.resx" />
+    <Content Include="Sites\Elemente\App_LocalResources\NeuAnmelden.aspx.en.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Sites\Elemente\App_LocalResources\ChartPage.aspx.resx" />
+    <Content Include="Sites\Elemente\App_LocalResources\Links.aspx.resx" />
+    <Content Include="Sites\Elemente\App_LocalResources\Links.aspx.en.resx" />
+    <Content Include="Sites\Elemente\App_LocalResources\NeuAnmelden.aspx.es.resx" />
+    <EmbeddedResource Include="Sites\Elemente\BildUpload.aspx.resx">
+      <DependentUpon>BildUpload.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\Buch.aspx.resx">
+      <DependentUpon>Buch.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\ChartPage.aspx.resx">
+      <DependentUpon>ChartPage.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\FreundWerben.aspx.resx">
+      <DependentUpon>FreundWerben.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\Journal.aspx.resx">
+      <DependentUpon>Journal.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\KennwortVergessen.aspx.resx">
+      <DependentUpon>KennwortVergessen.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\Legende.ascx.resx">
+      <DependentUpon>Legende.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\MailSchreiben.aspx.resx">
+      <DependentUpon>MailSchreiben.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\NeuAnmelden.aspx.resx">
+      <DependentUpon>NeuAnmelden.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\Elemente\SuchSite.aspx.resx">
+      <DependentUpon>SuchSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\PostItAnglerSite.aspx.resx">
+      <DependentUpon>PostItAnglerSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\PostItCodeSite.aspx.resx">
+      <DependentUpon>PostItCodeSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\PostItOnlySite.aspx.resx">
+      <DependentUpon>PostItOnlySite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\PostItSite.aspx.resx">
+      <DependentUpon>PostItSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\PostItTopLabSite.aspx.resx">
+      <DependentUpon>PostItTopLabSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammAnglerSite.aspx.resx">
+      <DependentUpon>StammAnglerSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammInboxSite.aspx.resx">
+      <DependentUpon>StammInboxSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammNewsSite.aspx.resx">
+      <DependentUpon>StammNewsSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammPostItSite.aspx.resx">
+      <DependentUpon>StammPostItSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammShortCutsSite.aspx.resx">
+      <DependentUpon>StammShortCutsSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammSite.aspx.resx">
+      <DependentUpon>StammSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\StammTopLabSite.aspx.resx">
+      <DependentUpon>StammTopLabSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sites\TopLabSite.aspx.resx">
+      <DependentUpon>TopLabSite.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\2006 Bachelorarbeit kathrin dentler NachrichtenVermittlung RDF OLI-it.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mobile.Master" />
+    <None Include="OliWeb.vsdisco" />
+    <Content Include="Site.Master" />
+    <Content Include="content\Script 2-spaltig.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="SiteOnly.Master" />
+    <None Include="Web.azure.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OliEngine\OliEngine.csproj">
+      <Project>{F1A21013-B341-47DC-9D35-816308386106}</Project>
+      <Name>OliEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'nulllogic|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'azure|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53795</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44347/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+</Project>
