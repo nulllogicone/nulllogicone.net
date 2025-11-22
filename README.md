@@ -19,7 +19,7 @@ create a new dotnet Core Web + Api project for html, json and rdf output.
 ## ToDo
 
 [x] Move legacy projects to archive folder, delete it soon.
-[ ] Deploy to real Azure App Service site, configure DNS.
+[x] Deploy to real Azure App Service site, configure DNS.
 [ ] Add more OLI-it data sources.
 [ ] Improve RDF output with more ontologies.
 [ ] Add SPARQL endpoint.

@@ -6,27 +6,41 @@
 
 @if (Model.Entity == null)
 {
-    <h1>Stamm</h1>
+    <h1>Unknown Stamm</h1>
     <p>
-        Please provide a StammUri like:
-        <a href="/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/ui/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
+        Please provide a StammGuid
     </p>
 }
 else
 {
-    <h1>Stamm [@Model.Entity.Stamm1]</h1>
-    <div>
+    <h1>Stamm</h1>
+    @* <div>
         <a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
         <a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
         <a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
-    </div>
+    </div> *@
     <div>
-        StammGuid: <strong>@Model.Entity.StammGuid</strong><br />
-        Name: @Model.Entity.Stamm1<br />
-        Description: @Model.Entity.Beschreibung<br />
-        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei)" alt="Stamm Image" />
+        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei)" alt="Stamm Image" style="float: right; margin-left: 10px;" />
+        <b>Name:</b> @Model.Entity.Stamm1<br />
+        <b>Description:</b> @Model.Entity.Beschreibung<br />
     </div>
 
+}
+
+<h2>My Angler</h2>
+
+@if (Model.Entity?.Anglers != null && Model.Entity.Anglers.Any())
+{
+    <ul>
+        @foreach (var angler in Model.Entity.Anglers)
+        {
+            <li>@angler.Angler1</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No anglers found for this Stamm.</p>
 }
 
 <h2>Json response from HttpClient</h2>

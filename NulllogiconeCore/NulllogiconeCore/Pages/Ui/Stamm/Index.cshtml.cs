@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using NulllogiconeCore.Data;
 
 namespace NulllogiconeCore.Pages.Ui.Stamm
@@ -25,7 +26,9 @@ namespace NulllogiconeCore.Pages.Ui.Stamm
         {
             if (Guid.HasValue)
             {
-                Entity = _db.Stamms.FirstOrDefault(s => s.StammGuid == Guid.Value);
+                Entity = _db.Stamms
+                    .Include(s => s.Anglers)
+                    .FirstOrDefault(s => s.StammGuid == Guid.Value);
                 var client = _api.CreateClient("BackendApi");
                 var response = await client.GetAsync($"/test/{Guid.Value}");
                 if (response.IsSuccessStatusCode)
