@@ -73,6 +73,7 @@ app.UseHttpsRedirection();
 
 // Map minimal API endpoints for SAPCT
 app.MapStammEndpoints();
+app.MapAnglerEndpoints();
 app.MapPostItEndpoints();
 app.MapTopLabEndpoints();
 
@@ -81,16 +82,9 @@ app.MapGet("about", () => new
 {
     Name = "Nulllogicone Core",
     Version = "1.0.0",
-    Description = "Razor pages and API with rdf for NullLogicOne",
+    Description = "UI and API for NullLogicOne",
     MaschineName = Environment.MachineName,
-    Status = "Connected to real database - null - Minimal APIs",
-    Endpoints = new[]
-    {
-        "/stamm - Manage Stamm entities",
-        "/postit - Manage PostIt entities",
-        "/toplab - Manage TopLab entities",
-        "/swagger - API documentation"
-    }
+    Status = "Connected to real database - null - Minimal APIs"
 })
 .WithName("GetApiInfo")
 .WithSummary("Get API information")

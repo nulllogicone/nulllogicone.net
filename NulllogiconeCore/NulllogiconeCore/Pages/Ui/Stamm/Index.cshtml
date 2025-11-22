@@ -13,28 +13,29 @@
 }
 else
 {
-    <h1>Stamm</h1>
+    <h1 class="Stamm">Stamm</h1>
     @* <div>
-        <a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
-        <a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
-        <a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
-    </div> *@
+<a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
+<a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
+<a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
+</div> *@
     <div>
-        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei)" alt="Stamm Image" style="float: right; margin-left: 10px;" />
+        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei ?? "")" alt="Stamm Image"
+            style="float: right; margin-left: 10px;" />
         <b>Name:</b> @Model.Entity.Stamm1<br />
         <b>Description:</b> @Model.Entity.Beschreibung<br />
     </div>
 
 }
 
-<h2>My Angler</h2>
+<h2 class="Angler">My Angler</h2>
 
 @if (Model.Entity?.Anglers != null && Model.Entity.Anglers.Any())
 {
     <ul>
         @foreach (var angler in Model.Entity.Anglers)
         {
-            <li>@angler.Angler1</li>
+            <li><a href="/ui/Angler/@angler.AnglerGuid">@angler.Angler1</a></li>
         }
     </ul>
 }
@@ -45,6 +46,6 @@ else
 
 <h2>Json response from HttpClient</h2>
 <pre>
-@Model.JsonResponse 
+    @Model.JsonResponse 
 </pre>
 

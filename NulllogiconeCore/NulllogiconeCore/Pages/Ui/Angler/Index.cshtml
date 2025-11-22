@@ -1,0 +1,62 @@
+@page "/ui/Angler/{Guid?}"
+@model NulllogiconeCore.Pages.Ui.Angler.IndexModel
+@{
+    ViewData["Title"] = "Angler Details";
+}
+
+<div class="container mt-4">
+    @if (Model.Entity != null)
+    {
+        <div class="card">
+            <div class="card-header Angler">
+                <h2>Angler: @Model.Entity.Angler1</h2>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">AnglerGuid</dt>
+                    <dd class="col-sm-9">@Model.Entity.AnglerGuid</dd>
+
+                    <dt class="col-sm-3">Date</dt>
+                    <dd class="col-sm-9">@Model.Entity.Datum.ToString("g")</dd>
+
+                    <dt class="col-sm-3">Description</dt>
+                    <dd class="col-sm-9">@Model.Entity.Beschreibung</dd>
+
+                    <dt class="col-sm-3">Stamm</dt>
+                    <dd class="col-sm-9">
+                        <a href="/ui/Stamm/@Model.Entity.StammGuid">@Model.Entity.Stamm?.Stamm1</a>
+                    </dd>
+                </dl>
+
+                @if (Model.Entity.News.Any())
+                {
+                    <h4>News</h4>
+                    <ul>
+                        @foreach (var item in Model.Entity.News)
+                        {
+                            <li>@item.Datum</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h3>JSON Response</h3>
+            <pre class="bg-light p-3 border">@Model.JsonResponse</pre>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            @if (Model.Guid.HasValue)
+            {
+                <p>Angler with ID @Model.Guid not found.</p>
+            }
+            else
+            {
+                <p>No Angler ID provided.</p>
+            }
+        </div>
+    }
+</div>
