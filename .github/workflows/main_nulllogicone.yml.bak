@@ -1,21 +1,17 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy - nulllogiconecore
+name: Build and deploy ASP.Net Core app to Azure Web App - nulllogicone
 
 on:
   push:
     branches:
-      - add-angler
       - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
-    env:
-      # Runtime identifier used for self-contained publish. Assumption: Windows x64 app service.
-      RID: win-x64
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -27,17 +23,17 @@ jobs:
         with:
           dotnet-version: '10.x'
 
-      - name: Build with dotnet (NulllogiconeCore project only)
-        run: dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj --configuration Release
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
 
-      - name: dotnet publish (NulllogiconeCore - self-contained)
-        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -r ${{ env.RID }} --self-contained true -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
+      - name: dotnet publish
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{ github.workspace }}/artifacts/NulllogiconeCore
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
