@@ -30,9 +30,9 @@ namespace NulllogiconeCore.Services.Mappings
                 xw.WriteAttributeString("xmlns", "nlo", null, "http://nulllogicone.net/schema.rdfs#");
                 xw.WriteAttributeString("xml", "base", null, "http://nulllogicone.net/");
 
-                // <nlo:Angler rdf:about="Angler/?{guid}">
+                // <nlo:Angler rdf:about="Angler/{guid}">
                 xw.WriteStartElement("nlo", "Angler", "http://nulllogicone.net/schema.rdfs#");
-                xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Angler/?{angler.AnglerGuid}");
+                xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Angler/{angler.AnglerGuid}");
 
                 // Dublin Core
                 xw.WriteComment("Dublin Core");
@@ -66,7 +66,7 @@ namespace NulllogiconeCore.Services.Mappings
 
             xw.WriteStartElement("nlo", "stammAngler", "http://nulllogicone.net/schema.rdfs#");
             xw.WriteStartElement("nlo", "Angler", "http://nulllogicone.net/schema.rdfs#");
-            xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Angler/?{angler.AnglerGuid}");
+            xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Angler/{angler.AnglerGuid}");
             xw.WriteAttributeString("nlo", "name", "http://nulllogicone.net/schema.rdfs#", angler.Angler1 ?? string.Empty);
             xw.WriteAttributeString("nlo", "anglerGuid", "http://nulllogicone.net/schema.rdfs#", angler.AnglerGuid.ToString());
             xw.WriteStartElement("nlo", "resource", "http://nulllogicone.net/schema.rdfs#");

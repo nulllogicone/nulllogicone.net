@@ -5,9 +5,6 @@ name: Build and deploy - nulllogiconecore
 
 on:
   push:
-    branches:
-      - add-angler
-      - main
   workflow_dispatch:
 
 jobs:
