@@ -1,0 +1,22 @@
+meta {
+  name: TopLab/<guid>
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{host}}/PostIt/{{TopLabGuid}}
+  body: none
+  auth: inherit
+}
+
+headers {
+  ~Accept: text/html
+  ~Accept: application/rdf+xml
+  ~: 
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -36,9 +36,9 @@ namespace NulllogiconeCore.Services.Mappings
                 xw.WriteAttributeString("xmlns", "nlo", null, "http://nulllogicone.net/schema.rdfs#");
                 xw.WriteAttributeString("xml", "base", null, "http://nulllogicone.net/");
 
-                // <nlo:Stamm rdf:about="Stamm/?{guid}">
+                // <nlo:Stamm rdf:about="Stamm/{guid}">
                 xw.WriteStartElement("nlo", "Stamm", "http://nulllogicone.net/schema.rdfs#");
-                xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Stamm/?{stamm.StammGuid}");
+                xw.WriteAttributeString("rdf", "about", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", $"Stamm/{stamm.StammGuid}");
 
                 // Dublin Core: date + publisher
                 xw.WriteComment("Dublin Core");
