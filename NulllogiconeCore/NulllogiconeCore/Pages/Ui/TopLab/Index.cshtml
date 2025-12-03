@@ -1,0 +1,49 @@
+@page "/ui/TopLab/{Guid?}"
+@model NulllogiconeCore.Pages.Ui.TopLab.IndexModel
+@{
+    ViewData["Title"] = "TopLab Details";
+}
+
+<div class="container mt-4">
+    @if (Model.Entity != null)
+    {
+        <div class="card">
+            <div class="card-header TopLab">
+                <h2>TopLab: @Model.Entity.Titel</h2>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">TopLabGuid</dt>
+                    <dd class="col-sm-9">@Model.Entity.TopLabGuid</dd>
+
+                    <dt class="col-sm-3">Date</dt>
+                    <dd class="col-sm-9">@Model.Entity.Datum.ToString("g")</dd>
+
+                    <dt class="col-sm-3">Description</dt>
+                    <dd class="col-sm-9">No Beschreibung??????????????</dd>
+
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-9">@Model.Entity.Typ</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h3>JSON Response</h3>
+            <pre class="bg-light p-3 border">@Model.JsonResponse</pre>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            @if (Model.Guid.HasValue)
+            {
+                <p>TopLab with ID @Model.Guid not found.</p>
+            }
+            else
+            {
+                <p>No TopLab ID provided.</p>
+            }
+        </div>
+    }
+</div>
