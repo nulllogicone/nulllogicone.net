@@ -36,19 +36,21 @@ jobs:
           name: .net-app
           path: ${{ github.workspace }}/artifacts/NulllogiconeCore
 
-  deploy:
+  deploy-test:
+    name: Deploy to test slot
     runs-on: windows-latest
     needs: build
+    environment: test
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -56,8 +58,39 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_26003A52193F40C99BBE3B3FAC0F4A36 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBF3EF78F2844CC89EA6233C88CB1387 }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+      - name: Deploy to Azure Web App (test slot)
+        id: deploy-to-test
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'nulllogicone'
+          slot-name: 'test'
+          package: .
+
+  deploy-prod:
+    name: Deploy to production
+    runs-on: windows-latest
+    needs: deploy-test
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_807A0B96A1C24DDE8FF0499BF642697B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_26003A52193F40C99BBE3B3FAC0F4A36 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBF3EF78F2844CC89EA6233C88CB1387 }}
+
+      - name: Deploy to Azure Web App (production)
+        id: deploy-to-prod
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'nulllogicone'
