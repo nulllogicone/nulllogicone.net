@@ -5,6 +5,9 @@ name: Build and deploy - nulllogiconecore
 
 on:
   push:
+    branches:
+      - '**' # run on all branches
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -42,7 +45,6 @@ jobs:
     needs: build
     environment: test
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -51,19 +53,13 @@ jobs:
         with:
           name: .net-app
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_807A0B96A1C24DDE8FF0499BF642697B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_26003A52193F40C99BBE3B3FAC0F4A36 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBF3EF78F2844CC89EA6233C88CB1387 }}
-
       - name: Deploy to Azure Web App (test slot)
         id: deploy-to-test
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'nulllogicone'
           slot-name: 'test'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_TEST }}
           package: .
 
   deploy-prod:
@@ -73,7 +69,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     environment: production
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -82,18 +77,12 @@ jobs:
         with:
           name: .net-app
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_807A0B96A1C24DDE8FF0499BF642697B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_26003A52193F40C99BBE3B3FAC0F4A36 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBF3EF78F2844CC89EA6233C88CB1387 }}
-
       - name: Deploy to Azure Web App (production)
         id: deploy-to-prod
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'nulllogicone'
           slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PROD }}
           package: .
           
