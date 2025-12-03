@@ -1,0 +1,98 @@
+@page "/ui/PostIt/{Guid?}"
+@model NulllogiconeCore.Pages.Ui.PostIt.IndexModel
+@{
+    ViewData["Title"] = "PostIt Details";
+}
+
+<div class="container mt-4">
+    @if (Model.Entity != null)
+    {
+        <div class="card">
+            <div class="card-header PostIt">
+                <h2>PostIt: @Model.Entity.Titel</h2>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">PostItGuid</dt>
+                    <dd class="col-sm-9">@Model.Entity.PostItGuid</dd>
+
+                    <dt class="col-sm-3">Titel</dt>
+                    <dd class="col-sm-9">@Model.Entity.Titel</dd>
+
+                    <dt class="col-sm-3">Content</dt>
+                    <dd class="col-sm-9">@Model.Entity.PostIt1</dd>
+
+                    <dt class="col-sm-3">Date</dt>
+                    <dd class="col-sm-9">@Model.Entity.Datum.ToString("g")</dd>
+
+                    <dt class="col-sm-3">KooK</dt>
+                    <dd class="col-sm-9">@Model.Entity.KooK</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9">@Model.Entity.PostItZust</dd>
+
+                    <dt class="col-sm-3">Type</dt>
+                    <dd class="col-sm-9">@Model.Entity.Typ</dd>
+
+                    <dt class="col-sm-3">URL</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Entity.Url))
+                        {
+                            <a href="@Model.Entity.Url" target="_blank">@Model.Entity.Url</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">None</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">File</dt>
+                    <dd class="col-sm-9">@Model.Entity.Datei</dd>
+
+                    <dt class="col-sm-3">Hits</dt>
+                    <dd class="col-sm-9">@Model.Entity.Hits</dd>
+                </dl>
+
+                @if (Model.Entity.Codes.Any())
+                {
+                    <h4>Codes</h4>
+                    <ul>
+                        @foreach (var item in Model.Entity.Codes)
+                        {
+                            <li>@item.CodeGuid</li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.Entity.TopLabs.Any())
+                {
+                    <h4>TopLabs</h4>
+                    <ul>
+                        @foreach (var item in Model.Entity.TopLabs)
+                        {
+                            <li>@item.Datum.ToString("g")</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h3>JSON Response</h3>
+            <pre class="bg-light p-3 border">@Model.JsonResponse</pre>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            @if (Model.Guid.HasValue)
+            {
+                <p>PostIt with ID @Model.Guid not found.</p>
+            }
+            else
+            {
+                <p>No PostIt ID provided.</p>
+            }
+        </div>
+    }
+</div>
