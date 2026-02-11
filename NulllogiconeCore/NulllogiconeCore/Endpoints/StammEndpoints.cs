@@ -88,7 +88,7 @@ public static class StammEndpoints
                     {
                         t.PostIt.PostItGuid,
                         t.PostIt.Titel,
-                        t.PostIt.PostIt1
+                        t.PostIt.Datum
                     }
                 }).ToList()
             })

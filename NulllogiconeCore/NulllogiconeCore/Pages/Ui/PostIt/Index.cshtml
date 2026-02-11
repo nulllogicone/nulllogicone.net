@@ -76,23 +76,5 @@
                 }
             </div>
         </div>
-
-        <div class="mt-4">
-            <h3>JSON Response</h3>
-            <pre class="bg-light p-3 border">@Model.JsonResponse</pre>
-        </div>
-    }
-    else
-    {
-        <div class="alert alert-warning">
-            @if (Model.Guid.HasValue)
-            {
-                <p>PostIt with ID @Model.Guid not found.</p>
-            }
-            else
-            {
-                <p>No PostIt ID provided.</p>
-            }
-        </div>
     }
 </div>
