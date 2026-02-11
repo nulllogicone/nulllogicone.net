@@ -1,0 +1,51 @@
+@page "{guid?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Stamm";
+}
+
+@if (Model.Entity == null)
+{
+    <h1>Unknown Stamm</h1>
+    <p>
+        Please provide a StammGuid
+    </p>
+}
+else
+{
+    <h1 class="Stamm">Stamm</h1>
+    @* <div>
+<a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
+<a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
+<a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
+</div> *@
+    <div>
+        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei ?? "")" alt="Stamm Image"
+            style="float: right; margin-left: 10px;" />
+        <b>Name:</b> @Model.Entity.Stamm1<br />
+        <b>Description:</b> @Model.Entity.Beschreibung<br />
+    </div>
+
+}
+
+<h2 class="Angler">My Angler</h2>
+
+@if (Model.Entity?.Anglers != null && Model.Entity.Anglers.Any())
+{
+    <ul>
+        @foreach (var angler in Model.Entity.Anglers)
+        {
+            <li><a href="/ui/Angler/@angler.AnglerGuid">@angler.Angler1</a></li>
+        }
+    </ul>
+}
+else
+{
+    <p>No anglers found for this Stamm.</p>
+}
+
+<h2>Json response from HttpClient</h2>
+<pre>
+    @Model.JsonResponse 
+</pre>
+

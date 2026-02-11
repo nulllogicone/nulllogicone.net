@@ -1,0 +1,189 @@
+@page
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Env
+@model IndexModel
+@{
+    // Page title shown in the shared layout
+    ViewData["Title"] = "nulllogicone.net";
+}
+
+<div class="Banner">
+    <span class="BannerTextCompany">nulllogicone.net</span>
+    <span class="BannerTextApplication">Message Mediation in the Semantic Web</span>
+</div>
+
+<h1><br /></h1>
+
+<p>
+    Environment: @Env.EnvironmentName
+    @if (Env.EnvironmentName == "Development")
+    {
+        <a href="/swagger" target="_blank">Swagger</a>
+    }
+    <span class="stamm">Stamm</span> <span class="postit">postit</span>
+</p>
+
+<h2>Abstract</h2>
+<p>
+    <strong>nulllogicone.net</strong> is an abstract system for mediating messages between unknown parties,
+    describing authors, messages, and recipients. It consists of a <em>Cycle Model</em> [<a
+        href="images/SAPCT.jpg">SAPCT</a>],
+    the <em>Word Space</em> [<a href="images/NKBZ.JPG">NKBZ</a>], and a <em>Mediation Logic</em>
+    [OgIf]. A web application against a central database server is realized as a
+    <a href="https://www.oli-it.com">reference implementation</a>.
+</p>
+
+<h2>Table of Contents</h2>
+<ol>
+    <li><a href="#instances">Instances</a></li>
+    <li><a href="#schema">Schema</a></li>
+    <li><a href="#rdf">Documents</a></li>
+    <li><a href="#importexport">Input / Output</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#webservice">Service</a></li>
+    <li><a href="#tools">Client</a></li>
+</ol>
+
+<h2 id="instances">1. Instances</h2>
+<p>
+    All entities are data records that can be displayed on their own page
+    (for <a href="Instanzen.aspx">examples</a> there is a page with random links).
+</p>
+<p>
+    In the database tables, the key fields are GUIDs. These are used in URIrefs
+    and URLs. A URIref in an RDF statement consists of the base namespace
+    (<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>) followed by the
+    full class name from [SAPCT][NKBZ] with appended GUID. These can display further information
+    on a webpage as URLs.
+</p>
+<div class="beispiel">
+    Example: various URIrefs as hyperlinks
+</div>
+<p>
+    <a
+        href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
+    <br>
+    <a
+        href="/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed">https://nulllogicone.net/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed</a>
+    <br>
+    <a
+        href="/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869">https://nulllogicone.net/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869</a>
+    <br>
+    <a
+        href="/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3">https://nulllogicone.net/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3</a>
+    <br />
+    <a
+        href="/Netz/76035f19-f4ae-4d58-a388-4bbc72c51cef">https://nulllogicone.net/Netz/76035f19-f4ae-4d58-a388-4bbc72c51cef</a>
+</p>
+
+<h2 id="schema">2. Schema</h2>
+<p>
+    For the <em>exchange</em> of data at <strong>nulllogicone.net</strong>
+    in RDF format, you can download the <a href="https://nulllogicone.net/schema.rdfs">schema.rdfs</a> file.<br>
+    On the <a href="http://www.dfki.uni-kl.de/frodo/RDFSViz/">FRODO RDFSViz Tool</a>
+    page, the relationships can be visualized. As URL for the schema,
+    you must specify the full path <a
+        href="https://nulllogicone.net/schema.rdfs">https://nulllogicone.net/schema.rdfs</a>.
+</p>
+<p>
+    For <em>storage</em> in local databases or XML files,
+    <a href="schemata/default.aspx">XSD documents</a> are available as schema definitions for the
+    entities with their fields and the definition of the table structure with their relational
+    relationships. If they are used against web services, the types are bindingly defined
+    in the wsdl files.
+</p>
+<p>
+    For setting up a relational table structure, there are <a href="SQL/default.aspx">SQL scripts</a> which
+    can be tailored to any use case.
+</p>
+
+<h2 id="rdf">3. Documents</h2>
+<p align="left">
+    <strong>nulllogicone.net</strong> mediates messages between unknown parties. For
+    the <em>exchange</em> of data, the RDF format is used to enable decentralization
+    and distributability.
+</p>
+<p align="left">
+    RDF is based on XML and describes arbitrary resources with simple
+    sentences consisting of subject, predicate, and object.
+</p>
+<div class="beispiel">
+    Example: A shortened RDF document
+</div>
+<pre>&lt;?xml version="1.0" encoding= "utf-8"?&gt; 
+&lt;rdf:RDF
+  xmlns:rdf=<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>
+  xmlns:nlo="<a href="https://nulllogicone.net/schema.rdfs#">https://nulllogicone.net/schema.rdfs#</a>" 
+  xml:base="<a href="https://nulllogicone.net/">https://nulllogicone.net/</a>"&gt;
+   &lt;nlo:Stamm rdf:about="<a href="https://nulllogicone.net/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947"><font size="2">https://nulllogicone.net/Stamm/?b4111e0e-48d9-42c4-a6f6-ec4991264947</font></a>"&gt;
+     &lt;nlo:name&gt;Oli&lt;/nlo:name&gt;
+   &lt;/nlo:Stamm&gt;
+&lt;/rdf:RDF&gt;
+</pre>
+<div class="beispiel">
+    Example: Links to complete RDF documents
+</div>
+<p>
+    <a
+        href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf</a><br>
+    <a
+        href="/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf">https://nulllogicone.net/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf</a><br>
+    <a
+        href="/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf">https://nulllogicone.net/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.rdf</a><br />
+    <a
+        href="/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.rdf">https://nulllogicone.net/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.rdf</a><br />
+</p>
+<p>
+    <strong>same with json</strong><br />
+    <a
+        href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.json">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.json</a><br>
+    <a
+        href="/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.json">https://nulllogicone.net/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.json</a><br>
+    <a
+        href="/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.json">https://nulllogicone.net/PostIt/176bae4e-05d7-4256-97a5-c98bfcbb2869.json</a><br />
+    <a
+        href="/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.json">https://nulllogicone.net/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.json</a><br />
+</p>
+<p>
+    For each further entity in an RDF document, a link is specified with the predicate <font face="Courier New">
+        &lt;nlo:resource&gt;
+    </font>, which can be followed.
+</p>
+
+<h2 id="importexport">4. Input / Output</h2>
+<p>
+    Data can be exchanged and distributed in RDF format. For this purpose, functions are
+    summarized on the <a href="RDF/default.aspx"><strong>Input / Output</strong></a> page
+    that output instances from [SAPCT] as RDF documents,
+    validate these documents, and parse them back into objects. The data objects
+    can then be easily stored in a DBMS or serialized as XML.
+</p>
+<p>
+    In addition, the entire Word Space can be output as an RDF file.
+</p>
+
+<h2 id="applications">5. Applications</h2>
+<ul>
+    <li>
+        The web application <a href="https://www.oli-it.com">www.oli-it.com</a> is
+        a question-answer game. It offers full functionality and the possibility
+        to edit content.
+    </li>
+    <li>
+        With the MetaWeb Project <a href="https://www.metaweb-project.net">www.metaweb-project.net</a>,
+        websites, blog posts, or images can be described and found.
+    </li>
+    <li>
+        <a href="https://www.unisonus.net">UniSonus</a> is a specialized application
+        for collaboration and exchange among distance learning students.
+    </li>
+</ul>
+
+<h2 id="webservice">6. Service</h2>
+<p>
+    Web Services: <a href="https://service.oli-it.com">service.oli-it.com</a>
+</p>
+
+<h2 id="tools">7. Client</h2>
+<p>
+    Client applications: <a href="https://client.oli-it.com">https://client.oli-it.com</a>
+</p>

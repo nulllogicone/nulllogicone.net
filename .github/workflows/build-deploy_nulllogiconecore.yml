@@ -1,0 +1,88 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy - nulllogiconecore
+
+on:
+  push:
+    branches:
+      - '**' # run on all branches
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      # Runtime identifier used for self-contained publish. Assumption: Windows x64 app service.
+      RID: win-x64
+    permissions:
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Build with dotnet (NulllogiconeCore project only)
+        run: dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj --configuration Release
+
+      - name: dotnet publish (NulllogiconeCore - self-contained)
+        run: dotnet publish NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj -c Release -r ${{ env.RID }} --self-contained true -o "${{ github.workspace }}/artifacts/NulllogiconeCore"
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{ github.workspace }}/artifacts/NulllogiconeCore
+
+  deploy-test:
+    name: Deploy to test slot
+    runs-on: windows-latest
+    needs: build
+    environment: test
+    permissions:
+      contents: read
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App (test slot)
+        id: deploy-to-test
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'nulllogicone'
+          slot-name: 'test'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_TEST }}
+          package: .
+
+  deploy-prod:
+    name: Deploy to production
+    runs-on: windows-latest
+    needs: deploy-test
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    permissions:
+      contents: read
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App (production)
+        id: deploy-to-prod
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'nulllogicone'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PROD }}
+          package: .
+          

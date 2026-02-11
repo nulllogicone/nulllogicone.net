@@ -1,0 +1,32 @@
+{
+  "name": "NulllogiconeCore (.NET 10)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "VARIANT": "10.0"
+    }
+  },
+  "forwardPorts": [5000, 5001],
+  "postCreateCommand": "dotnet restore NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj && dotnet build NulllogiconeCore/NulllogiconeCore/NulllogiconeCore.csproj",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace/NulllogiconeCore/NulllogiconeCore",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "remoteEnv": {
+    "DOTNET_USE_POLLING_FILE_WATCHER": "1",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}

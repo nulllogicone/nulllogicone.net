@@ -1,0 +1,22 @@
+meta {
+  name: Stamm/<guid> (HEADER)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{host}}/stamm/{{StammGuid}}
+  body: none
+  auth: inherit
+}
+
+headers {
+  ~Accept: application/rdf+xml
+  ~Accept: text/html
+  ~: 
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
