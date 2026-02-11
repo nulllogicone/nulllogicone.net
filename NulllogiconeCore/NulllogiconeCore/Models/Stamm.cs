@@ -48,5 +48,7 @@ public partial class Stamm
     public virtual ICollection<Tolli> Tollis { get; set; } = new List<Tolli>();
 
     public virtual ICollection<Wurzeln> Wurzelns { get; set; } = new List<Wurzeln>();
+
+    public virtual ICollection<TopLab> TopLabs { get; set; } = new List<TopLab>(); // TODO: This was added manually because there was no FK constrained defined
 }
 
