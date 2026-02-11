@@ -56,8 +56,9 @@ public static class StammEndpoints
             return Results.Content(rdf, "text/xml");
         }
 
-        // Default to JSON
-        var stammJson = await db.Stamms.FindAsync(id);
+        var stammJson = await db.Stamms
+            .Include(s => s.Anglers)
+            .FirstOrDefaultAsync(s => s.StammGuid == id);
         return stammJson is not null
             ? Results.Ok(stammJson)
             : Results.NotFound($"Stamm with ID {id} not found");

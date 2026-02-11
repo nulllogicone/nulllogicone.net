@@ -29,31 +29,30 @@ public static class TopLabEndpoints
             .WithName("GetTopLabByIdJson")
             .Produces<TopLab>(StatusCodes.Status200OK);
 
-        // (list/search/count endpoints removed per request)
+    }
 
-        // Local handler implementing content negotiation similar to Stamm/PostIt
-        async Task<IResult> HandleTopLabRequest(Guid id, ApplicationDbContext db, HttpContext context, string? extension)
+    // Local handler implementing content negotiation similar to Stamm/PostIt
+    private static async Task<IResult> HandleTopLabRequest(Guid id, ApplicationDbContext db, HttpContext context, string? extension)
+    {
+        var format = context.DetermineFormat(extension);
+
+        if (format == RepresentationFormat.Html)
         {
-            var format = context.DetermineFormat(extension);
-
-            if (format == RepresentationFormat.Html)
-            {
-                return Results.Redirect($"/ui/TopLab/{id}");
-            }
-
-            if (format == RepresentationFormat.Rdf)
-            {
-                var entity = await db.TopLabs.FindAsync(id);
-                if (entity is null) return Results.NotFound($"TopLab with ID {id} not found");
-
-                var rdf = NulllogiconeCore.Services.Mappings.TopLabRdfMapper.ToRdfXml(entity);
-                return Results.Content(rdf, "text/xml");
-            }
-
-            var jsonEntity = await db.TopLabs.FindAsync(id);
-            return jsonEntity is not null
-                ? Results.Ok(jsonEntity)
-                : Results.NotFound($"TopLab with ID {id} not found");
+            return Results.Redirect($"/ui/TopLab/{id}");
         }
+
+        if (format == RepresentationFormat.Rdf)
+        {
+            var entity = await db.TopLabs.FindAsync(id);
+            if (entity is null) return Results.NotFound($"TopLab with ID {id} not found");
+
+            var rdf = NulllogiconeCore.Services.Mappings.TopLabRdfMapper.ToRdfXml(entity);
+            return Results.Content(rdf, "text/xml");
+        }
+
+        var jsonEntity = await db.TopLabs.FindAsync(id);
+        return jsonEntity is not null
+            ? Results.Ok(jsonEntity)
+            : Results.NotFound($"TopLab with ID {id} not found");
     }
 }
