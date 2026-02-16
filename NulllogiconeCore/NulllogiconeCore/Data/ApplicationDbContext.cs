@@ -1312,8 +1312,6 @@ public partial class ApplicationDbContext : DbContext
                 .HasForeignKey(d => d.TopTopLabGuid)
                 .HasConstraintName("FK_TopLab_TopLab");
 
-            entity.HasOne(d => d.Stamm).WithMany(p => p.TopLabs)
-                .HasForeignKey(d => d.StammGuid);
             // TODO: The DB has no FK Constraint for this relationship.
             // I added two navigation properties manually to Stamm and TopLab
             // should be added in DB as well.

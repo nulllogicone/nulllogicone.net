@@ -39,6 +39,5 @@ public partial class TopLab
 
     public virtual TopLab? TopTopLab { get; set; }
 
-    public virtual Stamm Stamm { get; set; } = null!; // TODO: This was added manually because there was no FK constrained defined
 }
 
