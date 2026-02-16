@@ -47,6 +47,8 @@ public partial class Stamm
 
     public virtual ICollection<Tolli> Tollis { get; set; } = new List<Tolli>();
 
+    public virtual ICollection<TopLab> TopLabs { get; set; } = new List<TopLab>();
+
     public virtual ICollection<Wurzeln> Wurzelns { get; set; } = new List<Wurzeln>();
 }
 
