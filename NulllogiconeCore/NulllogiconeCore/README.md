@@ -1,6 +1,10 @@
 # Null Logic One
 
-This repository is a fork from an old OLI-it project in Azure DevOps.
+The semantic API behind OLI-it, https://www.oli-it.com  
+All Entitites with endpoints for html, json, and RDF
+
+> This repository is a fork from an old OLI-it project in Azure DevOps.  
+
 
 ## Goal
 
