@@ -1,98 +1,71 @@
-# Ontop SPARQL Endpoint Setup
+# Ontop SPARQL Endpoint
 
-This directory contains the configuration for exposing a SPARQL endpoint over your SQL Server database using Ontop.
+Virtual Knowledge Graph exposing a SPARQL endpoint over SQL Server database using [Ontop](https://ontop-vkg.org/).
 
-## Files
+## What's Here
 
-- **ontop.properties** - Database connection and Ontop configuration
-- **nulllogicone.ttl** - OWL ontology defining your domain model
-- **nulllogicone.obda.ttl** - R2RML mappings from SQL tables to RDF triples
-- **docker-compose.yml** - Docker Compose configuration for easy deployment
+- **Configuration**: `ontop-localdb.properties`, `ontop-azure.properties`
+- **Ontology**: `nulllogicone.ttl` (OWL domain model)
+- **Mappings**: `nulllogicone.obda.ttl` (R2RML SQL-to-RDF mappings)
+- **Docker**: `Dockerfile` (container image for deployment)
+- **Deployment**: `deploy-aci.template.json` (secure Azure ARM template)
+- **Examples**: `example-queries.sparql` (22 SPARQL query examples)
 
-## Prerequisites
+## Quick Links
 
-1. **SQL Server JDBC Driver**: Download the Microsoft SQL Server JDBC driver and place it in `ontop/jdbc/` directory:
-   ```bash
-   # Create jdbc directory
-   mkdir -p ontop/jdbc
-   
-   # Download driver (or copy from your local installation)
-   curl -L https://go.microsoft.com/fwlink/?linkid=2202909 -o mssql-jdbc.zip
-   unzip mssql-jdbc.zip "*.jar" -d ontop/jdbc/
-   ```
+📖 **Guides** (in `docs/` folder):
+- [Local Development](docs/LOCAL-DEVELOPMENT.md) - Docker setup, JDBC driver, testing
+- [Azure Deployment](docs/AZURE-DEPLOYMENT.md) - Secure deployment with Key Vault
+- [Security Best Practices](docs/SECURITY.md) - Credential management, network security
 
-2. **Update credentials**: Edit `ontop.properties` and update:
-   - Database name (currently: `null`)
-   - Username and password
-   - Database server if not using LocalDB with Docker
+## Quick Start
 
-## Running with Docker Compose
+**Local (Docker)**:
+```powershell
+# Download JDBC driver
+.\setup-jdbc.ps1
 
-```bash
-# Start the SPARQL endpoint
-docker-compose -f ontop/docker-compose.yml up -d
-
-# View logs
-docker-compose -f ontop/docker-compose.yml logs -f
-
-# Stop the endpoint
-docker-compose -f ontop/docker-compose.yml down
+# Run container
+docker run -p 8080:8080 -e SQL_SERVER=host.docker.internal\SQLEXPRESS -e SQL_USER=user -e SQL_PASSWORD=pass yourimage
 ```
 
-## Running with Docker CLI
-
-```bash
-docker run -d \
-  --name nulllogicone-sparql \
-  -p 8080:8080 \
-  -v ${PWD}/ontop:/opt/ontop/input:ro \
-  -v ${PWD}/ontop/jdbc:/opt/ontop/jdbc:ro \
-  ontop/ontop:latest endpoint
+**Azure (Production)**:
+```powershell
+# Deploy securely with Key Vault
+az deployment group create --resource-group YourRG \
+  --template-file deploy-aci.template.json \
+  --parameters keyVaultName=your-vault
 ```
 
-## Accessing the SPARQL Endpoint
+## Data Model
 
-Once running, access:
-- **SPARQL Endpoint**: http://localhost:8080/sparql
-- **Web UI**: http://localhost:8080/ (Ontop provides a basic query interface)
+**11 Entities** from `oli` schema:
+- **Stamm** (267) - Root entities
+- **Angler** (518) - Connected to Stamm
+- **PostIt** (1642), **Code** (1554), **TopLab** (1690)
+- **Ring** (9542), **Loch** (2905)
+- **Netz** (107), **Knoten** (503)
+- **Baum** (273), **Zweig** (1729)
 
-## Example SPARQL Queries
+**Namespace**: `http://nulllogicone.net/schema.rdfs#` (prefix: `nlo:`)
 
-See `example-queries.sparql` for sample queries.
+**Example Query**:
+```sparql
+PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
 
-## Integration with Your ASP.NET API
-
-You can proxy SPARQL requests through your ASP.NET API:
-
-```csharp
-app.MapPost("/api/sparql", async (HttpContext context) =>
-{
-    using var client = new HttpClient();
-    var query = await new StreamReader(context.Request.Body).ReadToEndAsync();
-    
-    var content = new FormUrlEncodedContent(new[]
-    {
-        new KeyValuePair<string, string>("query", query)
-    });
-    
-    var response = await client.PostAsync("http://localhost:8080/sparql", content);
-    var result = await response.Content.ReadAsStringAsync();
-    
-    return Results.Content(result, "application/sparql-results+json");
-});
+SELECT ?stammName ?anglerName WHERE {
+  ?stamm a nlo:Stamm ;
+         nlo:name ?stammName .
+  ?angler nlo:stammGuid ?stamm ;
+          nlo:name ?anglerName .
+} LIMIT 10
 ```
 
-## Troubleshooting
+## Files Not in Git
 
-### Cannot connect to SQL Server from Docker
-- Use `host.docker.internal` instead of `localhost` in `ontop.properties`
-- For LocalDB specifically, you might need to enable TCP/IP and configure SQL Server Configuration Manager
+For security, these files are git-ignored (contain credentials):
+- `deploy-aci.json`, `deploy-aci-simple.yaml` - Filled deployment files
+- `test-azure.properties`, `ontop-localdb.properties` - Config with passwords
+- `jdbc/*.jar` - JDBC driver binaries
 
-### JDBC Driver not found
-- Ensure the .jar file is in the `ontop/jdbc/` directory
-- Verify the volume mount in docker-compose.yml
-
-### Mapping errors
-- Check logs: `docker logs nulllogicone-ontop-sparql`
-- Verify table names match your actual SQL Server schema
-- Test database connection with: `docker exec -it nulllogicone-ontop-sparql sh`
+✅ **Safe to commit**: `deploy-aci.template.json` (uses parameters, no secrets)

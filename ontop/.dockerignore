@@ -1,0 +1,8 @@
+ontop-cli/
+ontop/
+docker-compose.yml
+*.md
+setup-*.ps1
+ontop.properties
+ontop-localdb.properties
+SparqlEndpoints.example.cs

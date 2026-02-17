@@ -364,3 +364,16 @@ FodyWeavers.xsd
 
 # Local configuration files
 appsettings.Development.json
+
+# Ontop deployment files with credentials (use Key Vault instead)
+ontop/deploy-aci-simple.yaml
+ontop/test-azure.properties
+ontop/jdbc/*.jar
+
+# Allow template files but ignore filled-in deployment files
+ontop/deploy-aci.yaml
+ontop/deploy-aci.json
+!ontop/deploy-aci.template.json
+
+# Archived documentation (superseded by docs/ folder)
+ontop/docs-archive/

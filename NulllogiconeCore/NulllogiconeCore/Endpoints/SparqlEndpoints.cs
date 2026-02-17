@@ -1,5 +1,6 @@
 using System.Net.Http;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace NulllogiconeCore.Endpoints;
 
@@ -11,10 +12,11 @@ public static class SparqlEndpoints
             .WithTags("SPARQL");
 
         // POST /sparql - Execute SPARQL query
-        group.MapPost("/", async (HttpRequest request, IHttpClientFactory clientFactory) =>
+        group.MapPost("/", async (HttpRequest request, IHttpClientFactory clientFactory, IConfiguration config) =>
         {
             var client = clientFactory.CreateClient();
-            var ontopEndpoint = "http://localhost:8080/sparql";
+            var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+            var ontopEndpoint = $"{ontopBaseUrl}/sparql";
 
             // Read query from body (supports both form-encoded and raw SPARQL)
             string? query = null;
@@ -78,7 +80,7 @@ public static class SparqlEndpoints
         .Produces(500);
 
         // GET /sparql - Execute SPARQL query via GET or show HTML interface
-        group.MapGet("/", async (string? query, IHttpClientFactory clientFactory, HttpContext context) =>
+        group.MapGet("/", async (string? query, IHttpClientFactory clientFactory, HttpContext context, IConfiguration config) =>
         {
             if (string.IsNullOrWhiteSpace(query))
             {
@@ -107,7 +109,8 @@ LIMIT 10
             }
 
             var client = clientFactory.CreateClient();
-            var ontopEndpoint = $"http://localhost:8080/sparql?query={Uri.EscapeDataString(query)}";
+            var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+            var ontopEndpoint = $"{ontopBaseUrl}/sparql?query={Uri.EscapeDataString(query)}";
 
             // Determine accept header
             var acceptHeader = context.Request.Headers.Accept.ToString();
@@ -150,14 +153,15 @@ LIMIT 10
         .WithSummary("Get example SPARQL queries");
 
         // GET /sparql/health - Check if Ontop is running
-        group.MapGet("/health", async (IHttpClientFactory clientFactory) =>
+        group.MapGet("/health", async (IHttpClientFactory clientFactory, IConfiguration config) =>
         {
             try
             {
                 var client = clientFactory.CreateClient();
-                var response = await client.GetAsync("http://localhost:8080/");
+                var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+                var response = await client.GetAsync(ontopBaseUrl);
                 return response.IsSuccessStatusCode
-                    ? Results.Ok(new { status = "healthy", message = "Ontop SPARQL endpoint is accessible", endpoint = "http://localhost:8080/sparql" })
+                    ? Results.Ok(new { status = "healthy", message = "Ontop SPARQL endpoint is accessible", endpoint = $"{ontopBaseUrl}/sparql" })
                     : Results.Problem("Ontop endpoint returned error status");
             }
             catch (Exception ex)

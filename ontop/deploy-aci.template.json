@@ -1,0 +1,113 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string",
+      "defaultValue": "oli-it-kv-test",
+      "metadata": {
+        "description": "Name of the Key Vault containing SQL connection secrets"
+      }
+    },
+    "containerRegistryName": {
+      "type": "string",
+      "defaultValue": "oliitacr",
+      "metadata": {
+        "description": "Name of the Azure Container Registry"
+      }
+    },
+    "containerRegistryPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "ACR admin password (retrieve with: az acr credential show --name oliitacr)"
+      }
+    },
+    "containerSubnetId": {
+      "type": "string",
+      "defaultValue": "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourceGroups/Default-Network-WestEurope/providers/Microsoft.Network/virtualNetworks/OLI-it-VNet/subnets/container",
+      "metadata": {
+        "description": "Resource ID of the container subnet"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-09-01",
+      "name": "nullsparql",
+      "location": "westeurope",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "containers": [
+          {
+            "name": "ontop",
+            "properties": {
+              "image": "[concat(parameters('containerRegistryName'), '.azurecr.io/nulllogicone-ontop:latest')]",
+              "resources": {
+                "requests": {
+                  "cpu": 0.5,
+                  "memoryInGB": 1.0
+                }
+              },
+              "ports": [
+                {
+                  "port": 8080,
+                  "protocol": "TCP"
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "SQL_SERVER",
+                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-server/)')]"
+                },
+                {
+                  "name": "SQL_USER",
+                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-user/)')]"
+                },
+                {
+                  "name": "SQL_PASSWORD",
+                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-password/)')]"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "imageRegistryCredentials": [
+          {
+            "server": "[concat(parameters('containerRegistryName'), '.azurecr.io')]",
+            "username": "[parameters('containerRegistryName')]",
+            "password": "[parameters('containerRegistryPassword')]"
+          }
+        ],
+        "ipAddress": {
+          "type": "Private",
+          "ports": [
+            {
+              "port": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        },
+        "subnetIds": [
+          {
+            "id": "[parameters('containerSubnetId')]"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPAddress": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql')).ipAddress.ip]"
+    },
+    "managedIdentityPrincipalId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql'), '2021-09-01', 'Full').identity.principalId]"
+    }
+  }
+}
