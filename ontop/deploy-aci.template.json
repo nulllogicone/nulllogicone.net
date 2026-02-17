@@ -2,11 +2,25 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "keyVaultName": {
+    "sqlServerSecretUri": {
       "type": "string",
-      "defaultValue": "oli-it-kv-test",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-server/)",
       "metadata": {
-        "description": "Name of the Key Vault containing SQL connection secrets"
+        "description": "Key Vault reference for SQL Server hostname"
+      }
+    },
+    "sqlUserSecretUri": {
+      "type": "string",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-user/)",
+      "metadata": {
+        "description": "Key Vault reference for SQL User"
+      }
+    },
+    "sqlPasswordSecretUri": {
+      "type": "string",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-password/)",
+      "metadata": {
+        "description": "Key Vault reference for SQL Password"
       }
     },
     "containerRegistryName": {
@@ -28,6 +42,13 @@
       "metadata": {
         "description": "Resource ID of the container subnet"
       }
+    },
+    "userAssignedIdentityId": {
+      "type": "string",
+      "defaultValue": "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourcegroups/Default-Web-WestEurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/nullsparql-identity",
+      "metadata": {
+        "description": "Resource ID of the user-assigned managed identity with Key Vault access"
+      }
     }
   },
   "resources": [
@@ -37,7 +58,10 @@
       "name": "nullsparql",
       "location": "westeurope",
       "identity": {
-        "type": "SystemAssigned"
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[parameters('userAssignedIdentityId')]": {}
+        }
       },
       "properties": {
         "containers": [
@@ -60,15 +84,15 @@
               "environmentVariables": [
                 {
                   "name": "SQL_SERVER",
-                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-server/)')]"
+                  "secureValue": "[parameters('sqlServerSecretUri')]"
                 },
                 {
                   "name": "SQL_USER",
-                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-user/)')]"
+                  "secureValue": "[parameters('sqlUserSecretUri')]"
                 },
                 {
                   "name": "SQL_PASSWORD",
-                  "secureValue": "[concat('@Microsoft.KeyVault(SecretUri=https://', parameters('keyVaultName'), '.vault.azure.net/secrets/sql-password/)')]"
+                  "secureValue": "[parameters('sqlPasswordSecretUri')]"
                 }
               ]
             }
@@ -105,9 +129,12 @@
       "type": "string",
       "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql')).ipAddress.ip]"
     },
-    "managedIdentityPrincipalId": {
+    "userAssignedIdentityPrincipalId": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql'), '2021-09-01', 'Full').identity.principalId]"
+      "value": "83f363af-5a86-43f4-88ac-9c2e3a5c0dcf",
+      "metadata": {
+        "description": "Principal ID of the user-assigned identity (nullsparql-identity). This remains constant across deployments."
+      }
     }
   }
 }

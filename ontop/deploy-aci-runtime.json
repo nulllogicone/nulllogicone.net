@@ -1,0 +1,97 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServer": {
+      "type": "securestring"
+    },
+    "sqlUser": {
+      "type": "securestring"
+    },
+    "sqlPassword": {
+      "type": "securestring"
+    },
+    "acrPassword": {
+      "type": "securestring"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-09-01",
+      "name": "nullsparql",
+      "location": "westeurope",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourcegroups/Default-Web-WestEurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/nullsparql-identity": {}
+        }
+      },
+      "properties": {
+        "containers": [
+          {
+            "name": "ontop",
+            "properties": {
+              "image": "oliitacr.azurecr.io/nulllogicone-ontop:latest",
+              "resources": {
+                "requests": {
+                  "cpu": 0.5,
+                  "memoryInGB": 1.0
+                }
+              },
+              "ports": [
+                {
+                  "port": 8080,
+                  "protocol": "TCP"
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "SQL_SERVER",
+                  "value": "[parameters('sqlServer')]"
+                },
+                {
+                  "name": "SQL_USER",
+                  "value": "[parameters('sqlUser')]"
+                },
+                {
+                  "name": "SQL_PASSWORD",
+                  "value": "[parameters('sqlPassword')]"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "imageRegistryCredentials": [
+          {
+            "server": "oliitacr.azurecr.io",
+            "username": "oliitacr",
+            "password": "[parameters('acrPassword')]"
+          }
+        ],
+        "ipAddress": {
+          "type": "Private",
+          "ports": [
+            {
+              "port": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        },
+        "subnetIds": [
+          {
+            "id": "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourceGroups/Default-Network-WestEurope/providers/Microsoft.Network/virtualNetworks/OLI-it-VNet/subnets/container"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPAddress": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql')).ipAddress.ip]"
+    }
+  }
+}

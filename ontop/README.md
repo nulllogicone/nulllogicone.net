@@ -64,7 +64,7 @@ SELECT ?stammName ?anglerName WHERE {
 ## Files Not in Git
 
 For security, these files are git-ignored (contain credentials):
-- `deploy-aci.json`, `deploy-aci-simple.yaml` - Filled deployment files
+- `deploy-aci.json` - Filled deployment files
 - `test-azure.properties`, `ontop-localdb.properties` - Config with passwords
 - `jdbc/*.jar` - JDBC driver binaries
 
