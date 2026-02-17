@@ -77,6 +77,9 @@ app.MapAnglerEndpoints();
 app.MapPostItEndpoints();
 app.MapTopLabEndpoints();
 
+// Map SPARQL endpoint (proxies to Ontop at localhost:8080)
+app.MapSparqlEndpoints();
+
 // Nulllogicone API Info
 app.MapGet("about", () => new
 {

@@ -1,0 +1,46 @@
+meta {
+  name: SPARQL construct (readable)
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: text/turtle
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  
+  # Build RDF graph for Stamm with Anglers
+  CONSTRUCT {
+    ?stamm rdf:type nlo:Stamm ;
+           nlo:name ?name ;
+           nlo:email ?email ;
+           nlo:hasAngler ?angler .
+    ?angler rdf:type nlo:Angler ;
+            nlo:name ?anglerName .
+  }
+  WHERE {
+    ?stamm rdf:type nlo:Stamm ;
+           nlo:name ?name ;
+           nlo:email ?email .
+    OPTIONAL {
+      ?stamm nlo:hasAngler ?angler .
+      ?angler nlo:name ?anglerName .
+    }
+  }
+  LIMIT 10
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
