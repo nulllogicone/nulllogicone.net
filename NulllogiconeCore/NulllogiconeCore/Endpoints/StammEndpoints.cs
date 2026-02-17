@@ -56,9 +56,43 @@ public static class StammEndpoints
             return Results.Content(rdf, "text/xml");
         }
 
+        // Default to JSON
         var stammJson = await db.Stamms
-            .Include(s => s.Anglers)
-            .FirstOrDefaultAsync(s => s.StammGuid == id);
+            .Where(s => s.StammGuid == id)
+            .Select(s => new
+            {
+                s.StammGuid,
+                s.Stamm1,
+                s.Beschreibung,
+                s.KooK,
+                s.Datum,
+                s.Datei,
+                s.Link,
+
+                Anglers = s.Anglers.Select(a => new
+                {
+                    a.AnglerGuid,
+                    a.Angler1,
+                    a.Beschreibung,
+                    a.Datum
+                }).ToList(),
+
+                TopLabs = s.TopLabs.Select(t => new
+                {
+                    t.TopLabGuid,
+                    t.Titel,
+                    t.TopLab1,
+                    t.Datum,
+                    t.Datei,
+                    PostIt = new 
+                    {
+                        t.PostIt.PostItGuid,
+                        t.PostIt.Titel,
+                        t.PostIt.Datum
+                    }
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
         return stammJson is not null
             ? Results.Ok(stammJson)
             : Results.NotFound($"Stamm with ID {id} not found");

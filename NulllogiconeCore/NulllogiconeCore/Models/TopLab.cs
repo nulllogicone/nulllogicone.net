@@ -33,8 +33,11 @@ public partial class TopLab
 
     public virtual PostIt PostIt { get; set; } = null!;
 
+    public virtual Stamm Stamm { get; set; } = null!;
+
     public virtual ICollection<Tolli> Tollis { get; set; } = new List<Tolli>();
 
     public virtual TopLab? TopTopLab { get; set; }
+
 }
 

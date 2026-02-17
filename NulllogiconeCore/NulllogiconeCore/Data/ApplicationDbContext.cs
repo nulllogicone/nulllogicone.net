@@ -1303,6 +1303,11 @@ public partial class ApplicationDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TopLab_PostIt");
 
+            entity.HasOne(d => d.Stamm).WithMany(p => p.TopLabs)
+                .HasForeignKey(d => d.StammGuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_TopLab_Stamm");
+
             entity.HasOne(d => d.TopTopLab).WithMany(p => p.InverseTopTopLab)
                 .HasForeignKey(d => d.TopTopLabGuid)
                 .HasConstraintName("FK_TopLab_TopLab");
