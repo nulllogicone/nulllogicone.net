@@ -1,0 +1,19 @@
+services:
+  ontop:
+    image: ontop/ontop:latest
+    container_name: nulllogicone-ontop-sparql
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/opt/ontop/input:ro
+      - ./jdbc:/opt/ontop/jdbc:ro
+    environment:
+      - ONTOP_ONTOLOGY_FILE=/opt/ontop/input/nulllogicone.ttl
+      - ONTOP_MAPPING_FILE=/opt/ontop/input/nulllogicone.obda.ttl
+      - ONTOP_PROPERTIES_FILE=/opt/ontop/input/ontop.properties
+    networks:
+      - nulllogicone-network
+
+networks:
+  nulllogicone-network:
+    driver: bridge

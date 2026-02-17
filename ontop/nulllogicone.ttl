@@ -1,0 +1,164 @@
+@prefix : <http://nulllogicone.net/schema.rdfs#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@base <http://nulllogicone.net/schema.rdfs#> .
+
+<http://nulllogicone.net/schema.rdfs> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+:hasAngler rdf:type owl:ObjectProperty ;
+           rdfs:domain :Stamm ;
+           rdfs:range :Angler .
+
+:hasTopLab rdf:type owl:ObjectProperty ;
+           rdfs:domain :Stamm ;
+           rdfs:range :TopLab .
+
+:hasPostIt rdf:type owl:ObjectProperty ;
+           rdfs:domain :TopLab ;
+           rdfs:range :PostIt .
+
+:belongsToStamm rdf:type owl:ObjectProperty ;
+                rdfs:domain :Angler ;
+                rdfs:range :Stamm .
+
+# SAPCT (Kreislauf) properties
+:stamm rdf:type owl:ObjectProperty ;
+       rdfs:range :Stamm .
+
+:angler rdf:type owl:ObjectProperty ;
+        rdfs:range :Angler .
+
+:postit rdf:type owl:ObjectProperty ;
+        rdfs:range :PostIt .
+
+:code rdf:type owl:ObjectProperty ;
+      rdfs:range :Code .
+
+:toplab rdf:type owl:ObjectProperty ;
+        rdfs:range :TopLab .
+
+# Ring and Loch properties
+:ring rdf:type owl:ObjectProperty ;
+      rdfs:domain :Code ;
+      rdfs:range :Ring .
+
+:loch rdf:type owl:ObjectProperty ;
+      rdfs:domain :Angler ;
+      rdfs:range :Loch .
+
+# NKBZ (Wortraum) properties
+:netz rdf:type owl:ObjectProperty ;
+      rdfs:range :Netz .
+
+:knoten rdf:type owl:ObjectProperty ;
+        rdfs:range :Knoten .
+
+:baum rdf:type owl:ObjectProperty ;
+      rdfs:range :Baum .
+
+:zweig rdf:type owl:ObjectProperty ;
+       rdfs:range :Zweig .
+
+#################################################################
+#    Data Properties
+#################################################################
+
+:stammGuid rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Stamm ;
+           rdfs:range xsd:string .
+
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Stamm ;
+       rdfs:range xsd:string .
+
+:tel rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Stamm ;
+     rdfs:range xsd:string .
+
+:beschreibung rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:string .
+
+:datum rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:dateTime .
+
+:datei rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:string .
+
+:link rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:anyURI .
+
+:boundKook rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Stamm ;
+           rdfs:range xsd:decimal .
+
+:titel rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:string .
+
+:text rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+:version rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+:zustand rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+:olis rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer .
+
+:get rdf:type owl:DatatypeProperty ;
+     rdfs:range xsd:integer .
+
+:ilos rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer .
+
+:fit rdf:type owl:DatatypeProperty ;
+     rdfs:range xsd:integer .
+
+#################################################################
+#    Classes
+#################################################################
+
+:Stamm rdf:type owl:Class ;
+       rdfs:comment "Main entity class" .
+
+:Angler rdf:type owl:Class ;
+        rdfs:comment "Angler entity related to Stamm" .
+
+:PostIt rdf:type owl:Class ;
+        rdfs:comment "PostIt/note entity" .
+
+:TopLab rdf:type owl:Class ;
+        rdfs:comment "TopLab entity" .
+
+:Code rdf:type owl:Class ;
+      rdfs:comment "Code/Markierung entity" .
+
+:Ring rdf:type owl:Class ;
+      rdfs:comment "Ring - a spot in the Code" .
+
+:Loch rdf:type owl:Class ;
+      rdfs:comment "Loch - a spot in the Angler" .
+
+:Netz rdf:type owl:Class ;
+      rdfs:comment "Netz - Network" .
+
+:Knoten rdf:type owl:Class ;
+        rdfs:comment "Knoten - Node in a network" .
+
+:Baum rdf:type owl:Class ;
+      rdfs:comment "Baum - Tree root" .
+
+:Zweig rdf:type owl:Class ;
+       rdfs:comment "Zweig - Branch in a tree" .
