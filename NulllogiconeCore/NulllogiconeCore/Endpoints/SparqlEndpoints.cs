@@ -347,6 +347,17 @@ LIMIT 10
                     
                     // Fix JavaScript endpoint URL - change relative 'sparql' to absolute '/sparql'
                     content = content.Replace("new Request('sparql')", "new Request('/sparql')");
+                    
+                    // NOW inject our custom CSS AFTER all URL rewriting (so it doesn't get rewritten)
+                    var cssInjection = "<link rel=\"stylesheet\" href=\"/css/sparql-ontop.css\">";
+                    if (content.Contains("</head>"))
+                    {
+                        content = content.Replace("</head>", $"{cssInjection}</head>");
+                    }
+                    else if (content.Contains("<head>"))
+                    {
+                        content = content.Replace("<head>", $"<head>{cssInjection}");
+                    }
                 }
 
                 return Results.Content(content, contentType, statusCode: (int)response.StatusCode);
