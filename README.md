@@ -22,6 +22,6 @@ https://issemantic.net/rdf-visualizer
 [x] Create GitHub Actions for automated deployment  
 [ ] Add more OLI-it entities (SAPCT-NKBZ).  
 [ ] Improve RDF output with more ontologies.  
-[ ] Add SPARQL endpoint.  
+[x] Add SPARQL endpoint.  
 
 
