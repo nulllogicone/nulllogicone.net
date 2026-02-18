@@ -78,6 +78,16 @@
                 rr:parent "StammGuid";
             ];
         ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :hasWurzeln;
+        rr:objectMap [
+            rr:parentTriplesMap <#WurzelnMapping>;
+            rr:joinCondition [
+                rr:child "StammGuid";
+                rr:parent "StammGuid";
+            ];
+        ];
     ].
 
 #################################################################
@@ -155,6 +165,74 @@
     rr:predicateObjectMap [
         rr:predicate :datei;
         rr:objectMap [ rr:column "Datei" ];
+    ];
+    
+    # Relationship to Wurzeln
+    rr:predicateObjectMap [
+        rr:predicate :hasWurzeln;
+        rr:objectMap [
+            rr:parentTriplesMap <#WurzelnMapping>;
+            rr:joinCondition [
+                rr:child "PostItGuid";
+                rr:parent "PostItGuid";
+            ];
+        ];
+    ].
+
+#################################################################
+#    Wurzeln Mapping (Stamm-PostIt Relationship)
+#################################################################
+
+<#WurzelnMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(StammGuid AS NVARCHAR(36))) AS StammGuid,
+                LOWER(CAST(PostItGuid AS NVARCHAR(36))) AS PostItGuid,
+                StammZust, bezahlt, Frist, gemailt, closed
+            FROM oli.Wurzeln
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Wurzeln/{StammGuid}/{PostItGuid}";
+        rr:class :Wurzeln;
+        rr:termType rr:IRI;
+    ];
+    
+    # Data properties (using aliased column names from SELECT)
+    rr:predicateObjectMap [
+        rr:predicate :stammZust;
+        rr:objectMap [ rr:column "StammZust"; rr:datatype xsd:integer ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :bezahlt;
+        rr:objectMap [ rr:column "bezahlt"; rr:datatype xsd:decimal ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :frist;
+        rr:objectMap [ rr:column "Frist"; rr:datatype xsd:dateTime ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :gemailt;
+        rr:objectMap [ rr:column "gemailt" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :closed;
+        rr:objectMap [ rr:column "closed" ];
+    ];
+    
+    # Relationships
+    rr:predicateObjectMap [
+        rr:predicate :belongsToStamm;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Stamm/{StammGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :hasPostIt;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/PostIt/{PostItGuid}";
+        ];
     ].
 
 #################################################################

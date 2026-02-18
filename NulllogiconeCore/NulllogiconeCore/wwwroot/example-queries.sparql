@@ -85,6 +85,20 @@ WHERE {
 }
 
 # ========================================================
+# Get Stamm with Wurzeln and PostIt
+# ========================================================
+PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+
+SELECT ?stamm ?stammZust ?postit ?bezahlt ?frist WHERE {
+  ?wurzeln a nlo:Wurzeln ;
+           nlo:belongsToStamm ?stamm ;
+           nlo:hasPostIt ?postit ;
+           nlo:bezahlt ?bezahlt ;
+           nlo:stammZust ?stammZust ;
+           nlo:frist ?frist .
+} LIMIT 10
+
+# ========================================================
 # 8. Get recent entities (last 30 days)
 # ========================================================
 SELECT ?entity ?type ?date

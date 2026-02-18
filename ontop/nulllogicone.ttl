@@ -21,6 +21,9 @@
            rdfs:domain :Stamm ;
            rdfs:range :TopLab .
 
+:hasWurzeln rdf:type owl:ObjectProperty ;
+            rdfs:comment "Relationship to Wurzeln junction entity" .
+
 :hasPostIt rdf:type owl:ObjectProperty ;
            rdfs:domain :TopLab ;
            rdfs:range :PostIt .
@@ -126,6 +129,32 @@
 :fit rdf:type owl:DatatypeProperty ;
      rdfs:range xsd:integer .
 
+# Wurzeln properties
+:stammZust rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Wurzeln ;
+           rdfs:range xsd:integer ;
+           rdfs:comment "Stamm status in Wurzeln relationship" .
+
+:bezahlt rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Wurzeln ;
+         rdfs:range xsd:decimal ;
+         rdfs:comment "Payment amount" .
+
+:frist rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Wurzeln ;
+       rdfs:range xsd:dateTime ;
+       rdfs:comment "Deadline" .
+
+:gemailt rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Wurzeln ;
+         rdfs:range xsd:boolean ;
+         rdfs:comment "Email sent flag" .
+
+:closed rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Wurzeln ;
+        rdfs:range xsd:boolean ;
+        rdfs:comment "Closed status" .
+
 #################################################################
 #    Classes
 #################################################################
@@ -138,6 +167,9 @@
 
 :PostIt rdf:type owl:Class ;
         rdfs:comment "PostIt/note entity" .
+
+:Wurzeln rdf:type owl:Class ;
+         rdfs:comment "Junction entity for Stamm-PostIt many-to-many relationship with additional properties" .
 
 :TopLab rdf:type owl:Class ;
         rdfs:comment "TopLab entity" .

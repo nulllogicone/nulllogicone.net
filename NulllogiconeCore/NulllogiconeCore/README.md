@@ -24,8 +24,30 @@ https://issemantic.net/rdf-visualizer
 [x] Move legacy projects to archive folder, delete it soon.  
 [x] Deploy to real Azure App Service site, configure DNS.  
 [x] Create GitHub Actions for automated deployment  
+[x] Add SPARQL endpoint (deployed as Ontop container in Azure)  
 [ ] Add more OLI-it entities (SAPCT-NKBZ).  
 [ ] Improve RDF output with more ontologies.  
-[ ] Add SPARQL endpoint.  
+
+## Available Resources
+
+### Static Files
+- `/schema.rdfs` - RDF Schema ontology definition
+- `/example-queries.sparql` - Example SPARQL queries for common use cases
+
+### SPARQL Endpoint
+The SPARQL endpoint is available internally at `http://10.0.3.4:8080/sparql` (private Azure Container Instance)
+
+Example query:
+```sparql
+PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+
+SELECT ?stamm ?name ?email WHERE {
+  ?stamm a nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+} LIMIT 10
+```
+
+See `/example-queries.sparql` for more query examples including Wurzeln (junction table) queries.
 
 

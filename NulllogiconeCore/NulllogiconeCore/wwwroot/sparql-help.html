@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARQL Query Examples - nulllogicone.net</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .endpoint-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .query-section {
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .query-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .query-header {
+            background: #f5f5f5;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .query-header h3 {
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .query-body {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .query-body.expanded {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .query-code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+            position: relative;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+
+        .copy-btn.copied {
+            background: #28a745;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .toggle-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+        }
+
+        .expand-all {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+
+        .expand-all:hover {
+            background: #764ba2;
+        }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* SPARQL syntax highlighting */
+        .sparql-keyword { color: #569cd6; }
+        .sparql-prefix { color: #c586c0; }
+        .sparql-uri { color: #ce9178; }
+        .sparql-variable { color: #9cdcfe; }
+        .sparql-comment { color: #6a9955; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 SPARQL Query Examples</h1>
+            <p>Interactive guide to querying nulllogicone.net semantic data</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Welcome to the SPARQL Query Interface</h2>
+                <p>This page provides example SPARQL queries for exploring the nulllogicone.net knowledge graph. Each query demonstrates different patterns and use cases.</p>
+                
+                <div class="endpoint-info">
+                    <strong>SPARQL Endpoint:</strong> http://10.0.3.4:8080/sparql (internal network only)
+                </div>
+
+                <p style="margin-top: 15px;">
+                    Click on any query below to expand it, then use the "Copy" button to copy the query to your clipboard.
+                    <strong>Note:</strong> Standard PREFIX declarations are automatically included when copied, even though they're hidden for readability.
+                    You can also download the raw queries: <a href="/example-queries.sparql" download>example-queries.sparql</a>
+                </p>
+            </div>
+
+            <button class="expand-all" onclick="toggleAllQueries()">Expand All Queries</button>
+
+            <div id="queries-container">
+                <div class="loading">⏳ Loading queries...</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <a href="/">← Back to Home</a> | 
+                <a href="/schema.rdfs">View Schema</a> | 
+                <a href="/example-queries.sparql" download>Download Queries</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                nulllogicone.net · Semantic API for OLI-it
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        let allExpanded = false;
+        
+        // Standard prefixes to prepend when copying
+        const STANDARD_PREFIXES = `PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+PREFIX entity: <http://nulllogicone.net/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+`;
+
+        async function loadQueries() {
+            const container = document.getElementById('queries-container');
+            
+            try {
+                const response = await fetch('/example-queries.sparql');
+                if (!response.ok) throw new Error('Failed to load queries');
+                
+                const content = await response.text();
+                const queries = parseQueries(content);
+                
+                if (queries.length === 0) {
+                    container.innerHTML = '<div class="error">No queries found in the file.</div>';
+                    return;
+                }
+                
+                container.innerHTML = queries.map((query, index) => `
+                    <div class="query-section" id="query-${index}">
+                        <div class="query-header" onclick="toggleQuery(${index})">
+                            <h3>${query.title}</h3>
+                            <span class="toggle-icon" id="icon-${index}">▼</span>
+                        </div>
+                        <div class="query-body" id="body-${index}">
+                            <div class="query-code" id="code-${index}">${highlightSPARQL(query.code)}</div>
+                            <button class="copy-btn" onclick="copyQuery(${index})">📋 Copy Query</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="error">
+                        <strong>Error loading queries:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function parseQueries(content) {
+            const queries = [];
+            const lines = content.split('\n');
+            let i = 0;
+            
+            // Skip header lines until we find first separator
+            while (i < lines.length && !lines[i].includes('========')) {
+                i++;
+            }
+            
+            while (i < lines.length) {
+                // Look for separator line
+                if (lines[i].includes('========')) {
+                    i++; // Move to next line after separator
+                    
+                    // Next line should be the title
+                    if (i < lines.length && lines[i].trim().startsWith('#')) {
+                        const title = lines[i].replace(/^#\s*\d*\.?\s*/, '').trim();
+                        i++; // Move past title
+                        
+                        // Skip the closing separator line
+                        if (i < lines.length && lines[i].includes('========')) {
+                            i++;
+                        }
+                        
+                        // Collect code lines until next separator or end
+                        const codeLines = [];
+                        while (i < lines.length && !lines[i].includes('========')) {
+                            codeLines.push(lines[i]);
+                            i++;
+                        }
+                        
+                        let code = codeLines.join('\n').trim();
+                        
+                        // Remove PREFIX declarations for display (they'll be added back on copy)
+                        code = code.split('\n')
+                            .filter(line => !line.trim().toUpperCase().startsWith('PREFIX'))
+                            .join('\n')
+                            .trim();
+                        
+                        if (code && title) {
+                            queries.push({ title, code });
+                        }
+                    }
+                } else {
+                    i++;
+                }
+            }
+            
+            return queries;
+        }
+
+        function highlightSPARQL(code) {
+            // Basic SPARQL syntax highlighting
+            let highlighted = code
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+            
+            // Highlight keywords
+            const keywords = ['SELECT', 'WHERE', 'PREFIX', 'FILTER', 'OPTIONAL', 'LIMIT', 'ORDER BY', 'GROUP BY', 'COUNT', 'AS', 'CONSTRUCT', 'ASK', 'DESCRIBE', 'FROM', 'UNION', 'DISTINCT', 'REDUCED'];
+            keywords.forEach(keyword => {
+                const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
+                highlighted = highlighted.replace(regex, `<span class="sparql-keyword">${keyword.toUpperCase()}</span>`);
+            });
+            
+            // Highlight variables
+            highlighted = highlighted.replace(/(\?\w+)/g, '<span class="sparql-variable">$1</span>');
+            
+            // Highlight URIs
+            highlighted = highlighted.replace(/(&lt;[^&]+&gt;)/g, '<span class="sparql-uri">$1</span>');
+            
+            // Highlight prefixes (nlo:, rdf:, etc.)
+            highlighted = highlighted.replace(/(\w+:)/g, '<span class="sparql-prefix">$1</span>');
+            
+            // Highlight comments
+            highlighted = highlighted.replace(/(#[^\n]*)/g, '<span class="sparql-comment">$1</span>');
+            
+            return highlighted;
+        }
+
+        function toggleQuery(index) {
+            const body = document.getElementById(`body-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            
+            body.classList.toggle('expanded');
+            icon.classList.toggle('rotated');
+        }
+
+        function toggleAllQueries() {
+            const bodies = document.querySelectorAll('.query-body');
+            const icons = document.querySelectorAll('.toggle-icon');
+            const button = document.querySelector('.expand-all');
+            
+            allExpanded = !allExpanded;
+            
+            bodies.forEach(body => {
+                if (allExpanded) {
+                    body.classList.add('expanded');
+                } else {
+                    body.classList.remove('expanded');
+                }
+            });
+            
+            icons.forEach(icon => {
+                if (allExpanded) {
+                    icon.classList.add('rotated');
+                } else {
+                    icon.classList.remove('rotated');
+                }
+            });
+            
+            button.textContent = allExpanded ? 'Collapse All Queries' : 'Expand All Queries';
+        }
+
+        async function copyQuery(index) {
+            const codeElement = document.getElementById(`code-${index}`);
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            // Get the plain text (without HTML formatting)
+            const queryText = codeElement.innerText;
+            
+            // Prepend standard prefixes to the query
+            const textToCopy = STANDARD_PREFIXES + queryText;
+            
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                button.textContent = '✗ Failed';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            }
+        }
+
+        // Load queries when page loads
+        document.addEventListener('DOMContentLoaded', loadQueries);
+    </script>
+</body>
+</html>
