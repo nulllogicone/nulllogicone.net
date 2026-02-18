@@ -1,0 +1,211 @@
+/* 
+ * SPARQL Ontop UI Tweaks
+ * Fun customizations for the Ontop SPARQL endpoint UI
+ * Add this to your Ontop deployment to give it some nulllogicone.net style!
+ * 
+ * To use: Add this CSS file to your Ontop web interface or inject via browser extension
+ */
+
+/* Override Ontop's default styles with nulllogicone.net branding */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-attachment: fixed !important;
+}
+
+/* Make the main content container pop */
+.container,
+#sparql-endpoint,
+.yasgui {
+    background: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+    margin: 20px auto !important;
+    max-width: 1400px !important;
+}
+
+/* Style the query editor */
+.yasqe,
+.CodeMirror {
+    border: 2px solid #667eea !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+}
+
+.CodeMirror-focused {
+    border-color: #764ba2 !important;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Beautiful run button */
+.yasqe_buttons button,
+.btn-primary,
+button[type="submit"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    color: white !important;
+    padding: 10px 24px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.yasqe_buttons button:hover,
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Results table styling */
+.yasr_results table,
+table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+
+.yasr_results th,
+table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+}
+
+.yasr_results td,
+table td {
+    padding: 10px 12px !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.yasr_results tr:hover,
+table tbody tr:hover {
+    background: #f8f9fa !important;
+}
+
+/* Alternate row colors */
+.yasr_results tr:nth-child(even),
+table tbody tr:nth-child(even) {
+    background: #f9f9f9 !important;
+}
+
+/* Header branding */
+h1, h2, h3 {
+    color: #667eea !important;
+}
+
+/* Add nulllogicone.net branding */
+.yasgui::before,
+body::before {
+    content: "🔮 nulllogicone.net SPARQL Endpoint" !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 1.8em !important;
+    font-weight: bold !important;
+    color: white !important;
+    padding: 20px !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Tabs styling */
+.yasgui .yasgui_tabsContainer ul li {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.yasgui .yasgui_tabsContainer ul li.active {
+    background: #667eea !important;
+    color: white !important;
+}
+
+/* Scrollbar styling for WebKit browsers */
+.CodeMirror-scroll::-webkit-scrollbar,
+.yasr_results::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-track,
+.yasr_results::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+    border-radius: 10px !important;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-thumb,
+.yasr_results::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 10px !important;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-thumb:hover,
+.yasr_results::-webkit-scrollbar-thumb:hover {
+    background: #764ba2 !important;
+}
+
+/* Add some fun loading animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.yasgui_loader {
+    animation: pulse 1.5s infinite !important;
+}
+
+/* Error messages */
+.yasr_results .error,
+.alert-danger {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    border: none !important;
+}
+
+/* Success messages */
+.alert-success {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    border: none !important;
+}
+
+/* Tooltips */
+.tooltip,
+[title] {
+    border-bottom: 1px dotted #667eea !important;
+}
+
+/* Add a subtle pattern to the background */
+body::after {
+    content: "" !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255,255,255,.03) 35px,
+            rgba(255,255,255,.03) 70px
+        ) !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+/* Footer styling (if Ontop has one) */
+footer {
+    text-align: center !important;
+    color: white !important;
+    padding: 20px !important;
+    font-size: 0.9em !important;
+}
+
+footer a {
+    color: white !important;
+    text-decoration: underline !important;
+}

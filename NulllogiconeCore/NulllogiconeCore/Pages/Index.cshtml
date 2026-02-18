@@ -23,8 +23,8 @@
 
 <h2 id="instances">Instances</h2>
 <p>
-    All entities are data records that can be displayed on their own page
-    (for <a href="Instanzen.aspx">examples</a> there is a page with random links).
+    All entities are data records that can be displayed as html pages, RDF documents, or JSON documents. 
+    The RDF documents are generated on the fly from the database records and can be retrieved by appending <code>.rdf</code> to the URL. For JSON format, append <code>.json</code>.
 </p>
 <p>
     In the database tables, the key fields are GUIDs. These are used in URIrefs
@@ -33,7 +33,42 @@
     full class name from [SAPCT][NKBZ] with appended GUID. These can display further information
     on a webpage as URLs.
 </p>
-<h3>Html examples</h3>
+<h2 id="SPARQL">SPARQL</h2>
+<p>
+    For querying the data using semantic web standards, a <strong>SPARQL endpoint</strong> is available at 
+    <a href="/sparql">/sparql</a>. SPARQL (SPARQL Protocol and RDF Query Language) enables powerful 
+    queries across the entire knowledge graph using W3C standards. The endpoint is built on 
+    <a href="https://ontop-vkg.org/" target="_blank">Ontop</a>, which provides a virtual knowledge graph 
+    layer over the relational database, automatically translating SPARQL queries to SQL.
+</p>
+<p>
+    For interactive query development, a <strong>visual query interface</strong> with syntax highlighting, 
+    autocomplete, and result visualization is powered by <a href="https://docs.triply.cc/yasgui/" target="_blank">YASGUI</a>, 
+    providing an intuitive environment for exploring and testing SPARQL queries.)<br />
+    <strong> <a href="/sparql/ui" target="_blank">Click to open: /sparql/ui (in new tab)</a> </strong>
+</p>
+<p>
+    <strong><a href="/sparql-help.html">Open interactive query examples</a></strong> 
+    with syntax highlighting and one-click copy functionality to get started quickly.
+</p>
+<p>
+    Example SPARQL query to retrieve Stamm entities:
+</p>
+<pre>PREFIX nlo: &lt;http://nulllogicone.net/schema.rdfs#&gt;
+SELECT ?stamm ?name ?email
+WHERE {
+  ?stamm a nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+}
+LIMIT 10</pre>
+<p>
+    Visit <a href="/sparql">/sparql</a> for programmatic access and usage instructions, or use the 
+    <a href="/sparql/ui" target="_blank">SPARQL UI</a> for interactive queries.
+</p>
+
+<h2 id="examples">Examples</h2>
+<h3>Html</h3>
 <p>
     <a
     href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947</a>
@@ -129,37 +164,4 @@
     </li>
 </ul>
 
-<h2 id="webservice">SPARQL</h2>
-<p>
-    For querying the data using semantic web standards, a <strong>SPARQL endpoint</strong> is available at 
-    <a href="/sparql">/sparql</a>. SPARQL (SPARQL Protocol and RDF Query Language) enables powerful 
-    queries across the entire knowledge graph using W3C standards. The endpoint is built on 
-    <a href="https://ontop-vkg.org/" target="_blank">Ontop</a>, which provides a virtual knowledge graph 
-    layer over the relational database, automatically translating SPARQL queries to SQL.
-</p>
-<p>
-    For interactive query development, a <strong>visual query interface</strong> with syntax highlighting, 
-    autocomplete, and result visualization is available at <a href="/sparql/ui" target="_blank">/sparql/ui</a>. 
-    The interface is powered by <a href="https://docs.triply.cc/yasgui/" target="_blank">YASGUI</a>, 
-    providing an intuitive environment for exploring and testing SPARQL queries.
-</p>
-<p>
-    New to SPARQL? Check out our <strong><a href="/sparql-help.html">interactive query examples</a></strong> 
-    with syntax highlighting and one-click copy functionality to get started quickly.
-</p>
-<p>
-    Example SPARQL query to retrieve Stamm entities:
-</p>
-<pre>PREFIX nlo: &lt;http://nulllogicone.net/schema.rdfs#&gt;
-SELECT ?stamm ?name ?email
-WHERE {
-  ?stamm a nlo:Stamm ;
-         nlo:name ?name ;
-         nlo:email ?email .
-}
-LIMIT 10</pre>
-<p>
-    Visit <a href="/sparql">/sparql</a> for programmatic access and usage instructions, or use the 
-    <a href="/sparql/ui" target="_blank">SPARQL UI</a> for interactive queries.
-</p>
 
