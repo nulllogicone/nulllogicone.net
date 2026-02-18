@@ -1,0 +1,529 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://nulllogicone.net/schema.rdfs#> .
+@prefix entity: <http://nulllogicone.net/> .
+
+#################################################################
+#    Stamm Mapping
+#################################################################
+
+<#StammMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(StammGuid AS NVARCHAR(36))) AS StammGuid,
+                Stamm, eMail, Tel, Beschreibung, Datum, Datei, Link
+            FROM oli.Stamm
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Stamm/{StammGuid}";
+        rr:class :Stamm;
+        rr:termType rr:IRI;
+    ];
+    
+    # Data properties
+    rr:predicateObjectMap [
+        rr:predicate :stammGuid;
+        rr:objectMap [ rr:column "StammGuid" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Stamm" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :email;
+        rr:objectMap [ rr:column "eMail" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :tel;
+        rr:objectMap [ rr:column "Tel" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Beschreibung" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datei;
+        rr:objectMap [ rr:column "Datei" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :link;
+        rr:objectMap [ rr:column "Link"; rr:datatype xsd:anyURI ];
+    ];
+    
+    # Relationships
+    rr:predicateObjectMap [
+        rr:predicate :hasAngler;
+        rr:objectMap [
+            rr:parentTriplesMap <#AnglerMapping>;
+            rr:joinCondition [
+                rr:child "StammGuid";
+                rr:parent "StammGuid";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :hasTopLab;
+        rr:objectMap [
+            rr:parentTriplesMap <#TopLabMapping>;
+            rr:joinCondition [
+                rr:child "StammGuid";
+                rr:parent "StammGuid";
+            ];
+        ];
+    ].
+
+#################################################################
+#    Angler Mapping
+#################################################################
+
+<#AnglerMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(AnglerGuid AS NVARCHAR(36))) AS AnglerGuid,
+                LOWER(CAST(StammGuid AS NVARCHAR(36))) AS StammGuid,
+                Angler, Beschreibung, Datum
+            FROM oli.Angler
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Angler/{AnglerGuid}";
+        rr:class :Angler;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Angler" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Beschreibung" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    
+    # Relationship back to Stamm
+    rr:predicateObjectMap [
+        rr:predicate :belongsToStamm;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Stamm/{StammGuid}";
+        ];
+    ].
+
+#################################################################
+#    PostIt Mapping
+#################################################################
+
+<#PostItMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(PostItGuid AS NVARCHAR(36))) AS PostItGuid,
+                Titel, PostIt, Datum, Datei
+            FROM oli.PostIt
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/PostIt/{PostItGuid}";
+        rr:class :PostIt;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :titel;
+        rr:objectMap [ rr:column "Titel" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "PostIt" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datei;
+        rr:objectMap [ rr:column "Datei" ];
+    ].
+
+#################################################################
+#    TopLab Mapping
+#################################################################
+
+<#TopLabMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(TopLabGuid AS NVARCHAR(36))) AS TopLabGuid,
+                LOWER(CAST(PostItGuid AS NVARCHAR(36))) AS PostItGuid,
+                LOWER(CAST(StammGuid AS NVARCHAR(36))) AS StammGuid,
+                Titel, TopLab, Datum, Datei
+            FROM oli.TopLab
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/TopLab/{TopLabGuid}";
+        rr:class :TopLab;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :titel;
+        rr:objectMap [ rr:column "Titel" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "TopLab" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datei;
+        rr:objectMap [ rr:column "Datei" ];
+    ];
+    
+    # Relationship to PostIt
+    rr:predicateObjectMap [
+        rr:predicate :hasPostIt;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/PostIt/{PostItGuid}";
+        ];
+    ].
+
+#################################################################
+#    Code Mapping
+#################################################################
+
+<#CodeMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(CodeGuid AS NVARCHAR(36))) AS CodeGuid,
+                LOWER(CAST(PostItGuid AS NVARCHAR(36))) AS PostItGuid,
+                LOWER(CAST(StammGuid AS NVARCHAR(36))) AS StammGuid,
+                CodeZust, Kommentar, gescannt, Versionsnummer
+            FROM oli.Code
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Code/{CodeGuid}";
+        rr:class :Code;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Kommentar" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :version;
+        rr:objectMap [ rr:column "Versionsnummer" ];
+    ];
+    
+    # Relationships
+    rr:predicateObjectMap [
+        rr:predicate :postit;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/PostIt/{PostItGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :stamm;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Stamm/{StammGuid}";
+        ];
+    ].
+
+#################################################################
+#    Ring Mapping
+#################################################################
+
+<#RingMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(RingGuid AS NVARCHAR(36))) AS RingGuid,
+                LOWER(CAST(CodeGuid AS NVARCHAR(36))) AS CodeGuid,
+                LOWER(CAST(NetzGuid AS NVARCHAR(36))) AS NetzGuid,
+                LOWER(CAST(KnotenGuid AS NVARCHAR(36))) AS KnotenGuid,
+                LOWER(CAST(BaumGuid AS NVARCHAR(36))) AS BaumGuid,
+                LOWER(CAST(ZweigGuid AS NVARCHAR(36))) AS ZweigGuid,
+                OLIs, Get
+            FROM oli.Ringe
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Ring/{RingGuid}";
+        rr:class :Ring;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :olis;
+        rr:objectMap [ rr:column "OLIs" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :get;
+        rr:objectMap [ rr:column "Get" ];
+    ];
+    
+    # Relationships
+    rr:predicateObjectMap [
+        rr:predicate :code;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Code/{CodeGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :netz;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Netz/{NetzGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :knoten;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Knoten/{KnotenGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :baum;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Baum/{BaumGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :zweig;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Zweig/{ZweigGuid}";
+        ];
+    ].
+
+#################################################################
+#    Loch Mapping
+#################################################################
+
+<#LochMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(LochGuid AS NVARCHAR(36))) AS LochGuid,
+                LOWER(CAST(AnglerGuid AS NVARCHAR(36))) AS AnglerGuid,
+                LOWER(CAST(NetzGuid AS NVARCHAR(36))) AS NetzGuid,
+                LOWER(CAST(KnotenGuid AS NVARCHAR(36))) AS KnotenGuid,
+                LOWER(CAST(BaumGuid AS NVARCHAR(36))) AS BaumGuid,
+                LOWER(CAST(ZweigGuid AS NVARCHAR(36))) AS ZweigGuid,
+                ILOs, Fit
+            FROM oli.Löcher
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Loch/{LochGuid}";
+        rr:class :Loch;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :ilos;
+        rr:objectMap [ rr:column "ILOs" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :fit;
+        rr:objectMap [ rr:column "Fit" ];
+    ];
+    
+    # Relationships
+    rr:predicateObjectMap [
+        rr:predicate :angler;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Angler/{AnglerGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :netz;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Netz/{NetzGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :knoten;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Knoten/{KnotenGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :baum;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Baum/{BaumGuid}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :zweig;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Zweig/{ZweigGuid}";
+        ];
+    ].
+
+#################################################################
+#    Netz Mapping
+#################################################################
+
+<#NetzMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(NetzGuid AS NVARCHAR(36))) AS NetzGuid,
+                Netz, Beschreibung, Datei, Datum
+            FROM oli.Netz
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Netz/{NetzGuid}";
+        rr:class :Netz;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Netz" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Beschreibung" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datei;
+        rr:objectMap [ rr:column "Datei" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ].
+
+#################################################################
+#    Knoten Mapping
+#################################################################
+
+<#KnotenMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(KnotenGuid AS NVARCHAR(36))) AS KnotenGuid,
+                LOWER(CAST(NetzGuid AS NVARCHAR(36))) AS NetzGuid,
+                Knoten, Beschreibung, Datum
+            FROM oli.Knoten
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Knoten/{KnotenGuid}";
+        rr:class :Knoten;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Knoten" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Beschreibung" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    
+    # Relationship to Netz
+    rr:predicateObjectMap [
+        rr:predicate :netz;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Netz/{NetzGuid}";
+        ];
+    ].
+
+#################################################################
+#    Baum Mapping
+#################################################################
+
+<#BaumMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(BaumGuid AS NVARCHAR(36))) AS BaumGuid,
+                Baum, Beschreibung, Datei, Datum
+            FROM oli.Baum
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Baum/{BaumGuid}";
+        rr:class :Baum;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Baum" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :beschreibung;
+        rr:objectMap [ rr:column "Beschreibung" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datei;
+        rr:objectMap [ rr:column "Datei" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ].
+
+#################################################################
+#    Zweig Mapping
+#################################################################
+
+<#ZweigMapping>
+    rr:logicalTable [
+        rr:sqlQuery """
+            SELECT 
+                LOWER(CAST(ZweigGuid AS NVARCHAR(36))) AS ZweigGuid,
+                LOWER(CAST(BaumGuid AS NVARCHAR(36))) AS BaumGuid,
+                Zweig, Datum
+            FROM oli.Zweig
+        """
+    ];
+    rr:subjectMap [
+        rr:template "http://nulllogicone.net/Zweig/{ZweigGuid}";
+        rr:class :Zweig;
+        rr:termType rr:IRI;
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate :name;
+        rr:objectMap [ rr:column "Zweig" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :datum;
+        rr:objectMap [ rr:column "Datum"; rr:datatype xsd:dateTime ];
+    ];
+    
+    # Relationship to Baum
+    rr:predicateObjectMap [
+        rr:predicate :baum;
+        rr:objectMap [
+            rr:template "http://nulllogicone.net/Baum/{BaumGuid}";
+        ];
+    ].
+

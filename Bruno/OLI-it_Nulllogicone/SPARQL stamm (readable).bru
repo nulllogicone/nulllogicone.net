@@ -1,0 +1,35 @@
+meta {
+  name: SPARQL stamm (readable)
+  type: http
+  seq: 18
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: application/sparql-results+json
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  
+  SELECT ?stamm ?name ?email ?tel
+  WHERE {
+    ?stamm rdf:type nlo:Stamm ;
+           nlo:name ?name ;
+           nlo:email ?email .
+    OPTIONAL { ?stamm nlo:tel ?tel }
+  }
+  LIMIT 100
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

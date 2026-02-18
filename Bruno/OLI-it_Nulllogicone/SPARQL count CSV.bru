@@ -1,0 +1,36 @@
+meta {
+  name: SPARQL count CSV
+  type: http
+  seq: 24
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: text/csv
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  
+  # Count entities by type - CSV format
+  SELECT ?type (COUNT(?entity) as ?count)
+  WHERE {
+    ?entity rdf:type ?type .
+    FILTER(?type IN (nlo:Stamm, nlo:Angler, nlo:PostIt, nlo:Code, nlo:TopLab, 
+                     nlo:Ring, nlo:Loch, nlo:Netz, nlo:Knoten, nlo:Baum, nlo:Zweig))
+  }
+  GROUP BY ?type
+  ORDER BY DESC(?count)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

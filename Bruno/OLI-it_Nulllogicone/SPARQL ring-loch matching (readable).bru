@@ -1,0 +1,48 @@
+meta {
+  name: SPARQL ring-loch matching (readable)
+  type: http
+  seq: 22
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: application/sparql-results+json
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  
+  # Find matching patterns: Code (Ring) vs Angler (Loch) in same Netz
+  SELECT ?codeBeschreibung ?anglerName ?netzName 
+         ?ringOlis ?ringGet ?lochIlos ?lochFit
+  WHERE {
+    ?code rdf:type nlo:Code ;
+          nlo:beschreibung ?codeBeschreibung ;
+          nlo:ring ?ring .
+    ?ring nlo:netz ?netz ;
+          nlo:olis ?ringOlis ;
+          nlo:get ?ringGet .
+    
+    ?angler rdf:type nlo:Angler ;
+            nlo:name ?anglerName ;
+            nlo:loch ?loch .
+    ?loch nlo:netz ?netz ;
+          nlo:ilos ?lochIlos ;
+          nlo:fit ?lochFit .
+    
+    ?netz nlo:name ?netzName .
+  }
+  LIMIT 100
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

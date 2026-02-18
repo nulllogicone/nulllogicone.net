@@ -6,23 +6,12 @@
     ViewData["Title"] = "nulllogicone.net";
 }
 
-<div class="Banner">
+@* <div class="Banner">
     <span class="BannerTextCompany">nulllogicone.net</span>
     <span class="BannerTextApplication">Message Mediation in the Semantic Web</span>
-</div>
+</div> *@
 
-<h1><br /></h1>
-
-<p>
-    Environment: @Env.EnvironmentName
-    @if (Env.EnvironmentName == "Development")
-    {
-        <br />
-        <a href="/swagger" target="_blank">Swagger</a>
-    }
-</p>
-
-<h2>Abstract</h2>
+<h1>Message Mediation in the Semantic Web</h1>
 <p>
     <strong>nulllogicone.net</strong> is an abstract system for mediating messages between unknown parties,
     describing authors, messages, and recipients. It consists of a <em>Cycle Model</em> [<a
@@ -32,18 +21,7 @@
     <a href="https://www.oli-it.com">reference implementation</a>.
 </p>
 
-<h2>Table of Contents</h2>
-<ol>
-    <li><a href="#instances">Instances</a></li>
-    <li><a href="#schema">Schema</a></li>
-    <li><a href="#rdf">Documents</a></li>
-    <li><a href="#importexport">Input / Output</a></li>
-    <li><a href="#applications">Applications</a></li>
-    <li><a href="#webservice">Service</a></li>
-    <li><a href="#tools">Client</a></li>
-</ol>
-
-<h2 id="instances">1. Instances</h2>
+<h2 id="instances">Instances</h2>
 <p>
     All entities are data records that can be displayed on their own page
     (for <a href="Instanzen.aspx">examples</a> there is a page with random links).
@@ -81,9 +59,6 @@
 
 </p>
 <h3>RDF examples</h3>
-<div class="beispiel">
-    Example: Links to complete RDF documents
-</div>
 <p>
     <a href="/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf">https://nulllogicone.net/Stamm/b4111e0e-48d9-42c4-a6f6-ec4991264947.rdf</a><br>
     <a href="/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf">https://nulllogicone.net/Angler/be279cca-b934-45e6-85fd-96b1a6b1e6ed.rdf</a><br>
@@ -91,7 +66,7 @@
     <a href="/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.rdf">https://nulllogicone.net/TopLab/0c373672-6b2d-46bf-8962-9f697f6722d3.rdf</a><br />
 </p>
 
-<h2 id="schema">2. Schema</h2>
+<h2 id="schema">Schema</h2>
 <p>
     For the <em>exchange</em> of data at <strong>nulllogicone.net</strong>
     in RDF format, you can download the <a href="https://nulllogicone.net/schema.rdfs">schema.rdfs</a> file.<br>
@@ -112,7 +87,7 @@
     can be tailored to any use case.
 </p>
 
-<h2 id="rdf">3. Documents</h2>
+<h2 id="rdf">Documents</h2>
 <p align="left">
     <strong>nulllogicone.net</strong> mediates messages between unknown parties. For
     the <em>exchange</em> of data, the RDF format is used to enable decentralization
@@ -137,20 +112,7 @@
 </pre>
 </p>
 
-
-<h2 id="importexport">4. Input / Output</h2>
-<p>
-    Data can be exchanged and distributed in RDF format. For this purpose, functions are
-    summarized on the <a href="RDF/default.aspx"><strong>Input / Output</strong></a> page
-    that output instances from [SAPCT] as RDF documents,
-    validate these documents, and parse them back into objects. The data objects
-    can then be easily stored in a DBMS or serialized as XML.
-</p>
-<p>
-    In addition, the entire Word Space can be output as an RDF file.
-</p>
-
-<h2 id="applications">5. Applications</h2>
+<h2 id="applications">Web Applications</h2>
 <ul>
     <li>
         The web application <a href="https://www.oli-it.com">www.oli-it.com</a> is
@@ -167,12 +129,26 @@
     </li>
 </ul>
 
-<h2 id="webservice">6. Service</h2>
+<h2 id="webservice">SPARQL</h2>
 <p>
-    Web Services: <a href="https://service.oli-it.com">service.oli-it.com</a>
+    For querying the data using semantic web standards, a <strong>SPARQL endpoint</strong> is available at 
+    <a href="/sparql">/sparql</a>. SPARQL (SPARQL Protocol and RDF Query Language) enables powerful 
+    queries across the entire knowledge graph using W3C standards. The endpoint is built on 
+    <a href="https://ontop-vkg.org/" target="_blank">Ontop</a>, which provides a virtual knowledge graph 
+    layer over the relational database, automatically translating SPARQL queries to SQL.
+</p>
+<p>
+    Example SPARQL query to retrieve Stamm entities:
+</p>
+<pre>PREFIX nlo: &lt;http://nulllogicone.net/schema.rdfs#&gt;
+SELECT ?stamm ?name ?email
+WHERE {
+  ?stamm a nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+}
+LIMIT 10</pre>
+<p>
+    Visit <a href="/sparql">/sparql</a> for usage instructions and example queries.
 </p>
 
-<h2 id="tools">7. Client</h2>
-<p>
-    Client applications: <a href="https://client.oli-it.com">https://client.oli-it.com</a>
-</p>

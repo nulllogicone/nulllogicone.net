@@ -1,0 +1,36 @@
+meta {
+  name: SPARQL complex join (readable)
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: application/sparql-results+json
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  
+  # Complex join: Stamm -> Angler -> Loch -> Netz/Knoten
+  SELECT ?stammName ?anglerName 
+  WHERE {
+    ?stamm rdf:type nlo:Stamm ;
+           nlo:name ?stammName ;
+           nlo:hasAngler ?angler .
+    ?angler nlo:name ?anglerName ;
+  }
+  LIMIT 100
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

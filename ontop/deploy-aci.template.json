@@ -1,0 +1,140 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerSecretUri": {
+      "type": "string",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-server/)",
+      "metadata": {
+        "description": "Key Vault reference for SQL Server hostname"
+      }
+    },
+    "sqlUserSecretUri": {
+      "type": "string",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-user/)",
+      "metadata": {
+        "description": "Key Vault reference for SQL User"
+      }
+    },
+    "sqlPasswordSecretUri": {
+      "type": "string",
+      "defaultValue": "@Microsoft.KeyVault(SecretUri=https://oli-it-kv-test.vault.azure.net/secrets/sql-password/)",
+      "metadata": {
+        "description": "Key Vault reference for SQL Password"
+      }
+    },
+    "containerRegistryName": {
+      "type": "string",
+      "defaultValue": "oliitacr",
+      "metadata": {
+        "description": "Name of the Azure Container Registry"
+      }
+    },
+    "containerRegistryPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "ACR admin password (retrieve with: az acr credential show --name oliitacr)"
+      }
+    },
+    "containerSubnetId": {
+      "type": "string",
+      "defaultValue": "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourceGroups/Default-Network-WestEurope/providers/Microsoft.Network/virtualNetworks/OLI-it-VNet/subnets/container",
+      "metadata": {
+        "description": "Resource ID of the container subnet"
+      }
+    },
+    "userAssignedIdentityId": {
+      "type": "string",
+      "defaultValue": "/subscriptions/33dd8226-abb3-4f36-b1f0-059e18b9570a/resourcegroups/Default-Web-WestEurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/nullsparql-identity",
+      "metadata": {
+        "description": "Resource ID of the user-assigned managed identity with Key Vault access"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-09-01",
+      "name": "nullsparql",
+      "location": "westeurope",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[parameters('userAssignedIdentityId')]": {}
+        }
+      },
+      "properties": {
+        "containers": [
+          {
+            "name": "ontop",
+            "properties": {
+              "image": "[concat(parameters('containerRegistryName'), '.azurecr.io/nulllogicone-ontop:latest')]",
+              "resources": {
+                "requests": {
+                  "cpu": 0.5,
+                  "memoryInGB": 1.0
+                }
+              },
+              "ports": [
+                {
+                  "port": 8080,
+                  "protocol": "TCP"
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "SQL_SERVER",
+                  "secureValue": "[parameters('sqlServerSecretUri')]"
+                },
+                {
+                  "name": "SQL_USER",
+                  "secureValue": "[parameters('sqlUserSecretUri')]"
+                },
+                {
+                  "name": "SQL_PASSWORD",
+                  "secureValue": "[parameters('sqlPasswordSecretUri')]"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "imageRegistryCredentials": [
+          {
+            "server": "[concat(parameters('containerRegistryName'), '.azurecr.io')]",
+            "username": "[parameters('containerRegistryName')]",
+            "password": "[parameters('containerRegistryPassword')]"
+          }
+        ],
+        "ipAddress": {
+          "type": "Private",
+          "ports": [
+            {
+              "port": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        },
+        "subnetIds": [
+          {
+            "id": "[parameters('containerSubnetId')]"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPAddress": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'nullsparql')).ipAddress.ip]"
+    },
+    "userAssignedIdentityPrincipalId": {
+      "type": "string",
+      "value": "83f363af-5a86-43f4-88ac-9c2e3a5c0dcf",
+      "metadata": {
+        "description": "Principal ID of the user-assigned identity (nullsparql-identity). This remains constant across deployments."
+      }
+    }
+  }
+}

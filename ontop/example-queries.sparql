@@ -1,0 +1,413 @@
+# Example SPARQL Queries for Nulllogicone
+
+PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+PREFIX entity: <http://nulllogicone.net/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# ========================================================
+# 1. Get all Stamm entities with their basic info
+# ========================================================
+SELECT ?stamm ?name ?email ?tel
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+  OPTIONAL { ?stamm nlo:tel ?tel }
+}
+LIMIT 100
+
+# ========================================================
+# 2. Get a specific Stamm by GUID with all properties
+# ========================================================
+SELECT ?property ?value
+WHERE {
+  <http://nulllogicone.net/Stamm/YOUR-GUID-HERE> ?property ?value
+}
+
+# ========================================================
+# 3. Get Stamm with all related Anglers
+# ========================================================
+SELECT ?stammName ?anglerName ?anglerDescription
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?stammName ;
+         nlo:hasAngler ?angler .
+  ?angler nlo:name ?anglerName .
+  OPTIONAL { ?angler nlo:beschreibung ?anglerDescription }
+}
+
+# ========================================================
+# 4. Get hierarchical data: Stamm -> TopLab -> PostIt
+# ========================================================
+SELECT ?stammName ?topLabTitle ?postItTitle
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?stammName ;
+         nlo:hasTopLab ?toplab .
+  ?toplab nlo:titel ?topLabTitle ;
+          nlo:hasPostIt ?postit .
+  ?postit nlo:titel ?postItTitle .
+}
+
+# ========================================================
+# 5. Count Anglers per Stamm
+# ========================================================
+SELECT ?stammName (COUNT(?angler) as ?anglerCount)
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?stammName ;
+         nlo:hasAngler ?angler .
+}
+GROUP BY ?stammName
+ORDER BY DESC(?anglerCount)
+
+# ========================================================
+# 6. Search Stamm by email domain
+# ========================================================
+SELECT ?stamm ?name ?email
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+  FILTER(CONTAINS(?email, "@example.com"))
+}
+
+# ========================================================
+# 7. Get all entities with links
+# ========================================================
+SELECT ?entity ?entityType ?link
+WHERE {
+  ?entity rdf:type ?entityType ;
+          nlo:link ?link .
+  FILTER(?entityType IN (nlo:PostIt, nlo:TopLab))
+}
+
+# ========================================================
+# 8. Get recent entities (last 30 days)
+# ========================================================
+SELECT ?entity ?type ?date
+WHERE {
+  ?entity rdf:type ?type ;
+          nlo:datum ?date .
+  FILTER(?date > "2026-01-17T00:00:00"^^xsd:dateTime)
+}
+ORDER BY DESC(?date)
+
+# ========================================================
+# 9. Full text search in descriptions
+# ========================================================
+SELECT ?entity ?type ?description
+WHERE {
+  ?entity rdf:type ?type ;
+          nlo:beschreibung ?description .
+  FILTER(CONTAINS(LCASE(?description), "search term"))
+}
+
+# ========================================================
+# 10. Get all properties for all entities (introspection)
+# ========================================================
+SELECT DISTINCT ?property
+WHERE {
+  ?s ?property ?o .
+}
+ORDER BY ?property
+
+# ========================================================
+# 11. CONSTRUCT query - Build RDF graph for a Stamm
+# ========================================================
+CONSTRUCT {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email ;
+         nlo:hasAngler ?angler .
+  ?angler rdf:type nlo:Angler ;
+          nlo:name ?anglerName .
+}
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?name ;
+         nlo:email ?email .
+  OPTIONAL {
+    ?stamm nlo:hasAngler ?angler .
+    ?angler nlo:name ?anglerName .
+  }
+}
+LIMIT 10
+
+# ========================================================
+# 12. ASK query - Check if entity exists
+# ========================================================
+ASK {
+  <http://nulllogicone.net/Stamm/YOUR-GUID-HERE> rdf:type nlo:Stamm
+}
+
+# ========================================================
+# 13. Get Code with PostIt and Stamm relationships
+# ========================================================
+SELECT ?code ?kommentar ?postItTitle ?stammName
+WHERE {
+  ?code rdf:type nlo:Code ;
+        nlo:beschreibung ?kommentar ;
+        nlo:postit ?postit ;
+        nlo:stamm ?stamm .
+  ?postit nlo:titel ?postItTitle .
+  ?stamm nlo:name ?stammName .
+}
+LIMIT 50
+
+# ========================================================
+# 14. Get Angler with Löcher and their word space (NKBZ)
+# ========================================================
+SELECT ?anglerName ?lochGuid ?netzName ?knotenName ?ilos ?fit
+WHERE {
+  ?angler rdf:type nlo:Angler ;
+          nlo:name ?anglerName ;
+          nlo:loch ?loch .
+  ?loch nlo:ilos ?ilos ;
+        nlo:fit ?fit .
+  OPTIONAL {
+    ?loch nlo:netz ?netz .
+    ?netz nlo:name ?netzName .
+  }
+  OPTIONAL {
+    ?loch nlo:knoten ?knoten .
+    ?knoten nlo:name ?knotenName .
+  }
+  BIND(STRAFTER(STR(?loch), "Loch/") AS ?lochGuid)
+}
+LIMIT 50
+
+# ========================================================
+# 15. Get Code with Ringe and their word space (NKBZ)
+# ========================================================
+SELECT ?codeKommentar ?ringGuid ?netzName ?knotenName ?olis ?get
+WHERE {
+  ?code rdf:type nlo:Code ;
+        nlo:beschreibung ?codeKommentar ;
+        nlo:ring ?ring .
+  ?ring nlo:olis ?olis ;
+        nlo:get ?get .
+  OPTIONAL {
+    ?ring nlo:netz ?netz .
+    ?netz nlo:name ?netzName .
+  }
+  OPTIONAL {
+    ?ring nlo:knoten ?knoten .
+    ?knoten nlo:name ?knotenName .
+  }
+  BIND(STRAFTER(STR(?ring), "Ring/") AS ?ringGuid)
+}
+LIMIT 50
+
+# ========================================================
+# 16. Get Baum with all Zweige (Tree with branches)
+# ========================================================
+SELECT ?baumName ?zweigName ?zweigDatum
+WHERE {
+  ?baum rdf:type nlo:Baum ;
+        nlo:name ?baumName .
+  ?zweig nlo:baum ?baum ;
+         nlo:name ?zweigName ;
+         nlo:datum ?zweigDatum .
+}
+ORDER BY ?baumName ?zweigDatum
+
+# ========================================================
+# 17. Get Netz with all Knoten (Network with nodes)
+# ========================================================
+SELECT ?netzName ?knotenName ?knotenBeschreibung
+WHERE {
+  ?netz rdf:type nlo:Netz ;
+        nlo:name ?netzName .
+  ?knoten nlo:netz ?netz ;
+          nlo:name ?knotenName .
+  OPTIONAL { ?knoten nlo:beschreibung ?knotenBeschreibung }
+}
+ORDER BY ?netzName ?knotenName
+
+# ========================================================
+# 18. Complex join: Stamm -> Code -> Ring -> Netz/Knoten
+# ========================================================
+SELECT ?stammName ?codeKommentar ?netzName ?knotenName ?olis ?get
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?stammName .
+  ?code nlo:stamm ?stamm ;
+        nlo:beschreibung ?codeKommentar ;
+        nlo:ring ?ring .
+  ?ring nlo:olis ?olis ;
+        nlo:get ?get .
+  OPTIONAL {
+    ?ring nlo:netz ?netz .
+    ?netz nlo:name ?netzName .
+  }
+  OPTIONAL {
+    ?ring nlo:knoten ?knoten .
+    ?knoten nlo:name ?knotenName .
+  }
+}
+LIMIT 100
+
+# ========================================================
+# 19. Complex join: Stamm -> Angler -> Loch -> Netz/Knoten
+# ========================================================
+SELECT ?stammName ?anglerName ?netzName ?knotenName ?ilos ?fit
+WHERE {
+  ?stamm rdf:type nlo:Stamm ;
+         nlo:name ?stammName ;
+         nlo:hasAngler ?angler .
+  ?angler nlo:name ?anglerName ;
+          nlo:loch ?loch .
+  ?loch nlo:ilos ?ilos ;
+        nlo:fit ?fit .
+  OPTIONAL {
+    ?loch nlo:netz ?netz .
+    ?netz nlo:name ?netzName .
+  }
+  OPTIONAL {
+    ?loch nlo:knoten ?knoten .
+    ?knoten nlo:name ?knotenName .
+  }
+}
+LIMIT 100
+
+# ========================================================
+# 20. Find matching patterns: Code (Ring) vs Angler (Loch)
+# ========================================================
+SELECT ?codeBeschreibung ?anglerName ?netzName ?ringOlis ?ringGet ?lochIlos ?lochFit
+WHERE {
+  ?code rdf:type nlo:Code ;
+        nlo:beschreibung ?codeBeschreibung ;
+        nlo:ring ?ring .
+  ?ring nlo:netz ?netz ;
+        nlo:olis ?ringOlis ;
+        nlo:get ?ringGet .
+  
+  ?angler rdf:type nlo:Angler ;
+          nlo:name ?anglerName ;
+          nlo:loch ?loch .
+  ?loch nlo:netz ?netz ;
+        nlo:ilos ?lochIlos ;
+        nlo:fit ?lochFit .
+  
+  ?netz nlo:name ?netzName .
+}
+LIMIT 100
+
+# ========================================================
+# 21. Get all Ring/Loch positions in a specific Netz
+# ========================================================
+SELECT ?netzName ?entityType ?entityName ?position ?point1 ?point2
+WHERE {
+  ?netz rdf:type nlo:Netz ;
+        nlo:name ?netzName .
+  
+  {
+    ?ring nlo:netz ?netz ;
+          nlo:olis ?point1 ;
+          nlo:get ?point2 .
+    ?code nlo:ring ?ring ;
+          nlo:beschreibung ?entityName .
+    BIND("Ring" AS ?entityType)
+    BIND(CONCAT("O:", STR(?point1), " G:", STR(?point2)) AS ?position)
+  }
+  UNION
+  {
+    ?loch nlo:netz ?netz ;
+          nlo:ilos ?point1 ;
+          nlo:fit ?point2 .
+    ?angler nlo:loch ?loch ;
+            nlo:name ?entityName .
+    BIND("Loch" AS ?entityType)
+    BIND(CONCAT("I:", STR(?point1), " F:", STR(?point2)) AS ?position)
+  }
+}
+ORDER BY ?netzName ?entityType
+
+# ========================================================
+# 22. Count entities by type
+# ========================================================
+SELECT ?type (COUNT(?entity) as ?count)
+WHERE {
+  ?entity rdf:type ?type .
+  FILTER(?type IN (nlo:Stamm, nlo:Angler, nlo:PostIt, nlo:Code, nlo:TopLab, 
+                   nlo:Ring, nlo:Loch, nlo:Netz, nlo:Knoten, nlo:Baum, nlo:Zweig))
+}
+GROUP BY ?type
+ORDER BY DESC(?count)
+
+# ========================================================
+# Testing Queries in cURL (Windows PowerShell)
+# ========================================================
+
+# Simple SELECT query
+curl -X POST http://localhost:8080/sparql `
+  -H "Content-Type: application/sparql-query" `
+  -H "Accept: application/sparql-results+json" `
+  --data 'PREFIX nlo: <http://nulllogicone.net/schema.rdfs#> SELECT * WHERE { ?s a nlo:Stamm } LIMIT 10'
+
+# Using form-encoded query
+curl -X POST http://localhost:8080/sparql `
+  -H "Accept: application/sparql-results+json" `
+  --data-urlencode 'query=PREFIX nlo: <http://nulllogicone.net/schema.rdfs#> SELECT * WHERE { ?s a nlo:Stamm } LIMIT 10'
+
+# Get results as CSV
+curl -X POST http://localhost:8080/sparql `
+  -H "Accept: text/csv" `
+  --data-urlencode 'query=PREFIX nlo: <http://nulllogicone.net/schema.rdfs#> SELECT * WHERE { ?s ?p ?o } LIMIT 10'
+
+# ========================================================
+# Testing Queries in PowerShell
+# ========================================================
+
+# Simple query
+$query = "PREFIX nlo: <http://nulllogicone.net/schema.rdfs#> SELECT * WHERE { ?s a nlo:Stamm } LIMIT 5"
+$result = Invoke-WebRequest -Uri "http://localhost:8080/sparql" `
+  -Method POST `
+  -Headers @{"Accept"="application/sparql-results+json"} `
+  -ContentType "application/x-www-form-urlencoded" `
+  -Body "query=$query"
+[System.Text.Encoding]::UTF8.GetString($result.Content) | ConvertFrom-Json | ConvertTo-Json -Depth 10
+
+# CONSTRUCT query for RDF/XML
+$query = @"
+PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+CONSTRUCT {
+  ?s a nlo:Stamm ;
+     nlo:name ?name ;
+     nlo:email ?email .
+}
+WHERE {
+  ?s a nlo:Stamm ;
+     nlo:name ?name ;
+     nlo:email ?email .
+} LIMIT 5
+"@
+$result = Invoke-WebRequest -Uri "http://localhost:8080/sparql" `
+  -Method POST `
+  -Headers @{"Accept"="application/rdf+xml"} `
+  -ContentType "application/x-www-form-urlencoded" `
+  -Body "query=$query"
+$result.Content
+
+# ========================================================
+# Testing Queries in cURL
+# ========================================================
+
+# Simple SELECT query
+curl -X POST http://localhost:8080/sparql \
+  -H "Content-Type: application/sparql-query" \
+  -H "Accept: application/sparql-results+json" \
+  --data 'SELECT * WHERE { ?s ?p ?o } LIMIT 10'
+
+# Using form-encoded query
+curl -X POST http://localhost:8080/sparql \
+  -H "Accept: application/sparql-results+json" \
+  --data-urlencode 'query=PREFIX : <http://nulllogicone.net/ontology#> SELECT * WHERE { ?s a :Stamm } LIMIT 10'
+
+# Get results as CSV
+curl -X POST http://localhost:8080/sparql \
+  -H "Accept: text/csv" \
+  --data-urlencode 'query=SELECT * WHERE { ?s ?p ?o } LIMIT 10'

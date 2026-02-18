@@ -5,5 +5,9 @@
         "**/bin": true,
         "**/obj": true
     },
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "chat.tools.terminal.autoApprove": {
+        "docker-compose": true,
+        "docker run": true
+    }
 }
