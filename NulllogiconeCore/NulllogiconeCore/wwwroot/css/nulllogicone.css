@@ -7,6 +7,7 @@ h1
 {
 	font:300%;
 	color:navy;
+	padding-bottom:1em;
 }
 h2
 {
@@ -16,6 +17,7 @@ h3
 {
 	color: cornflowerblue;
 	font-weight:normal;
+	margin-top:1em;
 }
 a 
 {
@@ -42,7 +44,8 @@ pre
 }
 .verlauf
 {
-	font-weight:bold;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#1c5280',EndColorStr='#FFFFFF');
+	font-weight:bold;
+	background: linear-gradient(to right, #1c5280, #FFFFFF);
 }
 
 .BannerColumn {background-color:#000000;color:fff;}
@@ -53,10 +56,10 @@ pre
     height: 8px;
     margin-top: 0px;
     color: #99CC00;
-    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#1c5280',EndColorStr='#FFFFFF');
+    background: linear-gradient(to right, #1c5280, #FFFFFF);
 }
-.BannerTextCompany {font:bold; font-size:18pt; color:#cecece; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerTextApplication {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerText {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerSubhead {border:0px none; padding:0; height:16px; margin-top:0px; margin-left:10px; color:#ffffff; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#4B3E1A',EndColorStr='#FFFFFF')}
-.BannerSubheadText {font:bold; height:11px; font-size:11px; font-family:Tahoma; margin-top:1; margin-left:10; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
+.BannerTextCompany {font:bold; font-size:18pt; color:#cecece; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; text-shadow: 2px 2px 0 black;}
+.BannerTextApplication {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; text-shadow: 2px 2px 0 black;}
+.BannerText {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; text-shadow: 2px 2px 0 black;}
+.BannerSubhead {border:0px none; padding:0; height:16px; margin-top:0px; margin-left:10px; color:#ffffff; background: linear-gradient(to right, #4B3E1A, #FFFFFF);}
+.BannerSubheadText {font:bold; height:11px; font-size:11px; font-family:Tahoma; margin-top:1; margin-left:10; text-shadow: 2px 2px 0 black;}

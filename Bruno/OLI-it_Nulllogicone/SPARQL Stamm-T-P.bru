@@ -1,0 +1,40 @@
+meta {
+  name: SPARQL Stamm-T-P
+  type: http
+  seq: 22
+}
+
+post {
+  url: {{host}}/sparql
+  body: text
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/sparql-query
+  Accept: text/csv
+}
+
+body:text {
+  PREFIX nlo: <http://nulllogicone.net/schema.rdfs#>
+  PREFIX entity: <http://nulllogicone.net/>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+  
+  SELECT ?stammName ?postItTitel ?topLabTitel
+  WHERE {
+    ?stamm rdf:type nlo:Stamm ;
+           nlo:name ?stammName ;
+           nlo:hasTopLab ?topLab .
+    ?stamm nlo:stammGuid '02ccaad7-a212-440f-9866-6f5633b65b14' .
+    ?topLab nlo:titel ?topLabTitel .
+    ?topLab nlo:hasPostIt ?postIt .
+    ?postIt nlo:titel ?postItTitel
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
