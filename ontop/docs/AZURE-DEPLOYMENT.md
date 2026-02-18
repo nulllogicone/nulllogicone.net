@@ -23,22 +23,7 @@ Azure SQL Database (private endpoint)
 
 ## Step 1: Prepare Key Vault Secrets
 
-### Parse Connection String (Recommended)
-
-If you have a full connection string in Key Vault:
-
-```powershell
-cd ontop
-.\parse-connection-string.ps1 -VaultName "your-vault-name" -ConnectionSecretName "your-connection-secret"
-```
-
-This creates individual secrets:
-- `sql-server` (e.g., `yourserver.database.windows.net`)
-- `sql-database` (e.g., `null-test`)
-- `sql-user` (e.g., `your-username`)
-- `sql-password` (the password)
-
-### Manual Secret Creation
+### Secret Creation
 
 ```powershell
 $vaultName = "your-vault-name"

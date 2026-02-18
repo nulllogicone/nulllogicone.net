@@ -209,6 +209,155 @@ LIMIT 10
         })
         .WithName("GetSparqlSchema")
         .WithSummary("Get schema information about available entities and properties");
+
+        // GET /sparql/ontop-assets/{**path} - Proxy Ontop static resources (CSS, JS, etc)
+        group.MapGet("/ontop-assets/{**path}", async (string path, IHttpClientFactory clientFactory, HttpContext context, IConfiguration config) =>
+        {
+            var client = clientFactory.CreateClient();
+            var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+            var baseUrl = ontopBaseUrl.Replace("/sparql", "");
+            var targetUrl = $"{baseUrl}/{path}";
+
+            // Forward query string if present
+            if (context.Request.QueryString.HasValue)
+            {
+                targetUrl += context.Request.QueryString.Value;
+            }
+
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Get, targetUrl);
+                
+                // Forward relevant headers
+                if (context.Request.Headers.Accept.Count > 0)
+                {
+                    request.Headers.Add("Accept", context.Request.Headers.Accept.ToString());
+                }
+
+                var response = await client.SendAsync(request);
+                var content = await response.Content.ReadAsByteArrayAsync();
+                var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+
+                // Rewrite URLs in CSS/JS that might reference other resources
+                if (contentType.Contains("text/css") || 
+                    contentType.Contains("application/javascript") ||
+                    contentType.Contains("text/javascript") ||
+                    path.EndsWith(".js") || 
+                    path.EndsWith(".css"))
+                {
+                    var textContent = Encoding.UTF8.GetString(content);
+                    textContent = textContent.Replace("url(./", "url(/sparql/ontop-assets/")
+                                             .Replace("url(/", "url(/sparql/ontop-assets/")
+                                             .Replace("url(\"./", "url(\"/sparql/ontop-assets/")
+                                             .Replace("url(\"/", "url(\"/sparql/ontop-assets/");
+                    
+                    // Fix JavaScript endpoint URL for YASGUI
+                    if (path.EndsWith(".js"))
+                    {
+                        textContent = textContent.Replace("new Request('sparql')", "new Request('/sparql')");
+                    }
+                    
+                    content = Encoding.UTF8.GetBytes(textContent);
+                }
+
+                context.Response.StatusCode = (int)response.StatusCode;
+                context.Response.ContentType = contentType;
+                await context.Response.Body.WriteAsync(content);
+                
+                return Results.Empty;
+            }
+            catch (HttpRequestException ex)
+            {
+                return Results.Problem($"Cannot proxy Ontop resource '{path}': {ex.Message}");
+            }
+        })
+        .WithName("ProxyOntopAssets")
+        .WithSummary("Proxy Ontop static resources (CSS, JS, images)");
+
+        // GET /sparql/ontop/{**path} - Proxy Ontop API calls (portalConfig, etc)
+        group.MapGet("/ontop/{**path}", async (string path, IHttpClientFactory clientFactory, HttpContext context, IConfiguration config) =>
+        {
+            var client = clientFactory.CreateClient();
+            var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+            var baseUrl = ontopBaseUrl.Replace("/sparql", "");
+            var targetUrl = $"{baseUrl}/ontop/{path}";
+
+            // Forward query string if present
+            if (context.Request.QueryString.HasValue)
+            {
+                targetUrl += context.Request.QueryString.Value;
+            }
+
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Get, targetUrl);
+                
+                // Forward relevant headers
+                if (context.Request.Headers.Accept.Count > 0)
+                {
+                    request.Headers.Add("Accept", context.Request.Headers.Accept.ToString());
+                }
+
+                var response = await client.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+                var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/json";
+
+                return Results.Content(content, contentType, statusCode: (int)response.StatusCode);
+            }
+            catch (HttpRequestException ex)
+            {
+                return Results.Problem($"Cannot proxy Ontop API '{path}': {ex.Message}");
+            }
+        })
+        .WithName("ProxyOntopAPI")
+        .WithSummary("Proxy Ontop API endpoints (configuration, metadata)");
+
+        // GET /sparql/ui - Proxy to Ontop Web UI main page
+        group.MapGet("/ui", async (IHttpClientFactory clientFactory, HttpContext context, IConfiguration config) =>
+        {
+            var client = clientFactory.CreateClient();
+            var ontopBaseUrl = config["Ontop:EndpointUrl"] ?? "http://localhost:8080";
+            var targetUrl = ontopBaseUrl.Replace("/sparql", ""); // Get base URL
+
+            try
+            {
+                var response = await client.GetAsync(targetUrl);
+                var content = await response.Content.ReadAsStringAsync();
+                var contentType = response.Content.Headers.ContentType?.ToString() ?? "text/html";
+
+                // Rewrite URLs in HTML to use our asset proxy path
+                if (contentType.Contains("text/html"))
+                {
+                    // Handle both single and double quotes
+                    // Replace relative paths (./) first
+                    content = content.Replace("href=\"./", "href=\"/sparql/ontop-assets/")
+                                     .Replace("src=\"./", "src=\"/sparql/ontop-assets/")
+                                     .Replace("href='./", "href='/sparql/ontop-assets/")
+                                     .Replace("src='./", "src='/sparql/ontop-assets/");
+                    
+                    // Replace absolute paths (/) but skip already-rewritten ones
+                    content = System.Text.RegularExpressions.Regex.Replace(
+                        content,
+                        @"(href|src)=([""'])(/(?!sparql))",
+                        "$1=$2/sparql/ontop-assets/");
+                    
+                    // Keep the actual SPARQL endpoint path intact
+                    content = content.Replace("action=\"/sparql/ontop-assets/sparql\"", "action=\"/sparql\"")
+                                     .Replace("action='/sparql/ontop-assets/sparql'", "action='/sparql'");
+                    
+                    // Fix JavaScript endpoint URL - change relative 'sparql' to absolute '/sparql'
+                    content = content.Replace("new Request('sparql')", "new Request('/sparql')");
+                }
+
+                return Results.Content(content, contentType, statusCode: (int)response.StatusCode);
+            }
+            catch (HttpRequestException ex)
+            {
+                return Results.Problem($"Cannot connect to Ontop UI: {ex.Message}");
+            }
+        })
+        .WithName("GetOntopUI")
+        .WithSummary("Access Ontop web query interface");
     }
 
     private static object[] GetExamples()
