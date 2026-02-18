@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARQL Query Examples - nulllogicone.net</title>
+    <link rel="stylesheet" href="/css/sparql-examples.css">
+    
+</head>
+<body>
+    <header>
+        <h1>🔍 SPARQL Query Examples</h1>
+        <p>Interactive guide to querying nulllogicone.net semantic data</p>
+    </header>
+
+    <div class="content">
+            <div class="intro">
+                <h2>Welcome to the SPARQL Query Interface</h2>
+                <p>This page provides example SPARQL queries for exploring the nulllogicone.net knowledge graph. Each query demonstrates different patterns and use cases.</p>
+                
+                <div class="endpoint-info">
+                    <strong>SPARQL Endpoint:</strong> http://10.0.3.4:8080/sparql (internal network only)
+                </div>
+
+                <p style="margin-top: 15px;">
+                    Click on any query below to expand it, then click the query text to copy it to your clipboard.
+                    <strong>Note:</strong> Standard PREFIX declarations are automatically included when copied, even though they're hidden for readability.
+                    You can also download the raw queries: <a href="/example-queries.sparql" download>example-queries.sparql</a>
+                </p>
+            </div>
+
+            <button class="expand-all" onclick="toggleAllQueries()">Expand All Queries</button>
+
+            <div id="queries-container">
+                <div class="loading">⏳ Loading queries...</div>
+            </div>
+    </div>
+
+    <footer>
+        <p>
+            <a href="/">← Back to Home</a> | 
+            <a href="/schema.rdfs">View Schema</a> | 
+            <a href="/example-queries.sparql" download>Download Queries</a>
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+            nulllogicone.net · Semantic API for OLI-it
+        </p>
+    </footer>
+
+    <script src="/js/sparql-examples.js"></script>
+</body>
+</html>
+
