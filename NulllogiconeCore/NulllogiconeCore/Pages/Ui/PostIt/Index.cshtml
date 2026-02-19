@@ -12,6 +12,12 @@
                 <h2>PostIt: @Model.Entity.Titel</h2>
             </div>
             <div class="card-body">
+                @{
+                    ViewData["EntityType"] = "postit";
+                    ViewData["Guid"] = Model.Entity.PostItGuid;
+                }
+                <partial name="_EntityLinks" />
+                
                 <dl class="row">
                     <dt class="col-sm-3">PostItGuid</dt>
                     <dd class="col-sm-9">@Model.Entity.PostItGuid</dd>

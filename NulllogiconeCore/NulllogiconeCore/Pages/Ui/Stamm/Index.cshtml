@@ -2,6 +2,8 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Stamm";
+    ViewData["EntityType"] = "stamm";
+    ViewData["Guid"] = Model.Entity?.StammGuid;
 }
 
 @if (Model.Entity == null)
@@ -13,35 +15,48 @@
 }
 else
 {
+    <partial name="_EntityLinks" />
+    <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei ?? "")" alt="Stamm Image"
+         style="float: right; margin-left: 10px;" />
+
     <h1 class="Stamm">Stamm</h1>
-    @* <div>
-<a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
-<a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
-<a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
-</div> *@
-    <div>
-        <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei ?? "")" alt="Stamm Image"
-            style="float: right; margin-left: 10px;" />
-        <b>Name:</b> @Model.Entity.Stamm1<br />
-        <b>Description:</b> @Model.Entity.Beschreibung<br />
-    </div>
 
+    <dl class="row">
+        <dt class="col-sm-3">Name</dt>
+        <dd class="col-sm-9 fw-bold">@Model.Entity.Stamm1</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">@Model.Entity.Beschreibung</dd>
+    </dl>
+
+
+    <h2 class="Angler">Angler</h2>
+    @if (Model.Entity?.Anglers != null && Model.Entity.Anglers.Any())
+    {
+        <ul>
+            @foreach (var angler in Model.Entity.Anglers)
+            {
+                <li><a href="/ui/Angler/@angler.AnglerGuid">@angler.Angler1</a></li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No anglers found for this Stamm.</p>
+    }
+
+    <h2 class="TopLab">TopLab</h2>
+    @if (Model.Entity?.TopLabs != null && Model.Entity.TopLabs.Any())
+    {
+        <ul>
+            @foreach (var topLab in Model.Entity.TopLabs)
+            {
+                <li><a href="/ui/TopLab/@topLab.TopLabGuid">@topLab.Titel</a></li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No TopLab found for this Stamm.</p>
+    }
 }
-
-<h2 class="Angler">My Angler</h2>
-
-@if (Model.Entity?.Anglers != null && Model.Entity.Anglers.Any())
-{
-    <ul>
-        @foreach (var angler in Model.Entity.Anglers)
-        {
-            <li><a href="/ui/Angler/@angler.AnglerGuid">@angler.Angler1</a></li>
-        }
-    </ul>
-}
-else
-{
-    <p>No anglers found for this Stamm.</p>
-}
-
-

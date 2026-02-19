@@ -25,6 +25,7 @@ namespace NulllogiconeCore.Pages.Ui.Stamm
             {
                 Entity = _db.Stamms
                     .Include(s => s.Anglers)
+                    .Include(s => s.TopLabs)
                     .FirstOrDefault(s => s.StammGuid == Guid.Value);
             }
 

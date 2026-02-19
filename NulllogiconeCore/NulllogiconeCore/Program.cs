@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.StaticFiles;
 using NulllogiconeCore.Data;
 using NulllogiconeCore.Endpoints;
-using NulllogiconeCore.Models;
 using System.Text.Json.Serialization;
-using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -124,14 +123,23 @@ app.MapGet("/test/{id:guid}", async (Guid id, ApplicationDbContext context) =>
 .WithSummary("Tests DbContext injection")
 .WithTags("Test");
 
+// Configure static files with custom MIME types
+var provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".sparql"] = "application/sparql-query";
+provider.Mappings[".ttl"] = "text/turtle";
+provider.Mappings[".rdf"] = "application/rdf+xml";
+provider.Mappings[".rdfs"] = "application/rdf+xml";
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = provider
+});
+
 // Razor pages
 app.UseRouting();
-
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
 
 app.Run();
 
