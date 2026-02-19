@@ -1,0 +1,140 @@
+@*
+    Shared partial view for displaying entity links to different representations
+    Parameters:
+    - entityType: The entity type (e.g., "stamm", "postit", "toplab", "angler")
+    - guid: The entity GUID
+    - showOliIt: Optional - whether to show the oli-it.com link (default: true)
+*@
+
+@{
+    var entityType = ViewData["EntityType"]?.ToString()?.ToLower() ?? "";
+    var guid = ViewData["Guid"]?.ToString() ?? "";
+    var showOliIt = ViewData["ShowOliIt"] as bool? ?? true;
+    
+    var htmlUrl = $"/{entityType}/{guid}";
+    var jsonUrl = $"/{entityType}/{guid}.json";
+    var rdfUrl = $"/{entityType}/{guid}.rdf";
+    var oliItUrl = $"https://oli-it.com/{entityType.First()}/{guid}.aspx";
+}
+
+@if (!string.IsNullOrEmpty(entityType) && !string.IsNullOrEmpty(guid))
+{
+    <div class="entity-links">
+        <div class="entity-links-label">View as:</div>
+        <div class="entity-links-icons">
+            @if (showOliIt)
+            {
+                <a href="@oliItUrl" title="View on oli-it.com" target="_blank" rel="noopener noreferrer" class="entity-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>oli-it.com</span>
+                </a>
+            }
+            
+            <a href="@htmlUrl" title="View as HTML" class="entity-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>HTML</span>
+            </a>
+            
+            <a href="@jsonUrl" title="View as JSON" class="entity-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>JSON</span>
+            </a>
+            
+            <a href="@rdfUrl" title="View as RDF" class="entity-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <circle cx="19" cy="5" r="2"></circle>
+                    <circle cx="5" cy="19" r="2"></circle>
+                    <line x1="10.3" y1="13.7" x2="6.7" y2="17.3"></line>
+                    <line x1="13.7" y1="10.3" x2="17.3" y2="6.7"></line>
+                </svg>
+                <span>RDF</span>
+            </a>
+        </div>
+    </div>
+}
+
+<style>
+    .entity-links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 16px;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .entity-links-label {
+        font-weight: 600;
+        color: #495057;
+        font-size: 14px;
+    }
+    
+    .entity-links-icons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .entity-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #495057;
+        font-size: 13px;
+        transition: all 0.2s ease;
+    }
+    
+    .entity-link:hover {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .entity-link svg {
+        flex-shrink: 0;
+    }
+    
+    .entity-link span {
+        font-weight: 500;
+    }
+    
+    @@media (max-width: 576px) {
+        .entity-links {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .entity-links-icons {
+            width: 100%;
+        }
+        
+        .entity-link {
+            flex: 1;
+            min-width: 100px;
+        }
+    }
+</style>

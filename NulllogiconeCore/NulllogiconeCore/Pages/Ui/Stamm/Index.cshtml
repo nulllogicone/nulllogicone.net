@@ -2,6 +2,12 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Stamm";
+    
+    if (Model.Entity != null)
+    {
+        ViewData["EntityType"] = "stamm";
+        ViewData["Guid"] = Model.Entity.StammGuid;
+    }
 }
 
 @if (Model.Entity == null)
@@ -14,11 +20,9 @@
 else
 {
     <h1 class="Stamm">Stamm</h1>
-    @* <div>
-<a href="/Stamm/@Model.Entity.StammGuid">/Stamm/@Model.Entity.StammGuid (html, or add Accept header) </a><br />
-<a href="/stamm/@(Model.Entity.StammGuid).rdf">/stamm/@(Model.Entity.StammGuid).rdf</a><br />
-<a href="/stamm/@(Model.Entity.StammGuid).json">/stamm/@(Model.Entity.StammGuid).json</a>
-</div> *@
+    
+    <partial name="_EntityLinks" />
+    
     <div>
         <img src="@OliUtils.MakeImageSrc(Model.Entity.Datei ?? "")" alt="Stamm Image"
             style="float: right; margin-left: 10px;" />

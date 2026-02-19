@@ -12,6 +12,12 @@
                 <h2>Angler: @Model.Entity.Angler1</h2>
             </div>
             <div class="card-body">
+                @{
+                    ViewData["EntityType"] = "angler";
+                    ViewData["Guid"] = Model.Entity.AnglerGuid;
+                }
+                <partial name="_EntityLinks" />
+                
                 <dl class="row">
                     <dt class="col-sm-3">AnglerGuid</dt>
                     <dd class="col-sm-9">@Model.Entity.AnglerGuid</dd>
