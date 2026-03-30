@@ -74,14 +74,13 @@ app.MapTopLabEndpoints();
 app.MapSparqlEndpoints();
 
 // Nulllogicone API Info
-app.MapGet("about", () => new
-{
-    Name = "Nulllogicone Core",
-    Version = "1.0.0",
-    Description = "UI and API for NullLogicOne",
-    MaschineName = Environment.MachineName,
-    Status = "Connected to real database - null - Minimal APIs"
-})
+app.MapGet("about", () => new ApiInfoResponse(
+    Name: "Nulllogicone Core",
+    Version: "1.0.0",
+    Description: "UI and API for NullLogicOne",
+    MaschineName: Environment.MachineName,
+    Status: "Connected to real database - null - Minimal APIs"
+))
 .WithName("GetApiInfo")
 .WithSummary("Get API information")
 .WithTags("Info");
@@ -142,6 +141,10 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+// Response DTO for the /about endpoint. Non-nullable properties avoid OpenAPI 3.1
+// array-type nullable syntax that Azure API Management cannot parse.
+record ApiInfoResponse(string Name, string Version, string Description, string MaschineName, string Status);
 
 
 
