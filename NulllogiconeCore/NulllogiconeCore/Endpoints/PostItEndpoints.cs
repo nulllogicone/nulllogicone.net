@@ -16,7 +16,7 @@ public static class PostItEndpoints
         group.MapGet("/{id:guid}", (Guid id, ApplicationDbContext db, HttpContext context) => HandlePostItRequest(id, db, context, null))
         .WithName("GetPostItById")
         .WithSummary("Get a specific PostIt by ID (supports Conneg)")
-        .Produces<PostIt>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
 
         // GET /postit/{id}.rdf
@@ -27,7 +27,7 @@ public static class PostItEndpoints
         // GET /postit/{id}.json
         group.MapGet("/{id:guid}.json", (Guid id, ApplicationDbContext db, HttpContext context) => HandlePostItRequest(id, db, context, ".json"))
         .WithName("GetPostItByIdJson")
-        .Produces<PostIt>(StatusCodes.Status200OK);
+        .Produces(StatusCodes.Status200OK);
 
     }
 

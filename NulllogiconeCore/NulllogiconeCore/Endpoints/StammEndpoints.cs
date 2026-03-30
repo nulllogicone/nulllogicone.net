@@ -17,7 +17,7 @@ public static class StammEndpoints
         group.MapGet("/{id:guid}", (Guid id, ApplicationDbContext db, HttpContext context) => HandleStammRequest(id, db, context, null))
         .WithName("GetStammById")
         .WithSummary("Get a specific Stamm by ID (supports Conneg)")
-        .Produces<Stamm>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
 
         // GET /stamm/{id}.rdf
@@ -28,7 +28,7 @@ public static class StammEndpoints
         // GET /stamm/{id}.json
         group.MapGet("/{id:guid}.json", (Guid id, ApplicationDbContext db, HttpContext context) => HandleStammRequest(id, db, context, ".json"))
         .WithName("GetStammByIdJson")
-        .Produces<Stamm>(StatusCodes.Status200OK);
+        .Produces(StatusCodes.Status200OK);
 
     }
 

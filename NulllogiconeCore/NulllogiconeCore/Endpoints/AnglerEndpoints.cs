@@ -18,7 +18,7 @@ public static class AnglerEndpoints
         group.MapGet("/{id:guid}", (Guid id, ApplicationDbContext db, HttpContext context) => HandleAnglerRequest(id, db, context, null))
         .WithName("GetAnglerById")
         .WithSummary("Get a specific Angler by ID (supports Conneg)")
-        .Produces<Angler>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
 
         // GET /angler/{id}.rdf
@@ -29,7 +29,7 @@ public static class AnglerEndpoints
         // GET /angler/{id}.json
         group.MapGet("/{id:guid}.json", (Guid id, ApplicationDbContext db, HttpContext context) => HandleAnglerRequest(id, db, context, ".json"))
         .WithName("GetAnglerByIdJson")
-        .Produces<Angler>(StatusCodes.Status200OK);
+        .Produces(StatusCodes.Status200OK);
 
     }
 

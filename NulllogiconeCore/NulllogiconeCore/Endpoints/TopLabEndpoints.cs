@@ -16,7 +16,7 @@ public static class TopLabEndpoints
         group.MapGet("/{id:guid}", (Guid id, ApplicationDbContext db, HttpContext context) => HandleTopLabRequest(id, db, context, null))
             .WithName("GetTopLabById")
             .WithSummary("Get a specific TopLab by ID (supports Conneg)")
-            .Produces<TopLab>(StatusCodes.Status200OK)
+            .Produces(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound);
 
         // GET /toplab/{id}.rdf
@@ -27,7 +27,7 @@ public static class TopLabEndpoints
         // GET /toplab/{id}.json
         group.MapGet("/{id:guid}.json", (Guid id, ApplicationDbContext db, HttpContext context) => HandleTopLabRequest(id, db, context, ".json"))
             .WithName("GetTopLabByIdJson")
-            .Produces<TopLab>(StatusCodes.Status200OK);
+            .Produces(StatusCodes.Status200OK);
 
     }
 
