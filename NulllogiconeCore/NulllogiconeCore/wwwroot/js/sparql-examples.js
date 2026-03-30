@@ -18,7 +18,7 @@ async function loadQueries() {
     
     try {
         console.log('Fetching queries...');
-        const response = await fetch('/example-queries.sparql');
+        const response = await fetch('/example-queries.sparql?v=' + Date.now());
         if (!response.ok) throw new Error('Failed to load queries');
         
         console.log('Parsing queries...');

@@ -7,7 +7,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # ========================================================
-# 1. Get all Stamm entities with their basic info
+# Get all Stamm entities with their basic info
 # ========================================================
 SELECT ?stamm ?name ?email ?tel
 WHERE {
@@ -19,7 +19,7 @@ WHERE {
 LIMIT 100
 
 # ========================================================
-# 2. Get a specific Stamm by GUID with all properties
+# Get a specific Stamm by GUID with all properties
 # ========================================================
 SELECT ?property ?value
 WHERE {
@@ -27,7 +27,7 @@ WHERE {
 }
 
 # ========================================================
-# 3. Get Stamm with all related Anglers
+# Get Stamm with all related Anglers
 # ========================================================
 SELECT ?stammName ?anglerName ?anglerDescription
 WHERE {
@@ -39,7 +39,26 @@ WHERE {
 }
 
 # ========================================================
-# 4. Get hierarchical data: Stamm -> TopLab -> PostIt
+# Find Stamm who answered their own PostIt (self-answered questions)
+# ========================================================
+SELECT DISTINCT ?stamm ?stammName ?postit ?postitTitle ?toplab
+WHERE {
+  # Wurzeln links Stamm to PostIt (authorship)
+  ?wurzeln a nlo:Wurzeln ;
+           nlo:belongsToStamm ?stamm ;
+           nlo:hasPostIt ?postit .
+  ?stamm nlo:name ?stammName .
+  ?postit nlo:titel ?postitTitle .
+
+  # TopLab authored by same Stamm, answers same PostIt
+  ?toplab a nlo:TopLab ;
+          nlo:hasPostIt ?postit .
+  # TopLab is authored by the same Stamm (via IRI pattern)
+  ?stamm nlo:hasTopLab ?toplab .
+}
+
+# ========================================================
+# Get hierarchical data: Stamm -> TopLab -> PostIt
 # ========================================================
 SELECT ?stammName ?topLabTitle ?postItTitle
 WHERE {
@@ -52,7 +71,7 @@ WHERE {
 }
 
 # ========================================================
-# 5. Count Anglers per Stamm
+# Count Anglers per Stamm
 # ========================================================
 SELECT ?stammName (COUNT(?angler) as ?anglerCount)
 WHERE {
@@ -64,7 +83,7 @@ GROUP BY ?stammName
 ORDER BY DESC(?anglerCount)
 
 # ========================================================
-# 6. Search Stamm by email domain
+# Search Stamm by email domain
 # ========================================================
 SELECT ?stamm ?name ?email
 WHERE {
@@ -75,7 +94,7 @@ WHERE {
 }
 
 # ========================================================
-# 7. Get all entities with links
+# Get all entities with links
 # ========================================================
 SELECT ?entity ?entityType ?link
 WHERE {
@@ -99,7 +118,7 @@ SELECT ?stamm ?stammZust ?postit ?bezahlt ?frist WHERE {
 } LIMIT 10
 
 # ========================================================
-# 8. Get recent entities (last 30 days)
+# Get recent entities (last 30 days)
 # ========================================================
 SELECT ?entity ?type ?date
 WHERE {
@@ -110,7 +129,7 @@ WHERE {
 ORDER BY DESC(?date)
 
 # ========================================================
-# 9. Full text search in descriptions
+# Full text search in descriptions
 # ========================================================
 SELECT ?entity ?type ?description
 WHERE {
@@ -120,7 +139,7 @@ WHERE {
 }
 
 # ========================================================
-# 10. Get all properties for all entities (introspection)
+# Get all properties for all entities (introspection)
 # ========================================================
 SELECT DISTINCT ?property
 WHERE {
@@ -129,7 +148,7 @@ WHERE {
 ORDER BY ?property
 
 # ========================================================
-# 11. CONSTRUCT query - Build RDF graph for a Stamm
+# CONSTRUCT query - Build RDF graph for a Stamm
 # ========================================================
 CONSTRUCT {
   ?stamm rdf:type nlo:Stamm ;
@@ -151,14 +170,14 @@ WHERE {
 LIMIT 10
 
 # ========================================================
-# 12. ASK query - Check if entity exists
+# ASK query - Check if entity exists
 # ========================================================
 ASK {
   <http://nulllogicone.net/Stamm/YOUR-GUID-HERE> rdf:type nlo:Stamm
 }
 
 # ========================================================
-# 13. Get Code with PostIt and Stamm relationships
+# Get Code with PostIt and Stamm relationships
 # ========================================================
 SELECT ?code ?kommentar ?postItTitle ?stammName
 WHERE {
@@ -172,7 +191,7 @@ WHERE {
 LIMIT 50
 
 # ========================================================
-# 14. Get Angler with Löcher and their word space (NKBZ)
+# Get Angler with Löcher and their word space (NKBZ)
 # ========================================================
 SELECT ?anglerName ?lochGuid ?netzName ?knotenName ?ilos ?fit
 WHERE {
@@ -194,7 +213,7 @@ WHERE {
 LIMIT 50
 
 # ========================================================
-# 15. Get Code with Ringe and their word space (NKBZ)
+# Get Code with Ringe and their word space (NKBZ)
 # ========================================================
 SELECT ?codeKommentar ?ringGuid ?netzName ?knotenName ?olis ?get
 WHERE {
@@ -216,7 +235,7 @@ WHERE {
 LIMIT 50
 
 # ========================================================
-# 16. Get Baum with all Zweige (Tree with branches)
+# Get Baum with all Zweige (Tree with branches)
 # ========================================================
 SELECT ?baumName ?zweigName ?zweigDatum
 WHERE {
@@ -229,7 +248,7 @@ WHERE {
 ORDER BY ?baumName ?zweigDatum
 
 # ========================================================
-# 17. Get Netz with all Knoten (Network with nodes)
+# Get Netz with all Knoten (Network with nodes)
 # ========================================================
 SELECT ?netzName ?knotenName ?knotenBeschreibung
 WHERE {
@@ -242,7 +261,7 @@ WHERE {
 ORDER BY ?netzName ?knotenName
 
 # ========================================================
-# 18. Complex join: Stamm -> Code -> Ring -> Netz/Knoten
+# Complex join: Stamm -> Code -> Ring -> Netz/Knoten
 # ========================================================
 SELECT ?stammName ?codeKommentar ?netzName ?knotenName ?olis ?get
 WHERE {
@@ -265,7 +284,7 @@ WHERE {
 LIMIT 100
 
 # ========================================================
-# 19. Complex join: Stamm -> Angler -> Loch -> Netz/Knoten
+# Complex join: Stamm -> Angler -> Loch -> Netz/Knoten
 # ========================================================
 SELECT ?stammName ?anglerName ?netzName ?knotenName ?ilos ?fit
 WHERE {
@@ -288,7 +307,7 @@ WHERE {
 LIMIT 100
 
 # ========================================================
-# 20. Find matching patterns: Code (Ring) vs Angler (Loch)
+# Find matching patterns: Code (Ring) vs Angler (Loch)
 # ========================================================
 SELECT ?codeBeschreibung ?anglerName ?netzName ?ringOlis ?ringGet ?lochIlos ?lochFit
 WHERE {
@@ -311,7 +330,7 @@ WHERE {
 LIMIT 100
 
 # ========================================================
-# 21. Get all Ring/Loch positions in a specific Netz
+# Get all Ring/Loch positions in a specific Netz
 # ========================================================
 SELECT ?netzName ?entityType ?entityName ?position ?point1 ?point2
 WHERE {
@@ -341,7 +360,7 @@ WHERE {
 ORDER BY ?netzName ?entityType
 
 # ========================================================
-# 22. Count entities by type
+# Count entities by type
 # ========================================================
 SELECT ?type (COUNT(?entity) as ?count)
 WHERE {

@@ -1,10 +1,10 @@
 # Null Logic One
 
-This repository is a fork from an old OLI-it project in Azure DevOps.
+This repository is a fork from an old OLI-it project in Azure DevOps
 
 ## Goal
 
-The goal is to have a RDF API again for OLI-it deployed to https://nulllogicone.net/ 
+The goal is a RDF (and json) API again for OLI-it deployed to https://nulllogicone.net/ 
 
 
 ## Visualize
